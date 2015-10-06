@@ -25,15 +25,14 @@ int main(int argc, char **argv)
 		for(int y=0; y<width; y++)
 		{
 			c.r = 255;
-			c.g = 255;
-			c.b = 231;
+			c.g = 0;
+			c.b = 0;
 			c.a = 255;
 			img->setPixel(c,x,y);
 		}
 
 	//write the image to disk
-	string filename = "test.tga";
-	img->WriteImage(filename);
+	img->WriteImage("test.tga");
 
 
 	return 0;

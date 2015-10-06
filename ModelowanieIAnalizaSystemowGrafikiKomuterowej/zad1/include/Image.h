@@ -2,7 +2,6 @@
 #define __IMAGE_SAVER__
 
 //includes
-#include <vector>
 #include <string>
 #include <fstream>
 #include <iostream>
@@ -49,9 +48,9 @@ private:
 	short m_width;
 
 	//convert 2D to 1D indexing
-	int convert2dto1d(int x, int y); 
+	int convert2dto1d(int x, int y);
 
-	
+
 
 };
 

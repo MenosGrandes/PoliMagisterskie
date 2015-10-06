@@ -11,3 +11,20 @@
 	<fstream>
 	<iostream>
 
+1444164680 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/Image.cpp
+	"Image.h"
+
+1444164680 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/Image.h
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+
+1444164981 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
+	"Image.h"
+
+1444165131 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Image.h
+	<string>
+	<fstream>
+	<iostream>
+

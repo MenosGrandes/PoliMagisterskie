@@ -1,0 +1,13 @@
+# depslib dependency file v1.0
+1444148246 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
+	"Image.h"
+
+1444148279 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/Image.cpp
+	"Image.h"
+
+1307334651 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/Image.h
+	<vector>
+	<string>
+	<fstream>
+	<iostream>
+

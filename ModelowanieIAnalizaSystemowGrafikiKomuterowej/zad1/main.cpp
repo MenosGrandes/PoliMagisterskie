@@ -1,39 +1,30 @@
-/*
- *  main.cpp
- *  ImageSaver
- *
- *  Created by Daniel Beard on 6/06/11.
- *  Copyright 2011 __MyCompanyName__. All rights reserved.
- *
- */
-
 #include "Image.h"
+
+using namespace d_type;
+using namespace d_type::c;
 
 int main(int argc, char **argv)
 {
 
-	//declare image
-	short width = 256;
-	short height = 256;
-	TGAImage *img = new TGAImage(width,height);
+    //declare image
+    Vector2Bs img_size=Vector2Bs(800,800);
 
-	//declare a temporary color variable
-	Colour c;
+    TGAImage *img = new TGAImage(img_size);
 
-	//Loop through image and set all pixels to red
-	for(int x=0; x<width; x++)
-		for(int y=0; y<width; y++)
-		{
-			c.r = 255;
-			c.g = 0;
-			c.b = 0;
-			c.a = 255;
-			img->setPixel(c,x,y);
-		}
-
-	//write the image to disk
-	img->WriteImage("test.tga");
+    //declare a temporary color variable
+    Colour c=Green;
 
 
-	return 0;
+    //Loop through image and set all pixels to red
+    for(int x=0; x<img_size.x; x++)
+        for(int y=0; y<img_size.y; y++)
+        {
+            img->setPixel(c,x,y);
+        }
+
+    //write the image to disk
+    img->WriteImage("test.tga");
+
+    delete img;
+    return 0;
 }

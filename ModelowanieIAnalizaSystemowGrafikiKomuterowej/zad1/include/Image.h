@@ -5,50 +5,51 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-
-using namespace std;
+#include "structs.hpp"
 
 //data structures
-struct Colour {
-	unsigned char r,g,b,a;
-};
 
-class TGAImage {
+
+class TGAImage
+{
 
 public:
 
-	//Constructor
-	TGAImage();
+    //Constructor
+    TGAImage();
 
-	//Overridden Constructor
-	TGAImage(short width, short height);
+    //Overridden Constructor
+    TGAImage(d_type::Bshort width, d_type::Bshort height);
 
-	//Set all pixels at once
-	void setAllPixels(Colour *pixels);
+    TGAImage(d_type::Vector2Bs size);
 
-	//set individual pixels
-	void setPixel(Colour inputcolor, int xposition, int yposition);
+    //Set all pixels at once
+    void setAllPixels(d_type::c::Colour *pixels);
 
-	void WriteImage(string filename);
+    //set individual pixels
+    void setPixel(d_type::c::Colour inputcolor, d_type::Bint xposition, d_type::Bint yposition);
+
+    void WriteImage(std::string filename);
 
 //General getters and setters
 
-	void setWidth(short width);
-	void setHeight(short height);
+    void setWidth(d_type::Bshort width);
+    void setHeight(d_type::Bshort height);
 
-	short getWidth();
-	short getHeight();
-
+    d_type::Bshort getWidth();
+    d_type::Bshort getHeight();
+    d_type::Vector2Bs getSize();
+    d_type::Bint getSizePixels();
 private:
 
-	//store the pixels
-	Colour *m_pixels;
+    //store the pixels
+    d_type::c::Colour *m_pixels;
+    d_type::Vector2Bs m_size;
 
-	short m_height;
-	short m_width;
 
-	//convert 2D to 1D indexing
-	int convert2dto1d(int x, int y);
+    //convert 2D to 1D indexing
+    d_type::Bint convert2dto1d(d_type::Bint x, d_type::Bint y);
+    d_type::Bint convert2dto1d(d_type::Vector2Bi size);
 
 
 

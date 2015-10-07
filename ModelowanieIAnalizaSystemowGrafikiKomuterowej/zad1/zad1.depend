@@ -20,8 +20,10 @@
 	<fstream>
 	<iostream>
 
-1444226984 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
+1444238408 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
 	"Image.h"
+	<array>
+	<limits>
 
 1444218010 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Image.h
 	<string>
@@ -29,7 +31,7 @@
 	<iostream>
 	"structs.hpp"
 
-1444227008 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/structs.hpp
+1444239067 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/structs.hpp
 
 1444218022 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Image.cpp
 	"Image.h"

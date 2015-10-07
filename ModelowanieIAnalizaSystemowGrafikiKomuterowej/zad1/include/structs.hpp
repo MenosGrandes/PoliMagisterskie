@@ -26,41 +26,6 @@ public :
     T z;
 };
 
-template <typename T>
-Vector3<T> operator -(const Vector3<T>& left);
-
-template <typename T>
-Vector3<T>& operator +=(Vector3<T>& left, const Vector3<T>& right);
-
-template <typename T>
-Vector3<T>& operator -=(Vector3<T>& left, const Vector3<T>& right);
-
-template <typename T>
-Vector3<T> operator +(const Vector3<T>& left, const Vector3<T>& right);
-
-template <typename T>
-Vector3<T> operator -(const Vector3<T>& left, const Vector3<T>& right);
-
-template <typename T>
-Vector3<T> operator *(const Vector3<T>& left, T right);
-
-template <typename T>
-Vector3<T> operator *(T left, const Vector3<T>& right);
-
-template <typename T>
-Vector3<T>& operator *=(Vector3<T>& left, T right);
-
-template <typename T>
-Vector3<T> operator /(const Vector3<T>& left, T right);
-
-template <typename T>
-Vector3<T>& operator /=(Vector3<T>& left, T right);
-
-template <typename T>
-bool operator ==(const Vector3<T>& left, const Vector3<T>& right);
-
-template <typename T>
-bool operator !=(const Vector3<T>& left, const Vector3<T>& right);
 
 template <typename T>
 inline Vector3<T>::Vector3() : x(0), y(0), z(0) {}
@@ -192,37 +157,8 @@ typedef Vector3<Bint>   Vector3Bi;
 typedef Vector3<Bfloat> Vector3Bf;
 typedef Vector3<BBool> Vector3Bb;
 typedef Vector3<Bdouble> Vector3Bd;
-//####################################################//
 
-template <typename T>
-class Vector3Pair
-{
-public :
-    Vector3Pair();
-    Vector3Pair(Vector3<T> x,Vector3<T> y);
-
-    // Member data
-    Vector3<T> x;
-    Vector3<T> y;
-};
-
-template <typename T>
-inline Vector3Pair<T>::Vector3Pair() : x(Vector3<T>()), y(Vector3<T>()) {}
-
-template <typename T>
-inline Vector3Pair<T>::Vector3Pair(Vector3<T> X, Vector3<T> Y) : x(X), y(Y) {}
-
-typedef Vector3Pair<Bdouble> Vector3PairBd;
-typedef Vector3Pair<Bfloat> Vector3PairBf;
-typedef Vector3Pair<Buint> Vector3PairBui;
-typedef Vector3Pair<Bint> Vector3PairBi;
-
-/*USAGE
-    Vector3PairBd d_pair=Vector3PairBd(Vector3Bd(10,10,10),Vector3Bd(10,10,10));//= Vector3Pair<double>(Vector3Bd(100,100,100),Vector3Bd(100,100,100));
-
-*/
-//####################################################//
-
+//#############################################################
 
 
 
@@ -240,51 +176,6 @@ public:
     T y; ///< Y coordinate of the vector
 };
 
-
-template <typename T>
-Vector2<T> operator -(const Vector2<T>& right);
-
-
-template <typename T>
-Vector2<T>& operator +=(Vector2<T>& left, const Vector2<T>& right);
-
-
-template <typename T>
-Vector2<T>& operator -=(Vector2<T>& left, const Vector2<T>& right);
-
-
-template <typename T>
-Vector2<T> operator +(const Vector2<T>& left, const Vector2<T>& right);
-
-template <typename T>
-Vector2<T> operator -(const Vector2<T>& left, const Vector2<T>& right);
-
-
-template <typename T>
-Vector2<T> operator *(const Vector2<T>& left, T right);
-
-template <typename T>
-Vector2<T> operator *(T left, const Vector2<T>& right);
-
-
-template <typename T>
-Vector2<T>& operator *=(Vector2<T>& left, T right);
-
-
-template <typename T>
-Vector2<T> operator /(const Vector2<T>& left, T right);
-
-
-template <typename T>
-Vector2<T>& operator /=(Vector2<T>& left, T right);
-
-
-template <typename T>
-bool operator ==(const Vector2<T>& left, const Vector2<T>& right);
-
-
-template <typename T>
-bool operator !=(const Vector2<T>& left, const Vector2<T>& right);
 
 
 template <typename T>
@@ -367,7 +258,11 @@ inline Vector2<T> operator *(T left, const Vector2<T>& right)
     return Vector2<T>(right.x * left, right.y * left);
 }
 
-
+template <typename T>
+inline Vector2<T> operator *(const Vector2<T>& left, const Vector2<T>& right)
+{
+    return Vector2<T>(right.x * left.x, right.y * left.y);
+}
 
 template <typename T>
 inline Vector2<T>& operator *=(Vector2<T>& left, T right)
@@ -423,27 +318,154 @@ typedef Vector2<Bshort> Vector2Bs;
 //####################################################//
 
 template <typename T>
-class Vector2Pair
+class Vector4
 {
-public :
-    Vector2Pair();
-    Vector2Pair(Vector2<T> x,Vector2<T> y);
+public:
 
-    // Member data
-    Vector2<T> x;
-    Vector2<T> y;
+    Vector4();
+    Vector4(T X, T Y,T Z,T W);
+    template <typename U>
+    explicit Vector4(const Vector4<U>& vector);
+
+    T x; ///< X coordinate of the vector
+    T y; ///< Y coordinate of the vector
+    T z; ///< Z coordinate of the vector
+    T w; ///< W coordinate of the vector / depth
 };
 
-template <typename T>
-inline Vector2Pair<T>::Vector2Pair() : x(Vector2<T>()), y(Vector2<T>()) {}
 
 template <typename T>
-inline Vector2Pair<T>::Vector2Pair(Vector2<T> X, Vector2<T> Y) : x(X), y(Y) {}
+inline Vector4<T>::Vector4() :x(0),y(0),z(0),w(0) {}
 
-typedef Vector2Pair<Bdouble> Vector2PairBd;
-typedef Vector2Pair<Bfloat> Vector2PairBf;
-typedef Vector2Pair<Buint> Vector2PairBui;
-typedef Vector2Pair<Bint> Vector2PairBi;
+
+
+template <typename T>
+inline Vector4<T>::Vector4(T X, T Y,T Z, T W) : x(X), y(Y),z(Z), w(W) {}
+
+
+
+template <typename T>
+template <typename U>
+inline Vector4<T>::Vector4(const Vector4<U>& vector) :
+    x(static_cast<T>(vector.x)),
+    y(static_cast<T>(vector.y)),
+    z(static_cast<T>(vector.z)),
+    w(static_cast<T>(vector.w))
+{
+}
+
+
+
+template <typename T>
+inline Vector4<T> operator -(const Vector4<T>& right)
+{
+    return Vector4<T>(-right.x, -right.y,-right.z, -right.w);
+}
+
+
+
+template <typename T>
+inline Vector4<T>& operator +=(Vector4<T>& left, const Vector4<T>& right)
+{
+    left.x += right.x;
+    left.y += right.y;
+    left.z += right.z;
+    left.w += right.w;
+    return left;
+}
+
+
+
+template <typename T>
+inline Vector4<T>& operator -=(Vector4<T>& left, const Vector4<T>& right)
+{
+    left.x -= right.x;
+    left.y -= right.y;
+    left.z -= right.z;
+    left.w -= right.w;
+    return left;
+}
+
+
+
+template <typename T>
+inline Vector4<T> operator +(const Vector4<T>& left, const Vector4<T>& right)
+{
+    return Vector4<T>(left.x + right.x, left.y + right.y,left.z + right.z, left.w + right.w);
+}
+
+
+
+template <typename T>
+inline Vector4<T> operator -(const Vector4<T>& left, const Vector4<T>& right)
+{
+    return Vector4<T>(left.x - right.x, left.y - right.y,left.z - right.z, left.w - right.w);
+}
+
+
+
+template <typename T>
+inline Vector4<T> operator *(const Vector4<T>& left, T right)
+{
+    return Vector4<T>(left.x * right, left.y * right,left.z * right, left.w * right);
+}
+
+
+
+template <typename T>
+inline Vector4<T> operator *(T left, const Vector4<T>& right)
+{
+    return Vector4<T>(right.x * left, right.y * left,right.z * left, right.w * left);
+}
+
+
+
+template <typename T>
+inline Vector4<T>& operator *=(Vector4<T>& left, T right)
+{
+    left.x *= right;
+    left.y *= right;
+    left.z *= right;
+    left.w *= right;
+    return left;
+}
+
+
+
+template <typename T>
+inline Vector4<T> operator /(const Vector4<T>& left, T right)
+{
+    return Vector4<T>(left.x / right, left.y / right,left.z / right, left.w / right);
+}
+
+
+
+template <typename T>
+inline Vector4<T>& operator /=(Vector4<T>& left, T right)
+{
+    left.x /= right;
+    left.y /= right;
+    left.z /= right;
+    left.w /= right;
+    return left;
+}
+
+
+
+template <typename T>
+inline bool operator ==(const Vector4<T>& left, const Vector4<T>& right)
+{
+    return (left.x == right.x) && (left.y == right.y) && (left.z == right.z) && (left.w == right.w);
+}
+
+
+
+template <typename T>
+inline bool operator !=(const Vector4<T>& left, const Vector4<T>& right)
+{
+    return (left.x != right.x) || (left.y != right.y) || (left.z != right.z) || (left.w != right.w);
+}
+
 
 //####################################################//
 
@@ -453,45 +475,63 @@ class Colour
 {
 public :
     Bubyte r,g,b,a;
-    Colour(Bubyte _r,Bubyte _g,Bubyte _b,Bubyte _a):r(_r),g(_g),b(_b),a(_a)
+    Colour(Bubyte _r,Bubyte _g,Bubyte _b,Bubyte _a=255):r(_r),g(_g),b(_b),a(_a)
     {
     }
     Colour():r(255),g(255),b(255),a(255) {};
+    Colour(const Colour& next):r(next.r),g(next.g),b(next.b),a(next.a) {};
+    void Red()
+    {
+        this->r=255;
+        this->g=0;
+        this->b=0;
+        this->a=255;
+    }
+    void Green()
+    {
+        this->r=0;
+        this->g=255;
+        this->b=0;
+        this->a=255;
+    }
+    void Blue()
+    {
+        this->r=0;
+        this->g=0;
+        this->b=255;
+        this->a=255;
+    }
+
 
 };
-
-static const Colour White=Colour(Bubyte(255),Bubyte(255),Bubyte(255),Bubyte(255));
-static const Colour Black=Colour(Bubyte(0),Bubyte(0),Bubyte(0),Bubyte(255));
-static const Colour Red=Colour(Bubyte(255),Bubyte(0),Bubyte(0),Bubyte(255));
-static const Colour Blue=Colour(Bubyte(0),Bubyte(0),Bubyte(255),Bubyte(255));
-static const Colour Green=Colour(Bubyte(0),Bubyte(255),Bubyte(0),Bubyte(255));
-static const Colour Yellow=Colour(Bubyte(255),Bubyte(255),Bubyte(0),Bubyte(255));
-
 }
 //#################################################################
 namespace eq
 {
 
 template <typename T>
-class HalfSpace
+class Triangle
 {
 public :
-    HalfSpace(Vector2<T> first,Vector2<T> second,Vector2<T> third):first(first),second(second),third(third){}
+    Triangle(Vector2<T> first,Vector2<T> second,Vector2<T> third):first(first),second(second),third(third) {}
 
-    HalfSpace() :first(0),second(0),third(0) {};
+    Triangle() :first(0),second(0),third(0) {};
 
     BBool calculate(Vector2<T> current)
     {
         if(!first || !second || !third)
         {
-
+            return false;
         }
+        return ((first.x-second.x)*(current.y-first.y) -(first.y-second.y)*(current.x - first.x )>0)
+               &&((second.x-third.x)*(current.y-second.y)-(second.y-third.y)*(current.x - second.x)>0)
+               &&((third.x-first.x) *(current.y-third.y) -(third.y-first.y) *(current.x - third.x )>0);
     }
     BBool calculate(T x,T y)
     {
-        return ((first.x-second.x)*(y-first.y) -(first.y-second.y)*(x - first.x )>=0
-               ^(second.x-third.x)*(y-second.y)-(second.y-third.y)*(x - second.x)>=0
-               ^(third.x-first.x) *(y-third.y) -(third.y-first.y) *(x - third.x )>=0);
+        return ((first.x-second.x)*(y-first.y) -(first.y-second.y)*(x - first.x )>0)
+               &&((second.x-third.x)*(y-second.y)-(second.y-third.y)*(x - second.x)>0)
+               &&((third.x-first.x) *(y-third.y) -(third.y-first.y) *(x - third.x )>0);
 
 
     }
@@ -503,9 +543,9 @@ public :
 };
 
 
-typedef HalfSpace<Bfloat> HalfSpaceFloat;
-typedef HalfSpace<Bdouble> HalfSpaceDouble;
-typedef HalfSpace<Buint> HalfSpaceUint;
+typedef Triangle<Bfloat> TriangleFloat;
+typedef Triangle<Bdouble> TriangleDouble;
+typedef Triangle<Buint> TriangleUint;
 
 
 

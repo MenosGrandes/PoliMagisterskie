@@ -422,8 +422,30 @@ typedef Vector2<BBool> Vector2Bb;
 typedef Vector2<Bshort> Vector2Bs;
 //####################################################//
 
+template <typename T>
+class Vector2Pair
+{
+public :
+    Vector2Pair();
+    Vector2Pair(Vector2<T> x,Vector2<T> y);
 
+    // Member data
+    Vector2<T> x;
+    Vector2<T> y;
+};
 
+template <typename T>
+inline Vector2Pair<T>::Vector2Pair() : x(Vector2<T>()), y(Vector2<T>()) {}
+
+template <typename T>
+inline Vector2Pair<T>::Vector2Pair(Vector2<T> X, Vector2<T> Y) : x(X), y(Y) {}
+
+typedef Vector2Pair<Bdouble> Vector2PairBd;
+typedef Vector2Pair<Bfloat> Vector2PairBf;
+typedef Vector2Pair<Buint> Vector2PairBui;
+typedef Vector2Pair<Bint> Vector2PairBi;
+
+//####################################################//
 
 namespace c
 {
@@ -446,13 +468,49 @@ static const Colour Green=Colour(Bubyte(0),Bubyte(255),Bubyte(0),Bubyte(255));
 static const Colour Yellow=Colour(Bubyte(255),Bubyte(255),Bubyte(0),Bubyte(255));
 
 }
-//namespace eq
-//{
-//    class HalfSpace
-//    {
-//     HalfSpace(Vector2Bf first)
-//    }
-//}
+//#################################################################
+namespace eq
+{
+
+template <typename T>
+class HalfSpace
+{
+public :
+    HalfSpace(Vector2<T> first,Vector2<T> second,Vector2<T> third):first(first),second(second),third(third){}
+
+    HalfSpace() :first(0),second(0),third(0) {};
+
+    BBool calculate(Vector2<T> current)
+    {
+        if(!first || !second || !third)
+        {
+
+        }
+    }
+    BBool calculate(T x,T y)
+    {
+        return ((first.x-second.x)*(y-first.y) -(first.y-second.y)*(x - first.x )>=0
+               ^(second.x-third.x)*(y-second.y)-(second.y-third.y)*(x - second.x)>=0
+               ^(third.x-first.x) *(y-third.y) -(third.y-first.y) *(x - third.x )>=0);
+
+
+    }
+    //MEMBERS
+    Vector2<T> first;
+    Vector2<T> second;
+    Vector2<T> third;
+
+};
+
+
+typedef HalfSpace<Bfloat> HalfSpaceFloat;
+typedef HalfSpace<Bdouble> HalfSpaceDouble;
+typedef HalfSpace<Buint> HalfSpaceUint;
+
+
+
+}
+//#################################################################
 } // namespace d_type
 
 

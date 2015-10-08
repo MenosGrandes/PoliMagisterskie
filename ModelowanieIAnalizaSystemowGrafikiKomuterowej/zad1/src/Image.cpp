@@ -1,5 +1,8 @@
 #include "Image.h"
 
+
+
+
 //Default Constructor
 TGAImage::TGAImage()
 {
@@ -11,22 +14,22 @@ TGAImage::TGAImage(d_type::Bshort width, d_type::Bshort height)
 {
     m_size.x = width;
     m_size.y = height;
-    m_pixels = new d_type::c::Colour[getSizePixels()];
+    m_pixels = new c::Colour[getSizePixels()];
 }
-TGAImage::TGAImage(d_type::Vector2Bs size)
+TGAImage::TGAImage(Vector2Bs size)
 {
     m_size=size;
 
-    m_pixels = new d_type::c::Colour[getSizePixels()];
+    m_pixels = new c::Colour[getSizePixels()];
 }
 //Set all pixels at once
-void TGAImage::setAllPixels(d_type::c::Colour *pixels)
+void TGAImage::setAllPixels(c::Colour *pixels)
 {
     m_pixels = pixels;
 }
 
 //Set indivdual pixels
-void TGAImage::setPixel(d_type::c::Colour inputcolor, d_type::Bint x, d_type::Bint y)
+void TGAImage::setPixel(c::Colour inputcolor, d_type::Bint x, d_type::Bint y)
 {
     m_pixels[convert2dto1d(x,y)] = inputcolor;
 }
@@ -36,7 +39,7 @@ d_type::Bint TGAImage::convert2dto1d(d_type::Bint x, d_type::Bint y)
 {
     return m_size.x * x + y;
 }
-d_type::Bint TGAImage::convert2dto1d(d_type::Vector2Bi size)
+d_type::Bint TGAImage::convert2dto1d(Vector2Bi size)
 {
     return m_size.x * size.x + size.y;
 }
@@ -62,7 +65,7 @@ d_type::Bshort TGAImage::getHeight()
     return m_size.y;
 }
 
-d_type::Vector2Bs TGAImage::getSize()
+Vector2Bs TGAImage::getSize()
 {
     return m_size;
 }

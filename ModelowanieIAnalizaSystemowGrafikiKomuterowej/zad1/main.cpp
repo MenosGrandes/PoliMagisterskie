@@ -1,11 +1,25 @@
 #include "Image.h"
 #include <array>
 #include <limits>
+#include "Triangle.h"
+#include "Vector2.h"
+#include "Vector3.h"
 using namespace d_type;
-using namespace d_type::c;
-using namespace d_type::eq;
+using namespace c;
+
+
+
+
+
+
 int main(int argc, char **argv)
 {
+
+
+Vector3Bf a= Vector3Bf(2.04f,2.12f,2.04f);
+Vector3Bf a2= Vector3Bf(2.04f,2.12f,2.04f);
+a+=a2;
+std::cout<<a.x<<" "<<a.y<<" "<<a.z<<"\n";
     std::array<TriangleFloat*,2> triangleArray;
     TriangleFloat *triangle= new TriangleFloat(Vector2Bf(50,50),Vector2Bf(50,100),Vector2Bf(100,50));
     TriangleFloat *triangle2= new TriangleFloat(Vector2Bf(150,150),Vector2Bf(150,200),Vector2Bf(200,150));
@@ -17,14 +31,13 @@ int main(int argc, char **argv)
     TGAImage *img = new TGAImage(img_size);
 
     //declare a temporary color variable
-    Colour c_inside,c_outside;
-    c_inside.Red();
-    c_outside.Blue();
+    Colour c_inside=Colour::Green,c_outside=Colour::Yellow;
+
     //Loop through image and set all pixels to red
-     for(Buint x=0; x<img_size.x; x++)
+    for(Buint x=0; x<img_size.x; x++)
         for(Buint y=0; y<img_size.y; y++)
         {
-        img->setPixel(c_outside,x,y);
+            img->setPixel(c_outside,x,y);
         }
 
 
@@ -36,19 +49,14 @@ int main(int argc, char **argv)
             {
                 if(tri->calculate(x,y))
                 {
-                img->setPixel(c_inside,x,y);
+                    img->setPixel(c_inside,x,y);
                 }
 
 
             }
 
         }
-    Vector2Bd a= Vector2Bd(1.08f,2.020f);
-    Vector2Bd b= Vector2Bd(3.01f,12.011f);
-    Vector2Bd c= a*b;
 
-            std::cout.precision(std::numeric_limits<double>::digits10);
-    std::cout<<c.x<<" "<<c.y;
     //write the image to disk
     img->WriteImage("test.tga");
     delete triangle;

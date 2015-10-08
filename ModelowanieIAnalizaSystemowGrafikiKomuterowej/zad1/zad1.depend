@@ -20,19 +20,58 @@
 	<fstream>
 	<iostream>
 
-1444238408 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
+1444300717 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
 	"Image.h"
 	<array>
 	<limits>
+	"Triangle.h"
+	"Vector2.h"
 
-1444218010 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Image.h
+1444299310 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Image.h
 	<string>
 	<fstream>
 	<iostream>
+	"Vector2.h"
+	"Colour.h"
+
+1444300717 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/structs.hpp
+
+1444299754 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Image.cpp
+	"Image.h"
+
+1444300717 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Colour.h
 	"structs.hpp"
 
-1444239067 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/structs.hpp
+1444300717 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Colour.cpp
+	"Colour.h"
 
-1444218022 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Image.cpp
-	"Image.h"
+1444300717 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector2.h
+	"structs.hpp"
+
+1444300712 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Triangle.h
+	"Vector2.h"
+
+1444300746 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Matrix4.cpp
+	"Matrix4.h"
+
+1444300795 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Matrix4.h
+	"Vector4.h"
+
+1444300360 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector4.h
+	"structs.hpp"
+
+1444300673 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Triangle.cpp
+	"Triangle.h"
+
+1444300070 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Vector2.cpp
+	"Vector2.h"
+
+1444298742 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Vector3.cpp
+	"Vector3.h"
+
+1444299260 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector3.h
+	"structs.hpp"
+
+1444298672 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Vector4.cpp
+	"Vector4.h"
 

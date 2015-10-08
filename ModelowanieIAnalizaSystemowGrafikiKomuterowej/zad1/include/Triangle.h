@@ -1,12 +1,26 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
 #include "Vector2.h"
+#include "Vector4.h"
+#include "../src/algorithms.hpp"
 using namespace d_type;
 template <typename T>
 class Triangle
 {
 public :
-    Triangle(Vector2<T> first,Vector2<T> second,Vector2<T> third):first(first),second(second),third(third) {}
+    Triangle(Vector2<T> first,Vector2<T> second,Vector2<T> third):first(first),second(second),third(third)
+    {
+
+        Greatest g;
+        Smallest s;
+        this->rect=Vector4<T>();
+
+        this->rect.x=s.min(first.x,second.x,third.x);
+        this->rect.y=g.max(first.x,second.x,third.x);
+
+        this->rect.z=s.min(first.y,second.y,third.y);
+        this->rect.w=g.max(first.y,second.y,third.y);
+    }
 
     Triangle() :first(0),second(0),third(0) {};
 
@@ -35,6 +49,8 @@ public :
     Vector2<T> first;
     Vector2<T> second;
     Vector2<T> third;
+    Vector4<T> rect;
+
 
 };
 

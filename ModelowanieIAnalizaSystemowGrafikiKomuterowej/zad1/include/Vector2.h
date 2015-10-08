@@ -10,7 +10,8 @@ public:
     Vector2(T X, T Y);
     template <typename U>
     explicit Vector2(const Vector2<U>& vector);
-
+    T min();
+    T max();
     T x; ///< X coordinate of the vector
     T y; ///< Y coordinate of the vector
 };
@@ -189,7 +190,24 @@ inline bool operator !=(const Vector2<T>& left, const Vector2<T>& right)
 {
     return (left.x != right.x) || (left.y != right.y);
 }
+template <typename T>
+T Vector2<T>::max()
+{
+    // there are a number of ways to structure this loop, this is just one
 
+    T greatest = std::max(x, y);
+
+    return greatest;
+};
+template <typename T>
+T Vector2<T>::min()
+{
+    // there are a number of ways to structure this loop, this is just one
+
+    T smallest = std::min(y, x);
+
+    return smallest;
+};
 typedef Vector2<d_type::Bfloat> Vector2Bf;
 typedef Vector2<d_type::Bdouble> Vector2Bd;
 typedef Vector2<d_type::Bint> Vector2Bi;

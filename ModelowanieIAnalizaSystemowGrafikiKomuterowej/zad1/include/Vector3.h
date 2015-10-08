@@ -11,6 +11,9 @@ public :
     Vector3(T X, T Y, T Z);
     template <typename U>
     explicit Vector3(const Vector3<U>& vector);
+    T min();
+    T max();
+
     // Member data
     T x;
     T y;
@@ -143,6 +146,33 @@ inline bool operator !=(const Vector3<T>& left, const Vector3<T>& right)
 {
     return (left.x != right.x) || (left.y != right.y) || (left.z != right.z);
 }
+///////////////////////////////////////////////////////////
+template <typename T>
+T Vector3<T>::min()
+{
+    T smallest = std::numeric_limits<T>::max(); // Largest possible integer
+    // there are a number of ways to structure this loop, this is just one
+
+    smallest = std::min(smallest, x);
+    smallest = std::min(smallest, y);
+    smallest = std::min(smallest, z);
+
+
+    return smallest;
+};
+
+  template <typename T>
+T Vector3<T>::max()
+    {
+        T greatest = std::numeric_limits<T>::max(); // Largest possible integer
+        // there are a number of ways to structure this loop, this is just one
+
+        greatest = std::max(greatest, x);
+        greatest = std::max(greatest, y);
+        greatest = std::max(greatest, z);
+
+        return greatest;
+    };
 
 
 // Define the most common types

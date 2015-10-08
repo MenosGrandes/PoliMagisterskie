@@ -1,4 +1,5 @@
-
+#include <limits>
+#include <algorithm>
 namespace d_type
 {
 typedef bool	        BBool;   /*1-byte boolean*/
@@ -11,5 +12,4 @@ typedef unsigned int	Buint;		/* 4-byte unsigned */
 typedef float		    Bfloat;	/* single precision float */
 typedef double		    Bdouble;	/* double precision float */
 }
-
 

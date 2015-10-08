@@ -1,6 +1,7 @@
 #ifndef VECTOR4_H
 #define VECTOR4_H
 #include "structs.hpp"
+
 using namespace d_type;
 
 template <typename T>
@@ -12,7 +13,8 @@ public:
     Vector4(T X, T Y,T Z,T W);
     template <typename U>
     explicit Vector4(const Vector4<U>& vector);
-
+    T min();
+    T max();
     T x; ///< X coordinate of the vector
     T y; ///< Y coordinate of the vector
     T z; ///< Z coordinate of the vector
@@ -144,7 +146,13 @@ inline bool operator ==(const Vector4<T>& left, const Vector4<T>& right)
     return (left.x == right.x) && (left.y == right.y) && (left.z == right.z) && (left.w == right.w);
 }
 
+template <typename T>
+    inline std::ostream& operator<< (std::ostream& stream, const Vector4<T>& v)
+    {
 
+stream<<v.x<<" "<<v.y<<" "<<v.z<<" "<<v.w<<"\n";
+        return stream;
+    }
 
 template <typename T>
 inline bool operator !=(const Vector4<T>& left, const Vector4<T>& right)
@@ -152,5 +160,37 @@ inline bool operator !=(const Vector4<T>& left, const Vector4<T>& right)
     return (left.x != right.x) || (left.y != right.y) || (left.z != right.z) || (left.w != right.w);
 }
 
+template <typename T>
+    T Vector4<T>::max()
+    {
+        T greatest = std::numeric_limits<T>::max(); // Largest possible integer
+        // there are a number of ways to structure this loop, this is just one
+
+        greatest = std::max(greatest, x);
+        greatest = std::max(greatest, y);
+        greatest = std::max(greatest, z);
+        greatest = std::max(greatest, w);
+
+        return greatest;
+    };
+template <typename T>
+    T Vector4<T>::min()
+    {
+        T smallest = std::numeric_limits<T>::max(); // Largest possible integer
+        // there are a number of ways to structure this loop, this is just one
+
+        smallest = std::min(smallest, x);
+        smallest = std::min(smallest, y);
+        smallest = std::min(smallest, z);
+        smallest = std::min(smallest, w);
+
+        return smallest;
+    };
+
+
+typedef Vector4<Bint>   Vector4Bi;
+typedef Vector4<Bfloat> Vector4Bf;
+typedef Vector4<BBool> Vector4Bb;
+typedef Vector4<Bdouble> Vector4Bd;
 
 #endif // VECTOR4_H

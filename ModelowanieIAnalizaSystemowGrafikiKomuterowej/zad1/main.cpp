@@ -50,42 +50,42 @@ int main(int argc, char **argv)
         }
 
 
-std::cout<<triangle->rect;
-//    for(TriangleFloat *tri : triangleArray)
-//    {
-//
-//        for(Bfloat x =tri->rect.x; x<tri->rect.y; x++)
-//        {
-//            for(Bfloat y=tri->rect.z; y<tri->rect.w; y++)
-//            {
-//                if(tri->calculate(x,y))
-//                {
-//                    img->setPixel(c_inside,x,y);
-//
-//                }
-//
-//
-//            }
-//        }
-//
-//    }
-
-    for(Buint x=0; x<img_size.x; x++)
+std::cout<<triangle2->rect;
+    for(TriangleFloat *tri : triangleArray)
     {
-        for(Buint y=0; y<img_size.y; y++)
+
+        for(Bfloat x =tri->rect.x; x<tri->rect.y; x++)
         {
-            for(TriangleFloat *tri : triangleArray)
+            for(Bfloat y=tri->rect.z; y<tri->rect.w; y++)
             {
                 if(tri->calculate(x,y))
                 {
                     img->setPixel(c_inside,x,y);
+
                 }
 
 
             }
-
         }
+
     }
+
+//    for(Buint x=0; x<img_size.x; x++)
+//    {
+//        for(Buint y=0; y<img_size.y; y++)
+//        {
+//            for(TriangleFloat *tri : triangleArray)
+//            {
+//                if(tri->calculate(x,y))
+//                {
+//                    img->setPixel(c_inside,x,y);
+//                }
+//
+//
+//            }
+//
+//        }
+//    }
     //write the image to disk
     img->WriteImage("test.tga");
     delete triangle;

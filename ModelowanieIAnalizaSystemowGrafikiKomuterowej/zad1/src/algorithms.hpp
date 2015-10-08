@@ -26,9 +26,8 @@ struct Smallest
         T smallest = std::numeric_limits<T>::max(); // Largest possible integer
         // there are a number of ways to structure this loop, this is just one
 
-        smallest = std::min(smallest, x);
-        smallest = std::min(smallest, y);
-        smallest = std::min(smallest, z);
+        smallest = std::min({x,y,z} );
+
 
 
         return smallest;
@@ -60,9 +59,8 @@ struct Greatest
         T greatest = std::numeric_limits<T>::max(); // Largest possible integer
         // there are a number of ways to structure this loop, this is just one
 
-        greatest = std::max(greatest, x);
-        greatest = std::max(greatest, y);
-        greatest = std::max(greatest, z);
+        greatest = std::max({y,z, x});
+
 
         return greatest;
     };

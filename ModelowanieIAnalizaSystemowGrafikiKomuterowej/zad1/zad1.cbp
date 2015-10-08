@@ -24,6 +24,7 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-O2" />
+					<Add option="-std=c++11" />
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
@@ -34,10 +35,19 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="include/Colour.h" />
 		<Unit filename="include/Image.h" />
+		<Unit filename="include/Matrix4.h" />
+		<Unit filename="include/Triangle.h" />
+		<Unit filename="include/Vector2.h" />
+		<Unit filename="include/Vector3.h" />
+		<Unit filename="include/Vector4.h" />
 		<Unit filename="include/structs.hpp" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Colour.cpp" />
 		<Unit filename="src/Image.cpp" />
+		<Unit filename="src/Matrix4.cpp" />
+		<Unit filename="src/algorithms.hpp" />
 		<Extensions>
 			<code_completion />
 			<debugger />

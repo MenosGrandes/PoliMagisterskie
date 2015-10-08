@@ -38,6 +38,8 @@
 		<Unit filename="include/Colour.h" />
 		<Unit filename="include/Image.h" />
 		<Unit filename="include/Matrix4.h" />
+		<Unit filename="include/Primitive.h" />
+		<Unit filename="include/Renderer.h" />
 		<Unit filename="include/Triangle.h" />
 		<Unit filename="include/Vector2.h" />
 		<Unit filename="include/Vector3.h" />
@@ -47,6 +49,8 @@
 		<Unit filename="src/Colour.cpp" />
 		<Unit filename="src/Image.cpp" />
 		<Unit filename="src/Matrix4.cpp" />
+		<Unit filename="src/Primitive.cpp" />
+		<Unit filename="src/Renderer.cpp" />
 		<Unit filename="src/algorithms.hpp" />
 		<Extensions>
 			<code_completion />

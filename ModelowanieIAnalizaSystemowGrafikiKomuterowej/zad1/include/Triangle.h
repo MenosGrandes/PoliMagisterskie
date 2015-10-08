@@ -38,7 +38,7 @@ public :
 
     BBool calculate(T x,T y)
     {
-        return ((first.x-second.x)*(y-first.y) -(first.y-second.y)*(x - first.x )>0)
+        return (( first.x-second.x)*(y-first.y) -(first.y-second.y)*(x - first.x )>0)
                &&((second.x-third.x)*(y-second.y)-(second.y-third.y)*(x - second.x)>0)
                &&((third.x-first.x) *(y-third.y) -(third.y-first.y) *(x - third.x )>0);
 

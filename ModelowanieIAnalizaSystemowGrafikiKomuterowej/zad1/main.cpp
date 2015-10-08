@@ -50,10 +50,8 @@ int main(int argc, char **argv)
         }
 
 
-std::cout<<triangle2->rect;
     for(TriangleFloat *tri : triangleArray)
     {
-
         for(Bfloat x =tri->rect.x; x<tri->rect.y; x++)
         {
             for(Bfloat y=tri->rect.z; y<tri->rect.w; y++)
@@ -63,7 +61,6 @@ std::cout<<triangle2->rect;
                     img->setPixel(c_inside,x,y);
 
                 }
-
 
             }
         }

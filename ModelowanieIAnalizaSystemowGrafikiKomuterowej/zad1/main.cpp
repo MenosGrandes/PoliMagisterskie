@@ -17,17 +17,9 @@ using namespace c;
 
 int main(int argc, char **argv)
 {
-//    Matrix4<Bfloat> a= Matrix4<Bfloat>();
-//    Vector4<Bfloat> b= Vector4<Bfloat>(4,2,3,4);
-//    Vector4<Bfloat> b2= Vector4<Bfloat>(1,2,3,4);
-//    Vector2<Bfloat> b3= Vector2<Bfloat>(1,2);
-//    Vector3<Bfloat> b4= Vector3<Bfloat>(1,2,3);
-
-
-
     std::array<TriangleFloat*,2> triangleArray;
     TriangleFloat *triangle= new TriangleFloat(Vector2Bf(50,50),Vector2Bf(50,100),Vector2Bf(100,50));
-    TriangleFloat *triangle2= new TriangleFloat(Vector2Bf(150,150),Vector2Bf(150,200),Vector2Bf(200,150));
+    TriangleFloat *triangle2= new TriangleFloat(Vector2Bf(100,50),Vector2Bf(50,100),Vector2Bf(150,100));
     triangleArray[0]=triangle;
     triangleArray[1]=triangle2;
     //declare image
@@ -35,14 +27,15 @@ int main(int argc, char **argv)
     TGAImage *file = new TGAImage(img_size,"file.tga");
 
 
-    //declare a temporary color variable
-    Colour c_inside=Colour::Green,c_outside=Colour::Yellow;
+    triangle2->rect.x=std::max(triangle2->rect.x,0.f);
+    triangle2->rect.y=std::min(triangle2->rect.y,static_cast<Bfloat>(img_size.x-1));
+    triangle2->rect.z=std::max(triangle2->rect.z,0.f);
+    triangle2->rect.w=std::min(triangle2->rect.w,static_cast<Bfloat>(img_size.y-1));
 
-
-
-
-    //Loop through image and set all pixels to red
-    file->clear();
+    triangle->rect.x=std::max(triangle->rect.x,0.f);
+    triangle->rect.y=std::min(triangle->rect.y,static_cast<Bfloat>(img_size.x-1));
+    triangle->rect.z=std::max(triangle->rect.z,0.f);
+    triangle->rect.w=std::min(triangle->rect.w,static_cast<Bfloat>(img_size.y-1));
 
 
     for(TriangleFloat *tri : triangleArray)
@@ -53,7 +46,8 @@ int main(int argc, char **argv)
             {
                 if(tri->calculate(x,y))
                 {
-                    file->setPixel(c_inside,x,y);
+
+                    file->setPixel(tri->calculateLambdaColor(x,y),x,y);
 
                 }
 
@@ -61,27 +55,11 @@ int main(int argc, char **argv)
         }
 
     }
-
-//    for(Buint x=0; x<img_size.x; x++)
-//    {
-//        for(Buint y=0; y<img_size.y; y++)
-//        {
-//            for(TriangleFloat *tri : triangleArray)
-//            {
-//                if(tri->calculate(x,y))
-//                {
-//                    img->setPixel(c_inside,x,y);
-//                }
-//
-//
-//            }
-//
-//        }
-//    }
-    //write the image to disk
     file->draw();
-    delete triangle;
-        delete triangle2;
+    for(Bint i=0; i<triangleArray.size(); i++)
+    {
+        delete triangleArray[i];
+    }
     delete file;
     return 0;
 }

@@ -67,7 +67,7 @@ d_type::Bint RenderTarget::getSizePixels()
 
 void RenderTarget::draw(const Drawable& drawable)
 {
-
+    //drawable.
 }
 
 void RenderTarget::clear(const Colour& color)

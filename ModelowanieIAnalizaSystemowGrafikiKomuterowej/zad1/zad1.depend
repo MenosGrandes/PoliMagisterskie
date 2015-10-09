@@ -20,7 +20,7 @@
 	<fstream>
 	<iostream>
 
-1444381264 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
+1444403924 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
 	"Image.h"
 	<array>
 	<limits>
@@ -55,11 +55,14 @@
 1444310628 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector2.h
 	"structs.hpp"
 
-1444382798 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Triangle.h
+1444403982 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Triangle.h
 	"Vector2.h"
 	"Vector4.h"
+	"Vector3.h"
 	"../src/algorithms.hpp"
 	"Drawable.h"
+	"Colour.h"
+	<iostream>
 
 1444301656 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Matrix4.cpp
 	"Matrix4.h"
@@ -94,7 +97,7 @@
 	"Vector2.h"
 	"Vector3.h"
 
-1444381219 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/RenderTarget.h
+1444403202 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/RenderTarget.h
 	"PrimitiveType.h"
 	"Colour.h"
 	"Vector2.h"
@@ -103,7 +106,7 @@
 
 1444314739 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Primitive.cpp
 
-1444381114 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RenderTarget.cpp
+1444402321 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RenderTarget.cpp
 	"RenderTarget.h"
 
 1444382175 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Drawable.h

@@ -7,8 +7,9 @@
 #include <iostream>
 #include "Vector2.h"
 #include "Colour.h"
+#include "RenderTarget.h"
 using namespace c;
-class TGAImage
+class TGAImage : public RenderTarget
 {
 
 public:
@@ -17,37 +18,20 @@ public:
     TGAImage();
 
     //Overridden Constructor
-    TGAImage(d_type::Bshort width, d_type::Bshort height);
+    TGAImage(d_type::Bshort width, d_type::Bshort height,std::string filename);
 
-    TGAImage(Vector2Bs size);
+    TGAImage(Vector2Bs size,std::string filename);
 
-    //Set all pixels at once
-    void setAllPixels(c::Colour *pixels);
-
-    //set individual pixels
-    void setPixel(c::Colour inputcolor, d_type::Bint xposition, d_type::Bint yposition);
-
-    void WriteImage(std::string filename);
+    void draw();
+    void draw(const Drawable& drawable);
 
 //General getters and setters
 
-    void setWidth(d_type::Bshort width);
-    void setHeight(d_type::Bshort height);
 
-    d_type::Bshort getWidth();
-    d_type::Bshort getHeight();
-    Vector2Bs getSize();
-    d_type::Bint getSizePixels();
 private:
 
-    //store the pixels
-    c::Colour *m_pixels;
-    Vector2Bs m_size;
+    std::string m_filename;
 
-
-    //convert 2D to 1D indexing
-    d_type::Bint convert2dto1d(d_type::Bint x, d_type::Bint y);
-    d_type::Bint convert2dto1d(Vector2Bi size);
 
 
 

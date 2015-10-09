@@ -3,9 +3,10 @@
 #include "Vector2.h"
 #include "Vector4.h"
 #include "../src/algorithms.hpp"
+#include "Drawable.h"
 using namespace d_type;
 template <typename T>
-class Triangle
+class Triangle :  Drawable
 {
 public :
     Triangle(Vector2<T> first,Vector2<T> second,Vector2<T> third):first(first),second(second),third(third)
@@ -45,6 +46,9 @@ public :
 
     }
 
+    void draw(RenderTarget&target){
+
+    };
     //MEMBERS
     Vector2<T> first;
     Vector2<T> second;

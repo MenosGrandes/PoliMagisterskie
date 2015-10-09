@@ -19,6 +19,8 @@ public :
     Colour(const Colour& next):r(next.r),g(next.g),b(next.b),a(next.a) {};
     const static  Colour Green;
     const static  Colour Yellow;
+    const static  Colour White;
+    const static  Colour Black;
 
 
 };

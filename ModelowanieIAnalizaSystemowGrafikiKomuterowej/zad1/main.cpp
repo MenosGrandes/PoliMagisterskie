@@ -17,11 +17,11 @@ using namespace c;
 
 int main(int argc, char **argv)
 {
-    Matrix4<Bfloat> a= Matrix4<Bfloat>();
-    Vector4<Bfloat> b= Vector4<Bfloat>(4,2,3,4);
-    Vector4<Bfloat> b2= Vector4<Bfloat>(1,2,3,4);
-    Vector2<Bfloat> b3= Vector2<Bfloat>(1,2);
-    Vector3<Bfloat> b4= Vector3<Bfloat>(1,2,3);
+//    Matrix4<Bfloat> a= Matrix4<Bfloat>();
+//    Vector4<Bfloat> b= Vector4<Bfloat>(4,2,3,4);
+//    Vector4<Bfloat> b2= Vector4<Bfloat>(1,2,3,4);
+//    Vector2<Bfloat> b3= Vector2<Bfloat>(1,2);
+//    Vector3<Bfloat> b4= Vector3<Bfloat>(1,2,3);
 
 
 
@@ -32,8 +32,7 @@ int main(int argc, char **argv)
     triangleArray[1]=triangle2;
     //declare image
     Vector2Bs img_size=Vector2Bs(300,300);
-
-    TGAImage *img = new TGAImage(img_size);
+    TGAImage *file = new TGAImage(img_size,"file.tga");
 
 
     //declare a temporary color variable
@@ -43,11 +42,7 @@ int main(int argc, char **argv)
 
 
     //Loop through image and set all pixels to red
-    for(Buint x=0; x<img_size.x; x++)
-        for(Buint y=0; y<img_size.y; y++)
-        {
-            img->setPixel(c_outside,x,y);
-        }
+    file->clear();
 
 
     for(TriangleFloat *tri : triangleArray)
@@ -58,7 +53,7 @@ int main(int argc, char **argv)
             {
                 if(tri->calculate(x,y))
                 {
-                    img->setPixel(c_inside,x,y);
+                    file->setPixel(c_inside,x,y);
 
                 }
 
@@ -84,8 +79,9 @@ int main(int argc, char **argv)
 //        }
 //    }
     //write the image to disk
-    img->WriteImage("test.tga");
+    file->draw();
     delete triangle;
-    delete img;
+        delete triangle2;
+    delete file;
     return 0;
 }

@@ -20,7 +20,7 @@
 	<fstream>
 	<iostream>
 
-1444313717 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
+1444381264 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
 	"Image.h"
 	<array>
 	<limits>
@@ -31,33 +31,35 @@
 	<cstdio>
 	<iostream>
 
-1444299310 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Image.h
+1444381162 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Image.h
 	<string>
 	<fstream>
 	<iostream>
 	"Vector2.h"
 	"Colour.h"
+	"RenderTarget.h"
 
 1444310667 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/structs.hpp
 	<limits>
 	<algorithm>
 
-1444299754 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Image.cpp
+1444381174 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Image.cpp
 	"Image.h"
 
-1444300717 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Colour.h
+1444381278 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Colour.h
 	"structs.hpp"
 
-1444300717 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Colour.cpp
+1444381291 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Colour.cpp
 	"Colour.h"
 
 1444310628 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector2.h
 	"structs.hpp"
 
-1444313387 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Triangle.h
+1444382798 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Triangle.h
 	"Vector2.h"
 	"Vector4.h"
 	"../src/algorithms.hpp"
+	"Drawable.h"
 
 1444301656 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Matrix4.cpp
 	"Matrix4.h"
@@ -69,7 +71,7 @@
 1444312244 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector4.h
 	"structs.hpp"
 
-1444300673 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Triangle.cpp
+1444382314 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Triangle.cpp
 	"Triangle.h"
 
 1444300070 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Vector2.cpp
@@ -91,4 +93,32 @@
 	"Vector4.h"
 	"Vector2.h"
 	"Vector3.h"
+
+1444381219 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/RenderTarget.h
+	"PrimitiveType.h"
+	"Colour.h"
+	"Vector2.h"
+
+1444378299 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/PrimitiveType.h
+
+1444314739 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Primitive.cpp
+
+1444381114 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RenderTarget.cpp
+	"RenderTarget.h"
+
+1444382175 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Drawable.h
+
+1444383338 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Vertex2.cpp
+	"Vertex2.h"
+
+1444383366 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vertex2.h
+	"Vector2.h"
+	"Colour.h"
+
+1444383579 source:/home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Vertex3.cpp
+	"Vertex3.h"
+
+1444383593 /home/menosgrandes/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vertex3.h
+	"Vector3.h"
+	"Colour.h"
 

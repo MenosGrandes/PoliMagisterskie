@@ -6,7 +6,6 @@
 #include "Drawable.h"
 #include <vector>
 
-template <typename T>
 class Vertex2Array : public Drawable
 {
 public:
@@ -47,19 +46,38 @@ public:
         m_vertices.resize(vertexCount);
     }
 
-    void append(const Vertex2<T>& vertex)
+    void append(const Vertex2<d_type::Bfloat>& vertex)
     {
         m_vertices.push_back(vertex);
     }
-
-
+    const Vertex2<float>& operator [](d_type::Bsize index) const;
+    Vertex2<float>& operator [](d_type::Bsize index);
 private:
-    virtual void draw(RenderTarget &target)const {};
-    std::vector<Vertex2<T>> m_vertices;
+    virtual void draw(RenderTarget &target)const
+    {
+
+
+std::cout<<"VERTEXARRAY DRAWABLE " << m_vertices.size()<<" \n";
+        if(!m_vertices.empty())
+        {
+            target.draw(&m_vertices[0],m_vertices.size(),m_primitiveType);
+        }
+    };
+
+
+    std::vector<Vertex2<d_type::Bfloat>> m_vertices;
     PrimitiveType m_primitiveType;
 
 };
-typedef Vertex2Array<d_type::Bfloat>Vertex2FloatArray;
-typedef Vertex2Array<d_type::Bint>Vertex2IntArray;
-typedef Vertex2Array<d_type::Bdouble>Vertex2DoubleArray;
+
+inline Vertex2<float>& Vertex2Array::operator [](d_type::Bsize  index)
+{
+    return m_vertices[index];
+}
+
+
+inline const Vertex2<float>& Vertex2Array::operator [](d_type::Bsize index) const
+{
+    return m_vertices[index];
+}
 #endif // VERTEX2ARRAY_H

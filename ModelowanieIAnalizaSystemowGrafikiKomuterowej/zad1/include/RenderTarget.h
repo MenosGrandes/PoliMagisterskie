@@ -1,12 +1,15 @@
 #ifndef RENDERTARGET_H
 #define RENDERTARGET_H
 #include "PrimitiveType.h"
-#include "Colour.h"
-#include "Vector2.h"
+#include "Vertex2.h"
+#include "Vertex3.h"
 #include "Drawable.h"
+
+#include "iostream"
 using namespace c;
 
 class Drawable;
+
 class RenderTarget
 {
     public:
@@ -14,6 +17,7 @@ class RenderTarget
 
 
         void draw(const Drawable& drawable);
+        void draw(const Vertex2<d_type::Bfloat>*,d_type::Bsize vertexCount,PrimitiveType type);
         void clear(const Colour & color= Colour::White);
 
     //set Width of RenderTarget

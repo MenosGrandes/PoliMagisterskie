@@ -67,7 +67,14 @@ d_type::Bint RenderTarget::getSizePixels()
 
 void RenderTarget::draw(const Drawable& drawable)
 {
-    //drawable.
+ std::cout<<"RenderTargetDrawDrawable\n";
+
+  drawable.draw(*this);
+
+}
+void RenderTarget::draw(const Vertex2<d_type::Bfloat>*, d_type::Bsize vertexCount, PrimitiveType type)
+{
+    std::cout<<"RenderTargetDrawVertex\n";
 }
 
 void RenderTarget::clear(const Colour& color)

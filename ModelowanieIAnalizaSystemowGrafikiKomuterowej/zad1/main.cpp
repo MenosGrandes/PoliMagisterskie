@@ -19,6 +19,8 @@ using namespace c;
 int main(int argc, char **argv)
 {
 
+    TriangleFloat t= TriangleFloat();
+
 
 
     std::array<TriangleFloat*,2> triangleArray;
@@ -59,7 +61,9 @@ int main(int argc, char **argv)
         }
 
     }
+    //file->draw(t);
     file->draw();
+
     for(Bsize i=0; i<triangleArray.size(); i++)
     {
         delete triangleArray[i];

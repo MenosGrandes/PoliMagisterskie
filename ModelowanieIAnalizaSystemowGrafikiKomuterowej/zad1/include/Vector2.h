@@ -12,6 +12,11 @@ public:
     explicit Vector2(const Vector2<U>& vector);
     T min();
     T max();
+    T  dotProduct(const Vector2<T>& p1, const Vector2<T>& p2);
+    Vector2<T> computeNormal(const Vector2<T>& p1, const Vector2<T>& p2);
+
+
+
     T x; ///< X coordinate of the vector
     T y; ///< Y coordinate of the vector
 };
@@ -208,6 +213,25 @@ T Vector2<T>::min()
 
     return smallest;
 };
+template <typename T>
+Vector2<T> Vector2<T>::computeNormal(const Vector2<T>& p1, const Vector2<T>& p2)
+{
+    Vector2<T> normal(p1.y - p2.y, p2.x - p1.x);
+    float length = std::sqrt(normal.x * normal.x + normal.y * normal.y);
+    if (length != 0.f)
+        normal /= length;
+    return normal;
+};
+
+// Compute the dot product of two vectors
+template <typename T>
+T  dotProduct(const Vector2<T>& p1, const Vector2<T>& p2)
+{
+    return p1.x * p2.x + p1.y * p2.y;
+};
+
+
+
 typedef Vector2<d_type::Bfloat> Vector2Bf;
 typedef Vector2<d_type::Bdouble> Vector2Bd;
 typedef Vector2<d_type::Bint> Vector2Bi;

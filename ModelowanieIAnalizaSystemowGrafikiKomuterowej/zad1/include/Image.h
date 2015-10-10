@@ -5,8 +5,8 @@
 #include <string>
 #include <fstream>
 #include <iostream>
-#include "Vector2.h"
-#include "Colour.h"
+#include "Vertex2Array.h"
+#include "Vertex3Array.h"
 #include "RenderTarget.h"
 using namespace c;
 class TGAImage : public RenderTarget
@@ -24,6 +24,7 @@ public:
 
     void draw();
     void draw(const Drawable& drawable);
+     void draw(const Vertex2<d_type::Bfloat>*,d_type::Bsize vertexCount,PrimitiveType type);
 
 //General getters and setters
 

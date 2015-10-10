@@ -17,6 +17,18 @@ TGAImage::TGAImage(Vector2Bs size, std::string filename):RenderTarget(size),m_fi
 {
 
 }
+void TGAImage::draw(const Drawable & drawable)
+{
+ std::cout<<"TGATargetDrawDrawable\n";
+drawable.draw(*this);
+
+
+}
+           void TGAImage::draw(const Vertex2<d_type::Bfloat>*,d_type::Bsize vertexCount,PrimitiveType type)
+           {
+ std::cout<<"TGATargetDrawVertex\n";
+
+           }
 
 void TGAImage::draw()
 {

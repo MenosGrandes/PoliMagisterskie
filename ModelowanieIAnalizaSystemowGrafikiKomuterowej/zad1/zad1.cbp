@@ -103,18 +103,6 @@
 		<Unit filename="src/Triangle.cpp">
 			<Option virtualFolder="Drawable/" />
 		</Unit>
-		<Unit filename="src/Vertex2.cpp">
-			<Option virtualFolder="Types/Vertex/" />
-		</Unit>
-		<Unit filename="src/Vertex2Array.cpp">
-			<Option virtualFolder="Types/Vertex/VertexArray/" />
-		</Unit>
-		<Unit filename="src/Vertex3.cpp">
-			<Option virtualFolder="Types/Vertex/" />
-		</Unit>
-		<Unit filename="src/Vertex3Array.cpp">
-			<Option virtualFolder="Types/Vertex/VertexArray/" />
-		</Unit>
 		<Unit filename="src/algorithms.hpp">
 			<Option virtualFolder="Algorithms/" />
 		</Unit>

@@ -1,14 +1,15 @@
 #ifndef DRAWABLE_H
 #define DRAWABLE_H
+#include "RenderTarget.h"
 class RenderTarget;
 class Drawable
 {
 
     public:
         virtual ~Drawable() {}
-    protected:
-    friend class RenderTarget;
+   friend class RenderTarget;
     virtual void draw(RenderTarget & target) const = 0;
+
 
 };
 

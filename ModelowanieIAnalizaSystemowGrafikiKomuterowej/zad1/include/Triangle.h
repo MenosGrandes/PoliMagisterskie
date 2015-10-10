@@ -9,11 +9,13 @@
 using namespace d_type;
 using namespace c;
 template <typename T>
-class Triangle
+class Triangle : public Drawable
 {
 public :
     Triangle(Vector2<T> first,Vector2<T> second,Vector2<T> third):first(first),second(second),third(third)
     {
+
+
 
         Greatest g;
         Smallest s;
@@ -25,15 +27,7 @@ public :
                        s.min(first.y,second.y,third.y),
                        g.max(first.y,second.y,third.y));
 
-        /*
-        this->rect=Vector4<T>();
 
-        this->rect.x=s.min(first.x,second.x,third.x);
-        this->rect.y=g.max(first.x,second.x,third.x);
-
-        this->rect.z=s.min(first.y,second.y,third.y);
-        this->rect.w=g.max(first.y,second.y,third.y);
-        */
         this->dx=Vector3<T>(first.x-second.x,second.x-third.x,third.x-first.x);
         this->dy=Vector3<T>(first.y-second.y,second.y-third.y,third.y-first.y);
 
@@ -42,7 +36,14 @@ public :
 
     }
 
-    Triangle() :first(0),second(0),third(0) {};
+    Triangle() :first(),second(),third() {  m_points.append(Vertex2<d_type::Bfloat>());
+    m_points.append(Vertex2<d_type::Bfloat>());
+    m_points.append(Vertex2<d_type::Bfloat>());
+    m_points.append(Vertex2<d_type::Bfloat>());
+    m_points.append(Vertex2<d_type::Bfloat>());
+    m_points.append(Vertex2<d_type::Bfloat>());
+    m_points.append(Vertex2<d_type::Bfloat>());
+    std::cout<<"asdsadsa\n";};
 
     BBool calculate(Vector2<T> current)
     {
@@ -132,12 +133,15 @@ public :
     Vector4<T> rect;
 private :
 
-virtual void draw(RenderTarget& target) const{};
+virtual void draw(RenderTarget& target) const{
+
+target.draw(m_points);
+};
 
     Vector3<T> dx;
     Vector3<T> dy;
     Vector3Bb topLeft;
-    Vertex2FloatArray m_points;
+    Vertex2Array m_points;
 
 
 };

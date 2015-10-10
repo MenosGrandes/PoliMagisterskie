@@ -1,12 +1,13 @@
 #include "Image.h"
-#include <array>
-#include <limits>
 #include "Triangle.h"
-#include "Vector2.h"
-#include "Vector3.h"
 #include "Matrix4.h"
+
 #include <cstdio>
 #include <iostream>
+#include <array>
+#include <limits>
+
+
 using namespace d_type;
 using namespace c;
 
@@ -17,6 +18,9 @@ using namespace c;
 
 int main(int argc, char **argv)
 {
+
+
+
     std::array<TriangleFloat*,2> triangleArray;
     TriangleFloat *triangle= new TriangleFloat(Vector2Bf(50,50),Vector2Bf(50,100),Vector2Bf(100,50));
     TriangleFloat *triangle2= new TriangleFloat(Vector2Bf(100,50),Vector2Bf(50,100),Vector2Bf(150,100));
@@ -56,7 +60,7 @@ int main(int argc, char **argv)
 
     }
     file->draw();
-    for(Bint i=0; i<triangleArray.size(); i++)
+    for(Bsize i=0; i<triangleArray.size(); i++)
     {
         delete triangleArray[i];
     }

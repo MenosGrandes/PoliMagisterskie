@@ -3,18 +3,30 @@
 #include "Vector2.h"
 #include "Colour.h"
 using namespace c;
+template <typename T>
 class Vertex2
 {
 public:
-    Vertex2();
+Vertex2(const Vector2<T>& thePosition):position(thePosition)
+{}
 
-    Vertex2(const Vector2Bf& thePosition);
-    Vertex2(const Vector2Bf& thePosition, const Colour& theColor);
-    Vertex2(const Vector2Bf& thePosition, const Vector2Bf& theTexCoords);
-    Vertex2(const Vector2Bf& thePosition, const Colour& theColor, const Vector2Bf& theTexCoords);
+Vertex2(const Vector2<T>& thePosition, const Colour& theColor):position(thePosition),color(theColor)
+{}
+
+Vertex2(const Vector2<T>& thePosition, const Vector2<T>& theTexCoords):position(thePosition),texCoords(theTexCoords)
+{}
+
+Vertex2(const Vector2<T>& thePosition, const Colour& theColor, const Vector2<T>& theTexCoords):position(thePosition),color(theColor),texCoords(theTexCoords)
+{}
+
+Vertex2()
+{
+
+}
+
 //MEMBERS
-    Vector2Bf position;
-    Vector2Bf texCoords;
+    Vector2<T> position;
+    Vector2<T> texCoords;
     Colour color;
 
 };

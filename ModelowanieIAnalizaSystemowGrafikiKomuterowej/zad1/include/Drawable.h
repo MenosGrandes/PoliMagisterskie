@@ -3,11 +3,13 @@
 class RenderTarget;
 class Drawable
 {
+
     public:
         virtual ~Drawable() {}
     protected:
-    virtual void draw(RenderTarget & target) =0;
-    private:
+    friend class RenderTarget;
+    virtual void draw(RenderTarget & target) const = 0;
+
 };
 
 #endif // DRAWABLE_H

@@ -1,17 +1,15 @@
 #ifndef TRIANGLE_H
 #define TRIANGLE_H
-#include "Vector2.h"
 #include "Vector4.h"
 #include "Vector3.h"
-
-#include "../src/algorithms.hpp"
 #include "Drawable.h"
-#include "Colour.h"
+#include "Vertex2Array.h"
+#include "../src/algorithms.hpp"
 #include <iostream>
 using namespace d_type;
 using namespace c;
 template <typename T>
-class Triangle :  Drawable
+class Triangle
 {
 public :
     Triangle(Vector2<T> first,Vector2<T> second,Vector2<T> third):first(first),second(second),third(third)
@@ -98,6 +96,7 @@ public :
                    &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>=0)
                    &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>0);
         }
+        return false;
 
     }
 
@@ -124,20 +123,21 @@ public :
         return Colour(l1*255,l2*255,l3*255 ,255);
 
     }
-    void draw(RenderTarget&target)
-    {
-        //target.draw();
-    };
+
 //MEMBERS
+
     Vector2<T> first;
     Vector2<T> second;
     Vector2<T> third;
     Vector4<T> rect;
 private :
+
+virtual void draw(RenderTarget& target) const{};
+
     Vector3<T> dx;
     Vector3<T> dy;
     Vector3Bb topLeft;
-
+    Vertex2FloatArray m_points;
 
 
 };

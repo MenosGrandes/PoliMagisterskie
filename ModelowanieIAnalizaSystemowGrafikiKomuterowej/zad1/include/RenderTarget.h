@@ -3,14 +3,15 @@
 #include "PrimitiveType.h"
 #include "Colour.h"
 #include "Vector2.h"
+#include "Drawable.h"
 using namespace c;
+
 class Drawable;
 class RenderTarget
 {
     public:
         RenderTarget();
-        RenderTarget(d_type::Bshort width, d_type::Bshort height);
-        RenderTarget(Vector2Bs size);
+
 
         void draw(const Drawable& drawable);
         void clear(const Colour & color= Colour::White);
@@ -35,7 +36,8 @@ class RenderTarget
 
 
     protected:
-
+        RenderTarget(d_type::Bshort width, d_type::Bshort height);
+        RenderTarget(Vector2Bs size);
         //convert 2D to 1D indexing
     d_type::Bint convert2dto1d(d_type::Bint x, d_type::Bint y);
     d_type::Bint convert2dto1d(Vector2Bi size);

@@ -5,7 +5,7 @@
 		<Option title="zad1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="RenderTarget/;Drawable/;Drawable/Interface/;Types/;Algorithms/;Drawable/Primitives/;Types/Vertex/;Types/Vector/;Types/Matrix/;" />
+		<Option virtualFolders="RenderTarget/;Drawable/;Drawable/Interface/;Types/;Algorithms/;Drawable/Primitives/;Types/Vertex/;Types/Vector/;Types/Matrix/;Types/Vertex/VertexArray/;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/zad1" prefix_auto="1" extension_auto="1" />
@@ -72,8 +72,14 @@
 		<Unit filename="include/Vertex2.h">
 			<Option virtualFolder="Types/Vertex/" />
 		</Unit>
+		<Unit filename="include/Vertex2Array.h">
+			<Option virtualFolder="Types/Vertex/VertexArray/" />
+		</Unit>
 		<Unit filename="include/Vertex3.h">
 			<Option virtualFolder="Types/Vertex/" />
+		</Unit>
+		<Unit filename="include/Vertex3Array.h">
+			<Option virtualFolder="Types/Vertex/VertexArray/" />
 		</Unit>
 		<Unit filename="include/structs.hpp">
 			<Option virtualFolder="Types/" />
@@ -100,8 +106,14 @@
 		<Unit filename="src/Vertex2.cpp">
 			<Option virtualFolder="Types/Vertex/" />
 		</Unit>
+		<Unit filename="src/Vertex2Array.cpp">
+			<Option virtualFolder="Types/Vertex/VertexArray/" />
+		</Unit>
 		<Unit filename="src/Vertex3.cpp">
 			<Option virtualFolder="Types/Vertex/" />
+		</Unit>
+		<Unit filename="src/Vertex3Array.cpp">
+			<Option virtualFolder="Types/Vertex/VertexArray/" />
 		</Unit>
 		<Unit filename="src/algorithms.hpp">
 			<Option virtualFolder="Algorithms/" />

@@ -12,7 +12,9 @@ public:
     explicit Vector2(const Vector2<U>& vector);
     T min();
     T max();
+
     T  dotProduct(const Vector2<T>& p1, const Vector2<T>& p2);
+
     Vector2<T> computeNormal(const Vector2<T>& p1, const Vector2<T>& p2);
 
 
@@ -95,6 +97,12 @@ inline Vector2<T> operator -(const Vector2<T>& right)
 {
     return Vector2<T>(-right.x, -right.y);
 }
+///////////////////////////////////////////////////////////
+template <typename T>
+inline Vector2<T> operator +(const Vector2<T>& right)
+{
+    return Vector2<T>(+right.x, +right.y);
+}
 
 
 ////////////////////////////////////////////////////////////
@@ -137,7 +145,7 @@ inline Vector2<T> operator -(const Vector2<T>& left, const Vector2<T>& right)
 
 ////////////////////////////////////////////////////////////
 template <typename T>
-inline Vector2<T> operator *(const Vector2<T>& left, T right)
+inline Vector2<T> operator *(const Vector2<T>& left, const T right)
 {
     return Vector2<T>(left.x * right, left.y * right);
 }
@@ -145,7 +153,7 @@ inline Vector2<T> operator *(const Vector2<T>& left, T right)
 
 ////////////////////////////////////////////////////////////
 template <typename T>
-inline Vector2<T> operator *(T left, const Vector2<T>& right)
+inline Vector2<T> operator *(const T left, const Vector2<T>& right)
 {
     return Vector2<T>(right.x * left, right.y * left);
 }
@@ -153,7 +161,7 @@ inline Vector2<T> operator *(T left, const Vector2<T>& right)
 
 ////////////////////////////////////////////////////////////
 template <typename T>
-inline Vector2<T>& operator *=(Vector2<T>& left, T right)
+inline Vector2<T>& operator *=(Vector2<T>& left, const T right)
 {
     left.x *= right;
     left.y *= right;
@@ -164,7 +172,7 @@ inline Vector2<T>& operator *=(Vector2<T>& left, T right)
 
 ////////////////////////////////////////////////////////////
 template <typename T>
-inline Vector2<T> operator /(const Vector2<T>& left, T right)
+inline Vector2<T> operator /(const Vector2<T>& left, const T right)
 {
     return Vector2<T>(left.x / right, left.y / right);
 }
@@ -172,7 +180,7 @@ inline Vector2<T> operator /(const Vector2<T>& left, T right)
 
 ////////////////////////////////////////////////////////////
 template <typename T>
-inline Vector2<T>& operator /=(Vector2<T>& left, T right)
+inline Vector2<T>& operator /=(Vector2<T>& left, const T right)
 {
     left.x /= right;
     left.y /= right;
@@ -225,7 +233,7 @@ Vector2<T> Vector2<T>::computeNormal(const Vector2<T>& p1, const Vector2<T>& p2)
 
 // Compute the dot product of two vectors
 template <typename T>
-T  dotProduct(const Vector2<T>& p1, const Vector2<T>& p2)
+T  Vector2<T>::dotProduct(const Vector2<T>& p1, const Vector2<T>& p2)
 {
     return p1.x * p2.x + p1.y * p2.y;
 };

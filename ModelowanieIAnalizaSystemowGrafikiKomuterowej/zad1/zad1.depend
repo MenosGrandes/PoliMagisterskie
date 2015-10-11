@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1444496545 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
+1444543942 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
 	"Image.h"
 	"Triangle.h"
 	"Matrix4.h"
@@ -139,15 +139,18 @@
 	"Vertex3Array.h"
 	"RenderTarget.h"
 
-1444494333 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector2.h
+1444545330 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector2.h
 	"structs.hpp"
 
-1444485785 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/structs.hpp
+1444545893 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/structs.hpp
 	<limits>
 	<algorithm>
+	<cmath>
 
-1444483500 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Colour.h
+1444543818 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Colour.h
 	"structs.hpp"
+	"Vector2.h"
+	"Vector3.h"
 
 1444495556 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/RenderTarget.h
 	"PrimitiveType.h"
@@ -158,7 +161,7 @@
 
 1444483500 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/PrimitiveType.h
 
-1444497136 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Triangle.h
+1444543722 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Triangle.h
 	"Vector4.h"
 	"Vector3.h"
 	"Drawable.h"
@@ -169,7 +172,7 @@
 1444483500 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector4.h
 	"structs.hpp"
 
-1444483500 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector3.h
+1444546973 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector3.h
 	"structs.hpp"
 
 1444483500 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/algorithms.hpp
@@ -180,14 +183,14 @@
 	"Vector2.h"
 	"Vector3.h"
 
-1444490056 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Drawable.h
+1444498149 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Drawable.h
 	"RenderTarget.h"
 
 1444483500 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Matrix4.h
 	"Vector4.h"
 	<ostream>
 
-1444483500 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Colour.cpp
+1444543837 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Colour.cpp
 	"Colour.h"
 
 1444496804 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Image.cpp

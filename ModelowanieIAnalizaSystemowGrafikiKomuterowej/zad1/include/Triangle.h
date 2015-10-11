@@ -109,10 +109,10 @@ public :
         T l2= (dy.z*(x-third.x)+(first.x-third.x)*(y-third.y))/((dy.z*dx.y) +( (first.x-third.x)*(dy.y)));
         T l3= 1 - l1 - l2;
 
-        return Colour(
-        l1*c.r,
-        c2.g*l2,
-        l3*c3.b ,255);
+
+
+        Colour tmp = l1*c +l2*c2+l3*c3 ;//+ l2 * c2 + l3 * c3;
+        return tmp;
 
     }
     Colour calculateLambdaColor(T x,T y)

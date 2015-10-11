@@ -53,7 +53,9 @@ int main(int argc, char **argv)
                 if(tri->calculate(x,y))
                 {
 
-                    file->setPixel(tri->calculateLambdaColor(x,y),x,y);
+                    file->setPixel(tri->calculateLambdaColor(x,y,Colour::Yellow,Colour::Black,Colour::White),x,y);
+                   // file->setPixel(tri->calculateLambdaColor(x,y),x,y);
+
 
                 }
 

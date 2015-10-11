@@ -14,6 +14,17 @@ public :
     T min();
     T max();
 
+    T  dotProduct(const Vector3<T>& p1, const Vector3<T>& p2);
+    Vector3<T> vecProduct(const Vector3<T>& p1, const Vector3<T>& p2);
+    Vector3<T> computeNormal(const Vector3<T>& p1, const Vector3<T>& p2);
+    T length();
+    T lengthSquared();
+    Vector3<T> cross(const Vector3<T>& v);
+    Vector3<T> reflect(const Vector3<T>&v);
+    Vector3<T> lerp(const Vector3<T>&v, const T f);
+    Vector3<T> normalizeProduct();
+    void normalize();
+
     // Member data
     T x;
     T y;
@@ -41,6 +52,12 @@ template <typename T>
 inline Vector3<T> operator -(const Vector3<T>& left)
 {
     return Vector3<T>(-left.x, -left.y, -left.z);
+}
+////////////////////////////////////////////////////////////
+template <typename T>
+inline Vector3<T> operator +(const Vector3<T>& left)
+{
+    return Vector3<T>(+left.x, +left.y, +left.z);
 }
 
 
@@ -90,8 +107,22 @@ inline Vector3<T> operator *(const Vector3<T>& left, T right)
 {
     return Vector3<T>(left.x * right, left.y * right, left.z * right);
 }
+////////////////////////////////////////////////////////////
+template <typename T>
+inline Vector3<T> operator *(const Vector3<T>& left, const Vector3<T>& right)
+{
+    return Vector3<T>(left.x * right.x, left.y * right.y, left.z * right.z);
+}
+////////////////////////////////////////////////////////////
+template <typename T>
+inline Vector3<T> operator *=(const Vector3<T>& left, const Vector3<T>& right)
+{
+    return Vector3<T>(    left.x *= right.x,
+                          left.y *= right.y,
+                          left.z *= right.z
 
-
+                     );
+}
 ////////////////////////////////////////////////////////////
 template <typename T>
 inline Vector3<T> operator *(T left, const Vector3<T>& right)
@@ -102,7 +133,7 @@ inline Vector3<T> operator *(T left, const Vector3<T>& right)
 
 ////////////////////////////////////////////////////////////
 template <typename T>
-inline Vector3<T>& operator *=(Vector3<T>& left, T right)
+inline Vector3<T>& operator *=(Vector3<T>& left, const T right)
 {
     left.x *= right;
     left.y *= right;
@@ -150,29 +181,102 @@ inline bool operator !=(const Vector3<T>& left, const Vector3<T>& right)
 template <typename T>
 T Vector3<T>::min()
 {
-    T smallest = std::numeric_limits<T>::max(); // Largest possible integer
-    // there are a number of ways to structure this loop, this is just one
-
-    smallest = std::min(smallest, x);
-    smallest = std::min(smallest, y);
-    smallest = std::min(smallest, z);
-
-
-    return smallest;
+    return  std::min({x,y,z});
 };
+///////////////////////////////////////////////////////////
 
-  template <typename T>
+template <typename T>
 T Vector3<T>::max()
+{
+    return  std::max({x,y,z});
+};
+///////////////////////////////////////////////////////////
+
+template <typename T>
+T Vector3<T>::dotProduct(const Vector3<T>& p1, const Vector3<T>& p2)
+{
+    return (p1.x*p2.x+p1.y*p2.y+p1.z*p2.z);
+}
+///////////////////////////////////////////////////////////
+
+template <typename T>
+Vector3<T> Vector3<T>::vecProduct(const Vector3<T>& p1, const Vector3<T>& p2)
+{
+    return Vector3<T>(p1.y*p2.z - p1.z-p2.y ,p1.z*p2.x - p1.x-p2.z,p1.x*p2.y - p1.y*p2.x);
+}
+///////////////////////////////////////////////////////////
+template <typename T>
+Vector3<T> Vector3<T>::computeNormal(const Vector3<T>& p1, const Vector3<T>& p2)
+{
+
+}
+///////////////////////////////////////////////////////////
+
+template <typename T>
+T Vector3<T>::length()
+{
+    return  (T)sqrt(pow(x,  2)+  pow(y,  2)+  pow(z, 2));
+}
+///////////////////////////////////////////////////////////
+
+template <typename T>
+T Vector3<T>::lengthSquared()
+{
+    return  (T)(pow(x,  2)+  pow(y,  2)+  pow(z, 2));
+}
+///////////////////////////////////////////////////////////
+
+template <typename T>
+Vector3<T> Vector3<T>::cross(const Vector3<T>& v)
+{
+
+    return  Vector3<T>(this.y * v.z - this.z * v.y, this.z * v.x - this.x * v.z, this.x * v.y - this.y * v.x);
+
+}
+///////////////////////////////////////////////////////////
+
+template <typename T>
+Vector3<T> Vector3<T>::reflect(const Vector3<T>& v)
+{
+    return this - (2 * this.dotProduct(v) *v);
+}
+///////////////////////////////////////////////////////////
+
+template <typename T>
+Vector3<T> Vector3<T>::lerp(const Vector3<T>& v, const T f)
+{
+
+    return Vector3<T>(
+               this.x + f * (v.x - this.x),
+               this.y + f * (v.y - this.y),
+               this.z + f * (v.z - this.z));
+
+}
+///////////////////////////////////////////////////////////
+template <typename T>
+Vector3<T> Vector3<T>::normalizeProduct()
+{
+    Vector3<T> newV=Vector3<T>(x,y,z);
+    d_type::Bfloat n = this.length();
+    if(n!=0)
     {
-        T greatest = std::numeric_limits<T>::max(); // Largest possible integer
-        // there are a number of ways to structure this loop, this is just one
+        newV/=n;
+        return newV;
+    }
+    else
+        return newV;// throw new Exception("Couldn't normalize");
+}
+///////////////////////////////////////////////////////////
+template <typename T>
+void Vector3<T>::normalize()
+{
+    d_type::Bfloat n = length();
+    if(n!=0)
+    {
+        this/=n;
+    }
+}
 
-        greatest = std::max(greatest, x);
-        greatest = std::max(greatest, y);
-        greatest = std::max(greatest, z);
-
-        return greatest;
-    };
 
 
 // Define the most common types

@@ -4,11 +4,11 @@
 
 class Primitive
 {
-    public:
-        Primitive();
-        virtual ~Primitive();
-    protected:
-    private:
+public:
+    Primitive();
+    virtual ~Primitive();
+protected:
+private:
 };
 
 #endif // PRIMITIVE_H

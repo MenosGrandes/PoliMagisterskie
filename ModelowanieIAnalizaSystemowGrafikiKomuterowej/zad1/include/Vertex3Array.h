@@ -4,11 +4,11 @@
 
 class Vertex3Array
 {
-    public:
-        Vertex3Array();
-        virtual ~Vertex3Array();
-    protected:
-    private:
+public:
+    Vertex3Array();
+    virtual ~Vertex3Array();
+protected:
+private:
 };
 
 #endif // VERTEX3ARRAY_H

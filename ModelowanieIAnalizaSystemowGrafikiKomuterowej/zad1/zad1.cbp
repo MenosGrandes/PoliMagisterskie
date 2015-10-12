@@ -5,7 +5,7 @@
 		<Option title="zad1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="RenderTarget/;Drawable/;Drawable/Interface/;Types/;Algorithms/;Drawable/Primitives/;Types/Vertex/;Types/Vector/;Types/Matrix/;Types/Vertex/VertexArray/;" />
+		<Option virtualFolders="RenderTarget/;Drawable/;Drawable/Interface/;Types/;Algorithms/;Drawable/Primitives/;Types/Vertex/;Types/Vector/;Types/Matrix/;Types/Vertex/VertexArray/;Types/Ray/;Types/Ray/Raycastable/;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/zad1" prefix_auto="1" extension_auto="1" />
@@ -34,7 +34,7 @@
 			</Target>
 		</Build>
 		<Compiler>
-			<Add option="-Wall" />
+			<Add option="-std=c++11" />
 		</Compiler>
 		<Unit filename="include/Colour.h">
 			<Option virtualFolder="Types/" />
@@ -48,14 +48,26 @@
 		<Unit filename="include/Matrix4.h">
 			<Option virtualFolder="Types/Matrix/" />
 		</Unit>
+		<Unit filename="include/Plane.h">
+			<Option virtualFolder="Types/Ray/Raycastable/" />
+		</Unit>
 		<Unit filename="include/Primitive.h">
 			<Option virtualFolder="Drawable/Primitives/" />
 		</Unit>
 		<Unit filename="include/PrimitiveType.h">
 			<Option virtualFolder="Drawable/Primitives/" />
 		</Unit>
+		<Unit filename="include/Ray.h">
+			<Option virtualFolder="Types/Ray/" />
+		</Unit>
+		<Unit filename="include/Raycastable.h">
+			<Option virtualFolder="Types/Ray/Raycastable/" />
+		</Unit>
 		<Unit filename="include/RenderTarget.h">
 			<Option virtualFolder="RenderTarget/" />
+		</Unit>
+		<Unit filename="include/Sphere.h">
+			<Option virtualFolder="Types/Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="include/Triangle.h">
 			<Option virtualFolder="Drawable/" />
@@ -94,11 +106,20 @@
 		<Unit filename="src/Matrix4.cpp">
 			<Option virtualFolder="Types/Matrix/" />
 		</Unit>
+		<Unit filename="src/Plane.cpp">
+			<Option virtualFolder="Types/Ray/Raycastable/" />
+		</Unit>
 		<Unit filename="src/Primitive.cpp">
 			<Option virtualFolder="Drawable/Primitives/" />
 		</Unit>
+		<Unit filename="src/Ray.cpp">
+			<Option virtualFolder="Types/Ray/" />
+		</Unit>
 		<Unit filename="src/RenderTarget.cpp">
 			<Option virtualFolder="RenderTarget/" />
+		</Unit>
+		<Unit filename="src/Sphere.cpp">
+			<Option virtualFolder="Types/Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="src/Triangle.cpp">
 			<Option virtualFolder="Drawable/" />

@@ -37,6 +37,14 @@ template <typename T>
 Vector2<T> operator +(const Vector2<T>& left, const Vector2<T>& right);
 
 template <typename T>
+Vector2<T> operator +(const Vector2<T>& left, const T right);
+
+template <typename T>
+Vector2<T> operator +(const T right, const Vector2<T>& left);
+
+
+
+template <typename T>
 Vector2<T> operator -(const Vector2<T>& left, const Vector2<T>& right);
 
 template <typename T>

@@ -12,17 +12,17 @@ class Drawable;
 
 class RenderTarget
 {
-    public:
-        RenderTarget();
+public:
+    RenderTarget();
 
 
-        void draw(const Drawable& drawable);
-        void draw(const Vertex2<d_type::Bfloat>*,d_type::Bsize vertexCount,PrimitiveType type);
-        void clear(const Colour & color= Colour::White);
+    void draw(const Drawable& drawable);
+    void draw(const Vertex2<d_type::Bfloat>*,d_type::Bsize vertexCount,PrimitiveType type);
+    void clear(const Colour & color= Colour::White);
 
     //set Width of RenderTarget
     void setWidth(d_type::Bshort width);
-     //set height of RenderTarget
+    //set height of RenderTarget
     void setHeight(d_type::Bshort height);
     //get width
     d_type::Bshort getWidth();
@@ -39,19 +39,19 @@ class RenderTarget
 
 
 
-    protected:
-        RenderTarget(d_type::Bshort width, d_type::Bshort height);
-        RenderTarget(Vector2Bs size);
-        //convert 2D to 1D indexing
+protected:
+    RenderTarget(d_type::Bshort width, d_type::Bshort height);
+    RenderTarget(Vector2Bs size);
+    //convert 2D to 1D indexing
     d_type::Bint convert2dto1d(d_type::Bint x, d_type::Bint y);
     d_type::Bint convert2dto1d(Vector2Bi size);
 
-      //All pizels
+    //All pizels
     c::Colour *m_pixels;
     //Size of pizxel table, so size of picture
     Vector2Bs m_size;
 
-    private:
+private:
 
 };
 

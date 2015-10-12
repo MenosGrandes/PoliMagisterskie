@@ -53,7 +53,7 @@ struct Greatest
 
 
 
-         template <typename T>
+    template <typename T>
     T max(const T x,const T y,const T z)
     {
         T greatest = std::numeric_limits<T>::max(); // Largest possible integer

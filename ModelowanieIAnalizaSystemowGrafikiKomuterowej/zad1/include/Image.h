@@ -24,7 +24,7 @@ public:
 
     void draw();
     void draw(const Drawable& drawable);
-     void draw(const Vertex2<d_type::Bfloat>*,d_type::Bsize vertexCount,PrimitiveType type);
+    void draw(const Vertex2<d_type::Bfloat>*,d_type::Bsize vertexCount,PrimitiveType type);
 
 //General getters and setters
 

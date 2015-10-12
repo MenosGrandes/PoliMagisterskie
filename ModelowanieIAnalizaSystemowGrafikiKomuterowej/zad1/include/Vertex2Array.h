@@ -57,7 +57,7 @@ private:
     {
 
 
-std::cout<<"VERTEXARRAY DRAWABLE " << m_vertices.size()<<" \n";
+        std::cout<<"VERTEXARRAY DRAWABLE " << m_vertices.size()<<" \n";
         if(!m_vertices.empty())
         {
             target.draw(&m_vertices[0],m_vertices.size(),m_primitiveType);

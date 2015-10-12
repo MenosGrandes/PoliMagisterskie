@@ -36,14 +36,17 @@ public :
 
     }
 
-    Triangle() :first(),second(),third() {  m_points.append(Vertex2<d_type::Bfloat>());
-    m_points.append(Vertex2<d_type::Bfloat>());
-    m_points.append(Vertex2<d_type::Bfloat>());
-    m_points.append(Vertex2<d_type::Bfloat>());
-    m_points.append(Vertex2<d_type::Bfloat>());
-    m_points.append(Vertex2<d_type::Bfloat>());
-    m_points.append(Vertex2<d_type::Bfloat>());
-    std::cout<<"asdsadsa\n";};
+    Triangle() :first(),second(),third()
+    {
+        m_points.append(Vertex2<d_type::Bfloat>());
+        m_points.append(Vertex2<d_type::Bfloat>());
+        m_points.append(Vertex2<d_type::Bfloat>());
+        m_points.append(Vertex2<d_type::Bfloat>());
+        m_points.append(Vertex2<d_type::Bfloat>());
+        m_points.append(Vertex2<d_type::Bfloat>());
+        m_points.append(Vertex2<d_type::Bfloat>());
+        std::cout<<"asdsadsa\n";
+    };
 
     BBool calculate(Vector2<T> current)
     {
@@ -63,39 +66,39 @@ public :
         if(topLeft.x && topLeft.y &&!topLeft.z)
         {
             return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>0)
-                   &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>0)
-                   &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>=0);
+                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>0)
+                     &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>=0);
         }
         else if(topLeft.x && !topLeft.y&&!topLeft.z)
         {
             return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>0)
-                   &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>=0)
-                   &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>=0);
+                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>=0)
+                     &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>=0);
         }
         else if (topLeft.y && !topLeft.x&&!topLeft.z)
         {
             return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>=0)
-                   &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>0)
-                   &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>=0);
+                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>0)
+                     &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>=0);
         }
         else if (topLeft.y && topLeft.z && !topLeft.x)
         {
             return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>=0)
-                   &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>0)
-                   &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>0);
+                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>0)
+                     &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>0);
         }
         else  if(topLeft.z && !topLeft.y && !topLeft.x)
 
         {
             return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>=0)
-                   &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>=0)
-                   &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>0);
+                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>=0)
+                     &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>0);
         }
         else if (topLeft.z && topLeft.x && !topLeft.y)
         {
             return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>0)
-                   &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>=0)
-                   &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>0);
+                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>=0)
+                     &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>0);
         }
         return false;
 
@@ -133,10 +136,11 @@ public :
     Vector4<T> rect;
 private :
 
-virtual void draw(RenderTarget& target) const{
+    virtual void draw(RenderTarget& target) const
+    {
 
-target.draw(m_points);
-};
+        target.draw(m_points);
+    };
 
     Vector3<T> dx;
     Vector3<T> dy;

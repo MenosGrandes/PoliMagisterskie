@@ -5,9 +5,9 @@ class RenderTarget;
 class Drawable
 {
 
-    public:
-        virtual ~Drawable() {}
-   friend class RenderTarget;
+public:
+    virtual ~Drawable() {}
+    friend class RenderTarget;
     virtual void draw(RenderTarget & target) const = 0;
 
 

@@ -8,16 +8,52 @@
 #include <limits>
 
 
+//#define RENDERER
+#define FOTO
+
+
 using namespace d_type;
 using namespace c;
 
+#ifdef FOTO
+#include <Sphere.h>
 
+#else
+
+#endif // FOTO
 
 
 
 
 int main(int argc, char **argv)
 {
+#ifdef FOTO
+    Sphere s= Sphere(Vector3Bf(),10);
+    Ray r1=Ray(Vector3Bf(0,0,-20),s.getCenter());
+    Ray r2=Ray(r1.getOrigin(),r1.getOrigin());
+    Ray r3=Ray(r1.getOrigin(),Vector3Bf(0,0,20));
+
+
+
+
+
+Bfloat i=11;
+        std::cout<<s.intersect(r1,i)<<" -> ";
+         Vector3Bf pos=r1.getOrigin()+i;
+         std::cout<<"PUNKT PRZECIECIA :"<<pos.x<<" "<<pos.y<<" "<<pos.z<<"\n";
+i=11;
+        std::cout<<s.intersect(r2,i)<<" -> ";
+         pos=r2.getOrigin()+i;
+         std::cout<<"PUNKT PRZECIECIA :"<<pos.x<<" "<<pos.y<<" "<<pos.z;
+        //std::cout<<s.intersect(r3,i);
+
+        std::cout<<"\n";
+
+
+
+#else
+
+
 
     TriangleFloat t= TriangleFloat();
 
@@ -54,7 +90,7 @@ int main(int argc, char **argv)
                 {
 
                     file->setPixel(tri->calculateLambdaColor(x,y,Colour::Yellow,Colour::Black,Colour::White),x,y);
-                   // file->setPixel(tri->calculateLambdaColor(x,y),x,y);
+                    // file->setPixel(tri->calculateLambdaColor(x,y),x,y);
 
 
                 }
@@ -71,5 +107,6 @@ int main(int argc, char **argv)
         delete triangleArray[i];
     }
     delete file;
+#endif // FOTO
     return 0;
 }

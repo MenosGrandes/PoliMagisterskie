@@ -12,7 +12,7 @@ public:
     Matrix4(Vector4<T> a1,Vector4<T> a2,Vector4<T> a3,Vector4<T> a4);
     const static Matrix4<T> Identity;//=Matrix4<T>(0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 
-T data[16];
+    T data[16];
 
 
 };
@@ -48,22 +48,23 @@ inline Matrix4<T>::Matrix4(T a,T a2,T a3,T a4,T a5,T a6,T a7,T a8,T a9,T a10,T a
     data[14]=(a15);
     data[15]=(a16);
 }
-    template <typename T>
-    inline std::ostream& operator<< (std::ostream& stream, const Matrix4<T>& matrix)
+template <typename T>
+inline std::ostream& operator<< (std::ostream& stream, const Matrix4<T>& matrix)
+{
+    for(d_type::Buint x=0; x<4; x++)
     {
-        for(d_type::Buint x=0; x<4; x++)
-        {   stream<<"\n";
-            for(d_type::Buint y=0; y<4; y++)
-            {
+        stream<<"\n";
+        for(d_type::Buint y=0; y<4; y++)
+        {
             stream<<matrix.data[4*x+y]<<" ";
-            }
         }
-        return stream;
     }
-    template <typename T>
-    inline Matrix4<T>& operator *=( Matrix4<T> matrix, const Vector4<T>& vector)
-    {
-        Matrix4<T> temp=Matrix4<T>::Identity;
+    return stream;
+}
+template <typename T>
+inline Matrix4<T>& operator *=( Matrix4<T> matrix, const Vector4<T>& vector)
+{
+    Matrix4<T> temp=Matrix4<T>::Identity;
 //        for(Buint = 0 ; m_x<4; m_x++)
 //        {
 //            for(Buint = 0 ; m_y<4; m_y++)
@@ -77,7 +78,7 @@ inline Matrix4<T>::Matrix4(T a,T a2,T a3,T a4,T a5,T a6,T a7,T a8,T a9,T a10,T a
 
 
 
-        return temp;
-    }
+    return temp;
+}
 
 #endif // MATRIX4_H

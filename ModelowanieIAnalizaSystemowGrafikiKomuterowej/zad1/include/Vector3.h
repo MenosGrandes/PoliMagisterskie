@@ -59,8 +59,18 @@ inline Vector3<T> operator +(const Vector3<T>& left)
 {
     return Vector3<T>(+left.x, +left.y, +left.z);
 }
-
-
+///////////////////////////////////////////////////////////
+template <typename T>
+inline Vector3<T> operator +(const Vector3<T>& left, const T & right)
+{
+    return Vector3<T>(left.x+right, left.y+right, left.z+right);
+}
+////////////////////////////////////////////////////////////
+template <typename T>
+inline Vector3<T> operator +(const T& right,const Vector3<T>& left)
+{
+    return Vector3<T>(left.x+right, left.y+right, left.z+right);
+}
 ////////////////////////////////////////////////////////////
 template <typename T>
 inline Vector3<T>& operator +=(Vector3<T>& left, const Vector3<T>& right)
@@ -195,7 +205,7 @@ T Vector3<T>::max()
 template <typename T>
 T Vector3<T>::dotProduct(const Vector3<T>& p1, const Vector3<T>& p2)
 {
-    return (p1.x*p2.x+p1.y*p2.y+p1.z*p2.z);
+    return (p1.x*p2.x + p1.y*p2.y + p1.z*p2.z);
 }
 ///////////////////////////////////////////////////////////
 

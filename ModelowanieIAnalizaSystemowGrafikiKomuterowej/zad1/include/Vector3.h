@@ -24,9 +24,11 @@ public :
     Vector3<T> lerp(const Vector3<T>&v, const T f);
     Vector3<T> normalizeProduct();
     void normalize();
-    T x; ///< X coordinate of the vector
-    T y; ///< Y coordinate of the vector
-    T z; ///< Z coordinate of the vector
+    union {
+    struct {T x, y, z;};
+    struct {T r, g, b;};
+    };
+
 };
 
 
@@ -292,4 +294,6 @@ typedef Vector3<Bint>   Vector3Bi;
 typedef Vector3<Bfloat> Vector3Bf;
 typedef Vector3<BBool> Vector3Bb;
 typedef Vector3<Bdouble> Vector3Bd;
+typedef Vector3<Bubyte> Vector3Bub;
+
 #endif // VECTOR3_H

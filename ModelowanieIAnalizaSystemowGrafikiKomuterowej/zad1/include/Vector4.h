@@ -15,12 +15,20 @@ public:
     explicit Vector4(const Vector4<U>& vector);
     T min();
     T max();
+    static T dotProduct(const Vector4<T>& p1, const Vector4<T>& p2);
+
+
+
     T x; ///< X coordinate of the vector
     T y; ///< Y coordinate of the vector
     T z; ///< Z coordinate of the vector
     T w; ///< W coordinate of the vector / depth
 };
-
+template <typename T>
+T Vector4<T>::dotProduct(const Vector4<T>& p1, const Vector4<T>& p2)
+{
+    return (p1.x*p2.x + p1.y*p2.y + p1.z*p2.z + p1.w*p2.w );
+}
 
 template <typename T>
 inline Vector4<T>::Vector4() :x(),y(),z(),w() {}
@@ -62,7 +70,13 @@ inline Vector4<T>& operator +=(Vector4<T>& left, const Vector4<T>& right)
     return left;
 }
 
+template <typename T>
+inline std::ostream& operator<< (std::ostream& stream, const Vector4<T>& v)
+{
+    stream<<v.x<<" "<<v.y<<" "<<v.z<<" "<<v.w<<"\n";
 
+    return stream;
+}
 
 template <typename T>
 inline Vector4<T>& operator -=(Vector4<T>& left, const Vector4<T>& right)
@@ -146,13 +160,7 @@ inline bool operator ==(const Vector4<T>& left, const Vector4<T>& right)
     return (left.x == right.x) && (left.y == right.y) && (left.z == right.z) && (left.w == right.w);
 }
 
-template <typename T>
-inline std::ostream& operator<< (std::ostream& stream, const Vector4<T>& v)
-{
 
-    stream<<v.x<<" "<<v.y<<" "<<v.z<<" "<<v.w<<"\n";
-    return stream;
-}
 
 template <typename T>
 inline bool operator !=(const Vector4<T>& left, const Vector4<T>& right)

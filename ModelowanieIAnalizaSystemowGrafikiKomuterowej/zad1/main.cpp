@@ -54,17 +54,19 @@ i=11;
 #else
 
 Matrix4Bfloat m= Matrix4Bfloat(3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);
-Matrix4Bfloat m2= Matrix4Bfloat(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
-Matrix4Bfloat m3= Matrix4Bfloat(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+Matrix4Bfloat m2= Matrix4Bfloat(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
+Matrix4Bfloat m3= Matrix4Bfloat(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
+Vector4Bf v=Vector4Bf(1,2,3,4);
 
-m3=m*m2;
-//std::cout<<-m3;
 //m3=-m3;
 //std::cout<<+m3;
 
 
  std::chrono::time_point<std::chrono::system_clock> start, end;
     start = std::chrono::system_clock::now();
+
+
+
 
     std::array<TriangleFloat*,2> triangleArray;
     TriangleFloat *triangle= new TriangleFloat(Vector3Bf(-0.5f,-0.5f,-0.5),Vector3Bf(-0.5f,0.4f,1),Vector3Bf(0.1f,-0.5f,-0.5f));

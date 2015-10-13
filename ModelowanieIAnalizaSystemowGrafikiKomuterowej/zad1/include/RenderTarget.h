@@ -1,23 +1,20 @@
 #ifndef RENDERTARGET_H
 #define RENDERTARGET_H
-#include "PrimitiveType.h"
-#include "Vertex2.h"
-#include "Vertex3.h"
-#include "Drawable.h"
+#include "Triangle.h"
 
-#include "iostream"
+#include <iostream>
+#include <fstream>
 using namespace c;
 
-class Drawable;
 
 class RenderTarget
 {
 public:
     RenderTarget();
-
-
-    void draw(const Drawable& drawable);
-    void draw(const Vertex2<d_type::Bfloat>*,d_type::Bsize vertexCount,PrimitiveType type);
+    ~RenderTarget();
+    void draw();
+    void draw( TriangleFloat& drawable);
+    void drawToFile( std::string m_filename);
     void clear(const Colour & color= Colour::White);
 
     //set Width of RenderTarget
@@ -39,19 +36,23 @@ public:
 
 
 
-protected:
+
     RenderTarget(d_type::Bshort width, d_type::Bshort height);
     RenderTarget(Vector2Bs size);
+    private:
     //convert 2D to 1D indexing
     d_type::Bint convert2dto1d(d_type::Bint x, d_type::Bint y);
     d_type::Bint convert2dto1d(Vector2Bi size);
 
-    //All pizels
+    //ColorBuffer
     c::Colour *m_pixels;
+    //DepthBuffer
+    d_type::Buint * depthBuffer;
     //Size of pizxel table, so size of picture
     Vector2Bs m_size;
 
-private:
+
+
 
 };
 

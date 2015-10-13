@@ -8,8 +8,8 @@
 #include <limits>
 
 
-//#define RENDERER
-#define FOTO
+#define RENDERER
+//#define FOTO
 
 
 using namespace d_type;
@@ -66,42 +66,14 @@ i=11;
     triangleArray[1]=triangle2;
     //declare image
     Vector2Bs img_size=Vector2Bs(300,300);
-    TGAImage *file = new TGAImage(img_size,"file.tga");
+    RenderTarget *file = new RenderTarget(img_size);
 
 
-    triangle2->rect.x=std::max(triangle2->rect.x,0.f);
-    triangle2->rect.y=std::min(triangle2->rect.y,static_cast<Bfloat>(img_size.x-1));
-    triangle2->rect.z=std::max(triangle2->rect.z,0.f);
-    triangle2->rect.w=std::min(triangle2->rect.w,static_cast<Bfloat>(img_size.y-1));
 
-    triangle->rect.x=std::max(triangle->rect.x,0.f);
-    triangle->rect.y=std::min(triangle->rect.y,static_cast<Bfloat>(img_size.x-1));
-    triangle->rect.z=std::max(triangle->rect.z,0.f);
-    triangle->rect.w=std::min(triangle->rect.w,static_cast<Bfloat>(img_size.y-1));
-
-
-    for(TriangleFloat *tri : triangleArray)
-    {
-        for(Bfloat x =tri->rect.x; x<tri->rect.y; x++)
-        {
-            for(Bfloat y=tri->rect.z; y<tri->rect.w; y++)
-            {
-                if(tri->calculate(x,y))
-                {
-
-                    file->setPixel(tri->calculateLambdaColor(x,y,Colour::Yellow,Colour::Black,Colour::White),x,y);
-                    // file->setPixel(tri->calculateLambdaColor(x,y),x,y);
-
-
-                }
-
-            }
-        }
-
-    }
     //file->draw(t);
-    file->draw();
-
+    file->draw(*triangle);
+    file->draw(*triangle2);
+    file->drawToFile("file.tga");
     for(Bsize i=0; i<triangleArray.size(); i++)
     {
         delete triangleArray[i];

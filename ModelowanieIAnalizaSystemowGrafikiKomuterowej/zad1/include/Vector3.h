@@ -25,10 +25,9 @@ public :
     Vector3<T> normalizeProduct();
     void normalize();
 
-    // Member data
-    T x;
-    T y;
-    T z;
+    T x; ///< X coordinate of the vector
+    T y; ///< Y coordinate of the vector
+    T z; ///< Z coordinate of the vector
 };
 
 

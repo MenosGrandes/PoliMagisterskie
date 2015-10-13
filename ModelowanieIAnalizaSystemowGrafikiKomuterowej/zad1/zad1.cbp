@@ -5,7 +5,7 @@
 		<Option title="zad1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="RenderTarget/;Drawable/;Drawable/Interface/;Types/;Algorithms/;Drawable/Primitives/;Types/Vertex/;Types/Vector/;Types/Matrix/;Types/Vertex/VertexArray/;Types/Ray/;Types/Ray/Raycastable/;" />
+		<Option virtualFolders="RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Types\Ray\;Types\Ray\Raycastable\;Triangle\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/zad1" prefix_auto="1" extension_auto="1" />
@@ -39,23 +39,11 @@
 		<Unit filename="include/Colour.h">
 			<Option virtualFolder="Types/" />
 		</Unit>
-		<Unit filename="include/Drawable.h">
-			<Option virtualFolder="Drawable/Interface/" />
-		</Unit>
-		<Unit filename="include/Image.h">
-			<Option virtualFolder="RenderTarget/" />
-		</Unit>
 		<Unit filename="include/Matrix4.h">
 			<Option virtualFolder="Types/Matrix/" />
 		</Unit>
 		<Unit filename="include/Plane.h">
 			<Option virtualFolder="Types/Ray/Raycastable/" />
-		</Unit>
-		<Unit filename="include/Primitive.h">
-			<Option virtualFolder="Drawable/Primitives/" />
-		</Unit>
-		<Unit filename="include/PrimitiveType.h">
-			<Option virtualFolder="Drawable/Primitives/" />
 		</Unit>
 		<Unit filename="include/Ray.h">
 			<Option virtualFolder="Types/Ray/" />
@@ -70,7 +58,7 @@
 			<Option virtualFolder="Types/Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="include/Triangle.h">
-			<Option virtualFolder="Drawable/" />
+			<Option virtualFolder="Triangle/" />
 		</Unit>
 		<Unit filename="include/Vector2.h">
 			<Option virtualFolder="Types/Vector/" />
@@ -84,14 +72,8 @@
 		<Unit filename="include/Vertex2.h">
 			<Option virtualFolder="Types/Vertex/" />
 		</Unit>
-		<Unit filename="include/Vertex2Array.h">
-			<Option virtualFolder="Types/Vertex/VertexArray/" />
-		</Unit>
 		<Unit filename="include/Vertex3.h">
 			<Option virtualFolder="Types/Vertex/" />
-		</Unit>
-		<Unit filename="include/Vertex3Array.h">
-			<Option virtualFolder="Types/Vertex/VertexArray/" />
 		</Unit>
 		<Unit filename="include/structs.hpp">
 			<Option virtualFolder="Types/" />
@@ -100,17 +82,11 @@
 		<Unit filename="src/Colour.cpp">
 			<Option virtualFolder="Types/" />
 		</Unit>
-		<Unit filename="src/Image.cpp">
-			<Option virtualFolder="RenderTarget/" />
-		</Unit>
 		<Unit filename="src/Matrix4.cpp">
 			<Option virtualFolder="Types/Matrix/" />
 		</Unit>
 		<Unit filename="src/Plane.cpp">
 			<Option virtualFolder="Types/Ray/Raycastable/" />
-		</Unit>
-		<Unit filename="src/Primitive.cpp">
-			<Option virtualFolder="Drawable/Primitives/" />
 		</Unit>
 		<Unit filename="src/Ray.cpp">
 			<Option virtualFolder="Types/Ray/" />
@@ -122,7 +98,7 @@
 			<Option virtualFolder="Types/Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="src/Triangle.cpp">
-			<Option virtualFolder="Drawable/" />
+			<Option virtualFolder="Triangle/" />
 		</Unit>
 		<Unit filename="src/algorithms.hpp">
 			<Option virtualFolder="Algorithms/" />
@@ -130,6 +106,7 @@
 		<Extensions>
 			<code_completion />
 			<debugger />
+			<envvars />
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

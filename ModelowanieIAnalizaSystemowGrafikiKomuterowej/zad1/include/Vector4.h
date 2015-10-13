@@ -163,28 +163,13 @@ inline bool operator !=(const Vector4<T>& left, const Vector4<T>& right)
 template <typename T>
 T Vector4<T>::max()
 {
-    T greatest = std::numeric_limits<T>::max(); // Largest possible integer
     // there are a number of ways to structure this loop, this is just one
-
-    greatest = std::max(greatest, x);
-    greatest = std::max(greatest, y);
-    greatest = std::max(greatest, z);
-    greatest = std::max(greatest, w);
-
-    return greatest;
+    return std::max({x,y,z,w});;
 };
 template <typename T>
 T Vector4<T>::min()
 {
-    T smallest = std::numeric_limits<T>::max(); // Largest possible integer
-    // there are a number of ways to structure this loop, this is just one
-
-    smallest = std::min(smallest, x);
-    smallest = std::min(smallest, y);
-    smallest = std::min(smallest, z);
-    smallest = std::min(smallest, w);
-
-    return smallest;
+        return std::min({x,y,z,w});;
 };
 
 

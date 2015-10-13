@@ -7,6 +7,10 @@ RenderTarget::RenderTarget(d_type::Bshort width, d_type::Bshort height)
     m_pixels = new c::Colour[getSizePixels()];
 }
 
+RenderTarget::~RenderTarget()
+{
+    delete m_pixels;
+}
 
 RenderTarget::RenderTarget(Vector2Bs size):m_size(size)
 {
@@ -65,16 +69,86 @@ d_type::Bint RenderTarget::getSizePixels()
     return m_size.x * m_size.y;
 }
 
-void RenderTarget::draw(const Drawable& drawable)
+void RenderTarget::draw( TriangleFloat& triangle)
 {
-    std::cout<<"RenderTargetDrawDrawable\n";
+    std::cout<<"RenderTargetDrawTriangle\n";
 
-    drawable.draw(*this);
+//    triangle.first.x=(triangle.first.x+1)*m_size.x*0.5f;
+//    triangle.first.y=(triangle.first.y+1)*m_size.y*0.5f;
+//
+//    triangle.second.x=(triangle.second.x+1)*m_size.x*0.5f;
+//    triangle.second.y=(triangle.second.y+1)*m_size.y*0.5f;
+//
+//    triangle.third.x=(triangle.third.x+1)*m_size.x*0.5f;
+//    triangle.third.y=(triangle.third.y+1)*m_size.y*0.5f;
+
+
+
+    triangle.rect.x=std::max(triangle.rect.x,0.f);
+    triangle.rect.y=std::min(triangle.rect.y,static_cast<Bfloat>(m_size.x-1));
+    triangle.rect.z=std::max(triangle.rect.z,0.f);
+    triangle.rect.w=std::min(triangle.rect.w,static_cast<Bfloat>(m_size.y-1));
+
+
+
+    for(Bfloat x =triangle.rect.x; x<triangle.rect.y; x++)
+    {
+        for(Bfloat y=triangle.rect.z; y<triangle.rect.w; y++)
+        {
+            if(triangle.calculate(x,y))
+            {
+                setPixel(triangle.calculateLambdaColor(x,y),x,y);
+            }
+
+        }
+
+
+    }
 
 }
-void RenderTarget::draw(const Vertex2<d_type::Bfloat>*, d_type::Bsize vertexCount, PrimitiveType type)
+
+void RenderTarget::drawToFile(std::string m_filename)
 {
-    std::cout<<"RenderTargetDrawVertex\n";
+     //Error checking
+    if (m_size.x <= 0 || m_size.y <= 0)
+    {
+        std::cout << "Image size is not set properly\n";
+        return;
+    }
+
+    std::ofstream o(m_filename.c_str(), std::ios::out | std::ios::binary);
+
+    //Write the header
+    o.put(0);
+    o.put(0);
+    o.put(2);                         /* uncompressed RGB */
+    o.put(0);
+    o.put(0);
+    o.put(0);
+    o.put(0);
+    o.put(0);
+    o.put(0);
+    o.put(0);           /* X origin */
+    o.put(0);
+    o.put(0);           /* y origin */
+    o.put((m_size.x  & 0x00FF));
+    o.put((m_size.x & 0xFF00) / 256);
+    o.put((m_size.y  & 0x00FF));
+    o.put((m_size.y  & 0xFF00) / 256);
+    o.put(32);                        /* 24 bit bitmap */
+    o.put(0);
+
+    //Write the pixel data
+    for (d_type::Bint i=0; i<getSizePixels() ; i++)
+    {
+        o.put(m_pixels[i].b);
+        o.put(m_pixels[i].g);
+        o.put(m_pixels[i].r);
+        o.put(m_pixels[i].a);
+    }
+
+    //close the file
+    o.close();
 }
 
 void RenderTarget::clear(const Colour& color)

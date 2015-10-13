@@ -2,14 +2,13 @@
 #define TRIANGLE_H
 #include "Vector4.h"
 #include "Vector3.h"
-#include "Drawable.h"
-#include "Vertex2Array.h"
+#include "Colour.h"
 #include "../src/algorithms.hpp"
 #include <iostream>
 using namespace d_type;
 using namespace c;
 template <typename T>
-class Triangle : public Drawable
+class Triangle
 {
 public :
     Triangle(Vector2<T> first,Vector2<T> second,Vector2<T> third):first(first),second(second),third(third)
@@ -38,14 +37,7 @@ public :
 
     Triangle() :first(),second(),third()
     {
-        m_points.append(Vertex2<d_type::Bfloat>());
-        m_points.append(Vertex2<d_type::Bfloat>());
-        m_points.append(Vertex2<d_type::Bfloat>());
-        m_points.append(Vertex2<d_type::Bfloat>());
-        m_points.append(Vertex2<d_type::Bfloat>());
-        m_points.append(Vertex2<d_type::Bfloat>());
-        m_points.append(Vertex2<d_type::Bfloat>());
-        std::cout<<"asdsadsa\n";
+
     };
 
     BBool calculate(Vector2<T> current)
@@ -136,16 +128,11 @@ public :
     Vector4<T> rect;
 private :
 
-    virtual void draw(RenderTarget& target) const
-    {
 
-        target.draw(m_points);
-    };
 
     Vector3<T> dx;
     Vector3<T> dy;
     Vector3Bb topLeft;
-    Vertex2Array m_points;
 
 
 };

@@ -23,7 +23,7 @@ public:
 
 
 template <typename T>
-inline Vector4<T>::Vector4() :x(0),y(0),z(0),w(0) {}
+inline Vector4<T>::Vector4() :x(),y(),z(),w() {}
 
 
 

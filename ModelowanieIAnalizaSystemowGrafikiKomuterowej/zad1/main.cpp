@@ -1,12 +1,12 @@
-#include "Image.h"
 #include "Triangle.h"
 #include "Matrix4.h"
-
+#include "RenderTarget.h"
 #include <cstdio>
 #include <iostream>
 #include <array>
 #include <limits>
-
+#include <chrono>
+#include <ctime>
 
 #define RENDERER
 //#define FOTO
@@ -53,19 +53,37 @@ i=11;
 
 #else
 
+Matrix4Bfloat m= Matrix4Bfloat(3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);
+Matrix4Bfloat m2= Matrix4Bfloat(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
+Matrix4Bfloat m3= Matrix4Bfloat(1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+
+m3=m*m2;
+//std::cout<<-m3;
+//m3=-m3;
+//std::cout<<+m3;
 
 
-    TriangleFloat t= TriangleFloat();
-
-
+ std::chrono::time_point<std::chrono::system_clock> start, end;
+    start = std::chrono::system_clock::now();
 
     std::array<TriangleFloat*,2> triangleArray;
-    TriangleFloat *triangle= new TriangleFloat(Vector2Bf(50,50),Vector2Bf(50,100),Vector2Bf(100,50));
-    TriangleFloat *triangle2= new TriangleFloat(Vector2Bf(100,50),Vector2Bf(50,100),Vector2Bf(150,100));
+    TriangleFloat *triangle= new TriangleFloat(Vector3Bf(-0.5f,-0.5f,-0.5),Vector3Bf(-0.5f,0.4f,1),Vector3Bf(0.1f,-0.5f,-0.5f));
+    TriangleFloat *triangle2= new TriangleFloat(Vector3Bf(0.5f,0.5f,0),Vector3Bf(0.5f,-0.3f,1),Vector3Bf(-0.1f,0.5f,0));
     triangleArray[0]=triangle;
     triangleArray[1]=triangle2;
+
+
+
+
     //declare image
     Vector2Bs img_size=Vector2Bs(300,300);
+
+        for(Bsize i=0; i<triangleArray.size(); i++)
+    {
+        triangleArray[i]->init(img_size);
+    }
+
+
     RenderTarget *file = new RenderTarget(img_size);
 
 
@@ -73,12 +91,29 @@ i=11;
     //file->draw(t);
     file->draw(*triangle);
     file->draw(*triangle2);
+
+
+
+    end = std::chrono::system_clock::now();
+
+    std::chrono::duration<double> elapsed_seconds = end-start;
+    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
+
+    std::cout << "finished computation at " << std::ctime(&end_time)
+              << "elapsed time: " << elapsed_seconds.count() << "s\n";
+
     file->drawToFile("file.tga");
+
+
+    //file->getDepthBuffer();
+
     for(Bsize i=0; i<triangleArray.size(); i++)
     {
         delete triangleArray[i];
     }
     delete file;
 #endif // FOTO
+d_type::Bint a;
+std::cin>>a;
     return 0;
 }

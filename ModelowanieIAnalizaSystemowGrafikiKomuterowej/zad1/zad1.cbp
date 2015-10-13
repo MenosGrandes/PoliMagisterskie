@@ -24,7 +24,6 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
-					<Add option="-O2" />
 					<Add option="-std=c++11" />
 					<Add directory="include" />
 				</Compiler>
@@ -36,6 +35,9 @@
 		<Compiler>
 			<Add option="-std=c++11" />
 		</Compiler>
+		<Linker>
+			<Add option="-static-libgcc -static-libstdc++" />
+		</Linker>
 		<Unit filename="include/Colour.h">
 			<Option virtualFolder="Types/" />
 		</Unit>
@@ -75,6 +77,7 @@
 		<Unit filename="include/Vertex3.h">
 			<Option virtualFolder="Types/Vertex/" />
 		</Unit>
+		<Unit filename="include/VertexProcessor.h" />
 		<Unit filename="include/structs.hpp">
 			<Option virtualFolder="Types/" />
 		</Unit>
@@ -100,6 +103,7 @@
 		<Unit filename="src/Triangle.cpp">
 			<Option virtualFolder="Triangle/" />
 		</Unit>
+		<Unit filename="src/VertexProcessor.cpp" />
 		<Unit filename="src/algorithms.hpp">
 			<Option virtualFolder="Algorithms/" />
 		</Unit>

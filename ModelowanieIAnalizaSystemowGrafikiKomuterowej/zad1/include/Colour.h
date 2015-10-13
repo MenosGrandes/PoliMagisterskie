@@ -48,6 +48,11 @@ inline Colour operator *( const T left,const  Colour &right)
 
 }
 
+    struct ColorDepth
+    {
+        c::Colour color;
+        d_type::Bfloat depth;
+    };
 #endif // COLOUR_H
 
 

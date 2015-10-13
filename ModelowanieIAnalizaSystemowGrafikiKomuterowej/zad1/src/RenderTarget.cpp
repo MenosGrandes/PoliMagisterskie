@@ -5,6 +5,14 @@ RenderTarget::RenderTarget(d_type::Bshort width, d_type::Bshort height)
     m_size.x = width;
     m_size.y = height;
     m_pixels = new c::Colour[getSizePixels()];
+    m_dBuffer=new d_type::Bfloat[getSizePixels()];
+    for(d_type::Bint i=0; i<getSizePixels(); i++)
+    {
+        m_dBuffer[i]=100000.0f;
+
+    }
+
+
 }
 
 RenderTarget::~RenderTarget()
@@ -15,6 +23,12 @@ RenderTarget::~RenderTarget()
 RenderTarget::RenderTarget(Vector2Bs size):m_size(size)
 {
     m_pixels = new c::Colour[getSizePixels()];
+    m_dBuffer=new d_type::Bfloat[getSizePixels()];
+    for(d_type::Bint i=0; i<getSizePixels(); i++)
+    {
+        m_dBuffer[i]=100000.0f;
+
+    }
 }
 //Set all pixels at once
 void RenderTarget::setAllPixels(c::Colour *pixels)
@@ -23,11 +37,22 @@ void RenderTarget::setAllPixels(c::Colour *pixels)
 }
 
 //Set indivdual pixels
-void RenderTarget::setPixel(c::Colour inputcolor, d_type::Bint x, d_type::Bint y)
+void RenderTarget::setPixel(c::Colour inputcolor, const d_type::Bint &x, const d_type::Bint &y)
 {
     m_pixels[convert2dto1d(x,y)] = inputcolor;
 }
+void RenderTarget::setPixel(ColorDepth colorDepth, const d_type::Bint &x, const d_type::Bint &y)
+{
 
+//std::cout<<colorDepth.depth<<" "<<m_dBuffer[convert2dto1d(x,y)]<<"\n";
+    if(colorDepth.depth < m_dBuffer[convert2dto1d(x,y)])
+    {
+        m_pixels[convert2dto1d(x,y)] = colorDepth.color;
+        m_dBuffer[convert2dto1d(x,y)]= colorDepth.depth;
+    }
+
+
+}
 //Convert 2d array indexing to 1d indexing
 d_type::Bint RenderTarget::convert2dto1d(d_type::Bint x, d_type::Bint y)
 {
@@ -39,31 +64,31 @@ d_type::Bint RenderTarget::convert2dto1d(Vector2Bi size)
 }
 
 
-void RenderTarget::setWidth(d_type::Bshort width)
+void RenderTarget::setWidth(const d_type::Bshort &width)
 {
     m_size.x=width;
 }
 
-void RenderTarget::setHeight(d_type::Bshort height)
+void RenderTarget::setHeight(const d_type::Bshort &height)
 {
     m_size.y=height;
 }
 
-d_type::Bshort RenderTarget::getWidth()
+d_type::Bshort RenderTarget::getWidth() const
 {
     return m_size.x;
 }
 
-d_type::Bshort RenderTarget::getHeight()
+d_type::Bshort RenderTarget::getHeight() const
 {
     return m_size.y;
 }
 
-Vector2Bs RenderTarget::getSize()
+Vector2Bs RenderTarget::getSize() const
 {
     return m_size;
 }
-d_type::Bint RenderTarget::getSizePixels()
+d_type::Bint RenderTarget::getSizePixels() const
 {
 
     return m_size.x * m_size.y;
@@ -72,22 +97,8 @@ d_type::Bint RenderTarget::getSizePixels()
 void RenderTarget::draw( TriangleFloat& triangle)
 {
     std::cout<<"RenderTargetDrawTriangle\n";
+//KANONICZNA FORMA
 
-//    triangle.first.x=(triangle.first.x+1)*m_size.x*0.5f;
-//    triangle.first.y=(triangle.first.y+1)*m_size.y*0.5f;
-//
-//    triangle.second.x=(triangle.second.x+1)*m_size.x*0.5f;
-//    triangle.second.y=(triangle.second.y+1)*m_size.y*0.5f;
-//
-//    triangle.third.x=(triangle.third.x+1)*m_size.x*0.5f;
-//    triangle.third.y=(triangle.third.y+1)*m_size.y*0.5f;
-
-
-
-    triangle.rect.x=std::max(triangle.rect.x,0.f);
-    triangle.rect.y=std::min(triangle.rect.y,static_cast<Bfloat>(m_size.x-1));
-    triangle.rect.z=std::max(triangle.rect.z,0.f);
-    triangle.rect.w=std::min(triangle.rect.w,static_cast<Bfloat>(m_size.y-1));
 
 
 
@@ -97,7 +108,7 @@ void RenderTarget::draw( TriangleFloat& triangle)
         {
             if(triangle.calculate(x,y))
             {
-                setPixel(triangle.calculateLambdaColor(x,y),x,y);
+                setPixel(triangle.calculateLambdaColor(x,y,c::Colour::Green,c::Colour::Green,c::Colour::Green),x,y);
             }
 
         }
@@ -106,10 +117,20 @@ void RenderTarget::draw( TriangleFloat& triangle)
     }
 
 }
+d_type::Bfloat RenderTarget::getDepthBuffer() const
+{
+
+        for(d_type::Bint i=0;i<getSizePixels();i++)
+    {
+    std::cout<<m_dBuffer[i]<<"\n";
+
+    }
+    return 0.0f;
+}
 
 void RenderTarget::drawToFile(std::string m_filename)
 {
-     //Error checking
+    //Error checking
     if (m_size.x <= 0 || m_size.y <= 0)
     {
         std::cout << "Image size is not set properly\n";

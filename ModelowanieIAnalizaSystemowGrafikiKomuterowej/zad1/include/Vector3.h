@@ -24,7 +24,6 @@ public :
     Vector3<T> lerp(const Vector3<T>&v, const T f);
     Vector3<T> normalizeProduct();
     void normalize();
-
     T x; ///< X coordinate of the vector
     T y; ///< Y coordinate of the vector
     T z; ///< Z coordinate of the vector

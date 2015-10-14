@@ -28,9 +28,50 @@ void Sphere::setRadius(d_type::Buint radius)
 
 Buint Sphere::intersect(const Ray& ray, d_type::Bfloat &dist) const
 {
-    Vector3Bf v_tmp=ray.getOrigin() - m_center; // difference between origin of RAY and center of Sphere
-    d_type::Bfloat b= -(v_tmp.dotProduct(v_tmp,ray.getDirection())); // -
-    d_type::Bfloat det=( b*b )*(-v_tmp.dotProduct(v_tmp,v_tmp)) + (m_sqRadius); // b^2 - 4*a*c
+#define FTIMS_INTERSECTION
+#ifdef GLM_INTERSECTION
+
+    d_type::Bfloat Epsilon = std::numeric_limits<d_type::Bfloat>::epsilon();
+
+    Vector3Bf diff= m_center- ray.getOrigin(); // difference between origin of RAY and center of Sphere
+    d_type::Bfloat t0= (Vector3Bf::dotProduct(diff,ray.getNormalizedDirection())); // -
+    d_type::Bfloat dSquared = Vector3Bf::dotProduct(diff, diff) - (t0 * t0);
+    if( dSquared > m_sqRadius )
+    {
+        return false;
+    }
+    d_type::Bfloat t1 = sqrtf( m_sqRadius - dSquared );
+    dist = t0 > t1 + Epsilon ? t0 - t1 : t0 + t1;
+    return dist > Epsilon;
+#endif // GLM_INTERSECTION
+#ifdef DISCRIMINANTA_INTERSECTION
+
+    d_type::Bfloat a=Vector3Bf::dotProduct(ray.getDirectionMinusOrigin(),ray.getDirectionMinusOrigin());
+    d_type::Bfloat b=2*ray.getDirectionMinusOrigin().x*(ray.getDirection().x-m_center.x)+
+                     2*ray.getDirectionMinusOrigin().y*(ray.getDirection().y-m_center.y)+
+                     2*ray.getDirectionMinusOrigin().z*(ray.getDirection().z-m_center.z);
+
+    d_type::Bfloat c=Vector3Bf::dotProduct(m_center,m_center) +Vector3Bf::dotProduct(ray.getOrigin(),ray.getOrigin()) +( -2*(Vector3Bf::dotProduct(m_center,ray.getOrigin())));
+    d_type::Bfloat discriminanta =b*b - 4* a*c;
+
+    if(discriminanta<0)
+    {   dist=0;
+        return RAY_MISS;
+    }
+    else if (discriminanta==0)
+    {   dist=(-b-0)/(2*a);
+        return RAY_HIT_POINT;
+    }
+    else
+    {   dist=(-b-sqrtf(discriminanta))/(2*a);
+        return  RAY_HIT_POINTS;
+
+    }
+#endif // DISCRIMINANTA_INTERSECTION
+#ifdef FTIMS_INTERSECTION
+    Vector3Bf v_tmp=ray.getOrigin() - m_center; // (0,0,-20) - (0,0,0) = (0,0,-20) ||
+    d_type::Bfloat b= -(Vector3Bf::dotProduct(v_tmp,ray.getDirection())); // -(0,0,0) ||
+    d_type::Bfloat det=( b*b )-Vector3Bf::dotProduct(v_tmp,v_tmp) - (m_sqRadius); // (0*0)-(400) + 100 = -396.837708 ||
 
     if(det>0)
     {
@@ -57,13 +98,56 @@ Buint Sphere::intersect(const Ray& ray, d_type::Bfloat &dist) const
 
             }
         }
-
-
     }
     dist=0;
     return RAY_MISS;
 
 
+#endif // FTIMS_INTERSECTION
+#ifdef BLABLA_INTERSECTION
+const Vector displacement = vantage - Center();
+    const double a = direction.MagnitudeSquared();
+    const double b = 2.0 * DotProduct(direction, displacement);
+    const double c = displacement.MagnitudeSquared() - radius*radius;
 
+    // Calculate the radicand of the quadratic equation solution formula.
+    // The radicand must be non-negative for there to be real solutions.
+    const double radicand = b*b - 4.0*a*c;
+    if (radicand >= 0.0)
+    {
+        // There are two intersection solutions, one involving
+        // +sqrt(radicand), the other -sqrt(radicand).
+        // Check both because there are weird special cases,
+        // like the camera being inside the sphere,
+        // or the sphere being behind the camera (invisible).
+        const double root = sqrt(radicand);
+        const double denom = 2.0 * a;
+        const double u[2] = {
+            (-b + root) / denom,
+            (-b - root) / denom
+        };
+
+        for (int i=0; i < 2; ++i)
+        {
+            if (u[i] > EPSILON)
+            {
+                Intersection intersection;
+                const Vector vantageToSurface = u[i] * direction;
+                intersection.point = vantage + vantageToSurface;
+
+                // The normal vector to the surface of
+                // a sphere is outward from the center.
+                intersection.surfaceNormal =
+                    (intersection.point - Center()).UnitVector();
+
+                intersection.distanceSquared =
+                    vantageToSurface.MagnitudeSquared();
+
+                intersection.solid = this;
+                intersectionList.push_back(intersection);
+            }
+        }
+    }
+#endif // BLABLA_INTERSECTION
 
 }

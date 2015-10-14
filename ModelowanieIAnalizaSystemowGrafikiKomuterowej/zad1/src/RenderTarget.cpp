@@ -108,7 +108,7 @@ void RenderTarget::draw( TriangleFloat& triangle)
         {
             if(triangle.calculate(x,y))
             {
-                setPixel(triangle.calculateLambdaColor(x,y,c::Colour::Green,c::Colour::Green,c::Colour::Green),x,y);
+                setPixel(triangle.calculateLambdaColor(x,y),x,y);
             }
 
         }

@@ -7,9 +7,9 @@
 #include <limits>
 #include <chrono>
 #include <ctime>
-
-#define RENDERER
-//#define FOTO
+#include <vector>
+//#define RENDERER
+#define FOTO
 
 
 using namespace d_type;
@@ -28,26 +28,21 @@ using namespace c;
 int main(int argc, char **argv)
 {
 #ifdef FOTO
+
     Sphere s= Sphere(Vector3Bf(),10);
     Ray r1=Ray(Vector3Bf(0,0,-20),s.getCenter());
-    Ray r2=Ray(r1.getOrigin(),r1.getOrigin());
+
+
+    Ray r2=Ray(r1.getOrigin(),Vector3Bf(0,0,20));
     Ray r3=Ray(r1.getOrigin(),Vector3Bf(0,0,20));
+d_type::Bfloat i=100.f;
+std::cout<<s.intersect(r1,i)<<"\n";
 
+ i=1000.f;
+std::cout<<s.intersect(r2,i)<<"\n";
 
-
-
-
-Bfloat i=11;
-        std::cout<<s.intersect(r1,i)<<" -> ";
-         Vector3Bf pos=r1.getOrigin()+i;
-         std::cout<<"PUNKT PRZECIECIA :"<<pos.x<<" "<<pos.y<<" "<<pos.z<<"\n";
-i=11;
-        std::cout<<s.intersect(r2,i)<<" -> ";
-         pos=r2.getOrigin()+i;
-         std::cout<<"PUNKT PRZECIECIA :"<<pos.x<<" "<<pos.y<<" "<<pos.z;
-        //std::cout<<s.intersect(r3,i);
-
-        std::cout<<"\n";
+ i=1000.f;
+std::cout<<s.intersect(r3,i)<<"\n";
 
 
 
@@ -69,8 +64,8 @@ Vector4Bf v=Vector4Bf(1,2,3,4);
 
 
     std::array<TriangleFloat*,2> triangleArray;
-    TriangleFloat *triangle= new TriangleFloat(Vector3Bf(-0.5f,-0.5f,-0.5),Vector3Bf(-0.5f,0.4f,1),Vector3Bf(0.1f,-0.5f,-0.5f));
-    TriangleFloat *triangle2= new TriangleFloat(Vector3Bf(0.5f,0.5f,0),Vector3Bf(0.5f,-0.3f,1),Vector3Bf(-0.1f,0.5f,0));
+    TriangleFloat *triangle= new TriangleFloat(Vector3Bf(-0.5f,-0.5f,2.0),Vector3Bf(-0.5f,0.1f,5),Vector3Bf(0.1f,-0.5f,1.0f));
+    TriangleFloat *triangle2= new TriangleFloat(Vector3Bf(0,-0.1f,3),Vector3Bf(-0.4f,-0.8f,10),Vector3Bf(-0.5f,0.1f,0));
     triangleArray[0]=triangle;
     triangleArray[1]=triangle2;
 

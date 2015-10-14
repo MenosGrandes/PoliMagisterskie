@@ -5,7 +5,7 @@
 		<Option title="zad1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Types\Ray\;Types\Ray\Raycastable\;Triangle\;" />
+		<Option virtualFolders="Ray\;RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Ray\Raycastable\;Triangle\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/zad1" prefix_auto="1" extension_auto="1" />
@@ -45,19 +45,19 @@
 			<Option virtualFolder="Types/Matrix/" />
 		</Unit>
 		<Unit filename="include/Plane.h">
-			<Option virtualFolder="Types/Ray/Raycastable/" />
+			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="include/Ray.h">
-			<Option virtualFolder="Types/Ray/" />
+			<Option virtualFolder="Ray/" />
 		</Unit>
 		<Unit filename="include/Raycastable.h">
-			<Option virtualFolder="Types/Ray/Raycastable/" />
+			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="include/RenderTarget.h">
 			<Option virtualFolder="RenderTarget/" />
 		</Unit>
 		<Unit filename="include/Sphere.h">
-			<Option virtualFolder="Types/Ray/Raycastable/" />
+			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="include/Triangle.h">
 			<Option virtualFolder="Triangle/" />
@@ -89,16 +89,16 @@
 			<Option virtualFolder="Types/Matrix/" />
 		</Unit>
 		<Unit filename="src/Plane.cpp">
-			<Option virtualFolder="Types/Ray/Raycastable/" />
+			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="src/Ray.cpp">
-			<Option virtualFolder="Types/Ray/" />
+			<Option virtualFolder="Ray/" />
 		</Unit>
 		<Unit filename="src/RenderTarget.cpp">
 			<Option virtualFolder="RenderTarget/" />
 		</Unit>
 		<Unit filename="src/Sphere.cpp">
-			<Option virtualFolder="Types/Ray/Raycastable/" />
+			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="src/Triangle.cpp">
 			<Option virtualFolder="Triangle/" />

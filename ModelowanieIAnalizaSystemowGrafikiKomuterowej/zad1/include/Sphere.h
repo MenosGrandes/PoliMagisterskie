@@ -1,6 +1,7 @@
 #ifndef SPHERE_H
 #define SPHERE_H
 #include "Raycastable.h"
+#include <iostream>
 class Sphere : public Raycastable
 {
 public:
@@ -20,7 +21,7 @@ private:
     //MEMBERS
     Vector3Bf m_center;
     d_type::Buint m_radius;
-    d_type::Buint m_sqRadius;
+    d_type::Bfloat m_sqRadius;
 
 };
 

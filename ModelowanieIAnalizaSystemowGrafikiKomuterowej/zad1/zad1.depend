@@ -284,7 +284,7 @@
 1444737088 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector2.h
 	"structs.hpp"
 
-1444774469 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector3.h
+1444817182 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector3.h
 	"structs.hpp"
 
 1444737598 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\image.cpp
@@ -344,7 +344,7 @@
 1444677390 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raycastable.h
 	"Ray.h"
 
-1444677390 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ray.h
+1444837353 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ray.h
 	"Vector3.h"
 
 1444677390 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\primitive.cpp
@@ -352,14 +352,15 @@
 1444677390 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ray.cpp
 	"Ray.h"
 
-1444751289 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\rendertarget.cpp
+1444808979 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\rendertarget.cpp
 	"RenderTarget.h"
 
-1444677390 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sphere.cpp
+1444847663 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sphere.cpp
 	"Sphere.h"
 
-1444677390 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\sphere.h
+1444837890 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\sphere.h
 	"Raycastable.h"
+	<iostream>
 
 1444677390 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\triangle.cpp
 	"Triangle.h"
@@ -379,7 +380,7 @@
 	"Vector2.h"
 	"Vector3.h"
 
-1444778906 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
+1444847822 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
 	"Triangle.h"
 	"Matrix4.h"
 	"RenderTarget.h"
@@ -389,6 +390,7 @@
 	<limits>
 	<chrono>
 	<ctime>
+	<vector>
 	<Sphere.h>
 
 1444751435 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\vertexprocessor.cpp

@@ -14,7 +14,7 @@ public :
     T min();
     T max();
 
-    T  dotProduct(const Vector3<T>& p1, const Vector3<T>& p2);
+    static T  dotProduct(const Vector3<T>& p1, const Vector3<T>& p2);
     Vector3<T> vecProduct(const Vector3<T>& p1, const Vector3<T>& p2);
     Vector3<T> computeNormal(const Vector3<T>& p1, const Vector3<T>& p2);
     T length();
@@ -30,7 +30,13 @@ public :
     };
 
 };
+template <typename T>
+inline std::ostream& operator<< (std::ostream& stream, const Vector3<T>& v)
+{
+    stream<<v.x<<" "<<v.y<<" "<<v.z<<"\n";
 
+    return stream;
+}
 
 template <typename T>
 inline Vector3<T>::Vector3() : x(0), y(0), z(0) {}
@@ -267,7 +273,7 @@ template <typename T>
 Vector3<T> Vector3<T>::normalizeProduct()
 {
     Vector3<T> newV=Vector3<T>(x,y,z);
-    d_type::Bfloat n = this.length();
+    d_type::Bfloat n = this->length();
     if(n!=0)
     {
         newV/=n;

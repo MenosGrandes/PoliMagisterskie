@@ -28,9 +28,23 @@ void Sphere::setRadius(d_type::Buint radius)
 
 Vector3BfVector Sphere::intersect(const Ray& ray) const
 {
-#define MY_INTER
+//http://stackoverflow.com/questions/6533856/ray-sphere-intersection
 
+
+#define M_INTER
 #ifdef MY_INTER
+
+d_type::Bfloat a=1;
+d_type::Bfloat b=2.0f*Vector3Bf::dotProduct(ray.getDestination(),ray.getOrigin() )- Vector3Bf::dotProduct(ray.getOrigin(),m_center ) ;
+
+d_type::Bfloat lengthSqRayOriginSphereCenter=(ray.getOrigin()-m_center).lengthSquared();
+
+d_type::Bfloat c=lengthSqRayOriginSphereCenter - m_sqRadius;
+
+d_type::Bfloat delta=b*b - 4*a*c;
+std::cout<<delta<<"\n";
+#endif // MY_INTER
+#ifdef M_INTER
 
 
     Vector3Bf d=ray.getDestination()-ray.getOrigin();
@@ -73,7 +87,7 @@ Vector3BfVector Sphere::intersect(const Ray& ray) const
 
 
 
-#endif // MY_INTER
+#endif // M_INTER
 #ifdef GLM_INTERSECTION
 
     d_type::Bfloat Epsilon = std::numeric_limits<d_type::Bfloat>::epsilon();

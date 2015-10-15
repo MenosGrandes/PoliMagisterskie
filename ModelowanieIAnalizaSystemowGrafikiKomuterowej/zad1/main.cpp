@@ -16,8 +16,8 @@ using namespace d_type;
 using namespace c;
 
 #ifdef FOTO
-#include <Sphere.h>
-
+#include "Sphere.h"
+#include "Plane.h"
 #else
 
 #endif // FOTO
@@ -41,7 +41,7 @@ std::cout<<"R1\n";
 ////////////////////////////////////////////////////////
 std::cout<<"R2\n";
 
-    Ray r2=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,0,0));
+    Ray r2=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,20,0));
     Vector3BfVector r2V=s.intersect(r2);
     for(Vector3Bf n :r2V)
     {
@@ -55,7 +55,19 @@ std::cout<<"R3\n";
     {
         std::cout<<n<<"\n";
     }
-//////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////
+std::cout<<"Plane1\n";
+Plane p(Vector3Bf(100,100,100),Vector3Bf(0,cos(45)*10,cos(45)*10));
+    Vector3BfVector r4V=p.intersect(r2);
+    for(Vector3Bf n :r4V)
+    {
+        std::cout<<n<<"\n";
+    }
+
+
+
+
+
 #endif // ZAD1FOTO
 #ifdef ZAD2FOTO
 

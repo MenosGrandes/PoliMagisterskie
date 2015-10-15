@@ -301,5 +301,5 @@ typedef Vector3<Bfloat> Vector3Bf;
 typedef Vector3<BBool> Vector3Bb;
 typedef Vector3<Bdouble> Vector3Bd;
 typedef Vector3<Bubyte> Vector3Bub;
-
+typedef std::vector<Vector3Bf> Vector3BfVector;
 #endif // VECTOR3_H

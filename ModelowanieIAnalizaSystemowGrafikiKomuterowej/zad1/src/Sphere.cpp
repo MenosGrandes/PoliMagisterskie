@@ -26,9 +26,54 @@ void Sphere::setRadius(d_type::Buint radius)
     m_radius=radius;
 }
 
-Buint Sphere::intersect(const Ray& ray, d_type::Bfloat &dist) const
+Vector3BfVector Sphere::intersect(const Ray& ray) const
 {
-#define FTIMS_INTERSECTION
+#define MY_INTER
+
+#ifdef MY_INTER
+
+
+    Vector3Bf d=ray.getDestination()-ray.getOrigin();
+    Vector3Bf oc=ray.getOrigin()-m_center;
+
+    d_type::Bfloat a=d.lengthSquared();
+
+    d_type::Bfloat b=2*(Vector3Bf::dotProduct(oc,d));
+
+    d_type::Bfloat c=oc.lengthSquared() - m_sqRadius;
+
+    d_type::Bfloat delta=b*b - 4*a*c;
+    std::vector<Vector3Bf> vec;
+    if(delta>0)
+    {
+
+        d_type::Bfloat t1 = ((-1)*b-sqrtf(delta))/(2*a);
+        if(t1>0)
+        {
+            vec.push_back(Vector3Bf(ray.getOrigin()+t1*d));
+        }
+        d_type::Bfloat t2 = ((-1)*b+sqrtf(delta))/(2*a);
+
+        if(t2>0)
+        {
+            vec.push_back(Vector3Bf(ray.getOrigin()+t2*d));
+        }
+
+    }
+    else if(delta==0)
+    {
+                    d_type::Bfloat t = -b/(2*a);
+         if(t>0)
+        {
+            vec.push_back(Vector3Bf(ray.getOrigin()+t*d));
+        }
+
+    }
+    return vec;
+
+
+
+#endif // MY_INTER
 #ifdef GLM_INTERSECTION
 
     d_type::Bfloat Epsilon = std::numeric_limits<d_type::Bfloat>::epsilon();
@@ -55,15 +100,18 @@ Buint Sphere::intersect(const Ray& ray, d_type::Bfloat &dist) const
     d_type::Bfloat discriminanta =b*b - 4* a*c;
 
     if(discriminanta<0)
-    {   dist=0;
+    {
+        dist=0;
         return RAY_MISS;
     }
     else if (discriminanta==0)
-    {   dist=(-b-0)/(2*a);
+    {
+        dist=(-b-0)/(2*a);
         return RAY_HIT_POINT;
     }
     else
-    {   dist=(-b-sqrtf(discriminanta))/(2*a);
+    {
+        dist=(-b-sqrtf(discriminanta))/(2*a);
         return  RAY_HIT_POINTS;
 
     }
@@ -105,7 +153,7 @@ Buint Sphere::intersect(const Ray& ray, d_type::Bfloat &dist) const
 
 #endif // FTIMS_INTERSECTION
 #ifdef BLABLA_INTERSECTION
-const Vector displacement = vantage - Center();
+    const Vector displacement = vantage - Center();
     const double a = direction.MagnitudeSquared();
     const double b = 2.0 * DotProduct(direction, displacement);
     const double c = displacement.MagnitudeSquared() - radius*radius;
@@ -122,7 +170,8 @@ const Vector displacement = vantage - Center();
         // or the sphere being behind the camera (invisible).
         const double root = sqrt(radicand);
         const double denom = 2.0 * a;
-        const double u[2] = {
+        const double u[2] =
+        {
             (-b + root) / denom,
             (-b - root) / denom
         };

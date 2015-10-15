@@ -10,7 +10,7 @@
 #include <vector>
 //#define RENDERER
 #define FOTO
-
+#define ZAD1FOTO
 
 using namespace d_type;
 using namespace c;
@@ -28,24 +28,38 @@ using namespace c;
 int main(int argc, char **argv)
 {
 #ifdef FOTO
+#ifdef ZAD1FOTO
+std::cout<<"R1\n";
 
     Sphere s= Sphere(Vector3Bf(),10);
-    Ray r1=Ray(Vector3Bf(0,0,-20),s.getCenter());
+    Ray r1=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,0,0));
+    Vector3BfVector r1V=s.intersect(r1);
+    for(Vector3Bf n :r1V)
+    {
+        std::cout<<n<<"\n";
+    }
+////////////////////////////////////////////////////////
+std::cout<<"R2\n";
 
+    Ray r2=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,0,0));
+    Vector3BfVector r2V=s.intersect(r2);
+    for(Vector3Bf n :r2V)
+    {
+        std::cout<<n<<"\n";
+    }
+//////////////////////////////////////////////////////////
+std::cout<<"R3\n";
+    Ray r3=Ray(Vector3Bf(-10,0,-20),Vector3Bf(-10,0,20));
+    Vector3BfVector r3V=s.intersect(r3);
+    for(Vector3Bf n :r3V)
+    {
+        std::cout<<n<<"\n";
+    }
+//////////////////////////////////////////////////////////
+#endif // ZAD1FOTO
+#ifdef ZAD2FOTO
 
-    Ray r2=Ray(r1.getOrigin(),Vector3Bf(0,0,20));
-    Ray r3=Ray(r1.getOrigin(),Vector3Bf(0,0,20));
-d_type::Bfloat i=100.f;
-std::cout<<s.intersect(r1,i)<<"\n";
-
- i=1000.f;
-std::cout<<s.intersect(r2,i)<<"\n";
-
- i=1000.f;
-std::cout<<s.intersect(r3,i)<<"\n";
-
-
-
+#endif // ZAD2FOTO
 #else
 
 Matrix4Bfloat m= Matrix4Bfloat(3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);

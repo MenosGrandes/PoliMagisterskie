@@ -120,9 +120,9 @@ void RenderTarget::draw( TriangleFloat& triangle)
 d_type::Bfloat RenderTarget::getDepthBuffer() const
 {
 
-        for(d_type::Bint i=0;i<getSizePixels();i++)
+    for(d_type::Bint i=0; i<getSizePixels(); i++)
     {
-    std::cout<<m_dBuffer[i]<<"\n";
+        std::cout<<m_dBuffer[i]<<"\n";
 
     }
     return 0.0f;

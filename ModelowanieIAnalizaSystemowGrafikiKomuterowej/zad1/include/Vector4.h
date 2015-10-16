@@ -177,7 +177,7 @@ T Vector4<T>::max()
 template <typename T>
 T Vector4<T>::min()
 {
-        return std::min({x,y,z,w});;
+    return std::min({x,y,z,w});;
 };
 
 

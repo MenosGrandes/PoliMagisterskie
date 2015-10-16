@@ -1,6 +1,7 @@
 #include "Triangle.h"
 #include "Matrix4.h"
 #include "RenderTarget.h"
+#include "GLFWWindow.h"
 #include <cstdio>
 #include <iostream>
 #include <array>
@@ -8,6 +9,11 @@
 #include <chrono>
 #include <ctime>
 #include <vector>
+
+
+
+
+
 //#define RENDERER
 #define FOTO
 #define ZAD1FOTO
@@ -27,9 +33,19 @@ using namespace c;
 
 int main(int argc, char **argv)
 {
+
+
+#ifdef OPENGL
+    GLFWWindow *w=new GLFWWindow(300,300);
+
+    w->loop();
+    w->terminate();
+#endif // OPENGL
+
+
 #ifdef FOTO
 #ifdef ZAD1FOTO
-std::cout<<"R1\n";
+    std::cout<<"R1\n";
 
     Sphere s= Sphere(Vector3Bf(),10);
     Ray r1=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,0,0));
@@ -39,7 +55,7 @@ std::cout<<"R1\n";
         std::cout<<n<<"\n";
     }
 ////////////////////////////////////////////////////////
-std::cout<<"R2\n";
+    std::cout<<"R2\n";
 
     Ray r2=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,20,0));
     Vector3BfVector r2V=s.intersect(r2);
@@ -48,7 +64,7 @@ std::cout<<"R2\n";
         std::cout<<n<<"\n";
     }
 //////////////////////////////////////////////////////////
-std::cout<<"R3\n";
+    std::cout<<"R3\n";
     Ray r3=Ray(Vector3Bf(-10,0,-20),Vector3Bf(-10,0,20));
     Vector3BfVector r3V=s.intersect(r3);
     for(Vector3Bf n :r3V)
@@ -56,8 +72,8 @@ std::cout<<"R3\n";
         std::cout<<n<<"\n";
     }
 ////////////////////////////////////////////////////////
-std::cout<<"Plane1\n";
-Plane p(Vector3Bf(100,100,100),Vector3Bf(0,cos(45)*10,cos(45)*10));
+    std::cout<<"Plane1\n";
+    Plane p(Vector3Bf(100,100,100),Vector3Bf(0,cos(45)*10,cos(45)*10));
     Vector3BfVector r4V=p.intersect(r2);
     for(Vector3Bf n :r4V)
     {
@@ -74,16 +90,16 @@ Plane p(Vector3Bf(100,100,100),Vector3Bf(0,cos(45)*10,cos(45)*10));
 #endif // ZAD2FOTO
 #else
 
-Matrix4Bfloat m= Matrix4Bfloat(3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);
-Matrix4Bfloat m2= Matrix4Bfloat(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
-Matrix4Bfloat m3= Matrix4Bfloat(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
-Vector4Bf v=Vector4Bf(1,2,3,4);
+    Matrix4Bfloat m= Matrix4Bfloat(3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);
+    Matrix4Bfloat m2= Matrix4Bfloat(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
+    Matrix4Bfloat m3= Matrix4Bfloat(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
+    Vector4Bf v=Vector4Bf(1,2,3,4);
 
 //m3=-m3;
 //std::cout<<+m3;
 
 
- std::chrono::time_point<std::chrono::system_clock> start, end;
+    std::chrono::time_point<std::chrono::system_clock> start, end;
     start = std::chrono::system_clock::now();
 
 
@@ -101,7 +117,7 @@ Vector4Bf v=Vector4Bf(1,2,3,4);
     //declare image
     Vector2Bs img_size=Vector2Bs(300,300);
 
-        for(Bsize i=0; i<triangleArray.size(); i++)
+    for(Bsize i=0; i<triangleArray.size(); i++)
     {
         triangleArray[i]->init(img_size);
     }
@@ -136,7 +152,7 @@ Vector4Bf v=Vector4Bf(1,2,3,4);
     }
     delete file;
 #endif // FOTO
-d_type::Bint a;
-std::cin>>a;
+    d_type::Bint a;
+    std::cin>>a;
     return 0;
 }

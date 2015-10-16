@@ -107,7 +107,8 @@ public :
 
 
     T calculateDepth(Vector3<T> lambda)
-    {   //std::cout<<(lambda.x * first.z + lambda.y *second.z + lambda.z * third.z)<<"\n";
+    {
+        //std::cout<<(lambda.x * first.z + lambda.y *second.z + lambda.z * third.z)<<"\n";
         return (lambda.x * first.z + lambda.y *second.z + lambda.z * third.z);
     }
     ColorDepth calculateLambdaColor(T x,T y,const Colour &c,const Colour &c2,const Colour &c3)

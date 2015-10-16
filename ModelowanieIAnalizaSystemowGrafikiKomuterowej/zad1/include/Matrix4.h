@@ -21,27 +21,27 @@ public:
 template <typename T>
 void Matrix4<T>::transpose()
 {
-Matrix4<T> tmp=Matrix4(data.x,data.y,data.z,data.w);
+    Matrix4<T> tmp=Matrix4(data.x,data.y,data.z,data.w);
 
-                   data.x.x=tmp.data.x.x;
-                   data.x.y=tmp.data.y.x;
-                   data.x.z=tmp.data.z.x;
-                   data.x.w=tmp.data.w.x;
+    data.x.x=tmp.data.x.x;
+    data.x.y=tmp.data.y.x;
+    data.x.z=tmp.data.z.x;
+    data.x.w=tmp.data.w.x;
 
-                   data.y.x=tmp.data.x.y;
-                   data.y.y=tmp.data.y.y;
-                   data.y.z=tmp.data.z.y;
-                   data.y.w=tmp.data.w.y;
+    data.y.x=tmp.data.x.y;
+    data.y.y=tmp.data.y.y;
+    data.y.z=tmp.data.z.y;
+    data.y.w=tmp.data.w.y;
 
-                   data.z.x=tmp.data.x.z;
-                   data.z.y=tmp.data.y.z;
-                   data.z.z=tmp.data.z.z;
-                   data.z.w=tmp.data.w.z;
+    data.z.x=tmp.data.x.z;
+    data.z.y=tmp.data.y.z;
+    data.z.z=tmp.data.z.z;
+    data.z.w=tmp.data.w.z;
 
-                   data.w.x=tmp.data.x.w;
-                   data.w.y=tmp.data.y.w;
-                   data.w.z=tmp.data.z.w;
-                   data.w.w=tmp.data.w.w;
+    data.w.x=tmp.data.x.w;
+    data.w.y=tmp.data.y.w;
+    data.w.z=tmp.data.z.w;
+    data.w.w=tmp.data.w.w;
 
 
 }

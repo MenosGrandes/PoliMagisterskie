@@ -6,11 +6,11 @@
 
 class VertexProcessor
 {
-    public:
-        VertexProcessor();
-        virtual ~VertexProcessor();
-    protected:
-    private:
+public:
+    VertexProcessor();
+    virtual ~VertexProcessor();
+protected:
+private:
 };
 
 #endif // VERTEXPROCESSOR_H

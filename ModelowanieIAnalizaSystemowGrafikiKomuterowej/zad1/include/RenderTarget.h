@@ -37,12 +37,12 @@ public:
     void setPixel(ColorDepth colorDepth, const d_type::Bint &xposition,const  d_type::Bint &yposition);
     void setPixel(c::Colour inputcolor, const d_type::Bint &x,const  d_type::Bint &y);
 
-d_type::Bfloat getDepthBuffer() const;
+    d_type::Bfloat getDepthBuffer() const;
 
 
 
 
-    private:
+private:
     //convert 2D to 1D indexing
     d_type::Bint convert2dto1d(d_type::Bint x, d_type::Bint y);
     d_type::Bint convert2dto1d(Vector2Bi size);

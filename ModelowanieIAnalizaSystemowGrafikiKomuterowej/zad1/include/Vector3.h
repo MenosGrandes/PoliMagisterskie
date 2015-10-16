@@ -24,9 +24,16 @@ public :
     Vector3<T> lerp(const Vector3<T>&v, const T f);
     Vector3<T> normalizeProduct();
     void normalize();
-    union {
-    struct {T x, y, z;};
-    struct {T r, g, b;};
+    union
+    {
+        struct
+        {
+            T x, y, z;
+        };
+        struct
+        {
+            T r, g, b;
+        };
     };
 
 };

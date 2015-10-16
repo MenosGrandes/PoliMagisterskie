@@ -5,7 +5,7 @@
 		<Option title="zad1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Ray\;RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Ray\Raycastable\;Triangle\;" />
+		<Option virtualFolders="Ray\;RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Ray\Raycastable\;Triangle\;GLFWWindow\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/zad1" prefix_auto="1" extension_auto="1" />
@@ -34,12 +34,20 @@
 		</Build>
 		<Compiler>
 			<Add option="-std=c++11" />
+			<Add directory="OpenGL/include" />
 		</Compiler>
 		<Linker>
 			<Add option="-static-libgcc -static-libstdc++" />
+			<Add library="glfw3" />
+			<Add library="gdi32" />
+			<Add library="opengl32" />
+			<Add directory="OpenGL/lib-mingw" />
 		</Linker>
 		<Unit filename="include/Colour.h">
 			<Option virtualFolder="Types/" />
+		</Unit>
+		<Unit filename="include/GLFWWindow.h">
+			<Option virtualFolder="GLFWWindow/" />
 		</Unit>
 		<Unit filename="include/Matrix4.h">
 			<Option virtualFolder="Types/Matrix/" />
@@ -84,6 +92,9 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Colour.cpp">
 			<Option virtualFolder="Types/" />
+		</Unit>
+		<Unit filename="src/GLFWWindow.cpp">
+			<Option virtualFolder="GLFWWindow/" />
 		</Unit>
 		<Unit filename="src/Matrix4.cpp">
 			<Option virtualFolder="Types/Matrix/" />

@@ -34,15 +34,15 @@ Vector3BfVector Sphere::intersect(const Ray& ray) const
 #define M_INTER
 #ifdef MY_INTER
 
-d_type::Bfloat a=1;
-d_type::Bfloat b=2.0f*Vector3Bf::dotProduct(ray.getDestination(),ray.getOrigin() )- Vector3Bf::dotProduct(ray.getOrigin(),m_center ) ;
+    d_type::Bfloat a=1;
+    d_type::Bfloat b=2.0f*Vector3Bf::dotProduct(ray.getDestination(),ray.getOrigin() )- Vector3Bf::dotProduct(ray.getOrigin(),m_center ) ;
 
-d_type::Bfloat lengthSqRayOriginSphereCenter=(ray.getOrigin()-m_center).lengthSquared();
+    d_type::Bfloat lengthSqRayOriginSphereCenter=(ray.getOrigin()-m_center).lengthSquared();
 
-d_type::Bfloat c=lengthSqRayOriginSphereCenter - m_sqRadius;
+    d_type::Bfloat c=lengthSqRayOriginSphereCenter - m_sqRadius;
 
-d_type::Bfloat delta=b*b - 4*a*c;
-std::cout<<delta<<"\n";
+    d_type::Bfloat delta=b*b - 4*a*c;
+    std::cout<<delta<<"\n";
 #endif // MY_INTER
 #ifdef M_INTER
 
@@ -76,8 +76,8 @@ std::cout<<delta<<"\n";
     }
     else if(delta==0)
     {
-                    d_type::Bfloat t = -b/(2*a);
-         if(t>0)
+        d_type::Bfloat t = -b/(2*a);
+        if(t>0)
         {
             vec.push_back(Vector3Bf(ray.getOrigin()+t*d));
         }

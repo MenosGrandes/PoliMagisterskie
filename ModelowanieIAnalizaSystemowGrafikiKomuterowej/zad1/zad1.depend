@@ -271,7 +271,7 @@
 1444911797 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\colour.cpp
 	"Colour.h"
 
-1444911797 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\colour.h
+1445002887 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\colour.h
 	"structs.hpp"
 	"Vector2.h"
 	"Vector3.h"
@@ -285,7 +285,7 @@
 1444911797 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector2.h
 	"structs.hpp"
 
-1444933544 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector3.h
+1445002887 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector3.h
 	"structs.hpp"
 
 1444737598 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\image.cpp
@@ -313,7 +313,7 @@
 1444677390 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\drawable.h
 	"RenderTarget.h"
 
-1444911797 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\rendertarget.h
+1445002887 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\rendertarget.h
 	"Triangle.h"
 	<iostream>
 	<fstream>
@@ -325,18 +325,18 @@
 1444677390 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vertex3array.h
 	"Vertex3.h"
 
-1444911797 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\matrix4.cpp
+1445002887 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\matrix4.cpp
 	"Matrix4.h"
 
-1444911797 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\matrix4.h
+1445002887 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\matrix4.h
 	"Vector4.h"
 	<ostream>
 	<iostream>
 
-1444911797 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector4.h
+1445002887 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector4.h
 	"structs.hpp"
 
-1444940135 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\plane.cpp
+1445002887 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\plane.cpp
 	"Plane.h"
 
 1444939506 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\plane.h
@@ -354,10 +354,10 @@
 1444911797 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ray.cpp
 	"Ray.h"
 
-1444911797 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\rendertarget.cpp
+1445002887 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\rendertarget.cpp
 	"RenderTarget.h"
 
-1444935966 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sphere.cpp
+1445002887 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sphere.cpp
 	"Sphere.h"
 
 1444933570 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\sphere.h
@@ -367,7 +367,7 @@
 1444911797 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\triangle.cpp
 	"Triangle.h"
 
-1444911797 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\triangle.h
+1445002887 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\triangle.h
 	"Vector4.h"
 	"Vector3.h"
 	"Colour.h"
@@ -382,10 +382,11 @@
 	"Vector2.h"
 	"Vector3.h"
 
-1444940710 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
+1445002713 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
 	"Triangle.h"
 	"Matrix4.h"
 	"RenderTarget.h"
+	"GLFWWindow.h"
 	<cstdio>
 	<iostream>
 	<array>
@@ -399,8 +400,36 @@
 1444911797 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\vertexprocessor.cpp
 	"VertexProcessor.h"
 
-1444911797 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vertexprocessor.h
+1445002887 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vertexprocessor.h
 	"Vector2.h"
 	"Vector3.h"
 	"Matrix4.h"
+
+1445002887 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\glfwwindow.cpp
+	"GLFWWindow.h"
+
+1445002887 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\glfwwindow.h
+	"structs.hpp"
+	<GLFW/glfw3.h>
+	<stdlib.h>
+	<stdio.h>
+
+1444681077 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\opengl\include\glfw\glfw3.h
+	<stddef.h>
+	<OpenGL/gl3.h>
+	<OpenGL/gl3ext.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/glcorearb.h>
+	<GLES/gl.h>
+	<GLES/glext.h>
+	<GLES2/gl2.h>
+	<GLES2/gl2ext.h>
+	<GLES3/gl3.h>
+	<GLES3/gl2ext.h>
+	<GLES3/gl31.h>
+	<GLES3/gl2ext.h>
+	<GL/gl.h>
+	<GL/glext.h>
+	<GL/glu.h>
 

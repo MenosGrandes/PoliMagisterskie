@@ -30,11 +30,11 @@ public :
     Vector3<T> computeNormal(const Vector3<T>& p1, const Vector3<T>& p2);
     T length();
     T lengthSquared();
-    Vector3<T> cross(const Vector3<T>& v);
+    static Vector3<T> cross(const Vector3<T>& left,const Vector3<T>& right);
     Vector3<T> reflect(const Vector3<T>&v);
     Vector3<T> lerp(const Vector3<T>&v, const T f);
     Vector3<T> normalizeProduct();
-    void normalize();
+    static void normalize(Vector3<T>&v);
     union
     {
         struct
@@ -268,12 +268,14 @@ T Vector3<T>::lengthSquared()
 ///////////////////////////////////////////////////////////
 
 template <typename T>
-Vector3<T> Vector3<T>::cross(const Vector3<T>& v)
+Vector3<T> Vector3<T>::cross(const Vector3<T>& left,const Vector3<T>& right)
 {
 
-    return  Vector3<T>(this.y * v.z - this.z * v.y, this.z * v.x - this.x * v.z, this.x * v.y - this.y * v.x);
+    return  Vector3<T>(left.y * right.z - left.z * right.y, left.z * right.x - left.x * right.z, left.x * right.y - left.y * right.x);
 
 }
+
+
 ///////////////////////////////////////////////////////////
 
 template <typename T>
@@ -309,12 +311,12 @@ Vector3<T> Vector3<T>::normalizeProduct()
 }
 ///////////////////////////////////////////////////////////
 template <typename T>
-void Vector3<T>::normalize()
+void Vector3<T>::normalize(Vector3<T>&v)
 {
-    d_type::Bfloat n = length();
+    d_type::Bfloat n = v.length();
     if(n!=0)
     {
-        this/=n;
+        v/=n;
     }
 }
 

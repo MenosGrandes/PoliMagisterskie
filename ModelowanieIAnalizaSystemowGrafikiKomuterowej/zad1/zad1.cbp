@@ -85,7 +85,9 @@
 		<Unit filename="include/Vertex3.h">
 			<Option virtualFolder="Types/Vertex/" />
 		</Unit>
-		<Unit filename="include/VertexProcessor.h" />
+		<Unit filename="include/VertexProcessor.h">
+			<Option virtualFolder="RenderTarget/" />
+		</Unit>
 		<Unit filename="include/structs.hpp">
 			<Option virtualFolder="Types/" />
 		</Unit>
@@ -114,7 +116,9 @@
 		<Unit filename="src/Triangle.cpp">
 			<Option virtualFolder="Triangle/" />
 		</Unit>
-		<Unit filename="src/VertexProcessor.cpp" />
+		<Unit filename="src/VertexProcessor.cpp">
+			<Option virtualFolder="RenderTarget/" />
+		</Unit>
 		<Unit filename="src/algorithms.hpp">
 			<Option virtualFolder="Algorithms/" />
 		</Unit>

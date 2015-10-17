@@ -4,7 +4,7 @@ Plane::Plane():m_normal(),m_inPoint(),m_distance(0)
 {
 
 }
-Plane::Plane(Vector3Bf normal, Vector3Bf inPoint):m_normal(),m_inPoint(),m_distance(0)
+Plane::Plane(Vector3Bf inPoint,Vector3Bf normal):m_normal(normal),m_inPoint(inPoint),m_distance(0)
 {
     m_distance=Vector3Bf::dotProduct(m_normal,m_inPoint);
 }
@@ -56,10 +56,9 @@ Vector3BfVector Plane::intersect(const Ray& ray) const
     jezeli  normalnyplaszczyszny DOT kierunekVektora !=0 to jest intersekcja i obliczamy ja za pomoca wzoru p=d*kierunekVektora + punktPoczatkuPromienia
 
     */
-    d_type::Bfloat a;
-    d_type::Bfloat lDOTn=Vector3Bf::dotProduct(m_normal,ray.getDestination());
+    d_type::Bfloat a=0;
+    d_type::Bfloat lDOTn=Vector3Bf::dotProduct(m_normal,ray.getDirection());
     Vector3BfVector vec;
-
     if(lDOTn==0)
     {
         a=Vector3Bf::dotProduct((m_inPoint - ray.getOrigin()),m_normal);
@@ -74,7 +73,7 @@ Vector3BfVector Plane::intersect(const Ray& ray) const
     }
     else
     {
-        vec.push_back(ray.getDestination()*(a/lDOTn) + ray.getOrigin());
+        vec.push_back(ray.getDirection()*(a/lDOTn) + ray.getOrigin());
 
     }
 

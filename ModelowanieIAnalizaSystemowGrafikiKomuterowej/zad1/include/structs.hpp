@@ -3,8 +3,7 @@
 #include <cmath>
 #include <iostream>
 
-
-
+#define M_PI 3.14159265
 namespace d_type
 {
 typedef bool	        BBool;   /*1-byte boolean*/
@@ -18,4 +17,5 @@ typedef float		    Bfloat;	/* single precision float */
 typedef double		    Bdouble;	/* double precision float */
 typedef size_t          Bsize;
 }
+
 

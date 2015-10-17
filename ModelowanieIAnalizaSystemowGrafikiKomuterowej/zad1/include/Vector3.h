@@ -1,7 +1,18 @@
+
+
+
+
+
+
+
 #ifndef VECTOR3_H
 #define VECTOR3_H
 #include "structs.hpp"
 using namespace d_type;
+
+
+
+
 
 template <typename T>
 class Vector3
@@ -36,7 +47,14 @@ public :
         };
     };
 
+
+
+
+
 };
+
+
+
 template <typename T>
 inline std::ostream& operator<< (std::ostream& stream, const Vector3<T>& v)
 {
@@ -309,4 +327,7 @@ typedef Vector3<BBool> Vector3Bb;
 typedef Vector3<Bdouble> Vector3Bd;
 typedef Vector3<Bubyte> Vector3Bub;
 typedef std::vector<Vector3Bf> Vector3BfVector;
+typedef Vector3Bf Point3Bf;
+
+
 #endif // VECTOR3_H

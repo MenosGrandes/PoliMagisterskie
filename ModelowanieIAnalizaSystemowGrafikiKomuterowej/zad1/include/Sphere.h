@@ -23,6 +23,8 @@ private:
     d_type::Buint m_radius;
     d_type::Bfloat m_sqRadius;
 
+
+
 };
 
 #endif // SPHERE_H

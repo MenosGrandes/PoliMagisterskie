@@ -6,6 +6,8 @@
 #define RAY_MISS 0
 #define RAY_HIT_POINT 1
 #define RAY_HIT_POINTS 2
+#define DESTINATION 0
+#define DIRECTION 1
 
 
 class Ray
@@ -15,12 +17,20 @@ public:
     {
     }
 
-    Ray(Vector3Bf origin,Vector3Bf destination):m_origin(origin),m_destination(destination)
+
+Ray(Vector3Bf origin,Vector3Bf vec,bool destORDir):m_origin(origin)
     {
-
-
+    if(destORDir == DESTINATION)
+    {
+         m_destination=vec;
+         m_direction=m_destination-m_origin;
+    }
+    else
+    {
+        m_direction=vec;
     }
 
+    }
     //GETTERS
     Vector3Bf getOrigin() const
     {

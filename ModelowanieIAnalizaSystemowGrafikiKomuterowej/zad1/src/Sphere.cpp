@@ -47,12 +47,12 @@ Vector3BfVector Sphere::intersect(const Ray& ray) const
 #ifdef M_INTER
 
 
-    Vector3Bf d=ray.getDestination()-ray.getOrigin();
+    Vector3Bf direction=ray.getDirection();
     Vector3Bf oc=ray.getOrigin()-m_center;
 
-    d_type::Bfloat a=d.lengthSquared();
+    d_type::Bfloat a=direction.lengthSquared();
 
-    d_type::Bfloat b=2*(Vector3Bf::dotProduct(oc,d));
+    d_type::Bfloat b=2*(Vector3Bf::dotProduct(oc,direction));
 
     d_type::Bfloat c=oc.lengthSquared() - m_sqRadius;
 
@@ -64,13 +64,13 @@ Vector3BfVector Sphere::intersect(const Ray& ray) const
         d_type::Bfloat t1 = ((-1)*b-sqrtf(delta))/(2*a);
         if(t1>0)
         {
-            vec.push_back(Vector3Bf(ray.getOrigin()+t1*d));
+            vec.push_back(Vector3Bf(ray.getOrigin()+t1*direction));
         }
         d_type::Bfloat t2 = ((-1)*b+sqrtf(delta))/(2*a);
 
         if(t2>0)
         {
-            vec.push_back(Vector3Bf(ray.getOrigin()+t2*d));
+            vec.push_back(Vector3Bf(ray.getOrigin()+t2*direction));
         }
 
     }
@@ -79,7 +79,7 @@ Vector3BfVector Sphere::intersect(const Ray& ray) const
         d_type::Bfloat t = -b/(2*a);
         if(t>0)
         {
-            vec.push_back(Vector3Bf(ray.getOrigin()+t*d));
+            vec.push_back(Vector3Bf(ray.getOrigin()+t*direction));
         }
 
     }

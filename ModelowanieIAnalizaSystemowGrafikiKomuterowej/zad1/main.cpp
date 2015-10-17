@@ -13,7 +13,6 @@
 
 
 
-
 //#define RENDERER
 #define FOTO
 #define ZAD1FOTO
@@ -48,7 +47,7 @@ int main(int argc, char **argv)
     std::cout<<"R1\n";
 
     Sphere s= Sphere(Vector3Bf(),10);
-    Ray r1=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,0,0));
+    Ray r1=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,0,0),DESTINATION);
     Vector3BfVector r1V=s.intersect(r1);
     for(Vector3Bf n :r1V)
     {
@@ -57,7 +56,7 @@ int main(int argc, char **argv)
 ////////////////////////////////////////////////////////
     std::cout<<"R2\n";
 
-    Ray r2=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,20,0));
+    Ray r2=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,10,-20),DIRECTION);
     Vector3BfVector r2V=s.intersect(r2);
     for(Vector3Bf n :r2V)
     {
@@ -65,7 +64,7 @@ int main(int argc, char **argv)
     }
 //////////////////////////////////////////////////////////
     std::cout<<"R3\n";
-    Ray r3=Ray(Vector3Bf(-10,0,-20),Vector3Bf(-10,0,20));
+    Ray r3=Ray(Vector3Bf(-10,0,-20),Vector3Bf(-10,0,20),DESTINATION);
     Vector3BfVector r3V=s.intersect(r3);
     for(Vector3Bf n :r3V)
     {
@@ -73,7 +72,7 @@ int main(int argc, char **argv)
     }
 ////////////////////////////////////////////////////////
     std::cout<<"Plane1\n";
-    Plane p(Vector3Bf(100,100,100),Vector3Bf(0,cos(45)*10,cos(45)*10));
+    Plane p(Vector3Bf(0,0,0),Vector3Bf(23,cosf(M_PI/4),cosf(M_PI/4)));
     Vector3BfVector r4V=p.intersect(r2);
     for(Vector3Bf n :r4V)
     {

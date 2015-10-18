@@ -42,11 +42,9 @@ int main(int argc, char **argv)
 #endif // OPENGL
 
 
-#ifdef FOTO
-#ifdef ZAD1FOTO
     std::cout<<"R1\n";
 
-    Sphere s= Sphere(Vector3Bf(),10);
+    Sphere s= Sphere(Vector3Bf(),1  );
     Ray r1=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,0,0),DESTINATION);
     Vector3BfVector r1V=s.intersect(r1);
     for(Vector3Bf n :r1V)
@@ -82,22 +80,6 @@ int main(int argc, char **argv)
 
 
 
-
-#endif // ZAD1FOTO
-#ifdef ZAD2FOTO
-
-#endif // ZAD2FOTO
-#else
-
-    Matrix4Bfloat m= Matrix4Bfloat(3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3);
-    Matrix4Bfloat m2= Matrix4Bfloat(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16);
-    Matrix4Bfloat m3= Matrix4Bfloat(2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2);
-    Vector4Bf v=Vector4Bf(1,2,3,4);
-
-//m3=-m3;
-//std::cout<<+m3;
-
-
     std::chrono::time_point<std::chrono::system_clock> start, end;
     start = std::chrono::system_clock::now();
 
@@ -105,7 +87,7 @@ int main(int argc, char **argv)
 
 
     std::array<TriangleFloat*,2> triangleArray;
-    TriangleFloat *triangle= new TriangleFloat(Vector3Bf(-0.5f,-0.5f,2.0),Vector3Bf(-0.5f,0.1f,5),Vector3Bf(0.1f,-0.5f,1.0f));
+    TriangleFloat *triangle= new TriangleFloat(Vector3Bf(-0.5f,0.1f,5),Vector3Bf(0.1f,-0.5f,1.0f),Vector3Bf(-0.5f,-0.5f,2.0));
     TriangleFloat *triangle2= new TriangleFloat(Vector3Bf(0,-0.1f,3),Vector3Bf(-0.4f,-0.8f,10),Vector3Bf(-0.5f,0.1f,0));
     triangleArray[0]=triangle;
     triangleArray[1]=triangle2;
@@ -114,7 +96,7 @@ int main(int argc, char **argv)
 
 
     //declare image
-    Vector2Bs img_size=Vector2Bs(300,300);
+    Vector2Bs img_size=Vector2Bs(800,600);
 
     for(Bsize i=0; i<triangleArray.size(); i++)
     {
@@ -130,6 +112,37 @@ int main(int argc, char **argv)
     file->draw(*triangle);
     file->draw(*triangle2);
 
+
+//    d_type::Bint widthPixel,heightPixel,centerX,centerY;
+//
+//    widthPixel=2.0f/file->getSize().x;
+//    heightPixel=2.0f/file->getSize().y;
+//    for(Bint x=0; x<file->getSize().x; x++)
+//    {
+//        for(Bint y=0; y<file->getSize().y; y++)
+//        {
+//            centerX=-1.0f + (x+0.5f)*widthPixel;
+//            centerY=1.0f - (y+0.5f)*heightPixel;
+//            Ray r(Vector3Bf(0,0,0),Vector3Bf(centerX,centerY,0),DESTINATION);
+//            Vector3BfVector v=p.intersect(r);
+////           for(Vector3Bf a:v)
+////           {
+////               std::cout<<a;
+////           }
+//            if(v.empty())
+//            {
+//                file->setPixel(Colour::Red,x,y);
+//
+//            }
+////           else
+////           {
+////              // std::cout<<"EMPTY";
+////               file->setPixel(Colour::Black,x,y);
+////           }
+//
+//        }
+//
+//    }
 
 
     end = std::chrono::system_clock::now();
@@ -150,7 +163,7 @@ int main(int argc, char **argv)
         delete triangleArray[i];
     }
     delete file;
-#endif // FOTO
+
     d_type::Bint a;
     std::cin>>a;
     return 0;

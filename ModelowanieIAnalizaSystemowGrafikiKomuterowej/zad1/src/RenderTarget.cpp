@@ -56,11 +56,11 @@ void RenderTarget::setPixel(ColorDepth colorDepth, const d_type::Bint &x, const 
 //Convert 2d array indexing to 1d indexing
 d_type::Bint RenderTarget::convert2dto1d(d_type::Bint x, d_type::Bint y)
 {
-    return m_size.x * x + y;
+    return m_size.x * y + x;
 }
 d_type::Bint RenderTarget::convert2dto1d(Vector2Bi size)
 {
-    return m_size.x * size.x + size.y;
+    return m_size.x * size.y + size.x;
 }
 
 

@@ -45,7 +45,17 @@ inline Colour operator *( const T left,const  Colour &right)
 {
     return Colour(right.r*left,right.g*left,right.b*left,right.a*left);
 }
+template <typename T>
+inline Colour operator -( const Colour& left,const  Colour &right)
+{
+    return Colour(left.r-right.r,left.g-right.g,left.b-right.b,left.a-right.a);
+}
 
+template <typename T>
+inline Colour operator /( const Colour& left,const  T right)
+{
+    return Colour(left.r/right,left.g/right,left.b/right,left.a/right);
+}
 }
 
 struct ColorDepth

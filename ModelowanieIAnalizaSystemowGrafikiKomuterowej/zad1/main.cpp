@@ -79,11 +79,13 @@ int main(int argc, char **argv)
 
 
 
-
+#ifdef CLOCK
     std::chrono::time_point<std::chrono::system_clock> start, end;
     start = std::chrono::system_clock::now();
+#endif // CLOCK
 
 
+    Vector2Bs img_size=Vector2Bs(800,600);
 
 
     std::array<TriangleFloat*,2> triangleArray;
@@ -92,11 +94,6 @@ int main(int argc, char **argv)
     triangleArray[0]=triangle;
     triangleArray[1]=triangle2;
 
-
-
-
-    //declare image
-    Vector2Bs img_size=Vector2Bs(800,600);
 
     for(Bsize i=0; i<triangleArray.size(); i++)
     {
@@ -108,42 +105,44 @@ int main(int argc, char **argv)
 
 
 
+
+
+
+    d_type::Bfloat widthPixel,heightPixel;
+    d_type::Bfloat centerX,centerY;
+
+    widthPixel=2.0f/file->getSize().x;
+    heightPixel=2.0f/file->getSize().y;
+    std::cout<<widthPixel<<" "<<heightPixel<<"\n";
+    for(Bint x=0; x<file->getSize().x; x++)
+    {
+        for(Bint y=0; y<file->getSize().y; y++)
+        {
+            centerX=-1.0f + (x+0.5f)*widthPixel;
+            centerY=1.0f - (y+0.5f)*heightPixel;
+            Ray r(Vector3Bf(0,0,-20),Vector3Bf(centerX,centerY,0),DESTINATION);
+            Vector3BfVector v=s.intersect(r);
+            if(!v.empty())
+            {
+                file->setPixel(Colour::Red,x,y);
+
+            }
+            else
+            {
+                // std::cout<<"EMPTY";
+                file->setPixel(Colour::Black,x,y);
+            }
+
+        }
+
+    }
+
+
     //file->draw(t);
     file->draw(*triangle);
     file->draw(*triangle2);
 
-
-//    d_type::Bint widthPixel,heightPixel,centerX,centerY;
-//
-//    widthPixel=2.0f/file->getSize().x;
-//    heightPixel=2.0f/file->getSize().y;
-//    for(Bint x=0; x<file->getSize().x; x++)
-//    {
-//        for(Bint y=0; y<file->getSize().y; y++)
-//        {
-//            centerX=-1.0f + (x+0.5f)*widthPixel;
-//            centerY=1.0f - (y+0.5f)*heightPixel;
-//            Ray r(Vector3Bf(0,0,0),Vector3Bf(centerX,centerY,0),DESTINATION);
-//            Vector3BfVector v=p.intersect(r);
-////           for(Vector3Bf a:v)
-////           {
-////               std::cout<<a;
-////           }
-//            if(v.empty())
-//            {
-//                file->setPixel(Colour::Red,x,y);
-//
-//            }
-////           else
-////           {
-////              // std::cout<<"EMPTY";
-////               file->setPixel(Colour::Black,x,y);
-////           }
-//
-//        }
-//
-//    }
-
+#ifdef CLOCK
 
     end = std::chrono::system_clock::now();
 
@@ -152,7 +151,7 @@ int main(int argc, char **argv)
 
     std::cout << "finished computation at " << std::ctime(&end_time)
               << "elapsed time: " << elapsed_seconds.count() << "s\n";
-
+#endif // CLOCK
     file->drawToFile("file.tga");
 
 

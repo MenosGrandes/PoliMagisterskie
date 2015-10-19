@@ -3,17 +3,21 @@
 
 #include "Matrix4.h"
 #include "Triangle.h"
+#include "Camera.h"
 class VertexProcessor
 {
 public:
     VertexProcessor();
     virtual ~VertexProcessor();
-    void setPerspective(d_type::Bfloat fovy,d_type::Bfloat aspect, Vector2Bf nearfar);
-    void setLookat(Vector3Bf eye,Vector3Bf center,Vector3Bf up);
-    void multByTranslation(Vector3Bf vec);
-    void multByScale(Vector3Bf vec);
+    void setPerspective(d_type::Bfloat fovy, d_type::Bfloat aspect, const Vector2Bf& nearfar);
+    void setLookat(const Vector3Bf &eye, const Vector3Bf&center, Vector3Bf up);
+    void multByTranslation(const Vector3Bf& vec);
+    void multByScale(const Vector3Bf& vec);
     void multByRotation(d_type::Bfloat a,Vector3Bf vec);
     void addTriangle();
+    //for camera
+    void setPerspective(d_type::Bfloat aspect,const Camera& camera);
+    void setLookat(Vector3Bf eye,Vector3Bf center,Vector3Bf up);
 protected:
 private:
     Matrix4Bfloat view2proj,world2view,obj2world;

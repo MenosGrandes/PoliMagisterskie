@@ -11,7 +11,7 @@ VertexProcessor::~VertexProcessor()
 {
     //dtor
 }
-void VertexProcessor::setPerspective(d_type::Bfloat fovy, d_type::Bfloat aspect, Vector2Bf nearfar)
+void VertexProcessor::setPerspective(d_type::Bfloat fovy, d_type::Bfloat aspect, const Vector2Bf& nearfar)
 {
 fovy *= M_PI/ 360;
 d_type::Bfloat f=cosf(fovy)/sinf(fovy);
@@ -25,7 +25,7 @@ view2proj=Matrix4Bfloat(
 
 }
 
-void VertexProcessor::setLookat(Vector3Bf eye, Vector3Bf center, Vector3Bf up)
+void VertexProcessor::setLookat(const Vector3Bf &eye, const Vector3Bf&center, Vector3Bf up)
 {
     Vector3Bf f= center - eye;
     Vector3Bf::normalize(f);
@@ -40,7 +40,7 @@ void VertexProcessor::setLookat(Vector3Bf eye, Vector3Bf center, Vector3Bf up)
                                );
 
 }
-void VertexProcessor::multByTranslation(Vector3Bf vec)
+void VertexProcessor::multByTranslation(const Vector3Bf& vec)
 {
     Matrix4Bfloat m(
                     Vector4Bf(1,0,0,0),
@@ -52,7 +52,7 @@ void VertexProcessor::multByTranslation(Vector3Bf vec)
                     obj2world*=m;
 }
 
-void VertexProcessor::multByScale(Vector3Bf vec)
+void VertexProcessor::multByScale(const Vector3Bf& vec)
 {
     Matrix4Bfloat m(
                     Vector4Bf(vec.x,0,0,0),
@@ -90,5 +90,10 @@ void VertexProcessor::multByRotation(d_type::Bfloat a, Vector3Bf v)
                     Vector4Bf(0,0,0,1)
                     );
 obj2world*=m;
+
+}
+
+void VertexProcessor::setPerspective(d_type::Bfloat aspect, const Camera& camera)
+{
 
 }

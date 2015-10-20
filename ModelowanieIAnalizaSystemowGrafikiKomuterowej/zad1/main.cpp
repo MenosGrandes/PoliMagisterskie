@@ -90,7 +90,7 @@ int main(int argc, char **argv)
 
     std::array<TriangleFloat*,2> triangleArray;
     TriangleFloat *triangle= new TriangleFloat(Vector3Bf(-0.5f,0.1f,5),Vector3Bf(0.1f,-0.5f,1.0f),Vector3Bf(-0.5f,-0.5f,2.0));
-    TriangleFloat *triangle2= new TriangleFloat(Vector3Bf(0,-0.1f,3),Vector3Bf(-0.4f,-0.8f,10),Vector3Bf(-0.5f,0.1f,0));
+    TriangleFloat *triangle2= new TriangleFloat(Vector3Bf(0,-0.1f,3),Vector3Bf(-0.4f,-1.0f,10),Vector3Bf(-0.5f,0.1f,2));
     triangleArray[0]=triangle;
     triangleArray[1]=triangle2;
 

@@ -14,13 +14,15 @@ public:
     void multByTranslation(const Vector3Bf& vec);
     void multByScale(const Vector3Bf& vec);
     void multByRotation(d_type::Bfloat a,Vector3Bf vec);
-    void addTriangle();
+    Vector3Bf addTriangle(Vector3Bf tr);
     //for camera
     void setPerspective(d_type::Bfloat aspect,const Camera& camera);
     void setLookat(Vector3Bf eye,Vector3Bf center,Vector3Bf up);
+    void setIdentity();
+    void transform();
 protected:
 private:
-    Matrix4Bfloat view2proj,world2view,obj2world;
+    Matrix4Bfloat view2proj,world2view,obj2world,obj2proj;
 };
 
 #endif // VERTEXPROCESSOR_H

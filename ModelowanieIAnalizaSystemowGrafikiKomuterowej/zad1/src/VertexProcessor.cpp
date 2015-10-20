@@ -92,8 +92,28 @@ void VertexProcessor::multByRotation(d_type::Bfloat a, Vector3Bf v)
 obj2world*=m;
 
 }
+Vector3Bf VertexProcessor::addTriangle(Vector3Bf tr)
+{
+    Vector4Bf r = obj2proj*Vector4Bf(tr.x,tr.y,tr.z,1);
+    return Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
+}
+
+void VertexProcessor::setLookat(Vector3Bf eye, Vector3Bf center, Vector3Bf up)
+{
+
+}
+
+void VertexProcessor::setIdentity()
+{
+    obj2world= Matrix4Bfloat::Identity;
+}
 
 void VertexProcessor::setPerspective(d_type::Bfloat aspect, const Camera& camera)
 {
 
+}
+void VertexProcessor::transform()
+{
+    Matrix4Bfloat obj2view = world2view*obj2world;
+    obj2proj = view2proj*obj2view;
 }

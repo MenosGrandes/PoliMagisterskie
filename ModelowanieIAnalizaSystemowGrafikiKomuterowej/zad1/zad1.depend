@@ -325,7 +325,7 @@
 1444677390 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vertex3array.h
 	"Vertex3.h"
 
-1445091391 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\matrix4.cpp
+1445338227 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\matrix4.cpp
 	"Matrix4.h"
 
 1445091391 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\matrix4.h
@@ -379,11 +379,12 @@
 	<limits>
 	<algorithm>
 
-1445334541 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
+1445342154 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
 	"Triangle.h"
 	"Matrix4.h"
 	"RenderTarget.h"
 	"GLFWWindow.h"
+	"VertexProcessor.h"
 	<cstdio>
 	<iostream>
 	<array>
@@ -394,10 +395,10 @@
 	"Sphere.h"
 	"Plane.h"
 
-1445338062 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\vertexprocessor.cpp
+1445341579 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\vertexprocessor.cpp
 	"VertexProcessor.h"
 
-1445337941 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vertexprocessor.h
+1445341585 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vertexprocessor.h
 	"Matrix4.h"
 	"Triangle.h"
 	"Camera.h"

@@ -2,6 +2,7 @@
 #include "Matrix4.h"
 #include "RenderTarget.h"
 #include "GLFWWindow.h"
+#include "VertexProcessor.h"
 #include <cstdio>
 #include <iostream>
 #include <array>
@@ -137,10 +138,27 @@ int main(int argc, char **argv)
 
     }
 
+    VertexProcessor *vp= new VertexProcessor();
+
+
+    vp->setLookat(Vector3Bf(0,-1,0),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
+    vp->setPerspective(10
+                       ,800/600,Vector2Bf(1,1000));
+    //vp->multByRotation(90,Vector3Bf(1,0,0));
+    vp->setIdentity();
+    vp->transform();
+
+    TriangleFloat* t,t2;
+
+
+t=new TriangleFloat();
+        t->first=vp->addTriangle(triangle2->first);
+        t->second=vp->addTriangle(triangle2->second);
+        t->third=vp->addTriangle(triangle2->third);
+
 
     //file->draw(t);
-    file->draw(*triangle);
-    file->draw(*triangle2);
+    file->draw(*t);
 
 #ifdef CLOCK
 

@@ -10,14 +10,13 @@ public:
     VertexProcessor();
     virtual ~VertexProcessor();
     void setPerspective(d_type::Bfloat fovy, d_type::Bfloat aspect, const Vector2Bf& nearfar);
-    void setLookat(const Vector3Bf &eye, const Vector3Bf&center, Vector3Bf up);
+    void setLookat( Vector3Bf eye,  Vector3Bf center, Vector3Bf up);
     void multByTranslation(const Vector3Bf& vec);
     void multByScale(const Vector3Bf& vec);
     void multByRotation(d_type::Bfloat a,Vector3Bf vec);
     Vector3Bf addTriangle(Vector3Bf tr);
     //for camera
     void setPerspective(d_type::Bfloat aspect,const Camera& camera);
-    void setLookat(Vector3Bf eye,Vector3Bf center,Vector3Bf up);
     void setIdentity();
     void transform();
 protected:

@@ -25,7 +25,7 @@ view2proj=Matrix4Bfloat(
 
 }
 
-void VertexProcessor::setLookat(const Vector3Bf &eye, const Vector3Bf&center, Vector3Bf up)
+void VertexProcessor::setLookat( Vector3Bf eye,  Vector3Bf center, Vector3Bf up)
 {
     Vector3Bf f= center - eye;
     Vector3Bf::normalize(f);
@@ -98,10 +98,6 @@ Vector3Bf VertexProcessor::addTriangle(Vector3Bf tr)
     return Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
 }
 
-void VertexProcessor::setLookat(Vector3Bf eye, Vector3Bf center, Vector3Bf up)
-{
-
-}
 
 void VertexProcessor::setIdentity()
 {

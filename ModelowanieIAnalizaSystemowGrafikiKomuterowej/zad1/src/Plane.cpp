@@ -59,7 +59,7 @@ Vector3BfVector Plane::intersect(const Ray& ray) const
     d_type::Bfloat a=0;
     d_type::Bfloat lDOTn=Vector3Bf::dotProduct(m_normal,ray.getDirection());
     Vector3BfVector vec;
-    if(lDOTn==0)
+    if(lDOTn == 0)
     {
         a=Vector3Bf::dotProduct((m_inPoint - ray.getOrigin()),m_normal);
         if(a == 0)

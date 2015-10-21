@@ -1,6 +1,8 @@
 #include <vector>
 #include <limits>
 #include <algorithm>
+
+
 struct Smallest
 {
     template <typename T>

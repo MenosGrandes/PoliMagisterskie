@@ -3,6 +3,7 @@
 #include "RenderTarget.h"
 #include "GLFWWindow.h"
 #include "VertexProcessor.h"
+
 #include <cstdio>
 #include <iostream>
 #include <array>
@@ -10,7 +11,6 @@
 #include <chrono>
 #include <ctime>
 #include <vector>
-
 
 
 
@@ -23,6 +23,9 @@ using namespace c;
 #ifdef FOTO
 #include "Sphere.h"
 #include "Plane.h"
+#include "OrtagonalCamera.h"
+#include "PerspectiveCamera.h"
+#include "RayTracer.h"
 #else
 
 #endif // FOTO
@@ -33,20 +36,16 @@ using namespace c;
 int main(int argc, char **argv)
 {
 
-
-#ifdef OPENGL
-    GLFWWindow *w=new GLFWWindow(300,300);
-
-    w->loop();
-    w->terminate();
-#endif // OPENGL
-
+RaycastableVector v_ray;
 
     std::cout<<"R1\n";
 
-    Sphere s= Sphere(Vector3Bf(),1  );
+    Sphere *s= new Sphere(Vector3Bf(),1  );
+
+            v_ray.push_back(s);
+
     Ray r1=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,0,0),DESTINATION);
-    Vector3BfVector r1V=s.intersect(r1);
+    Vector3BfVector r1V=s->intersect(r1);
     for(Vector3Bf n :r1V)
     {
         std::cout<<n<<"\n";
@@ -55,7 +54,7 @@ int main(int argc, char **argv)
     std::cout<<"R2\n";
 
     Ray r2=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,10,-20),DIRECTION);
-    Vector3BfVector r2V=s.intersect(r2);
+    Vector3BfVector r2V=s->intersect(r2);
     for(Vector3Bf n :r2V)
     {
         std::cout<<n<<"\n";
@@ -63,19 +62,21 @@ int main(int argc, char **argv)
 //////////////////////////////////////////////////////////
     std::cout<<"R3\n";
     Ray r3=Ray(Vector3Bf(-10,0,-20),Vector3Bf(-10,0,20),DESTINATION);
-    Vector3BfVector r3V=s.intersect(r3);
+    Vector3BfVector r3V=s->intersect(r3);
     for(Vector3Bf n :r3V)
     {
         std::cout<<n<<"\n";
     }
 ////////////////////////////////////////////////////////
     std::cout<<"Plane1\n";
-    Plane p(Vector3Bf(0,0,0),Vector3Bf(23,cosf(M_PI/4),cosf(M_PI/4)));
-    Vector3BfVector r4V=p.intersect(r2);
+    Plane *p=new Plane(Vector3Bf(0,0,0),Vector3Bf(0,cosf(ToRadians::toRadians(75)),cosf(ToRadians::toRadians(75))));
+    Vector3BfVector r4V=p->intersect(r2);
     for(Vector3Bf n :r4V)
     {
         std::cout<<n<<"\n";
     }
+
+
 
 
 
@@ -87,37 +88,21 @@ int main(int argc, char **argv)
     Vector2Bs img_size=Vector2Bs(800,600);
     RenderTarget *file = new RenderTarget(img_size);
 
+    ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,-5),0,Vector2Bf(5,5));
 
-    d_type::Bfloat widthPixel,heightPixel;
-    d_type::Bfloat centerX,centerY;
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,1,-8),
+                                           Vector3Bf(0,0,0),
+                                           Vector3Bf(0,-1,0),
+                                           1,
+                                           Vector2Bf(3,2));
 
-    widthPixel=2.0f/file->getSize().x;
-    heightPixel=2.0f/file->getSize().y;
-    std::cout<<widthPixel<<" "<<heightPixel<<"\n";
-    for(Bint x=0; x<file->getSize().x; x++)
-    {
-        for(Bint y=0; y<file->getSize().y; y++)
-        {
-            centerX=-1.0f + (x+0.5f)*widthPixel;
-            centerY=1.0f - (y+0.5f)*heightPixel;
-            Ray r(Vector3Bf(0,0,-20),Vector3Bf(centerX,centerY,0),DESTINATION);
-            Vector3BfVector v=s.intersect(r);
-            if(!v.empty())
-            {
-                file->setPixel(Colour::Red,x,y);
+    RayTracer *rt = new RayTracer(orto,file);
+    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2));
+    rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2));
+    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2));
 
-            }
-            else
-            {
-                // std::cout<<"EMPTY";
-                file->setPixel(Colour::Black,x,y);
-            }
-
-        }
-
-    }
-
-
+   // rt->addObject(p);
+    rt->rayTrace();
 
 #ifdef CLOCK
 
@@ -132,7 +117,6 @@ int main(int argc, char **argv)
     file->drawToFile("file.tga");
 
 
-    //file->getDepthBuffer();
 
 
     delete file;

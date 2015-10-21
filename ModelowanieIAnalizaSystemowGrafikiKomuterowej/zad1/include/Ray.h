@@ -2,10 +2,7 @@
 #define RAY_H
 #include "Vector3.h"
 #include <vector>
-//DEFINES TO RAY
-#define RAY_MISS 0
-#define RAY_HIT_POINT 1
-#define RAY_HIT_POINTS 2
+#include <limits>
 #define DESTINATION 0
 #define DIRECTION 1
 

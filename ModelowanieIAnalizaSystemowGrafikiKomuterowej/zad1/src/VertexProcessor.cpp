@@ -104,10 +104,6 @@ void VertexProcessor::setIdentity()
     obj2world= Matrix4Bfloat::Identity;
 }
 
-void VertexProcessor::setPerspective(d_type::Bfloat aspect, const Camera& camera)
-{
-
-}
 void VertexProcessor::transform()
 {
     Matrix4Bfloat obj2view = world2view*obj2world;

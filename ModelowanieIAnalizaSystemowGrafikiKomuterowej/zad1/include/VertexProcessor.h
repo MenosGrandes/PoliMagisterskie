@@ -16,7 +16,7 @@ public:
     void multByRotation(d_type::Bfloat a,Vector3Bf vec);
     Vector3Bf addTriangle(Vector3Bf tr);
     //for camera
-    void setPerspective(d_type::Bfloat aspect,const Camera& camera);
+//    void setPerspective(d_type::Bfloat aspect,const Camera& camera);
     void setIdentity();
     void transform();
 protected:

@@ -1,6 +1,6 @@
 #include "Sphere.h"
 
-Sphere::Sphere(Vector3Bf center, d_type::Bfloat radius):m_center(center),m_radius(radius),Raycastable()
+Sphere::Sphere(Vector3Bf center, d_type::Bfloat radius):m_center(center),m_radius(radius),IRaycastable()
 {
     m_sqRadius=m_radius*m_radius;
 }
@@ -62,13 +62,13 @@ Vector3BfVector Sphere::intersect(const Ray& ray) const
     {
 
         d_type::Bfloat t1 = ((-1)*b-sqrtf(delta))/(2*a);
-        if(t1>0)
+        if(t1> F_EPSILON)
         {
             vec.push_back(Vector3Bf(ray.getOrigin()+t1*direction));
         }
         d_type::Bfloat t2 = ((-1)*b+sqrtf(delta))/(2*a);
 
-        if(t2>0)
+        if(t2>F_EPSILON)
         {
             vec.push_back(Vector3Bf(ray.getOrigin()+t2*direction));
         }

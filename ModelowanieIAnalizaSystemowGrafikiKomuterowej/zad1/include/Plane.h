@@ -2,7 +2,7 @@
 #define PLANE_H
 #include "Raycastable.h"
 
-class Plane : public Raycastable
+class Plane : public IRaycastable
 {
 public:
     Plane();
@@ -17,7 +17,7 @@ public:
     void setNormal(const Vector3Bf val) ;
     void setInPoint(const Vector3Bf val ) ;
     void setDistance(const d_type::Bfloat val) ;
-    virtual Vector3BfVector intersect(const Ray&ray) const ;
+     Vector3BfVector intersect(const Ray&ray) const ;
 
 protected:
 private:

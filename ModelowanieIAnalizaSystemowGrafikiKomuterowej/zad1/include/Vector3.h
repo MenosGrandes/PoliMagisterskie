@@ -21,7 +21,7 @@ public :
     Vector3();
     Vector3(T X, T Y, T Z);
     template <typename U>
-    explicit Vector3(const Vector3<U>& vector);
+     Vector3(const Vector3<U>& vector);
     T min();
     T max();
 
@@ -35,17 +35,9 @@ public :
     Vector3<T> lerp(const Vector3<T>&v, const T f);
     Vector3<T> normalizeProduct();
     static void normalize(Vector3<T>&v);
-    union
-    {
-        struct
-        {
-            T x, y, z;
-        };
-        struct
-        {
-            T r, g, b;
-        };
-    };
+
+    T x, y, z;
+
 
 
 

@@ -1,19 +1,12 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 #include "Vector2.h"
-#include "Vector3.h"
+#include "Ray.h"
 
-class Camera
+class ICamera
 {
     public:
-        Camera();
-        Camera(Vector2Bf position,Vector3Bf target);
-        virtual ~Camera();
-    protected:
-        Vector2Bf m_position,m_nearFarPlane;
-        Vector3Bf m_target,m_up;
-        d_type::Bfloat m_fov;
-
+    virtual Ray& recalculateRay(Vector2Bf position)=0;
 };
 
 #endif // CAMERA_H

@@ -52,7 +52,7 @@ Vector3BfVector Sphere::intersect(const Ray& ray) const
 
     d_type::Bfloat a=direction.lengthSquared();
 
-    d_type::Bfloat b=2*(Vector3Bf::dotProduct(oc,direction));
+    d_type::Bfloat b=(Vector3Bf::dotProduct(oc,direction*2.0f));
 
     d_type::Bfloat c=oc.lengthSquared() - m_sqRadius;
 

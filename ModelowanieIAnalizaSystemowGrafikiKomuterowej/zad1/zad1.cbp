@@ -5,7 +5,7 @@
 		<Option title="zad1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Camera\;Ray\;RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Ray\Raycastable\;Triangle\;GLFWWindow\;Light\;" />
+		<Option virtualFolders="Camera\;Ray\;RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Ray\Raycastable\;Triangle\;GLFWWindow\;Light\;Antyalising\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/zad1" prefix_auto="1" extension_auto="1" />
@@ -52,6 +52,9 @@
 		<Unit filename="include/GLFWWindow.h">
 			<Option virtualFolder="GLFWWindow/" />
 		</Unit>
+		<Unit filename="include/ISampleGenerator.h">
+			<Option virtualFolder="Antyalising/" />
+		</Unit>
 		<Unit filename="include/LightIntensity.h">
 			<Option virtualFolder="Light/" />
 		</Unit>
@@ -66,6 +69,9 @@
 		</Unit>
 		<Unit filename="include/Plane.h">
 			<Option virtualFolder="Ray/Raycastable/" />
+		</Unit>
+		<Unit filename="include/RandomSampleGenerator.h">
+			<Option virtualFolder="Antyalising/" />
 		</Unit>
 		<Unit filename="include/Ray.h">
 			<Option virtualFolder="Ray/" />
@@ -130,6 +136,9 @@
 		</Unit>
 		<Unit filename="src/Plane.cpp">
 			<Option virtualFolder="Ray/Raycastable/" />
+		</Unit>
+		<Unit filename="src/RandomSampleGenerator.cpp">
+			<Option virtualFolder="Antyalising/" />
 		</Unit>
 		<Unit filename="src/Ray.cpp">
 			<Option virtualFolder="Ray/" />

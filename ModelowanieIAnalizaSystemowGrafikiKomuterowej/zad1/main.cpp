@@ -33,16 +33,20 @@ using namespace c;
 
 
 #ifdef FOTO
+#define ZAD1
 int main(int argc, char **argv)
 {
 
-RaycastableVector v_ray;
+#ifdef CLOCK
+    std::chrono::time_point<std::chrono::system_clock> start, end;
+    start = std::chrono::system_clock::now();
+#endif // CLOCK
 
+#ifdef ZAD1
     std::cout<<"R1\n";
 
-    Sphere *s= new Sphere(Vector3Bf(),1  );
+    Sphere *s= new Sphere(Vector3Bf(),10  );
 
-            v_ray.push_back(s);
 
     Ray r1=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,0,0),DESTINATION);
     Vector3BfVector r1V=s->intersect(r1);
@@ -53,7 +57,7 @@ RaycastableVector v_ray;
 ////////////////////////////////////////////////////////
     std::cout<<"R2\n";
 
-    Ray r2=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,10,-20),DIRECTION);
+    Ray r2=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,10,20),DIRECTION);
     Vector3BfVector r2V=s->intersect(r2);
     for(Vector3Bf n :r2V)
     {
@@ -75,17 +79,9 @@ RaycastableVector v_ray;
     {
         std::cout<<n<<"\n";
     }
-
-
-
-
-
-#ifdef CLOCK
-    std::chrono::time_point<std::chrono::system_clock> start, end;
-    start = std::chrono::system_clock::now();
-#endif // CLOCK
-
-    Vector2Bs img_size=Vector2Bs(800,600);
+#endif // ZAD1
+#ifdef ZAD2
+    Vector2Bs img_size=Vector2Bs(800,400);
     RenderTarget *file = new RenderTarget(img_size);
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,-5),0,Vector2Bf(5,5));
@@ -94,15 +90,23 @@ RaycastableVector v_ray;
                                            Vector3Bf(0,0,0),
                                            Vector3Bf(0,-1,0),
                                            1,
-                                           Vector2Bf(3,2));
+                                           Vector2Bf(16,9));
 
-    RayTracer *rt = new RayTracer(orto,file);
+    RayTracer *rt = new RayTracer(persp,file);
     rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2));
     rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2));
     rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2));
 
    // rt->addObject(p);
     rt->rayTrace();
+#endif // ZAD2
+
+
+
+
+
+
+
 
 #ifdef CLOCK
 
@@ -114,13 +118,12 @@ RaycastableVector v_ray;
     std::cout << "finished computation at " << std::ctime(&end_time)
               << "elapsed time: " << elapsed_seconds.count() << "s\n";
 #endif // CLOCK
+
+
+#ifdef ZAD2
     file->drawToFile("file.tga");
-
-
-
-
     delete file;
-
+#endif // ZAD2
     d_type::Bint a;
     std::cin>>a;
     return 0;

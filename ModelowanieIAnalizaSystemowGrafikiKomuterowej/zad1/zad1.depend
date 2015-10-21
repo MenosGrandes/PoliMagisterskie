@@ -328,7 +328,7 @@
 1445430828 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\matrix4.cpp
 	"Matrix4.h"
 
-1445430828 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\matrix4.h
+1445439006 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\matrix4.h
 	"Vector4.h"
 	<ostream>
 	<iostream>
@@ -336,7 +336,7 @@
 1445430828 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector4.h
 	"structs.hpp"
 
-1445431452 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\plane.cpp
+1445440669 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\plane.cpp
 	"Plane.h"
 
 1445430828 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\plane.h
@@ -381,7 +381,7 @@
 	<limits>
 	<algorithm>
 
-1445432601 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
+1445441342 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
 	"Triangle.h"
 	"Matrix4.h"
 	"RenderTarget.h"
@@ -400,7 +400,7 @@
 	"PerspectiveCamera.h"
 	"RayTracer.h"
 
-1445430828 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\vertexprocessor.cpp
+1445441483 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\vertexprocessor.cpp
 	"VertexProcessor.h"
 
 1445430828 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vertexprocessor.h

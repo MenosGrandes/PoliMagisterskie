@@ -2,9 +2,9 @@
 
 VertexProcessor::VertexProcessor()
 {
-   this->view2proj=Matrix4Bfloat();
-   this->world2view=Matrix4Bfloat();
-   this->obj2world=Matrix4Bfloat();
+   this->view2proj=Matrix4Bfloat::Identity;
+   this->world2view=Matrix4Bfloat::Identity;
+   this->obj2world=Matrix4Bfloat::Identity;
 }
 
 VertexProcessor::~VertexProcessor()

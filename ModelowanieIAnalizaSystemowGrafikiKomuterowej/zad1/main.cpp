@@ -33,7 +33,7 @@ using namespace c;
 
 
 #ifdef FOTO
-#define ZAD1
+#define ZAD2
 int main(int argc, char **argv)
 {
 
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 ////////////////////////////////////////////////////////
     std::cout<<"R2\n";
 
-    Ray r2=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,10,20),DIRECTION);
+    Ray r2=Ray(Vector3Bf(0,0,-20),Vector3Bf(0,10,-20),DIRECTION);
     Vector3BfVector r2V=s->intersect(r2);
     for(Vector3Bf n :r2V)
     {
@@ -73,7 +73,7 @@ int main(int argc, char **argv)
     }
 ////////////////////////////////////////////////////////
     std::cout<<"Plane1\n";
-    Plane *p=new Plane(Vector3Bf(0,0,0),Vector3Bf(0,cosf(ToRadians::toRadians(75)),cosf(ToRadians::toRadians(75))));
+    Plane *p=new Plane(Vector3Bf(0,0,0),Vector3Bf(0,cosf(ToRadians::toRadians(45)),cosf(ToRadians::toRadians(45))));
     Vector3BfVector r4V=p->intersect(r2);
     for(Vector3Bf n :r4V)
     {
@@ -90,13 +90,13 @@ int main(int argc, char **argv)
                                            Vector3Bf(0,0,0),
                                            Vector3Bf(0,-1,0),
                                            1,
-                                           Vector2Bf(16,9));
+                                           Vector2Bf(2,1));
 
     RayTracer *rt = new RayTracer(persp,file);
     rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2));
     rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2));
     rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2));
-
+        rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0)));
    // rt->addObject(p);
     rt->rayTrace();
 #endif // ZAD2
@@ -171,8 +171,7 @@ int main(int argc, char **argv)
 
 
     vp->setLookat(Vector3Bf(0,-1,0),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
-    vp->setPerspective(10
-                       ,800/600,Vector2Bf(1,1000));
+    vp->setPerspective(10,800/600,Vector2Bf(1,1000));
     //vp->multByRotation(90,Vector3Bf(1,0,0));
     vp->setIdentity();
     vp->transform();

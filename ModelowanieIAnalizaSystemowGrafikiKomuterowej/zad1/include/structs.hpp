@@ -24,14 +24,4 @@ typedef size_t          Bsize;
 
 
 
-#ifndef TORADIANS_H
-#define TORADIANS_H
-class ToRadians
-{
-    public :
-static d_type::Bfloat toRadians(d_type::Bfloat angle)
-{
-    return (angle*M_PI)/180;
-}
-};
-#endif // TORADIANS_H
+

@@ -4,10 +4,10 @@
 using namespace c;
 class LightIntensity
 {
-    public:
-        LightIntensity();
-        virtual ~LightIntensity();
-        Colour color;
+public:
+    LightIntensity();
+    virtual ~LightIntensity();
+    Colour color;
 
 };
 #endif // LIGHTINTENSITY_H

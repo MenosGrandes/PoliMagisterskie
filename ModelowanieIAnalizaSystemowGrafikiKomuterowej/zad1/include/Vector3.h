@@ -21,7 +21,7 @@ public :
     Vector3();
     Vector3(T X, T Y, T Z);
     template <typename U>
-     Vector3(const Vector3<U>& vector);
+    Vector3(const Vector3<U>& vector);
     T min();
     T max();
 
@@ -248,14 +248,14 @@ Vector3<T> Vector3<T>::computeNormal(const Vector3<T>& p1, const Vector3<T>& p2)
 template <typename T>
 T Vector3<T>::length()
 {
-    return  (T)sqrt(pow(x,  2)+  pow(y,  2)+  pow(z, 2));
+    return  (T)sqrt(x*x+  y*y+  z*z);
 }
 ///////////////////////////////////////////////////////////
 
 template <typename T>
 T Vector3<T>::lengthSquared()
 {
-    return  (T)(pow(x,  2)+  pow(y,  2)+  pow(z, 2));
+    return  (T)(x*x+  y*y+  z*z);
 }
 ///////////////////////////////////////////////////////////
 

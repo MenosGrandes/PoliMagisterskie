@@ -1,7 +1,6 @@
 #include "Triangle.h"
 #include "Matrix4.h"
 #include "RenderTarget.h"
-#include "GLFWWindow.h"
 #include "VertexProcessor.h"
 
 #include <cstdio>
@@ -26,6 +25,7 @@ using namespace c;
 #include "OrtagonalCamera.h"
 #include "PerspectiveCamera.h"
 #include "RayTracer.h"
+#include "RandomSampleGenerator.h"
 #else
 
 #endif // FOTO
@@ -34,8 +34,11 @@ using namespace c;
 
 #ifdef FOTO
 #define ZAD2
+#define CLOCK
 int main(int argc, char **argv)
 {
+
+
 
 #ifdef CLOCK
     std::chrono::time_point<std::chrono::system_clock> start, end;
@@ -93,12 +96,24 @@ int main(int argc, char **argv)
                                            Vector2Bf(2,1));
 
     RayTracer *rt = new RayTracer(persp,file);
+    rt->addObject(new Plane(Vector3Bf(0,2,0),Vector3Bf(0,1,0)));
     rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2));
     rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2));
     rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2));
-        rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0)));
-   // rt->addObject(p);
+
+    // rt->addObject(p);
     rt->rayTrace();
+
+
+
+
+    RandomSampleGenerator *r = new RandomSampleGenerator();
+
+    r->generateSamples(3);
+    r->generateSamples(3);
+    r->generateSamples(3);
+
+
 #endif // ZAD2
 
 
@@ -179,10 +194,10 @@ int main(int argc, char **argv)
     TriangleFloat* t,t2;
 
 
-t=new TriangleFloat();
-        t->first=vp->addTriangle(triangle2->first);
-        t->second=vp->addTriangle(triangle2->second);
-        t->third=vp->addTriangle(triangle2->third);
+    t=new TriangleFloat();
+    t->first=vp->addTriangle(triangle2->first);
+    t->second=vp->addTriangle(triangle2->second);
+    t->third=vp->addTriangle(triangle2->third);
 
 
     //file->draw(t);

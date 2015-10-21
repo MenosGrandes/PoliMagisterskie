@@ -2,6 +2,7 @@
 #define SPHERE_H
 #include "Raycastable.h"
 #include <iostream>
+#include "../src/algorithms.hpp"
 class Sphere : public IRaycastable
 {
 public:
@@ -15,7 +16,7 @@ public:
     void setCenter(const Vector3Bf center);
     void setRadius(const d_type::Buint center);
     //METHODS
-     Vector3BfVector intersect(const Ray&ray) const ;
+    Vector3BfVector intersect(const Ray&ray) const ;
 protected:
 private:
     //MEMBERS

@@ -2,7 +2,53 @@
 #include <limits>
 #include <algorithm>
 
+#ifndef TORADIANS_H
+#define TORADIANS_H
+class ToRadians
+{
+public :
+    static d_type::Bfloat toRadians(d_type::Bfloat angle)
+    {
+        return (angle*M_PI)/180;
+    }
+};
+#endif // TORADIANS_H
+#ifndef FASTSQRT_H
+#define FASTSQRT_H
 
+struct FastSqrt
+{
+   float sqrt5(const float m)
+{
+   float i=0;
+   float x1,x2;
+   while( (i*i) <= m )
+          i+=0.1f;
+   x1=i;
+   for(int j=0;j<10;j++)
+   {
+       x2=m;
+      x2/=x1;
+      x2+=x1;
+      x2/=2;
+      x1=x2;
+   }
+   return x2;
+}
+float sqrt7(float x)
+ {
+   unsigned int i = *(unsigned int*) &x;
+   // adjust bias
+   i  += 127 << 23;
+   // approximation of square root
+   i >>= 1;
+   return *(float*) &i;
+ }
+};
+#endif // COLOUR_H
+
+#ifndef SMALLEST_H
+#define SMALLEST_H
 struct Smallest
 {
     template <typename T>
@@ -35,7 +81,10 @@ struct Smallest
 
 
 };
+#endif // SMALLEST_H
 
+#ifndef GREATEST_H
+#define GREATEST_H
 struct Greatest
 {
     template <typename T>
@@ -70,5 +119,5 @@ struct Greatest
 
 
 };
-
+#endif // GREATEST_H
 

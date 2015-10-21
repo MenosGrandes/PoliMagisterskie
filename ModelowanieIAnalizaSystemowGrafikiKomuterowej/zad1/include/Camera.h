@@ -5,7 +5,7 @@
 
 class ICamera
 {
-    public:
+public:
     virtual Ray& recalculateRay(Vector2Bf position)=0;
 };
 

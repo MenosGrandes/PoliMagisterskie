@@ -16,6 +16,12 @@ void RayTracer::addObject(IRaycastable* ray)
 }
 void RayTracer::rayTrace()
 {
+    Colour * c=new Colour[m_objectVector.size()];
+    c[0]=Colour::Black;
+    c[1]=Colour::Yellow;
+    c[2]=Colour::Red;
+    c[3]=Colour::Green;
+    c[3]=Colour::Blue;
 
     for(Bint x=0; x<m_renderTanger->getSize().x; x++)
     {
@@ -33,7 +39,7 @@ void RayTracer::rayTrace()
                 Vector3BfVector v=m_objectVector[i]->intersect(r);
                 if(!v.empty())
                 {
-                    m_renderTanger->setPixel(Colour::Red,x,y);
+                    m_renderTanger->setPixel(c[i],x,y);
 
                 }
 
@@ -43,5 +49,5 @@ void RayTracer::rayTrace()
 
     }
     std::cout<<"DONE\n";
-
+    delete [] c;
 }

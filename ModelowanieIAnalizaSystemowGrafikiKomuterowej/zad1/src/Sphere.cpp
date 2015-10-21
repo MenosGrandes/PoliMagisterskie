@@ -46,7 +46,7 @@ Vector3BfVector Sphere::intersect(const Ray& ray) const
 #endif // MY_INTER
 #ifdef M_INTER
 
-
+    FastSqrt sqrtf;
     Vector3Bf direction=ray.getDirection();
     Vector3Bf oc=ray.getOrigin()-m_center;
 
@@ -61,12 +61,12 @@ Vector3BfVector Sphere::intersect(const Ray& ray) const
     if(delta>0)
     {
 
-        d_type::Bfloat t1 = ((-1)*b-sqrtf(delta))/(2*a);
+        d_type::Bfloat t1 = ((-1)*b-sqrtf.sqrt7(delta))/(2*a);
         if(t1> F_EPSILON)
         {
             vec.push_back(Vector3Bf(ray.getOrigin()+t1*direction));
         }
-        d_type::Bfloat t2 = ((-1)*b+sqrtf(delta))/(2*a);
+        d_type::Bfloat t2 = ((-1)*b+sqrtf.sqrt7(delta))/(2*a);
 
         if(t2>F_EPSILON)
         {

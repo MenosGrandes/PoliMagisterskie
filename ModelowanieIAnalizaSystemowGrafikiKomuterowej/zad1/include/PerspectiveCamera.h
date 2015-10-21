@@ -17,7 +17,7 @@ private :
             Vector3Bf::normalize(u);
             v=Vector3Bf::cross(w,u);
         }
-        OrtBase(){};
+        OrtBase() {};
 
     };
 public:

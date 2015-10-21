@@ -15,17 +15,17 @@ public:
     }
 
 
-Ray(Vector3Bf origin,Vector3Bf vec,bool destORDir):m_origin(origin)
+    Ray(Vector3Bf origin,Vector3Bf vec,bool destORDir):m_origin(origin)
     {
-    if(destORDir == DESTINATION)
-    {
-         m_destination=vec;
-         m_direction=m_destination-m_origin;
-    }
-    else
-    {
-        m_direction=vec;
-    }
+        if(destORDir == DESTINATION)
+        {
+            m_destination=vec;
+            m_direction=m_destination-m_origin;
+        }
+        else
+        {
+            m_direction=vec;
+        }
 
     }
     //GETTERS

@@ -56,13 +56,12 @@ Vector3BfVector Plane::intersect(const Ray& ray) const
     jezeli  normalnyplaszczyszny DOT kierunekVektora !=0 to jest intersekcja i obliczamy ja za pomoca wzoru p=d*kierunekVektora + punktPoczatkuPromienia
 
     */
-    d_type::Bfloat a=Vector3Bf::dotProduct((m_inPoint - ray.getOrigin()),m_normal);
-    d_type::Bfloat lDOTn=Vector3Bf::dotProduct(m_normal,ray.getDirection());
 
+    d_type::Bfloat t=Vector3Bf::dotProduct((m_inPoint - ray.getOrigin()),m_normal) /  Vector3Bf::dotProduct(m_normal,ray.getDirection());
     Vector3BfVector vec;
-    if(lDOTn != 0)
+    if( t > F_EPSILON)
     {
-    vec.push_back(ray.getDirection()*(a/lDOTn) + ray.getOrigin());
+        vec.push_back(ray.getDirection()*(t) + ray.getOrigin());
 
     }
 

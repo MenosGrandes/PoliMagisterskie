@@ -3,6 +3,8 @@
 #include "structs.hpp"
 #include "Vector2.h"
 #include "Vector3.h"
+#include <random>
+#include <iostream>
 namespace c
 {
 
@@ -19,6 +21,9 @@ public :
 
     Colour():r(255),g(255),b(255),a(255) {};
     Colour(const Colour& next):r(next.r),g(next.g),b(next.b),a(next.a) {};
+
+
+
     const static  Colour Green;
     const static  Colour Yellow;
     const static  Colour White;

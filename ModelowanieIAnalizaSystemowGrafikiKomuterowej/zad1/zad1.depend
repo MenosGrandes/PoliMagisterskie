@@ -765,7 +765,7 @@
 	"Ray.h"
 	<vector>
 
-1445457517 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RandomSampleGenerator.cpp
+1445504643 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RandomSampleGenerator.cpp
 	"RandomSampleGenerator.h"
 
 1445454897 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/RandomSampleGenerator.h
@@ -800,10 +800,11 @@
 	"../src/algorithms.hpp"
 	<iostream>
 
-1445462176 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/algorithms.hpp
+1445504549 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/algorithms.hpp
 	<vector>
 	<limits>
 	<algorithm>
+	<random>
 
 1445454897 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RenderTarget.cpp
 	"RenderTarget.h"
@@ -855,13 +856,13 @@
 1445455487 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/GLFWWindow.cpp
 	"GLFWWindow.h"
 
-1445461702 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RegularSampleGenerator.cpp
+1445504694 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RegularSampleGenerator.cpp
 	"RegularSampleGenerator.h"
 
 1445458548 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/RegularSampleGenerator.h
 	"ISampleGenerator.h"
 
-1445461702 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/JitteredSampleGenerator.cpp
+1445504661 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/JitteredSampleGenerator.cpp
 	"JitteredSampleGenerator.h"
 
 1445459316 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/JitteredSampleGenerator.h
@@ -872,4 +873,24 @@
 
 1445463366 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/ISampleDistributor.h
 	"Vector2.h"
+
+1445463446 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/DiskSampleDistributor.cpp
+	"DiskSampleDistributor.h"
+
+1445463379 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/DiskSampleDistributor.h
+	"ISampleDistributor.h"
+
+1445463390 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/SquareSampleDistributor.cpp
+	"SquareSampleDistributor.h"
+
+1445463379 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/SquareSampleDistributor.h
+	"ISampleDistributor.h"
+
+1445504428 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Sampler.cpp
+	"Sampler.h"
+
+1445499445 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Sampler.h
+	"ISampleDistributor.h"
+	"ISampleGenerator.h"
+	<list>
 

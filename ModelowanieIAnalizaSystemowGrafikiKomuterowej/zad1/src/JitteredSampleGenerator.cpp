@@ -12,11 +12,7 @@ JitteredSampleGenerator::~JitteredSampleGenerator()
 Vector2Bf* JitteredSampleGenerator::generateSamples(d_type::Bsize count)
 {
 
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_real_distribution<d_type::Bfloat> dis(0,1);
-
-
+    RandomGenFloat *r=new RandomGenFloat(0,1);
 
     FastSqrt a;
     d_type::Buint rows= static_cast<d_type::Buint>(a.sqrt7(count));
@@ -30,12 +26,13 @@ Vector2Bf* JitteredSampleGenerator::generateSamples(d_type::Bsize count)
         {
 
             result[x*rows+y]=Vector2Bf(
-                                 (x+dis(gen))/rows,
-                                 (y+dis(gen))/rows
+                                 (x+r->generateRandomFloat())/rows,
+                                 (y+r->generateRandomFloat())/rows
                              );
 
         }
     }
+    delete r;
     return result;
 
 

@@ -1,0 +1,1152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="RandomGenInt" Collapsed="true">
+    <Position X="125.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAAAAAAAAAAQAAAAAAIAAgAAAAAAAAAABA=</HashCode>
+      <FileName>algorithms.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomGenFloat" Collapsed="true">
+    <Position X="130.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAQAAQAAAAAAAAAAAAAAACABA=</HashCode>
+      <FileName>algorithms.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ToRadians" Collapsed="true">
+    <Position X="127.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>algorithms.hpp</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ICamera" Collapsed="true">
+    <Position X="8.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Camera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DiskSampleDistributor" Collapsed="true">
+    <Position X="4.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAABAAA=</HashCode>
+      <FileName>DiskSampleDistributor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Drawable" Collapsed="true">
+    <Position X="127.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIABAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Drawable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ISampleDistributor" Collapsed="true">
+    <Position X="3.75" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>ISampleDistributor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ISampleGenerator" Collapsed="true">
+    <Position X="5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ISampleGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JitteredSampleGenerator" Collapsed="true">
+    <Position X="5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAgAAAIAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>JitteredSampleGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LightIntensity" Collapsed="true">
+    <Position X="129" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAgAAAAAACAAAAAAAAAAAA=</HashCode>
+      <FileName>LightIntensity.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Matrix4&lt;T&gt;" Collapsed="true">
+    <Position X="19.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAACEAQAAAAAAA=</HashCode>
+      <FileName>Matrix4.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OrtagonalCamera" Collapsed="true">
+    <Position X="7.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAEABAAAAAAAAAAAAAAAAACAAAAAAADAA=</HashCode>
+      <FileName>OrtagonalCamera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="PerspectiveCamera" Collapsed="true">
+    <Position X="9.75" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABEAACBAAAAAAQAAAABACgAAAAAAAAAAAIA=</HashCode>
+      <FileName>PerspectiveCamera.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Plane" Collapsed="true">
+    <Position X="12.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAQAABIgAAAwAABCIAAAAAAAIABEAAAAA=</HashCode>
+      <FileName>Plane.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomSampleGenerator" Collapsed="true">
+    <Position X="2.75" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>RandomSampleGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ray" Collapsed="true">
+    <Position X="127.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAgEABgAiAAAABAAAQAAAAIAAIAAEAAAAAAAAAA=</HashCode>
+      <FileName>Ray.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IRaycastable" Collapsed="true">
+    <Position X="11.75" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Raycastable.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RayTracer" Collapsed="true">
+    <Position X="129" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgABAAAAAgIAAAAAEgAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
+      <FileName>RayTracer.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RegularSampleGenerator" Collapsed="true">
+    <Position X="7.25" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAICAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>RegularSampleGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RenderTarget" Collapsed="true">
+    <Position X="130.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>0kAgBAAAAIAAAAIAIAIAgAAAAAAAQAAEBAAAQAIABAA=</HashCode>
+      <FileName>RenderTarget.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sampler" Collapsed="true">
+    <Position X="125.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAgAIAIAQAAAAAAAAAAAQAAAAABAAAAA=</HashCode>
+      <FileName>Sampler.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sphere" Collapsed="true">
+    <Position X="10.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAIAAAEAAQAAAAADAACACAACIAAAAAAAAA=</HashCode>
+      <FileName>Sphere.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SquareSampleDistributor" Collapsed="true">
+    <Position X="2.5" Y="10.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABABA=</HashCode>
+      <FileName>SquareSampleDistributor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Triangle&lt;T&gt;" Collapsed="true">
+    <Position X="17.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAACABAAAAABAgEIIAAAAAAAAAIAAAAAAAAAFAA=</HashCode>
+      <FileName>Triangle.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vector2&lt;T&gt;" Collapsed="true">
+    <Position X="3.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAARAAAAAAAAAAAAAACAAABAAABgAAAAAAA=</HashCode>
+      <FileName>Vector2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vector3&lt;T&gt;" Collapsed="true">
+    <Position X="13.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAIIAQAAAAAEEAAAAAAACAAIBAAARgAQgAAAA=</HashCode>
+      <FileName>Vector3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vector4&lt;T&gt;" Collapsed="true">
+    <Position X="10.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAEAQAAAAAAAAAAAAAAAAAABAAAhgAQAAAAA=</HashCode>
+      <FileName>Vector4.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vertex2&lt;T&gt;" Collapsed="true">
+    <Position X="129" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAIAAAAAAAAACAAAIAAAAAAAA=</HashCode>
+      <FileName>Vertex2.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vertex3&lt;T&gt;" Collapsed="true">
+    <Position X="130.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAIAAAAAAAIAAAAAAAAACAAAIAAAAAAAA=</HashCode>
+      <FileName>Vertex3.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="VertexProcessor" Collapsed="true">
+    <Position X="125.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEQAAAAABAAQAQAEAMCiAAAAAAAwAAAAA=</HashCode>
+      <FileName>VertexProcessor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="c::Colour" Collapsed="true">
+    <Position X="125.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAGAAAAAAAAAgAAAAAAAAAABAAAAAAoAQABADAAAAA=</HashCode>
+      <FileName>Colour.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Struct Name="FastSqrt" Collapsed="true">
+    <Position X="125.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAgA=</HashCode>
+      <FileName>algorithms.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Smallest" Collapsed="true">
+    <Position X="125.5" Y="7.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>algorithms.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="Greatest" Collapsed="true">
+    <Position X="125.5" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>algorithms.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ColorDepth" Collapsed="true">
+    <Position X="127.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAIAAAAAA=</HashCode>
+      <FileName>Colour.h</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="programming_error_exception" Collapsed="true">
+    <Position X="2.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="sequence_empty_exception" Collapsed="true">
+    <Position X="4.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="base_range" Collapsed="true">
+    <Position X="34.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="base_builder" Collapsed="true">
+    <Position X="65.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="from_range&lt;TValueIterator&gt;" Collapsed="true">
+    <Position X="9.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACABAAAAAAAAAAAgAAgAAAAAEAAAAAAAAAEAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="from_copy_range&lt;TContainer&gt;" Collapsed="true">
+    <Position X="16.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAACABAAAAAAAAAAAgAAgAAAgAAAAAAAAAAAEAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="int_range" Collapsed="true">
+    <Position X="21" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAACABAAAAAAAAAAAgAAgABAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="repeat_range&lt;TValue&gt;" Collapsed="true">
+    <Position X="30" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAQAAAABAAAAAAAAAAAgAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="empty_range&lt;TValue&gt;" Collapsed="true">
+    <Position X="32.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="singleton_range&lt;TValue&gt;" Collapsed="true">
+    <Position X="41.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAQAAAAAAAAAAAAgAAAAAAAGAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="sorting_range" Collapsed="true">
+    <Position X="44.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="orderby_range&lt;TRange, TPredicate&gt;" Collapsed="true">
+    <Position X="43.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAIAFAAQABAAAgAAgAAgAAAAAAAAAgAAAIAQAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="orderby_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="89.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAIAAAAABAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="thenby_range&lt;TRange, TPredicate&gt;" Collapsed="true">
+    <Position X="45.75" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAIAFAAQABAAAgAAgAAgAAAAAAAAAgBAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="thenby_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="105" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAAAAAAABAAAAAAAAIAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="reverse_range&lt;TRange&gt;" Collapsed="true">
+    <Position X="63.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAAIAAAAAAAoAAIAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="reverse_builder" Collapsed="true">
+    <Position X="8.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="where_range&lt;TRange, TPredicate&gt;" Collapsed="true">
+    <Position X="12" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABAAAAJAAAAAAgAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="where_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="26.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="take_range&lt;TRange&gt;" Collapsed="true">
+    <Position X="23.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABCAAAAABAAAAgAAgAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="take_builder" Collapsed="true">
+    <Position X="42" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="take_while_range&lt;TRange, TPredicate&gt;" Collapsed="true">
+    <Position X="34.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIQBAAAABAAAAAAgAAAAAAEAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="take_while_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="60" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="skip_range&lt;TRange&gt;" Collapsed="true">
+    <Position X="48" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABAAAAAABAAAAggAgAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="skip_builder" Collapsed="true">
+    <Position X="78" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="skip_while_range&lt;TRange, TPredicate&gt;" Collapsed="true">
+    <Position X="52.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABAAAABAIAAAAgAAAAAQAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="skip_while_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="96" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ref_range&lt;TRange&gt;" Collapsed="true">
+    <Position X="59.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="ref_builder" Collapsed="true">
+    <Position X="114" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="select_range&lt;TRange, TPredicate&gt;" Collapsed="true">
+    <Position X="5.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAIBBAAAABAAAAAAgAAAAAAAAAAAAAAAAIAAQA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="select_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="17.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="select_many_range_helper&lt;TRange, TPredicate&gt;" Collapsed="true">
+    <Position X="130.75" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="select_many_range&lt;TRange, TPredicate&gt;" Collapsed="true">
+    <Position X="25.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABAAIABAAAQAAgAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="select_many_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="44.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="join_range&lt;TRange, TOtherRange, TKeySelector, TOtherKeySelector, TCombiner&gt;" Collapsed="true">
+    <Position X="36.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEAAEAAMBBAAAABgQAAAAgAAgCAAAAAAAJAAACIAEAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="join_builder&lt;TOtherRange, TKeySelector, TOtherKeySelector, TCombiner&gt;" Collapsed="true">
+    <Position X="62.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAkAAAAAABAQAAAAAAAACAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="distinct_range&lt;TRange&gt;" Collapsed="true">
+    <Position X="50.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABAAAAAAAAQAAgAAgAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="distinct_builder" Collapsed="true">
+    <Position X="80.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="union_range&lt;TRange, TOtherRange&gt;" Collapsed="true">
+    <Position X="54.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABAAAAAAAAQAAgAAgCAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="union_builder&lt;TOtherRange&gt;" Collapsed="true">
+    <Position X="98.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="intersect_range&lt;TRange, TOtherRange&gt;" Collapsed="true">
+    <Position X="61.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABAAAAAgAAQAAgAAgCAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="intersect_builder&lt;TOtherRange&gt;" Collapsed="true">
+    <Position X="116.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="except_range&lt;TRange, TOtherRange&gt;" Collapsed="true">
+    <Position X="7.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABAAAAAgAAQAAgAAgCAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="except_builder&lt;TOtherRange&gt;" Collapsed="true">
+    <Position X="19.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="concat_range&lt;TRange, TOtherRange&gt;" Collapsed="true">
+    <Position X="18.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABAAAAAAAAAAAgAAACAAAAAEAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="concat_builder&lt;TOtherRange&gt;" Collapsed="true">
+    <Position X="35.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="container&lt;TRange&gt;" Collapsed="true">
+    <Position X="129" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="container_builder" Collapsed="true">
+    <Position X="53.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="to_vector_builder" Collapsed="true">
+    <Position X="64.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="to_list_builder" Collapsed="true">
+    <Position X="71.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="to_map_builder&lt;TKeyPredicate&gt;" Collapsed="true">
+    <Position X="82.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="lookup&lt;TKey, TValue&gt;" Collapsed="true">
+    <Position X="127.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="lookup_range" Collapsed="true">
+    <Position X="57" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAgAAACAAAAIAAAAAAAAgAAAAAAACAEAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="to_lookup_builder&lt;TKeyPredicate&gt;" Collapsed="true">
+    <Position X="107.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAQAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="for_each_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="118.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="first_predicate_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="first_builder" Collapsed="true">
+    <Position X="21.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="first_or_default_predicate_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="28.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="first_or_default_builder" Collapsed="true">
+    <Position X="37.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="last_or_default_predicate_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="46.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="last_or_default_builder" Collapsed="true">
+    <Position X="55.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="count_predicate_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="66.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="count_builder" Collapsed="true">
+    <Position X="73.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="sum_selector_builder&lt;TSelector&gt;" Collapsed="true">
+    <Position X="84.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="sum_builder" Collapsed="true">
+    <Position X="91.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="max_selector_builder&lt;TSelector&gt;" Collapsed="true">
+    <Position X="100.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="max_builder" Collapsed="true">
+    <Position X="109.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="min_selector_builder&lt;TSelector&gt;" Collapsed="true">
+    <Position X="120.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="min_builder" Collapsed="true">
+    <Position X="12.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="avg_selector_builder&lt;TSelector&gt;" Collapsed="true">
+    <Position X="24" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="avg_builder" Collapsed="true">
+    <Position X="30.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="aggregate_builder&lt;TAccumulate, TAccumulator&gt;" Collapsed="true">
+    <Position X="39.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAQAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="aggregate_result_selector_builder&lt;TAccumulate, TAccumulator, TSelector&gt;" Collapsed="true">
+    <Position X="48.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAEAAAAQAAAAEAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="sequence_equal_predicate_builder&lt;TOtherRange, TComparer&gt;" Collapsed="true">
+    <Position X="57.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAIABAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="sequence_equal_builder&lt;TOtherRange&gt;" Collapsed="true">
+    <Position X="69" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="concatenate_builder&lt;TCharType&gt;" Collapsed="true">
+    <Position X="75.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAAAAAEAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="any_predicate_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="87" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="any_builder" Collapsed="true">
+    <Position X="93.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="all_predicate_builder&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="102.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="contains_builder&lt;TValue&gt;" Collapsed="true">
+    <Position X="111.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="contains_predicate_builder&lt;TValue, TPredicate&gt;" Collapsed="true">
+    <Position X="123" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAAAAAAAAAAACAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="element_at_or_default_builder" Collapsed="true">
+    <Position X="15" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="pairwise_range&lt;TRange&gt;" Collapsed="true">
+    <Position X="14.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABAAAAAAAAIAAgAAgAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="pairwise_builder" Collapsed="true">
+    <Position X="33" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="zip_with_range&lt;TRange, TOtherRange&gt;" Collapsed="true">
+    <Position X="27.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIABAAAAAAAAAAAgAAACAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="zip_with_builder&lt;TOtherRange&gt;" Collapsed="true">
+    <Position X="51" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="generate_range&lt;TPredicate&gt;" Collapsed="true">
+    <Position X="39" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAABAAAABAAAAAAgAAAAAAAAAAAAAAAAQAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="cpplinq::base_exception" Collapsed="true">
+    <Position X="3.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="detail::cleanup_type&lt;TValue&gt;" Collapsed="true">
+    <Position X="125.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="detail::get_builtup_type&lt;TRangeBuilder, TRange&gt;" Collapsed="true">
+    <Position X="129" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="detail::get_transformed_type&lt;TPredicate, TValue&gt;" Collapsed="true">
+    <Position X="130.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="detail::get_array_properties&lt;TValue[Size]&gt;" Collapsed="true">
+    <Position X="127.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="detail::opt&lt;TValue&gt;" Collapsed="true">
+    <Position X="129" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Struct Name="experimental::container_iterator&lt;TRange&gt;" Collapsed="true">
+    <Position X="130.75" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Struct>
+  <Typedef Name="cpplinq::size_type" Collapsed="true">
+    <Position X="125.5" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="type_safe_bool_type" Collapsed="true">
+    <Position X="127.25" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="iterator_type" Collapsed="true">
+    <Position X="129" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>cpplinq.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Matrix4Bfloat" Collapsed="true">
+    <Position X="16.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Matrix4.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Matrix4Bint" Collapsed="true">
+    <Position X="19.5" Y="9.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Matrix4.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="RaycastableVector" Collapsed="true">
+    <Position X="130.75" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Raycastable.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="d_type::BBool" Collapsed="true">
+    <Position X="125.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>structs.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="d_type::Bbyte" Collapsed="true">
+    <Position X="127.25" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>structs.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="d_type::Bshort" Collapsed="true">
+    <Position X="127.25" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>structs.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="d_type::Bint" Collapsed="true">
+    <Position X="125.5" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>structs.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="d_type::Bubyte" Collapsed="true">
+    <Position X="130.75" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>structs.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="d_type::Bushort" Collapsed="true">
+    <Position X="127.25" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>structs.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="d_type::Buint" Collapsed="true">
+    <Position X="125.5" Y="10.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>structs.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="d_type::Bfloat" Collapsed="true">
+    <Position X="130.75" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>structs.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="d_type::Bdouble" Collapsed="true">
+    <Position X="129" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>structs.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="d_type::Bsize" Collapsed="true">
+    <Position X="129" Y="9.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>structs.hpp</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="TriangleFloat" Collapsed="true">
+    <Position X="20.5" Y="15.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Triangle.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="TriangleDouble" Collapsed="true">
+    <Position X="19.5" Y="13.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Triangle.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="TriangleUint" Collapsed="true">
+    <Position X="17.5" Y="17.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Triangle.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector2Bf" Collapsed="true">
+    <Position X="6.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector2.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector2Bd" Collapsed="true">
+    <Position X="0.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector2.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector2Bi" Collapsed="true">
+    <Position X="6.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector2.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector2Bui" Collapsed="true">
+    <Position X="0.5" Y="14" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector2.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector2Bs" Collapsed="true">
+    <Position X="3.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector2.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector3Bi" Collapsed="true">
+    <Position X="16.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector3.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector3Bf" Collapsed="true">
+    <Position X="10.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector3.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector3Bb" Collapsed="true">
+    <Position X="16.5" Y="11" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector3.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector3Bd" Collapsed="true">
+    <Position X="15.5" Y="9" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector3.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector3Bub" Collapsed="true">
+    <Position X="13.5" Y="13" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector3.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector3BfVector" Collapsed="true">
+    <Position X="129" Y="11.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector3.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Point3Bf" Collapsed="true">
+    <Position X="4.5" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector3.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector4Bi" Collapsed="true">
+    <Position X="13.5" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector4.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector4Bf" Collapsed="true">
+    <Position X="7.5" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector4.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector4Bb" Collapsed="true">
+    <Position X="13.5" Y="16" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector4.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Typedef Name="Vector4Bd" Collapsed="true">
+    <Position X="10.5" Y="18" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Vector4.h</FileName>
+    </TypeIdentifier>
+  </Typedef>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

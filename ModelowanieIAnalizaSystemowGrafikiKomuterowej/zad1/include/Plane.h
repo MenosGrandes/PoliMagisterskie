@@ -6,7 +6,7 @@ class Plane : public IRaycastable
 {
 public:
     Plane();
-    Plane(Vector3Bf normal,Vector3Bf inPoint);
+    Plane(Vector3Bf normal,Vector3Bf inPoint,IMaterial *material);
     virtual ~Plane();
     //GETTERS
     Vector3Bf getNormal() const;
@@ -17,7 +17,7 @@ public:
     void setNormal(const Vector3Bf val) ;
     void setInPoint(const Vector3Bf val ) ;
     void setDistance(const d_type::Bfloat val) ;
-    Vector3BfVector intersect(const Ray&ray) const ;
+    bool intersect(const Ray&ray,d_type::Bfloat &distance) const ;
 
 protected:
 private:

@@ -6,7 +6,7 @@
 class Sphere : public IRaycastable
 {
 public:
-    Sphere(Vector3Bf center,d_type::Bfloat radius);
+    Sphere(Vector3Bf center,d_type::Bfloat radius,IMaterial *material);
 
     //GETTERS
     Vector3Bf getCenter() const;
@@ -16,7 +16,7 @@ public:
     void setCenter(const Vector3Bf center);
     void setRadius(const d_type::Buint center);
     //METHODS
-    Vector3BfVector intersect(const Ray&ray) const ;
+    bool intersect(const Ray&ray,d_type::Bfloat &distance) const ;
 protected:
 private:
     //MEMBERS

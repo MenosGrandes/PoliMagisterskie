@@ -3,6 +3,7 @@
 #include "Raycastable.h"
 #include "Camera.h"
 #include "RenderTarget.h"
+#include <limits>
 class RayTracer
 {
 public:

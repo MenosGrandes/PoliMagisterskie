@@ -2,7 +2,7 @@
 #include "Matrix4.h"
 #include "RenderTarget.h"
 #include "VertexProcessor.h"
-
+#include "Vertex2.h"
 #include <cstdio>
 #include <iostream>
 #include <array>
@@ -17,7 +17,7 @@
 #define FOTO
 
 using namespace d_type;
-using namespace c;
+
 
 #ifdef FOTO
 #include "Sphere.h"
@@ -86,6 +86,7 @@ int main(int argc, char **argv)
 #ifdef ZAD2
     Vector2Bs img_size=Vector2Bs(800,400);
     RenderTarget *file = new RenderTarget(img_size);
+    file->setCleanColour(Colour::Red);
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,-5),0,Vector2Bf(5,5));
 
@@ -96,14 +97,13 @@ int main(int argc, char **argv)
                                            Vector2Bf(2,1));
 
     RayTracer *rt = new RayTracer(persp,file);
-    rt->addObject(new Plane(Vector3Bf(0,2,0),Vector3Bf(0,1,0)));
-    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2));
-    rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2));
-    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2));
+    rt->addObject(new Plane(Vector3Bf(0,2,0),Vector3Bf(0,1,0),new IMaterial(Colour::Yellow)));
+    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,new IMaterial(Colour::Green)));
+    rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2,new IMaterial(Colour::Black)));
+    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,new IMaterial(Colour::White)));
 
     // rt->addObject(p);
     rt->rayTrace();
-
 
 
 

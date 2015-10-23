@@ -2,7 +2,7 @@
 #define VERTEX3_H
 #include "Vector3.h"
 #include "Colour.h"
-using namespace c;
+
 template <typename T>
 class Vertex3
 {

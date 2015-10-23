@@ -4,9 +4,10 @@ Plane::Plane():m_normal(),m_inPoint(),m_distance(0)
 {
 
 }
-Plane::Plane(Vector3Bf inPoint,Vector3Bf normal):m_normal(normal),m_inPoint(inPoint),m_distance(0)
+Plane::Plane(Vector3Bf inPoint,Vector3Bf normal,IMaterial *material):m_normal(normal),m_inPoint(inPoint),m_distance(0)
 {
     m_distance=Vector3Bf::dotProduct(m_normal,m_inPoint);
+    this->m_material=material;
 }
 
 Plane::~Plane()
@@ -45,7 +46,7 @@ void Plane::setDistance(const d_type::Bfloat val)
 
 }
 
-Vector3BfVector Plane::intersect(const Ray& ray) const
+    bool Plane::intersect(const Ray&ray,d_type::Bfloat &distance) const
 {
     /*
     https://en.wikipedia.org/wiki/Line%E2%80%93plane_intersection
@@ -61,12 +62,12 @@ Vector3BfVector Plane::intersect(const Ray& ray) const
     Vector3BfVector vec;
     if( t > F_EPSILON)
     {
-        vec.push_back(ray.getDirection()*(t) + ray.getOrigin());
-
+        distance=t;
+        return true;
     }
 
 
-    return vec;
+    return false;;
 
 
 }

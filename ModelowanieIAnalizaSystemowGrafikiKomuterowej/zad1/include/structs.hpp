@@ -17,7 +17,7 @@ typedef unsigned int	Buint;		/* 4-byte unsigned */
 typedef float		    Bfloat;	/* single precision float */
 typedef double		    Bdouble;	/* double precision float */
 typedef size_t          Bsize;
-}
+};
 
 
 

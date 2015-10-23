@@ -5,8 +5,7 @@
 #include "Vector3.h"
 #include <random>
 #include <iostream>
-namespace c
-{
+
 
 class Colour
 {
@@ -61,11 +60,11 @@ inline Colour operator /( const Colour& left,const  T right)
 {
     return Colour(left.r/right,left.g/right,left.b/right,left.a/right);
 }
-}
+
 
 struct ColorDepth
 {
-    c::Colour color;
+    Colour color;
     d_type::Bfloat depth;
 };
 #endif // COLOUR_H

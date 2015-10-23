@@ -7,7 +7,8 @@ RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target):m_camera(camera),m
 
 RayTracer::~RayTracer()
 {
-
+    delete m_camera;
+    delete m_renderTanger;
 }
 
 void RayTracer::addObject(IRaycastable* ray)
@@ -16,12 +17,7 @@ void RayTracer::addObject(IRaycastable* ray)
 }
 void RayTracer::rayTrace()
 {
-    Colour * c=new Colour[m_objectVector.size()];
-    c[0]=Colour::Black;
-    c[1]=Colour::Yellow;
-    c[2]=Colour::Red;
-    c[3]=Colour::Green;
-    c[3]=Colour::Blue;
+
 
     for(Bint x=0; x<m_renderTanger->getSize().x; x++)
     {
@@ -33,21 +29,25 @@ void RayTracer::rayTrace()
             );
 
             Ray r=m_camera->recalculateRay(picCoord);
-
+            d_type::Bfloat minDistance=std::numeric_limits<d_type::Bfloat>::max();
+            d_type::Bfloat hitDistance=0.0f;
+            Colour c=m_renderTanger->getCleanColour();
+            d_type::BBool hit;
             for(d_type::Bsize i=0; i<m_objectVector.size(); i++)
             {
-                Vector3BfVector v=m_objectVector[i]->intersect(r);
-                if(!v.empty())
+                hit=m_objectVector[i]->intersect(r,minDistance);
+                if(hit&& hitDistance< minDistance)
                 {
-                    m_renderTanger->setPixel(c[i],x,y);
-
+                    minDistance=hitDistance;
+                    c=m_objectVector[i]->getMaterial()->getColor();
                 }
 
             }
+
+            m_renderTanger->setPixel(c,x,y);
 
         }
 
     }
     std::cout<<"DONE\n";
-    delete [] c;
 }

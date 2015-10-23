@@ -4,7 +4,7 @@ RenderTarget::RenderTarget(d_type::Bshort width, d_type::Bshort height)
 {
     m_size.x = width;
     m_size.y = height;
-    m_pixels = new c::Colour[getSizePixels()];
+    m_pixels = new Colour[getSizePixels()];
     m_dBuffer=new d_type::Bfloat[getSizePixels()];
     for(d_type::Bint i=0; i<getSizePixels(); i++)
     {
@@ -22,7 +22,7 @@ RenderTarget::~RenderTarget()
 
 RenderTarget::RenderTarget(Vector2Bs size):m_size(size)
 {
-    m_pixels = new c::Colour[getSizePixels()];
+    m_pixels = new Colour[getSizePixels()];
     m_dBuffer=new d_type::Bfloat[getSizePixels()];
     for(d_type::Bint i=0; i<getSizePixels(); i++)
     {
@@ -31,13 +31,13 @@ RenderTarget::RenderTarget(Vector2Bs size):m_size(size)
     }
 }
 //Set all pixels at once
-void RenderTarget::setAllPixels(c::Colour *pixels)
+void RenderTarget::setAllPixels(Colour *pixels)
 {
     m_pixels = pixels;
 }
 
 //Set indivdual pixels
-void RenderTarget::setPixel(c::Colour inputcolor, const d_type::Bint &x, const d_type::Bint &y)
+void RenderTarget::setPixel(Colour inputcolor, const d_type::Bint &x, const d_type::Bint &y)
 {
     m_pixels[convert2dto1d(x,y)] = inputcolor;
 }
@@ -172,12 +172,30 @@ void RenderTarget::drawToFile(std::string m_filename)
     o.close();
 }
 
-void RenderTarget::clear(const Colour& color)
+void RenderTarget::clear()
 {
 
     for(d_type::Buint x=0; x<m_size.x; x++)
         for(d_type::Buint y=0; y<m_size.y; y++)
         {
-            setPixel(color,x,y);
+            setPixel(m_cleanColour,x,y);
         }
+}
+
+
+Colour RenderTarget::getCleanColour() const
+{
+    return m_cleanColour;
+}
+
+void RenderTarget::setCleanColour(const Colour& c)
+{
+    m_cleanColour=c;
+}
+
+
+void RenderTarget::clearPixel(const d_type::Bint& x, const d_type::Bint& y)
+{
+        m_pixels[convert2dto1d(x,y)] = m_cleanColour    ;
+
 }

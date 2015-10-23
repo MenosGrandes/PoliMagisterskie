@@ -6,7 +6,7 @@
 #include "../src/algorithms.hpp"
 #include <iostream>
 using namespace d_type;
-using namespace c;
+
 template <typename T>
 class Triangle
 {

@@ -2,7 +2,7 @@
 #define VERTEX2_H
 #include "Vector2.h"
 #include "Colour.h"
-using namespace c;
+
 template <typename T>
 class Vertex2
 {

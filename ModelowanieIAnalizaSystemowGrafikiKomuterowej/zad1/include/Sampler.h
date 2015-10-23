@@ -6,11 +6,11 @@
 
 class Sampler
 {
-    public:
-        Sampler(ISampleDistributor * distributor,ISampleGenerator * generator,d_type::Bint sampleCt,d_type::Bint setCt);
-        Vector2Bf single();
-        virtual ~Sampler();
-    private:
+public:
+    Sampler(ISampleDistributor * distributor,ISampleGenerator * generator,d_type::Bint sampleCt,d_type::Bint setCt);
+    Vector2Bf single();
+    virtual ~Sampler();
+private:
     std::list<Vector2Bf*> sets;
     d_type::Bint sampleNdx;
     d_type::Bint setNdx;

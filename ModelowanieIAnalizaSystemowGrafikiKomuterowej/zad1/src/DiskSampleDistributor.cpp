@@ -11,5 +11,5 @@ DiskSampleDistributor::~DiskSampleDistributor()
 }
 Vector2Bf DiskSampleDistributor::MapSample(Vector2Bf sample)
 {
-return Vector2Bf(sample.x*cosf(sample.y * M_PI),sample.x*sinf(sample.y * M_PI));
+    return Vector2Bf(sample.x*cosf(sample.y * M_PI),sample.x*sinf(sample.y * M_PI));
 }

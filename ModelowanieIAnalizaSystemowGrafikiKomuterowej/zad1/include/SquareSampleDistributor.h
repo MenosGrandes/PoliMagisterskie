@@ -4,9 +4,9 @@
 
 class SquareSampleDistributor:public ISampleDistributor
 {
-    public:
-        SquareSampleDistributor();
-     Vector2Bf MapSample(Vector2Bf sample);
+public:
+    SquareSampleDistributor();
+    Vector2Bf MapSample(Vector2Bf sample);
 
 };
 

@@ -12,8 +12,8 @@ JitteredSampleGenerator::~JitteredSampleGenerator()
 Vector2Bf* JitteredSampleGenerator::generateSamples(d_type::Bsize count)
 {
 
-    RandomGenFloat *r=new RandomGenFloat(0,1);
-
+    std::mt19937 re(rd());
+    std::uniform_real_distribution<d_type::Bfloat> ui(0, 1);
     FastSqrt a;
     d_type::Buint rows= static_cast<d_type::Buint>(a.sqrt7(count));
     Vector2Bf * result=new Vector2Bf[rows*rows];
@@ -26,13 +26,12 @@ Vector2Bf* JitteredSampleGenerator::generateSamples(d_type::Bsize count)
         {
 
             result[x*rows+y]=Vector2Bf(
-                                 (x+r->generateRandomFloat())/rows,
-                                 (y+r->generateRandomFloat())/rows
+                                 (x+ui(re))/rows,
+                                 (y+ui(re))/rows
                              );
 
         }
     }
-    delete r;
     return result;
 
 

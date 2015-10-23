@@ -4,8 +4,8 @@
 
 class ISampleDistributor
 {
-    public:
-        ISampleDistributor();
+public:
+    ISampleDistributor();
     virtual Vector2Bf MapSample(Vector2Bf sample)=0;
 };
 

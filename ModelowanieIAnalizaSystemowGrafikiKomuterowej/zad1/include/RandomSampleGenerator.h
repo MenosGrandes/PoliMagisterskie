@@ -1,8 +1,7 @@
 #ifndef RANDOMSAMPLEGENERATOR_H
 #define RANDOMSAMPLEGENERATOR_H
 #include "ISampleGenerator.h"
-#include <stdlib.h>     /* srand, rand */
-#include <time.h>       /* time */
+#include <random>
 class RandomSampleGenerator: public ISampleGenerator
 {
 public:
@@ -12,6 +11,8 @@ public:
     virtual ~RandomSampleGenerator();
 protected:
 private:
+    std::random_device rd;
+
 };
 
 #endif // RANDOMSAMPLEGENERATOR_H

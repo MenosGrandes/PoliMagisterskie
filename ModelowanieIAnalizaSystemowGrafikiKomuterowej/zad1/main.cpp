@@ -109,10 +109,18 @@ int main(int argc, char **argv)
 
     RandomSampleGenerator *r = new RandomSampleGenerator();
 
-    r->generateSamples(3);
-    r->generateSamples(3);
-    r->generateSamples(3);
-
+//    for(d_type::Bsize i=0;i<3;i++)
+//    {
+//        std::cout<<a2[i]<<"  ";
+//    }
+//        std::cout<<"\n!!!!!!!!!!!!!!!!!!!!!!!!\n";
+//
+//            Vector2Bf* a3= r->generateSamples(3);
+//    for(d_type::Bsize i=0;i<3;i++)
+//    {
+//        std::cout<<a3[i]<<"  ";
+//    }
+//        std::cout<<"\n!!!!!!!!!!!!!!!!!!!!!!!!\n";
 
 #endif // ZAD2
 

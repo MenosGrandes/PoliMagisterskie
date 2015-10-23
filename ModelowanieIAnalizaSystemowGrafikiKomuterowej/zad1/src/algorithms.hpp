@@ -2,48 +2,6 @@
 #include <limits>
 #include <algorithm>
 #include <random>
-#ifndef RANDOMGEN_H
-#define RANDOMGEN_H
-class RandomGenInt
-{
-    std::random_device rd;
-    std::mt19937 gen;
-    std::uniform_int_distribution<d_type::Buint> i_dis;
-public:
-    RandomGenInt(d_type::Bint min,d_type::Bint max)
-    {
-    gen.seed(rd());
-i_dis=std::uniform_int_distribution<d_type::Buint>(min,max);
-    }
-    d_type::Buint generateRandomInt()
-    {
-
-        return i_dis(gen);
-    }
-
-};
-class RandomGenFloat
-{
-
-    std::random_device rd;
-    std::mt19937 gen;
-    std::uniform_real_distribution<d_type::Bfloat> f_dis;
-public:
-    RandomGenFloat(d_type::Buint min=0,d_type::Buint max=1000000000)
-    {
-    gen.seed(rd());
-f_dis=std::uniform_real_distribution<d_type::Bfloat>(min,max);
-
-    }
-    d_type::Bfloat generateRandomFloat()
-    {
-
-        return f_dis(gen);
-    }
-};
-#endif // RANDOMGEN_H
-
-
 
 
 #ifndef TORADIANS_H

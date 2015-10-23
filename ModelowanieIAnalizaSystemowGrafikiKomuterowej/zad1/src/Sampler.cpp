@@ -13,13 +13,13 @@ Sampler::Sampler(ISampleDistributor* distributor, ISampleGenerator* generator, d
 
 Vector2Bf Sampler::single()
 {
-    Vector2Bf sample=sets[setNdx];
-    sampleNdx++;
-    if(sampleNdx>=sets[setNdx].size())
-    {
-        sampleNdx =0;
-        setNdx=
-    }
+    //    Vector2Bf sample=sets[setNdx];
+//    sampleNdx++;
+//    if(sampleNdx>=sets[setNdx].size())
+//    {
+//        sampleNdx =0;
+//        setNdx=
+//    }
 }
 
 Sampler::~Sampler()

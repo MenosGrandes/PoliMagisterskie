@@ -17,13 +17,15 @@ Vector2Bf* RandomSampleGenerator::generateSamples(d_type::Bsize count)
 
     Vector2Bf* samples = new Vector2Bf[count];
 
-    RandomGenFloat *r=new RandomGenFloat(0,1);
+
+    std::mt19937 re(rd());
+    std::uniform_real_distribution<d_type::Bfloat> ui(0, 1);
 
     for(d_type::Bsize i=0; i<count; i++)
     {
-        samples[i]=Vector2Bf(r->generateRandomFloat(),r->generateRandomFloat());
+        samples[i]=Vector2Bf(ui(re),ui(re));
     }
 
-    delete r;
+
     return samples;
 }

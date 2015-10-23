@@ -69,6 +69,17 @@ bool operator ==(const Vector2<T>& left, const Vector2<T>& right);
 template <typename T>
 bool operator !=(const Vector2<T>& left, const Vector2<T>& right);
 
+
+
+
+template <typename T>
+inline std::ostream& operator<< (std::ostream& stream, const Vector2<T>& v)
+{
+    stream<<v.x<<" "<<v.y<<"\n";
+
+    return stream;
+}
+
 ////////////////////////////////////////////////////////////
 template <typename T>
 inline Vector2<T>::Vector2() :

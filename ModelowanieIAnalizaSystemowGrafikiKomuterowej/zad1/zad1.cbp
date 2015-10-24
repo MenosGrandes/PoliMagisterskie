@@ -93,7 +93,9 @@
 		<Unit filename="include/RenderTarget.h">
 			<Option virtualFolder="RenderTarget/" />
 		</Unit>
-		<Unit filename="include/Sampler.h" />
+		<Unit filename="include/Sampler.h">
+			<Option virtualFolder="Antyalising/" />
+		</Unit>
 		<Unit filename="include/Sphere.h">
 			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
@@ -173,7 +175,9 @@
 		<Unit filename="src/RenderTarget.cpp">
 			<Option virtualFolder="RenderTarget/" />
 		</Unit>
-		<Unit filename="src/Sampler.cpp" />
+		<Unit filename="src/Sampler.cpp">
+			<Option virtualFolder="Antyalising/" />
+		</Unit>
 		<Unit filename="src/Sphere.cpp">
 			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>

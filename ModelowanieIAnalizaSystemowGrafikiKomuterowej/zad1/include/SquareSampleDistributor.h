@@ -6,7 +6,7 @@ class SquareSampleDistributor:public ISampleDistributor
 {
 public:
     SquareSampleDistributor();
-    Vector2Bf MapSample(Vector2Bf sample);
+    Vector2Bf mapSample(Vector2Bf sample);
 
 };
 

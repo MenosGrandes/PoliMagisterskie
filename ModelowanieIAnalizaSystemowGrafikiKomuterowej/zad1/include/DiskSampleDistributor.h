@@ -7,7 +7,7 @@ class DiskSampleDistributor : public ISampleDistributor
 public:
     DiskSampleDistributor();
     virtual ~DiskSampleDistributor();
-    Vector2Bf MapSample(Vector2Bf sample);
+    Vector2Bf mapSample(Vector2Bf sample);
 
 };
 

@@ -6,7 +6,7 @@ class ISampleDistributor
 {
 public:
     ISampleDistributor();
-    virtual Vector2Bf MapSample(Vector2Bf sample)=0;
+    virtual Vector2Bf mapSample(Vector2Bf sample)=0;
 };
 
 #endif // ISAMPLEDISTRIBUTOR_H

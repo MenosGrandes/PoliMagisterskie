@@ -2,6 +2,7 @@
 #define ISAMPLEGENERATOR_H
 #include "Vector2.h"
 #include "../src/algorithms.hpp"
+#include <array>
 class ISampleGenerator
 {
 public:

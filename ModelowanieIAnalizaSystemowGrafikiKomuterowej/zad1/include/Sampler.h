@@ -2,8 +2,8 @@
 #define SAMPLER_H
 #include "ISampleDistributor.h"
 #include "ISampleGenerator.h"
-#include <list>
-
+#include <vector>
+#include <random>
 class Sampler
 {
 public:
@@ -11,9 +11,10 @@ public:
     Vector2Bf single();
     virtual ~Sampler();
 private:
-    std::list<Vector2Bf*> sets;
-    d_type::Bint sampleNdx;
-    d_type::Bint setNdx;
+    std::vector<Vector2Bf*> m_sets;
+    d_type::Bint m_sampleNdx,m_setNdx,m_sampleCount;
+
+    std::random_device rd;
 
 
 };

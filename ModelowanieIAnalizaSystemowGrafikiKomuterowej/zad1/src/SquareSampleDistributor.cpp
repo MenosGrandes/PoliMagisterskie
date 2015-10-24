@@ -6,7 +6,7 @@ SquareSampleDistributor::SquareSampleDistributor()
 }
 
 
-Vector2Bf SquareSampleDistributor::MapSample(Vector2Bf sample)
+Vector2Bf SquareSampleDistributor::mapSample(Vector2Bf sample)
 {
     return sample;
 }

@@ -46,7 +46,7 @@ void Plane::setDistance(const d_type::Bfloat val)
 
 }
 
-    bool Plane::intersect(const Ray&ray,d_type::Bfloat &distance) const
+    bool Plane::intersect(const Ray&ray,d_type::Bfloat &distance,Vector3Bf & normal) const
 {
     /*
     https://en.wikipedia.org/wiki/Line%E2%80%93plane_intersection
@@ -63,6 +63,7 @@ void Plane::setDistance(const d_type::Bfloat val)
     if( t > F_EPSILON)
     {
         distance=t;
+        normal=m_normal;
         return true;
     }
 

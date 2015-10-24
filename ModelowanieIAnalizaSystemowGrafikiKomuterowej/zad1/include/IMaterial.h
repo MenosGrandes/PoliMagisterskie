@@ -1,18 +1,15 @@
 #ifndef IMATERIAL_H
 #define IMATERIAL_H
-#include "Colour.h"
-
+#include "PointLight.h"
 class IMaterial
 {
     public:
-        IMaterial(Colour material);
+        IMaterial();
         virtual ~IMaterial();
-        Colour getColor()
-        {
-            return m_color;
-        }
+
+        virtual Colour radiance(PointLight pl,const Vector3Bf &hitPoint, const Vector3Bf &normal)=0;
+
     protected:
-    Colour m_color;
 
 };
 

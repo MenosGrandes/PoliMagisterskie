@@ -6,9 +6,17 @@
 
 #ifndef TORADIANS_H
 #define TORADIANS_H
+/** \class ToRadians
+\brief Class witch implements one static method to calculate radians from angle
+
+*/
 class ToRadians
 {
 public :
+    /**
+    \param d_type::Bfloat angle
+    \return d_type::Bfloat radians
+    */
     static d_type::Bfloat toRadians(d_type::Bfloat angle)
     {
         return (angle*M_PI)/180;
@@ -17,7 +25,10 @@ public :
 #endif // TORADIANS_H
 #ifndef FASTSQRT_H
 #define FASTSQRT_H
+/** \struct FastSqrt
+\brief Struct which implements method to fast sqrt from floats numbers.
 
+*/
 struct FastSqrt
 {
     float sqrt5(const float m)
@@ -51,8 +62,15 @@ struct FastSqrt
 
 #ifndef SMALLEST_H
 #define SMALLEST_H
+/** \struct Smallest Template to get min values.
+
+*/
 struct Smallest
 {
+    /**
+    \brief Calculate min value in vec.
+    \param vec std::vector of T objects.
+    */
     template <typename T>
     T min(const std::vector<T>& vec)
     {
@@ -66,7 +84,10 @@ struct Smallest
     };
 
 
-
+    /**
+    \brief Calculate max value from x,y,z.
+    \param x,y,x const T objects.
+    */
     template <typename T>
     T min(const T x,const T y,const T z)
     {
@@ -87,8 +108,15 @@ struct Smallest
 
 #ifndef GREATEST_H
 #define GREATEST_H
+/** \struct Greatest Template to get max values.
+
+*/
 struct Greatest
 {
+    /**
+    \brief Calculate max value in vec.
+    \param vec std::vector of T objects.
+    */
     template <typename T>
     T max(const std::vector<T>& vec)
     {
@@ -102,7 +130,10 @@ struct Greatest
     };
 
 
-
+ /**
+     \brief Calculate max value from x,y,z.
+    \param x,y,x const T objects
+    */
     template <typename T>
     T max(const T x,const T y,const T z)
     {

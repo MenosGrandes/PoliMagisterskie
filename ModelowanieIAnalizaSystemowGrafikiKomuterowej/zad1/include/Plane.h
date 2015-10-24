@@ -17,7 +17,7 @@ public:
     void setNormal(const Vector3Bf val) ;
     void setInPoint(const Vector3Bf val ) ;
     void setDistance(const d_type::Bfloat val) ;
-    bool intersect(const Ray&ray,d_type::Bfloat &distance) const ;
+    bool intersect(const Ray&ray,d_type::Bfloat &distance,Vector3Bf & normal) const ;
 
 protected:
 private:

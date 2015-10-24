@@ -17,7 +17,7 @@ void RayTracer::addObject(IRaycastable* ray)
 }
 void RayTracer::rayTrace()
 {
-
+Ray ray;
 
     for(Bint x=0; x<m_renderTanger->getSize().x; x++)
     {
@@ -28,26 +28,57 @@ void RayTracer::rayTrace()
                 ((y+0.5f) / m_renderTanger->getSize().y)*2 -1
             );
 
-            Ray r=m_camera->recalculateRay(picCoord);
+            ray=m_camera->recalculateRay(picCoord);
+
             d_type::Bfloat minDistance=std::numeric_limits<d_type::Bfloat>::max();
             d_type::Bfloat hitDistance=0.0f;
-            Colour c=m_renderTanger->getCleanColour();
-            d_type::BBool hit;
+            //Colour c=m_renderTanger->getCleanColour();
+            Vector3Bf normal;
+            Info info;
+            info.object=nullptr;
+
+
             for(d_type::Bsize i=0; i<m_objectVector.size(); i++)
             {
-                hit=m_objectVector[i]->intersect(r,minDistance);
-                if(hit&& hitDistance< minDistance)
+
+                if(m_objectVector[i]->intersect(ray,minDistance,normal) && hitDistance< minDistance)
                 {
                     minDistance=hitDistance;
-                    c=m_objectVector[i]->getMaterial()->getColor();
+                    info.object=m_objectVector[i];
+                    info.normal=normal;
                 }
 
             }
+            if(info.object!=nullptr)
+            {
+                info.hitPoint=ray.getOrigin()+ray.getDirection()*minDistance;
 
-            m_renderTanger->setPixel(c,x,y);
+                Colour finalColour=Colour::Yellow;
+                for(PointLight p :m_pLightsVector)
+                {
+                    finalColour+=info.object->getMaterial()->radiance(p,info.hitPoint,info.normal);
+                }
+
+
+                PerfectDifuse * p=static_cast<PerfectDifuse*>(info.object->getMaterial());
+                m_renderTanger->setPixel(p->getColor(),x,y);
+
+            }
+            else
+            {
+                m_renderTanger->clearPixel(x,y);
+
+            }
+
+
+
 
         }
 
     }
     std::cout<<"DONE\n";
+}
+void RayTracer::addLight(PointLight light)
+{
+    m_pLightsVector.push_back(light);
 }

@@ -7,7 +7,7 @@
 class IRaycastable
 {
 public:
-    virtual d_type::BBool intersect(const Ray& ray,d_type::Bfloat & distance) const=0 ;
+    virtual d_type::BBool intersect(const Ray& ray,d_type::Bfloat & distance,Vector3Bf & normal) const=0 ;
     IMaterial * getMaterial()
     {
         return m_material;

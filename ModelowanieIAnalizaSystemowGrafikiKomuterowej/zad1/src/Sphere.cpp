@@ -27,7 +27,7 @@ void Sphere::setRadius(d_type::Buint radius)
     m_radius=radius;
 }
 
-bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance) const
+bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Vector3Bf & normal) const
 {
 //http://stackoverflow.com/questions/6533856/ray-sphere-intersection
 
@@ -106,6 +106,12 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance) const
     {
         return false;
     }
+
+    Vector3Bf hitPoint=(ray.getOrigin()+ray.getDirection()*t);
+
+    Vector3Bf tmp=hitPoint-m_center;
+    Vector3Bf::normalize(tmp);
+    normal=tmp;
     distance=t;
     return true;
 

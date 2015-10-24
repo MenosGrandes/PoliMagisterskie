@@ -16,7 +16,7 @@ public:
     void setCenter(const Vector3Bf center);
     void setRadius(const d_type::Buint center);
     //METHODS
-    bool intersect(const Ray&ray,d_type::Bfloat &distance) const ;
+    bool intersect(const Ray&ray,d_type::Bfloat &distance,Vector3Bf & normal) const ;
 protected:
 private:
     //MEMBERS

@@ -2,7 +2,7 @@
 
 LightIntensity::LightIntensity()
 {
-    color.r;
+
 }
 
 LightIntensity::~LightIntensity()

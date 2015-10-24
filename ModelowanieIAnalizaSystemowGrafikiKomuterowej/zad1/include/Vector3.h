@@ -33,7 +33,6 @@ public :
     static Vector3<T> cross(const Vector3<T>& left,const Vector3<T>& right);
     Vector3<T> reflect(const Vector3<T>&v);
     Vector3<T> lerp(const Vector3<T>&v, const T f);
-    Vector3<T> normalizeProduct();
     static void normalize(Vector3<T>&v);
 
     T x, y, z;
@@ -287,20 +286,7 @@ Vector3<T> Vector3<T>::lerp(const Vector3<T>& v, const T f)
                this.z + f * (v.z - this.z));
 
 }
-///////////////////////////////////////////////////////////
-template <typename T>
-Vector3<T> Vector3<T>::normalizeProduct()
-{
-    Vector3<T> newV=Vector3<T>(x,y,z);
-    d_type::Bfloat n = this->length();
-    if(n!=0)
-    {
-        newV/=n;
-        return newV;
-    }
-    else
-        return newV;// throw new Exception("Couldn't normalize");
-}
+
 ///////////////////////////////////////////////////////////
 template <typename T>
 void Vector3<T>::normalize(Vector3<T>&v)

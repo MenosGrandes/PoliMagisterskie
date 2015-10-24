@@ -48,6 +48,9 @@
 		<Unit filename="include/DiskSampleDistributor.h">
 			<Option virtualFolder="Antyalising/Distributor/" />
 		</Unit>
+		<Unit filename="include/ILight.h">
+			<Option virtualFolder="Light/" />
+		</Unit>
 		<Unit filename="include/IMaterial.h">
 			<Option virtualFolder="Material/" />
 		</Unit>
@@ -69,11 +72,17 @@
 		<Unit filename="include/OrtagonalCamera.h">
 			<Option virtualFolder="Camera/" />
 		</Unit>
+		<Unit filename="include/PerfectDifuse.h">
+			<Option virtualFolder="Material/" />
+		</Unit>
 		<Unit filename="include/PerspectiveCamera.h">
 			<Option virtualFolder="Camera/" />
 		</Unit>
 		<Unit filename="include/Plane.h">
 			<Option virtualFolder="Ray/Raycastable/" />
+		</Unit>
+		<Unit filename="include/PointLight.h">
+			<Option virtualFolder="Light/" />
 		</Unit>
 		<Unit filename="include/RandomSampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
@@ -136,6 +145,9 @@
 		<Unit filename="src/DiskSampleDistributor.cpp">
 			<Option virtualFolder="Antyalising/Distributor/" />
 		</Unit>
+		<Unit filename="src/ILight.cpp">
+			<Option virtualFolder="Light/" />
+		</Unit>
 		<Unit filename="src/IMaterial.cpp">
 			<Option virtualFolder="Material/" />
 		</Unit>
@@ -154,11 +166,17 @@
 		<Unit filename="src/OrtagonalCamera.cpp">
 			<Option virtualFolder="Camera/" />
 		</Unit>
+		<Unit filename="src/PerfectDifuse.cpp">
+			<Option virtualFolder="Material/" />
+		</Unit>
 		<Unit filename="src/PerspectiveCamera.cpp">
 			<Option virtualFolder="Camera/" />
 		</Unit>
 		<Unit filename="src/Plane.cpp">
 			<Option virtualFolder="Ray/Raycastable/" />
+		</Unit>
+		<Unit filename="src/PointLight.cpp">
+			<Option virtualFolder="Light/" />
 		</Unit>
 		<Unit filename="src/RandomSampleGenerator.cpp">
 			<Option virtualFolder="Antyalising/Generator/" />
@@ -197,6 +215,15 @@
 			<code_completion />
 			<debugger />
 			<envvars />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot class_diagrams="1" />
+				<general />
+			</DoxyBlocks>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

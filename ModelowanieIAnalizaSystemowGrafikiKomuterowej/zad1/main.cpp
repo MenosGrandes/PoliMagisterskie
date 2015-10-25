@@ -93,7 +93,7 @@ int main(int argc, char **argv)
 
     ICamera *persp = new PerspectiveCamera(Vector3Bf(0,1,-8),
                                            Vector3Bf(0,0,0),
-                                           Vector3Bf(0,-1,0),
+                                           Vector3Bf::Up,
                                            1,
                                            Vector2Bf(1,1));
 
@@ -110,7 +110,7 @@ int main(int argc, char **argv)
     rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
     rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2,pd1));
     rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,pd1));
-    rt->addObject(new Plane(Vector3Bf(0,2,0),Vector3Bf(0,1,0),pd4));
+    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
     rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::White));
 
 

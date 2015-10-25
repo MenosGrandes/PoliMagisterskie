@@ -37,7 +37,7 @@ public :
 
     T x, y, z;
 
-
+    static const Vector3<T> Up;
 
 
 
@@ -308,6 +308,6 @@ typedef Vector3<Bdouble> Vector3Bd;
 typedef Vector3<Bubyte> Vector3Bub;
 typedef std::vector<Vector3Bf> Vector3BfVector;
 typedef Vector3Bf Point3Bf;
-
-
+template<typename T>
+const Vector3<T> Vector3<T>::Up=Vector3<T>(0,1,0);
 #endif // VECTOR3_H

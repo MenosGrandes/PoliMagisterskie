@@ -14,18 +14,25 @@ public:
     void addObject(IRaycastable *ray);
     void addLight(PointLight light);
     void rayTrace();
-private:
-    RaycastableVector m_objectVector;
-    PointLightVector m_pLightsVector;
-    ICamera *m_camera;
-    RenderTarget *m_renderTanger;
-    struct Info
+        struct Info
     {
         IRaycastable * object;
         Vector3Bf normal,hitPoint;
         Ray ray;
 
     };
+private:
+
+    Colour shadeRay(const Ray&ray);
+    Info traceRay(const Ray&ray);
+
+
+
+    RaycastableVector m_objectVector;
+    PointLightVector m_pLightsVector;
+    ICamera *m_camera;
+    RenderTarget *m_renderTanger;
+
 };
 
 #endif // RAYTRACER_H

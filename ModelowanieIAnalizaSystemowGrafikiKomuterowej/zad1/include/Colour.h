@@ -30,6 +30,7 @@ public :
     const static  Colour Red;
     const static  Colour Blue;
     const static  Colour Gray;
+    const static  Colour RoyalBlue;
 
 
 };
@@ -62,7 +63,9 @@ inline Colour operator *( const Colour& left,const  Colour &right)
 template <typename T>
 inline Colour operator /( const Colour& left,const  T right)
 {
-    return Colour(left.r/right,left.g/right,left.b/right,255);
+    Colour r=left;
+
+    return r*(1/right);
 }
 
 inline Colour operator +=(Colour& left, const Colour& right)

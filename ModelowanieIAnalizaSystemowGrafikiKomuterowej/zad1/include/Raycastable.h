@@ -13,10 +13,10 @@ public:
         return m_material;
     }
     virtual ~IRaycastable()
-{
-    delete m_material;
-}
-    protected:
+    {
+        delete m_material;
+    }
+protected:
     IMaterial * m_material;
 
 

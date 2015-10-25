@@ -1,12 +1,11 @@
 #include "Plane.h"
 
-Plane::Plane():m_normal(),m_inPoint(),m_distance(0)
+Plane::Plane():m_normal(),m_inPoint()
 {
-
+    this->m_material=nullptr;
 }
-Plane::Plane(Vector3Bf inPoint,Vector3Bf normal,IMaterial *material):m_normal(normal),m_inPoint(inPoint),m_distance(0)
+Plane::Plane(Vector3Bf inPoint,Vector3Bf normal,IMaterial *material):m_normal(normal),m_inPoint(inPoint)
 {
-    m_distance=Vector3Bf::dotProduct(m_normal,m_inPoint);
     this->m_material=material;
 }
 
@@ -25,10 +24,7 @@ Vector3Bf Plane::getInPoint() const
     return m_inPoint;
 }
 
-d_type::Bfloat Plane::getDistance() const
-{
-    return m_distance;
-}
+
 
 void Plane::setNormal(const Vector3Bf val)
 {
@@ -40,11 +36,6 @@ void Plane::setInPoint(const Vector3Bf val)
     m_inPoint=val;
 }
 
-void Plane::setDistance(const d_type::Bfloat val)
-{
-    m_distance=val;
-
-}
 
     bool Plane::intersect(const Ray&ray,d_type::Bfloat &distance,Vector3Bf & normal) const
 {

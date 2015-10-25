@@ -86,7 +86,7 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Vector3Bf & norma
 
     d_type::Bfloat a=direction.lengthSquared();
 
-    d_type::Bfloat b=(Vector3Bf::dotProduct(oc,direction*2.0f));
+    d_type::Bfloat b=(Vector3Bf::dotProduct(oc*2.0f,direction));
 
     d_type::Bfloat c=oc.lengthSquared() - m_sqRadius;
 
@@ -96,10 +96,10 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Vector3Bf & norma
         return false;
     }
 
-    t=((-1)*b-sqrtf.sqrt7(delta))/(2*a);
+    t=(-b-sqrtf.sqrt7(delta))/(2*a);
     if(t<F_EPSILON)
     {
-        t=((-1)*b+sqrtf.sqrt7(delta))/(2*a);
+        t=(-b+sqrtf.sqrt7(delta))/(2*a);
 
     }
     if(t<F_EPSILON)
@@ -111,6 +111,7 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Vector3Bf & norma
 
     Vector3Bf tmp=hitPoint-m_center;
     Vector3Bf::normalize(tmp);
+
     normal=tmp;
     distance=t;
     return true;

@@ -44,13 +44,16 @@ void RayTracer::rayTrace()
 Colour RayTracer::shadeRay(const Ray&ray)
 {
     Info info = traceRay(ray);
-    if(info.object== nullptr){return Colour::RoyalBlue;}
+    if(info.object == nullptr)
+    {
+        return Colour::RoyalBlue;
+    }
     Colour finalColor = Colour::Black;
     IMaterial * material= info.object->getMaterial();
 
-    for(d_type::Bsize i =0;i<m_pLightsVector.size();i++)
+    for(d_type::Bsize i =0; i<m_pLightsVector.size(); i++)
     {
-        finalColor+=material->radiance(m_pLightsVector[i],info.hitPoint,info.normal);
+        finalColor=material->radiance(m_pLightsVector[i],info.hitPoint,info.normal)+finalColor;
     }
     return finalColor;
 }
@@ -66,15 +69,14 @@ RayTracer::Info RayTracer::traceRay(const Ray&ray)
     info.normal=Vector3Bf(0,0,0);
     info.hitPoint=Vector3Bf(0,0,0);
 
-   // std::cout<<normal<<" normal default\n";
+    // std::cout<<normal<<" normal default\n";
     for(d_type::Bsize i=0; i<m_objectVector.size(); i++)
     {
-
-        if(m_objectVector[i]->intersect(ray,hitDistance,normal) && hitDistance<= minDistance)
+        if(m_objectVector[i]->intersect(ray,hitDistance,normal) && hitDistance< minDistance)
         {
+            info.normal=normal;
             minDistance=hitDistance;
             info.object=m_objectVector[i];
-            info.normal=normal;
             info.hitPoint=ray.getOrigin()+ray.getDirection()*minDistance;
             info.ray=ray;
         }

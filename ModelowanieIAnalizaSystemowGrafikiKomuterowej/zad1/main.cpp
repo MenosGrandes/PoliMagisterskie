@@ -99,7 +99,7 @@ int main(int argc, char **argv)
 
     RayTracer *rt = new RayTracer(persp,file);
 
-    PerfectDifuse * pd1=new PerfectDifuse(Colour::Blue);
+    PerfectDifuse * pd1=new PerfectDifuse(Colour::Gray);
     PerfectDifuse * pd2=new PerfectDifuse(Colour::Green);
     PerfectDifuse * pd3=new PerfectDifuse(Colour::Blue);
     PerfectDifuse * pd4=new PerfectDifuse(Colour::Gray);
@@ -110,8 +110,9 @@ int main(int argc, char **argv)
     rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
     rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2,pd1));
     rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,pd1));
-    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
-    rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::White));
+    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd1));
+    rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::Green));
+
 
 
     // rt->addObject(p);
@@ -119,7 +120,6 @@ int main(int argc, char **argv)
 
 
 
-    RandomSampleGenerator *r = new RandomSampleGenerator();
 
 //    for(d_type::Bsize i=0;i<3;i++)
 //    {

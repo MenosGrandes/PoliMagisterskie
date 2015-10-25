@@ -130,10 +130,10 @@ struct Greatest
     };
 
 
- /**
-     \brief Calculate max value from x,y,z.
-    \param x,y,x const T objects
-    */
+    /**
+        \brief Calculate max value from x,y,z.
+       \param x,y,x const T objects
+       */
     template <typename T>
     T max(const T x,const T y,const T z)
     {

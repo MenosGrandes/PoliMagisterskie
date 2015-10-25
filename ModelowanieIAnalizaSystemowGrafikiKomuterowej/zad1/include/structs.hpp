@@ -17,7 +17,7 @@
  */
 namespace d_type
 {
-    /** 1-byte boolean*/
+/** 1-byte boolean*/
 typedef bool	        BBool;
 /** 1-byte signed */
 typedef signed char	    Bbyte;
@@ -31,7 +31,7 @@ typedef unsigned char   Bubyte;
 typedef unsigned short	Bushort;
 /** 4-byte unsigned */
 typedef unsigned int	Buint;
-	/**  single precision float */
+/**  single precision float */
 typedef float		    Bfloat;
 /** double precision float */
 typedef double		    Bdouble;

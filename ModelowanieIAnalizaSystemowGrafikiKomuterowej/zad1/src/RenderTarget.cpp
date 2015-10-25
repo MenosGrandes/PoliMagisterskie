@@ -196,6 +196,6 @@ void RenderTarget::setCleanColour(const Colour& c)
 
 void RenderTarget::clearPixel(const d_type::Bint& x, const d_type::Bint& y)
 {
-        m_pixels[convert2dto1d(x,y)] = m_cleanColour    ;
+    m_pixels[convert2dto1d(x,y)] = m_cleanColour    ;
 
 }

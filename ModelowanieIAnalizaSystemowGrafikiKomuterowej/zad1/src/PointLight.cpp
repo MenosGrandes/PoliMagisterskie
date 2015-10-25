@@ -12,10 +12,10 @@ PointLight::~PointLight()
 
 void PointLight::setPosition(const Vector3Bf& pos)
 {
-this->m_position=pos;
+    this->m_position=pos;
 }
 
 Vector3Bf PointLight::getPosition() const
 {
-return m_position;
+    return m_position;
 }

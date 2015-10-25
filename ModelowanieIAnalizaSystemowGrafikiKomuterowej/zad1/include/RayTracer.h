@@ -14,7 +14,7 @@ public:
     void addObject(IRaycastable *ray);
     void addLight(PointLight light);
     void rayTrace();
-        struct Info
+    struct Info
     {
         IRaycastable * object;
         Vector3Bf normal,hitPoint;

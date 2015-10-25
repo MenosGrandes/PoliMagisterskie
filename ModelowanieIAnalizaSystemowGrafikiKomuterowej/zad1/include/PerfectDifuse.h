@@ -7,11 +7,11 @@ class PerfectDifuse : public IMaterial
 public:
     PerfectDifuse(Colour c);
     virtual ~PerfectDifuse();
-     Colour radiance(PointLight pl,const Vector3Bf &hitPoint, const Vector3Bf &normal)
+    Colour radiance(PointLight pl,const Vector3Bf &hitPoint, const Vector3Bf &normal)
     {
         Vector3Bf inDir=pl.getPosition()-hitPoint;
         Vector3Bf::normalize(inDir);
-        d_type::Bfloat diffuseFactor=Vector3Bf::dotProduct(inDir,normal);
+        d_type::Bfloat diffuseFactor=Vector3Bf::dotProduct(normal,inDir);
         if(diffuseFactor < 0)
         {
             return Colour::Black;

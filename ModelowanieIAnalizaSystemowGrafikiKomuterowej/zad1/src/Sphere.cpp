@@ -107,7 +107,7 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Vector3Bf & norma
         return false;
     }
 
-    Vector3Bf hitPoint=(ray.getOrigin()+ray.getDirection()*t);
+    Vector3Bf hitPoint=(ray.getOrigin()+(ray.getDirection()*t));
 
     Vector3Bf tmp=hitPoint-m_center;
     Vector3Bf::normalize(tmp);

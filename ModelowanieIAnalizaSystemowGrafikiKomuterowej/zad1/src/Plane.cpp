@@ -37,7 +37,7 @@ void Plane::setInPoint(const Vector3Bf val)
 }
 
 
-    bool Plane::intersect(const Ray&ray,d_type::Bfloat &distance,Vector3Bf & normal) const
+bool Plane::intersect(const Ray&ray,d_type::Bfloat &distance,Vector3Bf & normal) const
 {
     /*
     https://en.wikipedia.org/wiki/Line%E2%80%93plane_intersection

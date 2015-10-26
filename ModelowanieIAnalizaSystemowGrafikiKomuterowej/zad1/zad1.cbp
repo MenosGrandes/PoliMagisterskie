@@ -69,6 +69,9 @@
 		<Unit filename="include/Matrix4.h">
 			<Option virtualFolder="Types/Matrix/" />
 		</Unit>
+		<Unit filename="include/MultiJitteringSampleGenerator.h">
+			<Option virtualFolder="Antyalising/Generator/" />
+		</Unit>
 		<Unit filename="include/OrtagonalCamera.h">
 			<Option virtualFolder="Camera/" />
 		</Unit>
@@ -162,6 +165,9 @@
 		</Unit>
 		<Unit filename="src/Matrix4.cpp">
 			<Option virtualFolder="Types/Matrix/" />
+		</Unit>
+		<Unit filename="src/MultiJitteringSampleGenerator.cpp">
+			<Option virtualFolder="Antyalising/Generator/" />
 		</Unit>
 		<Unit filename="src/OrtagonalCamera.cpp">
 			<Option virtualFolder="Camera/" />

@@ -49,14 +49,5 @@ Vector2Bf DiskSampleDistributor::mapSample(Vector2Bf sample)
     }
 
     phi*=M_PI/4;
-
-
-
-
-
-
-
-
-
     return Vector2Bf(r*cosf(phi),r*sinf(phi));
 }

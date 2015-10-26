@@ -118,16 +118,20 @@ $(document).ready(function(){initNavTree('_sampler_8h_source.html','');});
 <div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;    <a class="code" href="class_sampler.html">Sampler</a>(<a class="code" href="class_i_sample_distributor.html">ISampleDistributor</a> * distributor,<a class="code" href="class_i_sample_generator.html">ISampleGenerator</a> * generator,<a class="code" href="namespaced__type.html#aa2ffd0beec477a20fab4f23e81cb370c">d_type::Bint</a> sampleCt,<a class="code" href="namespaced__type.html#aa2ffd0beec477a20fab4f23e81cb370c">d_type::Bint</a> setCt);</div>
 <div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;    <a class="code" href="class_vector2.html">Vector2Bf</a> single();</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">virtual</span> ~<a class="code" href="class_sampler.html">Sampler</a>();</div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="keyword">private</span>:</div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    std::vector&lt;Vector2Bf*&gt; m_sets;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <a class="code" href="namespaced__type.html#aa2ffd0beec477a20fab4f23e81cb370c">d_type::Bint</a> m_sampleNdx,m_setNdx,m_sampleCount;</div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    std::random_device rd;</div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;</div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;</div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;};</div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;</div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#endif // SAMPLER_H</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    <a class="code" href="namespaced__type.html#aa2ffd0beec477a20fab4f23e81cb370c">d_type::Bint</a> getSampleCount()<span class="keyword">const</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">    </span>{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;        <span class="keywordflow">return</span> m_sampleCount;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    }</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::vector&lt;Vector2Bf*&gt; m_sets;</div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    <a class="code" href="namespaced__type.html#aa2ffd0beec477a20fab4f23e81cb370c">d_type::Bint</a> m_sampleNdx,m_setNdx,m_sampleCount;</div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    std::random_device rd;</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;};</div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#endif // SAMPLER_H</span></div>
 <div class="ttc" id="class_i_sample_generator_html"><div class="ttname"><a href="class_i_sample_generator.html">ISampleGenerator</a></div><div class="ttdef"><b>Definition:</b> ISampleGenerator.h:6</div></div>
 <div class="ttc" id="class_i_sample_distributor_html"><div class="ttname"><a href="class_i_sample_distributor.html">ISampleDistributor</a></div><div class="ttdef"><b>Definition:</b> ISampleDistributor.h:5</div></div>
 <div class="ttc" id="class_vector2_html"><div class="ttname"><a href="class_vector2.html">Vector2</a></div><div class="ttdef"><b>Definition:</b> Vector2.h:5</div></div>
@@ -139,7 +143,7 @@ $(document).ready(function(){initNavTree('_sampler_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_d44c64559bbebec7f509842c48db8b23.html">include</a></li><li class="navelem"><b>Sampler.h</b></li>
-    <li class="footer">Generated on Sat Oct 24 2015 16:24:55 for zad1 by
+    <li class="footer">Generated on Mon Oct 26 2015 15:52:09 for zad1 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
   </ul>

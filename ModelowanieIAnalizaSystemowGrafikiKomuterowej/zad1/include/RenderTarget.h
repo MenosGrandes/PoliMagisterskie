@@ -15,7 +15,7 @@ public:
     RenderTarget(Vector2Bs size);
     ~RenderTarget();
     void draw();
-    void draw( TriangleFloat& drawable);
+    void draw( render::TriangleFloat& drawable);
     void drawToFile( std::string m_filename);
     void clear();
 

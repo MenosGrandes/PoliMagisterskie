@@ -7,10 +7,10 @@ Sampler::Sampler(ISampleDistributor* distributor, ISampleGenerator* generator, d
         Vector2Bf * samples=generator->generateSamples(m_sampleCount);
 
 
-//        for(d_type::Buint i=0; i<m_sampleCount; ++i )
-//        {
-//            samples[i]=distributor->mapSample(samples[i]);
-//        }
+        for(d_type::Buint i=0; i<m_sampleCount; ++i )
+        {
+            samples[i]=distributor->mapSample(samples[i]);
+        }
 
         m_sets.push_back(samples);
 

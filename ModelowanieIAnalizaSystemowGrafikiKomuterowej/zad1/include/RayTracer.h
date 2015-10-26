@@ -11,6 +11,8 @@ class RayTracer
 {
 public:
     RayTracer(ICamera *camera,RenderTarget *m_target,Sampler* sampler);
+    RayTracer(ICamera *camera,RenderTarget *m_target);
+
     virtual ~RayTracer();
     void addObject(IRaycastable *ray);
     void addLight(PointLight light);

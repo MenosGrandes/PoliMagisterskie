@@ -106,6 +106,7 @@ $(document).ready(function(){initNavTree('class_ray_tracer.html','');});
 
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="class_ray_tracer-members.html">List of all members</a>  </div>
   <div class="headertitle">
@@ -113,17 +114,31 @@ $(document).ready(function(){initNavTree('class_ray_tracer.html','');});
 </div><!--header-->
 <div class="contents">
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="struct_ray_tracer_1_1_info.html">Info</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af14e49b21f65ff9717c53dce9769c47e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af14e49b21f65ff9717c53dce9769c47e"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><b>RayTracer</b> (<a class="el" href="class_i_camera.html">ICamera</a> *camera, <a class="el" href="class_render_target.html">RenderTarget</a> *m_target)</td></tr>
-<tr class="separator:af14e49b21f65ff9717c53dce9769c47e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aec6ab871f627745f5eb59330469fb40c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aec6ab871f627745f5eb59330469fb40c"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><b>RayTracer</b> (<a class="el" href="class_i_camera.html">ICamera</a> *camera, <a class="el" href="class_render_target.html">RenderTarget</a> *m_target, <a class="el" href="class_sampler.html">Sampler</a> *sampler)</td></tr>
+<tr class="separator:aec6ab871f627745f5eb59330469fb40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae26e370bfdb20307b81299ce24103d2e"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ae26e370bfdb20307b81299ce24103d2e"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>addObject</b> (<a class="el" href="class_i_raycastable.html">IRaycastable</a> *ray)</td></tr>
 <tr class="separator:ae26e370bfdb20307b81299ce24103d2e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a392f7262f03b602fe26fb485f8a706f4"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a392f7262f03b602fe26fb485f8a706f4"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>addLight</b> (PointLight light)</td></tr>
+<tr class="separator:a392f7262f03b602fe26fb485f8a706f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a328aef214f28b9b55d30fa860bae2796"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a328aef214f28b9b55d30fa860bae2796"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>rayTrace</b> ()</td></tr>
 <tr class="separator:a328aef214f28b9b55d30fa860bae2796"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0dcd045d735d822d8a1e71378adbaf98"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a0dcd045d735d822d8a1e71378adbaf98"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>enableLight</b> (<a class="el" href="namespaced__type.html#a6a8be7081919fc47e5fad5d6752d27fb">d_type::BBool</a> val)</td></tr>
+<tr class="separator:a0dcd045d735d822d8a1e71378adbaf98"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6b3450a08b594024c035e64bc3dfa04f"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a6b3450a08b594024c035e64bc3dfa04f"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>enableAA</b> (<a class="el" href="namespaced__type.html#a6a8be7081919fc47e5fad5d6752d27fb">d_type::BBool</a> val)</td></tr>
+<tr class="separator:a6b3450a08b594024c035e64bc3dfa04f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="_ray_tracer_8h_source.html">RayTracer.h</a></li>
@@ -135,7 +150,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>rayTrace</b> ()</td><
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_ray_tracer.html">RayTracer</a></li>
-    <li class="footer">Generated on Sat Oct 24 2015 16:24:55 for zad1 by
+    <li class="footer">Generated on Mon Oct 26 2015 15:52:09 for zad1 by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
   </ul>

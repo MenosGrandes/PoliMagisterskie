@@ -6,6 +6,9 @@
 #include "../src/algorithms.hpp"
 #include <iostream>
 using namespace d_type;
+namespace render
+{
+
 
 template <typename T>
 class Triangle
@@ -162,5 +165,5 @@ private :
 typedef Triangle<Bfloat> TriangleFloat;
 typedef Triangle<Bdouble> TriangleDouble;
 typedef Triangle<Buint> TriangleUint;
-
+}
 #endif // TRIANGLE_H

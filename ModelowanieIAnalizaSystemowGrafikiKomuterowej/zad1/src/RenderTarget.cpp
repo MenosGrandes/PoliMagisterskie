@@ -94,7 +94,7 @@ d_type::Bint RenderTarget::getSizePixels() const
     return m_size.x * m_size.y;
 }
 
-void RenderTarget::draw( TriangleFloat& triangle)
+void RenderTarget::draw( render::TriangleFloat& triangle)
 {
     std::cout<<"RenderTargetDrawTriangle\n";
 //KANONICZNA FORMA

@@ -5,6 +5,11 @@ RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target,Sampler *sampler)
 {
 
 }
+RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target)
+    :m_camera(camera),m_renderTanger(m_target),m_enableAA(false),m_enableLight(false)
+{
+
+}
 
 RayTracer::~RayTracer()
 {
@@ -107,7 +112,6 @@ RayTracer::Info RayTracer::traceRay(const Ray&ray)
     info.normal=Vector3Bf(0,0,0);
     info.hitPoint=Vector3Bf(0,0,0);
 
-    // std::cout<<normal<<" normal default\n";
     for(d_type::Bsize i=0; i<m_objectVector.size(); i++)
     {
         if(m_objectVector[i]->intersect(ray,hitDistance,normal) && hitDistance< minDistance)

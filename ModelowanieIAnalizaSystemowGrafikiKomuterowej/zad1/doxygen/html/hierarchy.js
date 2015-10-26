@@ -9,6 +9,7 @@ var hierarchy =
       [ "PerspectiveCamera", "class_perspective_camera.html", null ]
     ] ],
     [ "IMaterial", "class_i_material.html", null ],
+    [ "RayTracer::Info", "struct_ray_tracer_1_1_info.html", null ],
     [ "IRaycastable", "class_i_raycastable.html", [
       [ "Plane", "class_plane.html", null ],
       [ "Sphere", "class_sphere.html", null ]

@@ -1,6 +1,7 @@
 #include "RayTracer.h"
 
-RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target):m_camera(camera),m_renderTanger(m_target)
+RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target,Sampler *sampler)
+    :m_camera(camera),m_renderTanger(m_target),m_sampler(sampler),m_enableAA(false),m_enableLight(false)
 {
 
 }
@@ -9,34 +10,60 @@ RayTracer::~RayTracer()
 {
     delete m_camera;
     delete m_renderTanger;
+    delete m_sampler;
 }
 
 void RayTracer::addObject(IRaycastable* ray)
 {
     m_objectVector.push_back(ray);
 }
+
+//tutaj mozna pokombinowac z watkami
 void RayTracer::rayTrace()
 {
     Ray ray;
+    Colour finalColour=Colour::Black;
 
     for(Bint x=0; x<m_renderTanger->getSize().x; x++)
     {
         for(Bint y=0; y<m_renderTanger->getSize().y; y++)
         {
-            Vector2Bf picCoord(
-                ((x+0.5f) / m_renderTanger->getSize().x)*2 -1,
-                ((y+0.5f) / m_renderTanger->getSize().y)*2 -1
-            );
-
-            ray=m_camera->recalculateRay(picCoord);
-///////////////////////////////////////////////////////////////////
-            m_renderTanger->setPixel(Colour::clampColour(shadeRay(ray)),x,y);
-
-/////////////////////////////////////////////////////////
+            finalColour=Colour::Black;
 
 
+            if(m_enableAA)
+            {
+                for(d_type::Bint i=0; i<m_sampler->getSampleCount(); i++)
+                {
+                    Vector2Bf sample = m_sampler->single();
+                    Vector2Bf picCoord(
+                        ((x+sample.x) / m_renderTanger->getSize().x)*2 -1,
+                        ((y+sample.y) / m_renderTanger->getSize().y)*2 -1
+                    );
+
+                    ray=m_camera->recalculateRay(picCoord);
+
+                    finalColour+=shadeRay(ray)/(d_type::Bfloat)m_sampler->getSampleCount();
+                }
+            }
+            else
+            {
+
+                Vector2Bf picCoord(
+                    ((x+0.5f) / m_renderTanger->getSize().x)*2 -1,
+                    ((y+0.5f) / m_renderTanger->getSize().y)*2 -1
+                );
+
+                ray=m_camera->recalculateRay(picCoord);
+
+                finalColour=shadeRay(ray);
+            }
+            m_renderTanger->setPixel(Colour::clampColour(finalColour),x,y);
 
         }
+
+
+
 
     }
     std::cout<<"DONE\n";
@@ -50,11 +77,22 @@ Colour RayTracer::shadeRay(const Ray&ray)
     }
     Colour finalColor = Colour::Black;
     IMaterial * material= info.object->getMaterial();
-
-    for(d_type::Bsize i =0; i<m_pLightsVector.size(); i++)
+    if(m_enableLight)
     {
-        finalColor=material->radiance(m_pLightsVector[i],info.hitPoint,info.normal)+finalColor;
+
+
+        for(d_type::Bsize i =0; i<m_pLightsVector.size(); i++)
+        {
+            finalColor=material->radiance(m_pLightsVector[i],info.hitPoint,info.normal)+finalColor;
+        }
     }
+    else
+    {
+        finalColor =static_cast<PerfectDifuse*>(material)->getColor();
+
+    }
+
+
     return finalColor;
 }
 
@@ -89,4 +127,14 @@ RayTracer::Info RayTracer::traceRay(const Ray&ray)
 void RayTracer::addLight(PointLight light)
 {
     m_pLightsVector.push_back(light);
+}
+void RayTracer::enableLight(d_type::BBool val)
+{
+    m_enableLight=val;
+}
+
+void RayTracer::enableAA(d_type::BBool val)
+{
+    m_enableAA=val;
+
 }

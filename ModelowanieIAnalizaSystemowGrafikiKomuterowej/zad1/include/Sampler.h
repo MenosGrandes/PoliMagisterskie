@@ -10,6 +10,10 @@ public:
     Sampler(ISampleDistributor * distributor,ISampleGenerator * generator,d_type::Bint sampleCt,d_type::Bint setCt);
     Vector2Bf single();
     virtual ~Sampler();
+    d_type::Bint getSampleCount()const
+    {
+        return m_sampleCount;
+    }
 private:
     std::vector<Vector2Bf*> m_sets;
     d_type::Bint m_sampleNdx,m_setNdx,m_sampleCount;

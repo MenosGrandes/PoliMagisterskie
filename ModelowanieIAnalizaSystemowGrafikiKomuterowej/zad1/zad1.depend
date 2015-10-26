@@ -464,7 +464,7 @@
 	<algorithm>
 	<random>
 
-1445805428 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
+1445863107 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
 	"Triangle.h"
 	"Matrix4.h"
 	"RenderTarget.h"
@@ -484,6 +484,9 @@
 	"RayTracer.h"
 	"RandomSampleGenerator.h"
 	"PerfectDifuse.h"
+	"Sampler.h"
+	"SquareSampleDistributor.h"
+	"RegularSampleGenerator.h"
 
 1445457580 pleGenerator.h"
 
@@ -551,17 +554,18 @@
 	"Camera.h"
 	"../src/algorithms.hpp"
 
-1445805324 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytracer.cpp
+1445863112 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytracer.cpp
 	"RayTracer.h"
 
 1445456498 .h"
 
-1445804608 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raytracer.h
+1445861731 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raytracer.h
 	"Raycastable.h"
 	"Camera.h"
 	"RenderTarget.h"
 	"PointLight.h"
 	"PerfectDifuse.h"
+	"Sampler.h"
 	<limits>
 
 1445788935 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\perspectivecamera.cpp
@@ -886,10 +890,10 @@
 1445788935 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\regularsamplegenerator.h
 	"ISampleGenerator.h"
 
-1445788935 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sampler.cpp
+1445861206 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sampler.cpp
 	"Sampler.h"
 
-1445788935 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\sampler.h
+1445859161 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\sampler.h
 	"ISampleDistributor.h"
 	"ISampleGenerator.h"
 	<vector>

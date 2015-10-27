@@ -32,6 +32,7 @@ Vector2Bf* JitteredSampleGenerator::generateSamples(d_type::Bsize count)
 
         }
     }
+
     return result;
 
 

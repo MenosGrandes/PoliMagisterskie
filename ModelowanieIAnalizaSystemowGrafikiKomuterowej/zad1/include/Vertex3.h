@@ -7,19 +7,10 @@ template <typename T>
 class Vertex3
 {
 public:
-    Vertex3(const Vector3<T>& thePosition):position(thePosition)
+    Vertex3(const Vector3<T>& thePosition,const Vector2<T>& texCoords,const Vector3<T>& normal):m_position(thePosition),m_texCoords(texCoords),m_normal(normal)
     {}
 
-
-    Vertex3(const Vector3<T>& thePosition, const Colour& theColor):position(thePosition),color(theColor)
-    {}
-
-
-    Vertex3(const Vector3<T>& thePosition, const Vector3<T>& theTexCoords):position(thePosition),texCoords(theTexCoords)
-    {}
-
-
-    Vertex3(const Vector3<T>& thePosition, const Colour& theColor, const Vector3<T>& theTexCoords):position(thePosition),color(theColor),texCoords(theTexCoords)
+    Vertex3(const Vector3<T>& thePosition,const Colour&color):m_position(thePosition),m_color(color)
     {}
 
 
@@ -27,9 +18,10 @@ public:
     {
     }
 
-    Vector3<T> position;
-    Vector3<T> texCoords;
-    Colour color;
+    Vector3<T> m_position;
+    Vector2<T> m_texCoords;
+    Vector3<T> m_normal;
+    Colour m_color;
 };
 typedef Vertex3<d_type::Bfloat>Vertex3Bf;
 typedef Vector3<Vertex3Bf> Vector3Vertex3Bf;

@@ -32,8 +32,8 @@ Vector3Vertex3Bf RayTriangle::getVertices() const
 }
 bool RayTriangle::intersect(const Ray& ray,d_type::Bfloat &distance,Vector3Bf & normal) const
 {
-    Vector3Bf v0v1 = m_vertex.y.position - m_vertex.x.position;
-    Vector3Bf v0v2 = m_vertex.z.position - m_vertex.x.position;
+    Vector3Bf v0v1 = m_vertex.y.m_position - m_vertex.x.m_position;
+    Vector3Bf v0v2 = m_vertex.z.m_position - m_vertex.x.m_position;
     Vector3Bf pvec = Vector3Bf::cross(ray.getDirection(),v0v2);
     float det = Vector3Bf::dotProduct(v0v1,pvec);
 
@@ -46,7 +46,7 @@ bool RayTriangle::intersect(const Ray& ray,d_type::Bfloat &distance,Vector3Bf & 
 
     float invDet = 1 / det;
 
-    Vector3Bf tvec = ray.getOrigin() - m_vertex.x.position;
+    Vector3Bf tvec = ray.getOrigin() - m_vertex.x.m_position;
     float u = Vector3Bf::dotProduct(tvec,pvec) * invDet;
     if (u < 0 || u > 1) return false;
 

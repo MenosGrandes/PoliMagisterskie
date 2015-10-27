@@ -48,6 +48,9 @@
 		<Unit filename="include/DiskSampleDistributor.h">
 			<Option virtualFolder="Antyalising/Distributor/" />
 		</Unit>
+		<Unit filename="include/FileLoader.h">
+			<Option virtualFolder="Types/" />
+		</Unit>
 		<Unit filename="include/ILight.h">
 			<Option virtualFolder="Light/" />
 		</Unit>
@@ -68,6 +71,9 @@
 		</Unit>
 		<Unit filename="include/Matrix4.h">
 			<Option virtualFolder="Types/Matrix/" />
+		</Unit>
+		<Unit filename="include/Mesh.h">
+			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="include/MultiJitteringSampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
@@ -151,6 +157,9 @@
 		<Unit filename="src/DiskSampleDistributor.cpp">
 			<Option virtualFolder="Antyalising/Distributor/" />
 		</Unit>
+		<Unit filename="src/FileLoader.cpp">
+			<Option virtualFolder="Types/" />
+		</Unit>
 		<Unit filename="src/ILight.cpp">
 			<Option virtualFolder="Light/" />
 		</Unit>
@@ -168,6 +177,9 @@
 		</Unit>
 		<Unit filename="src/Matrix4.cpp">
 			<Option virtualFolder="Types/Matrix/" />
+		</Unit>
+		<Unit filename="src/Mesh.cpp">
+			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="src/MultiJitteringSampleGenerator.cpp">
 			<Option virtualFolder="Antyalising/Generator/" />

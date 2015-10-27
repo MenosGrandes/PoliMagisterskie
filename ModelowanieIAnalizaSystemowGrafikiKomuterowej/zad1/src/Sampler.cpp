@@ -24,8 +24,8 @@ Sampler::Sampler(ISampleDistributor* distributor, ISampleGenerator* generator, d
 Vector2Bf Sampler::single()
 {
 
-    std::mt19937 re(rd());
-    std::uniform_int_distribution<d_type::Bint> ui(0, m_sets.size()-1);
+//    std::mt19937 re(rd());
+//    std::uniform_int_distribution<d_type::Bint> ui(0, m_sets.size()-1);
     Vector2Bf * s=m_sets.at(m_setNdx);
     Vector2Bf sample=s[m_sampleNdx];
     m_sampleNdx++;
@@ -33,7 +33,7 @@ Vector2Bf Sampler::single()
     {
         m_sampleNdx =0;
 
-        m_setNdx=ui(re);
+        //m_setNdx=ui(re);
 
    }
    return sample;

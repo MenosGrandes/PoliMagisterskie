@@ -1,5 +1,8 @@
 var annotated_dup =
 [
+    [ "render", null, [
+      [ "Triangle", "classrender_1_1_triangle.html", "classrender_1_1_triangle" ]
+    ] ],
     [ "ColorDepth", "struct_color_depth.html", "struct_color_depth" ],
     [ "Colour", "class_colour.html", "class_colour" ],
     [ "DiskSampleDistributor", "class_disk_sample_distributor.html", "class_disk_sample_distributor" ],
@@ -26,11 +29,10 @@ var annotated_dup =
     [ "Sphere", "class_sphere.html", "class_sphere" ],
     [ "SquareSampleDistributor", "class_square_sample_distributor.html", "class_square_sample_distributor" ],
     [ "ToRadians", "class_to_radians.html", null ],
-    [ "Triangle", "class_triangle.html", "class_triangle" ],
     [ "Vector2", "class_vector2.html", "class_vector2" ],
     [ "Vector3", "class_vector3.html", "class_vector3" ],
     [ "Vector4", "class_vector4.html", "class_vector4" ],
     [ "Vertex2", "class_vertex2.html", "class_vertex2" ],
-    [ "Vertex3", "class_vertex3.html", null ],
+    [ "Vertex3", "class_vertex3.html", "class_vertex3" ],
     [ "VertexProcessor", "class_vertex_processor.html", "class_vertex_processor" ]
 ];

@@ -32,7 +32,7 @@ var hierarchy =
     [ "Sampler", "class_sampler.html", null ],
     [ "Smallest", "struct_smallest.html", null ],
     [ "ToRadians", "class_to_radians.html", null ],
-    [ "Triangle< T >", "class_triangle.html", null ],
+    [ "render::Triangle< T >", "classrender_1_1_triangle.html", null ],
     [ "Vector2< T >", "class_vector2.html", null ],
     [ "Vector2< d_type::Bfloat >", "class_vector2.html", null ],
     [ "Vector2< d_type::Bshort >", "class_vector2.html", null ],

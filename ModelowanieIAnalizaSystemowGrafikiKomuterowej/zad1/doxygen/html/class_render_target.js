@@ -7,7 +7,7 @@ var class_render_target =
     [ "clear", "class_render_target.html#aa5733df939393102f3e5dc58ca17b0e4", null ],
     [ "clearPixel", "class_render_target.html#adb04d04e94c5fc00b60f2a7eed9b9f59", null ],
     [ "draw", "class_render_target.html#ae1ef5886ca445a57d5ad144a6cb11529", null ],
-    [ "draw", "class_render_target.html#a9d57faf8311b45ce8d2f9f8514bf5bec", null ],
+    [ "draw", "class_render_target.html#ae7398d134150c59fde4e5d89a0fe8376", null ],
     [ "drawToFile", "class_render_target.html#ae06a1a2210e65c151029e8187baa1e40", null ],
     [ "getCleanColour", "class_render_target.html#acb2cf55c44f3adbeb02def61f326bff7", null ],
     [ "getDepthBuffer", "class_render_target.html#a2d28ea9ea5a9caa9d306ecd7d6169f10", null ],

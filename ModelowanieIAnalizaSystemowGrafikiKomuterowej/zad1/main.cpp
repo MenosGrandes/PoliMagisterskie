@@ -33,6 +33,7 @@ using namespace d_type;
 #include "DiskSampleDistributor.h"
 #include "JitteredSampleGenerator.h"
 #include "RayTriangle.h"
+#include "FileLoader.h"
 #else
 
 #endif // FOTO
@@ -91,13 +92,18 @@ int main(int argc, char **argv)
     }
 #endif // ZAD1
 #ifdef ZAD2
+Mesh mesh=Mesh(FileLoader::loadMesh("models/cube.obj"));
+
+
+Mesh* mesh2=&mesh;
+mesh2->setMaterial(new PerfectDifuse(Colour::Red));
     Vector2Bs img_size=Vector2Bs(400,400);
     RenderTarget *file = new RenderTarget(img_size);
     file->setCleanColour(Colour::Black);
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,-5),0,Vector2Bf(5,5));
 
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,1,-8),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,1,-10),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
                                            1,
@@ -117,16 +123,18 @@ int main(int argc, char **argv)
 
 
 
-    rt->addObject(new RayTriangle(
+
+                  Mesh * m=new Mesh();
+                  m->m_triangles.push_back(new RayTriangle(
                                   Vertex3Bf(Vector3Bf(-1.5f,1.1f,6),Colour::Green),
                                   Vertex3Bf(Vector3Bf(1.1f,-1.5f,2.0f),Colour::Red),
-                                  Vertex3Bf(Vector3Bf(-1.5f,-1.5f,3.0f),Colour::Red))
-                  );
+                                  Vertex3Bf(Vector3Bf(-1.5f,-1.5f,3.0f),Colour::Red)));
 //    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
-//    rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2,pd1));
-//    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,pd1));
-//    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd1));
-//    rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::Yellow));
+//    rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2,pd2));
+//    rt->addObject(new Sphere(Vector3Bf(5,0,0)  , 2,pd3));
+    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
+   rt->addObject(m);
+    rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::Yellow));
 
 
 

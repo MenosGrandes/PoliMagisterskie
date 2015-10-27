@@ -6,7 +6,7 @@
 template <typename T>
 class Vertex3
 {
-
+public:
     Vertex3(const Vector3<T>& thePosition):position(thePosition)
     {}
 
@@ -31,5 +31,6 @@ class Vertex3
     Vector3<T> texCoords;
     Colour color;
 };
-
+typedef Vertex3<d_type::Bfloat>Vertex3Bf;
+typedef Vector3<Vertex3Bf> Vector3Vertex3Bf;
 #endif // VERTEX3_H

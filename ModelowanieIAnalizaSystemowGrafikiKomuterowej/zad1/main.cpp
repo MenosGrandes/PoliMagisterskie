@@ -32,6 +32,7 @@ using namespace d_type;
 #include "RegularSampleGenerator.h"
 #include "DiskSampleDistributor.h"
 #include "JitteredSampleGenerator.h"
+#include "RayTriangle.h"
 #else
 
 #endif // FOTO
@@ -103,10 +104,10 @@ int main(int argc, char **argv)
                                            Vector2Bf(1,1));
 
 
-Sampler * s= new Sampler(new SquareSampleDistributor(),new JitteredSampleGenerator(),9,1);
+    Sampler * s= new Sampler(new SquareSampleDistributor(),new JitteredSampleGenerator(),9,1);
     RayTracer *rt = new RayTracer(persp,file,s);
     rt->enableAA(false);
-    rt->enableLight(true);
+    rt->enableLight(false);
 
 
     PerfectDifuse * pd1=new PerfectDifuse(Colour::Gray);
@@ -116,12 +117,16 @@ Sampler * s= new Sampler(new SquareSampleDistributor(),new JitteredSampleGenerat
 
 
 
-
-    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
-    rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2,pd1));
-    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,pd1));
-    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd1));
-    rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::Yellow));
+    rt->addObject(new RayTriangle(
+                                  Vertex3Bf(Vector3Bf(-1.5f,1.1f,6),Colour::Green),
+                                  Vertex3Bf(Vector3Bf(1.1f,-1.5f,2.0f),Colour::Red),
+                                  Vertex3Bf(Vector3Bf(-1.5f,-1.5f,3.0f),Colour::Red))
+                  );
+//    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
+//    rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2,pd1));
+//    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,pd1));
+//    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd1));
+//    rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::Yellow));
 
 
 

@@ -96,6 +96,9 @@
 		<Unit filename="include/RayTracer.h">
 			<Option virtualFolder="Ray/" />
 		</Unit>
+		<Unit filename="include/RayTriangle.h">
+			<Option virtualFolder="Ray/Raycastable/" />
+		</Unit>
 		<Unit filename="include/Raycastable.h">
 			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
@@ -192,6 +195,9 @@
 		</Unit>
 		<Unit filename="src/RayTracer.cpp">
 			<Option virtualFolder="Ray/" />
+		</Unit>
+		<Unit filename="src/RayTriangle.cpp">
+			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="src/RegularSampleGenerator.cpp">
 			<Option virtualFolder="Antyalising/Generator/" />

@@ -55,8 +55,7 @@ inline std::ostream& operator<< (std::ostream& stream, const Vector3<T>& v)
 }
 
 template <typename T>
-inline Vector3<T>::Vector3() : x(0), y(0), z(0) {}
-
+inline Vector3<T>::Vector3() : x(), y(), z() {}
 
 ////////////////////////////////////////////////////////////
 template <typename T>

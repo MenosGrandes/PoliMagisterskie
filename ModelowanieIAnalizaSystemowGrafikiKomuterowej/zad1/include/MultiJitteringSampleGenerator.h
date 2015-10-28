@@ -4,13 +4,13 @@
 
 class MultiJitteringSampleGenerator : public ISampleGenerator
 {
-    public:
-        MultiJitteringSampleGenerator();
-        virtual ~MultiJitteringSampleGenerator();
-        Vector2Bf * generateSamples(d_type::Bsize count);
+public:
+    MultiJitteringSampleGenerator();
+    virtual ~MultiJitteringSampleGenerator();
+    Vector2Bf * generateSamples(d_type::Bsize count);
 
-    private:
-            std::random_device rd;
+private:
+    std::random_device rd;
 
 };
 

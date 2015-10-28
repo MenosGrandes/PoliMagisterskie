@@ -33,36 +33,36 @@ Vector2Bf* MultiJitteringSampleGenerator::generateSamples(d_type::Bsize count)
         }
     }
 
-   for(d_type::Buint x=0; x<rows; x++)
+    for(d_type::Buint x=0; x<rows; x++)
     {
 
         for(d_type::Buint y=0; y<rows; y++)
         {
 
-        d_type::Bfloat t;
-        d_type::Bint k;
-        std::uniform_int_distribution<d_type::Bint> rand_i(y, rows-1);
-        k=rand_i(re);
-        t=result[x*rows+y].x;
-        result[x*rows+y].x=result[x*rows+k].x;
-        result[x*rows+k].x=t;
+            d_type::Bfloat t;
+            d_type::Bint k;
+            std::uniform_int_distribution<d_type::Bint> rand_i(y, rows-1);
+            k=rand_i(re);
+            t=result[x*rows+y].x;
+            result[x*rows+y].x=result[x*rows+k].x;
+            result[x*rows+k].x=t;
 
         }
     }
 
-   for(d_type::Buint x=0; x<rows; x++)
+    for(d_type::Buint x=0; x<rows; x++)
     {
 
         for(d_type::Buint y=0; y<rows; y++)
         {
 
-        d_type::Bfloat t;
-        d_type::Bint k;
-        std::uniform_int_distribution<d_type::Bint> rand_i(y, rows-1);
-        k=rand_i(re);
-        t=result[y*rows+x].y;
-        result[y*rows+x].y=result[k*rows+x].y;
-        result[k*rows+x].y=t;
+            d_type::Bfloat t;
+            d_type::Bint k;
+            std::uniform_int_distribution<d_type::Bint> rand_i(y, rows-1);
+            k=rand_i(re);
+            t=result[y*rows+x].y;
+            result[y*rows+x].y=result[k*rows+x].y;
+            result[k*rows+x].y=t;
 
         }
     }

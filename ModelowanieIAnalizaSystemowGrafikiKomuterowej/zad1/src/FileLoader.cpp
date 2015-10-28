@@ -30,7 +30,7 @@ Mesh& FileLoader::loadMesh(std::string filename)
     {
 
     }
-return m;
+    return m;
     std::cout<<extension<<"\n";
 }
 bool FileLoader::loadOBJ(std::string filename,Mesh &m)
@@ -130,11 +130,9 @@ bool FileLoader::loadOBJ(std::string filename,Mesh &m)
         // Put the attributes in buffers
         vertices.push_back(Vertex3Bf(vertex,uv,normal));
 
-        counter++;
-        if(counter == 3)
+        if(vertices.size() == 4)
         {
             mesh.m_triangles.push_back(new RayTriangle(vertices[0],vertices[1],vertices[2]));
-            counter=0;
             vertices.clear();
         }
     }

@@ -35,8 +35,8 @@ Vector2Bf Sampler::single()
 
         //m_setNdx=ui(re);
 
-   }
-   return sample;
+    }
+    return sample;
 }
 
 Sampler::~Sampler()

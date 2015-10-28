@@ -93,14 +93,14 @@ int main(int argc, char **argv)
     }
 #endif // ZAD1
 #ifdef ZAD2
-//Mesh mesh=Mesh(FileLoader::loadMesh("models/cube.obj"));
-//
-//
-//Mesh* mesh2=&mesh;
-//mesh2->setMaterial(new PerfectDifuse(Colour::Red));
+Mesh mesh=Mesh(FileLoader::loadMesh("models/cube.obj"));
 
 
-    Vector2Bs img_size=Vector2Bs(800,800);
+Mesh* mesh2=&mesh;
+mesh2->setMaterial(new PerfectDifuse(Colour::Red));
+
+
+    Vector2Bs img_size=Vector2Bs(800,600);
 
 
     RenderTarget *file = new RenderTarget(img_size);
@@ -111,11 +111,11 @@ int main(int argc, char **argv)
     ICamera *persp = new PerspectiveCamera(Vector3Bf(0,1,-10),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
-                                           1,
-                                           Vector2Bf(1,1));
+                                           2,
+                                           Vector2Bf(4,3));
 
 
-    Sampler * s= new Sampler(new DiskSampleDistributor(),new MultiJitteringSampleGenerator(),16,1);
+    Sampler * s= new Sampler(new DiskSampleDistributor(),new MultiJitteringSampleGenerator(),8,1);
     RayTracer *rt = new RayTracer(persp,file,s);
     rt->enableAA(true);
     rt->enableLight(true);
@@ -128,18 +128,23 @@ int main(int argc, char **argv)
 
 
 
-
+//
 //                  Mesh * m=new Mesh();
-//                  m->m_triangles.push_back(new RayTriangle(
+//                  m->m_triangles.push_back();
+
+
+//RayTriangle *tr = new RayTriangle(
 //                                  Vertex3Bf(Vector3Bf(-1.5f,1.1f,6),Colour::Green),
 //                                  Vertex3Bf(Vector3Bf(1.1f,-1.5f,2.0f),Colour::Red),
-//                                  Vertex3Bf(Vector3Bf(-1.5f,-1.5f,3.0f),Colour::Red)));
+//                                  Vertex3Bf(Vector3Bf(-1.5f,-1.5f,3.0f),Colour::Red));
+//                                  tr->setMaterial(pd3);
+//                  rt->addObject(tr);
     rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
-    rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2,pd1));
+    rt->addObject(new Sphere(Vector3Bf(15,0,0)  , 2,pd1));
     rt->addObject(new Sphere(Vector3Bf(5,0,0)  , 2,pd1));
     rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd1));
-  // rt->addObject(m);
-    rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::Yellow));
+     //rt->addObject(mesh2);
+    rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::Green));
 
 
 

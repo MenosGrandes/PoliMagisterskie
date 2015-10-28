@@ -34,6 +34,7 @@ using namespace d_type;
 #include "JitteredSampleGenerator.h"
 #include "RayTriangle.h"
 #include "FileLoader.h"
+#include "MultiJitteringSampleGenerator.h"
 #else
 
 #endif // FOTO
@@ -92,12 +93,16 @@ int main(int argc, char **argv)
     }
 #endif // ZAD1
 #ifdef ZAD2
-Mesh mesh=Mesh(FileLoader::loadMesh("models/cube.obj"));
+//Mesh mesh=Mesh(FileLoader::loadMesh("models/cube.obj"));
+//
+//
+//Mesh* mesh2=&mesh;
+//mesh2->setMaterial(new PerfectDifuse(Colour::Red));
 
 
-Mesh* mesh2=&mesh;
-mesh2->setMaterial(new PerfectDifuse(Colour::Red));
-    Vector2Bs img_size=Vector2Bs(400,400);
+    Vector2Bs img_size=Vector2Bs(800,800);
+
+
     RenderTarget *file = new RenderTarget(img_size);
     file->setCleanColour(Colour::Black);
 
@@ -110,10 +115,10 @@ mesh2->setMaterial(new PerfectDifuse(Colour::Red));
                                            Vector2Bf(1,1));
 
 
-    Sampler * s= new Sampler(new SquareSampleDistributor(),new JitteredSampleGenerator(),9,1);
+    Sampler * s= new Sampler(new DiskSampleDistributor(),new MultiJitteringSampleGenerator(),16,1);
     RayTracer *rt = new RayTracer(persp,file,s);
-    rt->enableAA(false);
-    rt->enableLight(false);
+    rt->enableAA(true);
+    rt->enableLight(true);
 
 
     PerfectDifuse * pd1=new PerfectDifuse(Colour::Gray);
@@ -124,16 +129,16 @@ mesh2->setMaterial(new PerfectDifuse(Colour::Red));
 
 
 
-                  Mesh * m=new Mesh();
-                  m->m_triangles.push_back(new RayTriangle(
-                                  Vertex3Bf(Vector3Bf(-1.5f,1.1f,6),Colour::Green),
-                                  Vertex3Bf(Vector3Bf(1.1f,-1.5f,2.0f),Colour::Red),
-                                  Vertex3Bf(Vector3Bf(-1.5f,-1.5f,3.0f),Colour::Red)));
-//    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
-//    rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2,pd2));
-//    rt->addObject(new Sphere(Vector3Bf(5,0,0)  , 2,pd3));
-    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
-   rt->addObject(m);
+//                  Mesh * m=new Mesh();
+//                  m->m_triangles.push_back(new RayTriangle(
+//                                  Vertex3Bf(Vector3Bf(-1.5f,1.1f,6),Colour::Green),
+//                                  Vertex3Bf(Vector3Bf(1.1f,-1.5f,2.0f),Colour::Red),
+//                                  Vertex3Bf(Vector3Bf(-1.5f,-1.5f,3.0f),Colour::Red)));
+    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
+    rt->addObject(new Sphere(Vector3Bf(4,0,0)  , 2,pd1));
+    rt->addObject(new Sphere(Vector3Bf(5,0,0)  , 2,pd1));
+    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd1));
+  // rt->addObject(m);
     rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::Yellow));
 
 
@@ -141,21 +146,6 @@ mesh2->setMaterial(new PerfectDifuse(Colour::Red));
     // rt->addObject(p);
     rt->rayTrace();
 
-
-
-
-//    for(d_type::Bsize i=0;i<3;i++)
-//    {
-//        std::cout<<a2[i]<<"  ";
-//    }
-//        std::cout<<"\n!!!!!!!!!!!!!!!!!!!!!!!!\n";
-//
-//            Vector2Bf* a3= r->generateSamples(3);
-//    for(d_type::Bsize i=0;i<3;i++)
-//    {
-//        std::cout<<a3[i]<<"  ";
-//    }
-//        std::cout<<"\n!!!!!!!!!!!!!!!!!!!!!!!!\n";
 
 #endif // ZAD2
 

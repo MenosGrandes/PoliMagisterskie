@@ -9,7 +9,7 @@ FileLoader::~FileLoader()
 {
     //dtor
 }
-Mesh& FileLoader::loadMesh(std::string filename)
+Mesh * FileLoader::loadMesh(std::string filename)
 {
     std::string extension="";
     size_t i = filename.rfind('.', filename.length());
@@ -17,10 +17,11 @@ Mesh& FileLoader::loadMesh(std::string filename)
     {
         extension=(filename.substr(i+1, filename.length() - i));
     }
-    Mesh m=Mesh();
+
     if(extension == "obj")
     {
-        loadOBJ(filename,m);
+        return loadOBJ(filename);
+
     }
     else if(extension == "fbx")
     {
@@ -30,13 +31,14 @@ Mesh& FileLoader::loadMesh(std::string filename)
     {
 
     }
-    return m;
     std::cout<<extension<<"\n";
 }
-bool FileLoader::loadOBJ(std::string filename,Mesh &m)
+Mesh* FileLoader::loadOBJ(std::string filename)
 {
+        Mesh * mesh = new Mesh();
+
     const char * path = filename.c_str();
-    Mesh mesh=Mesh();
+
     printf("Loading OBJ file %s...\n", path);
 
     std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
@@ -50,7 +52,7 @@ bool FileLoader::loadOBJ(std::string filename,Mesh &m)
     {
         printf("Impossible to open the file ! Are you in the right path ? See Tutorial 1 for details\n");
         getchar();
-        return false;
+        return nullptr;
     }
 
     while( 1 )
@@ -91,7 +93,7 @@ bool FileLoader::loadOBJ(std::string filename,Mesh &m)
             if (matches != 9)
             {
                 printf("File can't be read by our simple parser :-( Try exporting with other options\n");
-                return false;
+                return nullptr;
             }
             vertexIndices.push_back(vertexIndex[0]);
             vertexIndices.push_back(vertexIndex[1]);
@@ -106,8 +108,8 @@ bool FileLoader::loadOBJ(std::string filename,Mesh &m)
         else
         {
             // Probably a comment, eat up the rest of the line
-            char stupidBuffer[100000];
-            fgets(stupidBuffer, 100000, file);
+            char stupidBuffer[1000000];
+            fgets(stupidBuffer, 1000000, file);
         }
 
     }
@@ -130,12 +132,13 @@ bool FileLoader::loadOBJ(std::string filename,Mesh &m)
         // Put the attributes in buffers
         vertices.push_back(Vertex3Bf(vertex,uv,normal));
 
-        if(vertices.size() == 4)
+        if(vertices.size() == 3)
         {
-            mesh.m_triangles.push_back(new RayTriangle(vertices[0],vertices[1],vertices[2]));
+            mesh->m_triangles.push_back(new RayTriangle(vertices[0],vertices[1],vertices[2],new PerfectDifuse(Colour::Red)));
             vertices.clear();
         }
     }
+    std::cout<<mesh->m_triangles.size();
 
-    return true;
+    return mesh;
 }

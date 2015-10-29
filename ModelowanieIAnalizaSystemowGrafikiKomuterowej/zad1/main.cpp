@@ -93,14 +93,13 @@ int main(int argc, char **argv)
     }
 #endif // ZAD1
 #ifdef ZAD2
-Mesh mesh=Mesh(FileLoader::loadMesh("models/cube.obj"));
+//Mesh * mesh=
+//
+//
+//mesh->setMaterial(new PerfectDifuse(Colour::Red));
 
 
-Mesh* mesh2=&mesh;
-mesh2->setMaterial(new PerfectDifuse(Colour::Red));
-
-
-    Vector2Bs img_size=Vector2Bs(800,600);
+    Vector2Bs img_size=Vector2Bs(300,300);
 
 
     RenderTarget *file = new RenderTarget(img_size);
@@ -108,17 +107,17 @@ mesh2->setMaterial(new PerfectDifuse(Colour::Red));
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,-5),0,Vector2Bf(5,5));
 
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,1,-10),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(-38,27,16),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
-                                           2,
-                                           Vector2Bf(4,3));
+                                           3,
+                                           Vector2Bf(1,1));
 
 
     Sampler * s= new Sampler(new DiskSampleDistributor(),new MultiJitteringSampleGenerator(),8,1);
     RayTracer *rt = new RayTracer(persp,file,s);
-    rt->enableAA(true);
-    rt->enableLight(true);
+    rt->enableAA(false);
+    rt->enableLight(false);
 
 
     PerfectDifuse * pd1=new PerfectDifuse(Colour::Gray);
@@ -134,16 +133,28 @@ mesh2->setMaterial(new PerfectDifuse(Colour::Red));
 
 
 //RayTriangle *tr = new RayTriangle(
-//                                  Vertex3Bf(Vector3Bf(-1.5f,1.1f,6),Colour::Green),
-//                                  Vertex3Bf(Vector3Bf(1.1f,-1.5f,2.0f),Colour::Red),
-//                                  Vertex3Bf(Vector3Bf(-1.5f,-1.5f,3.0f),Colour::Red));
+//                                  Vertex3Bf(Vector3Bf(-0.5000, -0.5000, -0.5000),Colour::Green),
+//                                  Vertex3Bf(Vector3Bf(0 ,5.0000, -0.5000),Colour::Red),
+//                                  Vertex3Bf(Vector3Bf(-0.5000, 0.5000, -0.5000),Colour::Red));
 //                                  tr->setMaterial(pd3);
-//                  rt->addObject(tr);
-    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
-    rt->addObject(new Sphere(Vector3Bf(15,0,0)  , 2,pd1));
-    rt->addObject(new Sphere(Vector3Bf(5,0,0)  , 2,pd1));
-    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd1));
-     //rt->addObject(mesh2);
+                 // rt->addObject(tr);
+
+
+//    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
+    rt->addObject(new Sphere(Vector3Bf(5,-5,0)  , 5,pd1));
+//    rt->addObject(new Sphere(Vector3Bf(0,0,-10)  , 2,pd1));
+//    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd1));
+
+
+Mesh *m=FileLoader::loadMesh(("models/cube.obj"));
+m->setMaterial(new PerfectDifuse(Colour::Green));
+    rt->addObject(m);
+
+//     rt->addObject(mesh2->m_triangles[1]);
+//    v
+//v
+//v
+
     rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::Green));
 
 

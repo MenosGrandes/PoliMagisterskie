@@ -1,6 +1,6 @@
 #include "Sampler.h"
 
-Sampler::Sampler(ISampleDistributor* distributor, ISampleGenerator* generator, d_type::Bint sampleCt, d_type::Bint setCt):m_sampleCount(sampleCt)
+Sampler::Sampler(ISampleDistributor* distributor, ISampleGenerator* generator, d_type::Bint sampleCt, d_type::Bint setCt):m_sampleCount(sampleCt),m_setNdx(0),m_sampleNdx(0)
 {
     for(d_type::Bsize i=0; i<setCt; ++i)
     {

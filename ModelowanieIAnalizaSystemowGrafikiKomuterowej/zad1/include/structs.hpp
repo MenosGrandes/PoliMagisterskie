@@ -37,6 +37,8 @@ typedef float		    Bfloat;
 typedef double		    Bdouble;
 /** size_t wrapper*/
 typedef size_t          Bsize;
+typedef char          Bchar;
+
 };
 
 

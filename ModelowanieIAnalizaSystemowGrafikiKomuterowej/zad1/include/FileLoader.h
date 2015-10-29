@@ -14,12 +14,13 @@ public:
 
 protected:
 private:
-    static Mesh* loadOBJ(std::string filename);
-    struct MaterialForTriangle
+    struct Material
     {
-        d_type::Bchar materialName[13];
-        d_type::Buint triangleSize;
+        IMaterial* mat;
+        std::string name;
     };
+    static Mesh* loadOBJ(std::string filename);
+    static bool LoadMTL(char * mtlFilename,std::vector<IMaterial*> &materials);
 };
 
 #endif // FILELOADER_H

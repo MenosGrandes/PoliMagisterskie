@@ -35,10 +35,10 @@ Mesh * FileLoader::loadMesh(std::string filename)
 }
 Mesh* FileLoader::loadOBJ(std::string filename)
 {
-        Mesh * mesh = new Mesh();
+    Mesh * mesh = new Mesh();
 
     const char * path = filename.c_str();
-
+    std::vector<IMaterial * > materials;
     printf("Loading OBJ file %s...\n", path);
 
     std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
@@ -65,8 +65,15 @@ Mesh* FileLoader::loadOBJ(std::string filename)
             break; // EOF = End Of File. Quit the loop.
 
         // else : parse lineHeader
+        if ( strcmp( lineHeader, "mtllib" ) == 0 )
+        {
 
-        if ( strcmp( lineHeader, "v" ) == 0 )
+            char c[100];
+            fscanf(file,"%s",c);
+            LoadMTL(c,materials);
+
+        }
+        else if ( strcmp( lineHeader, "v" ) == 0 )
         {
             Vector3Bf vertex;
             fscanf(file, "%f %f %f\n", &vertex.x, &vertex.y, &vertex.z );
@@ -138,7 +145,65 @@ Mesh* FileLoader::loadOBJ(std::string filename)
             vertices.clear();
         }
     }
-    std::cout<<mesh->m_triangles.size();
-
+//    std::cout<<mesh->m_triangles.size()<<"\n";
+//    std::cout<<materials.size()<<"\n";
+//
+//    for(IMaterial * mat : materials)
+//    {
+//        std::cout<<(int)mat->getColor().r<<" "<<(int)mat->getColor().g<<" "<<(int)mat->getColor().b<<"\n";
+//    }
     return mesh;
+}
+bool FileLoader::LoadMTL(char* mtlFilename,std::vector<IMaterial*> &materials)
+{
+
+    char folder[7];
+    strcpy(folder,"models/");
+    strncat(folder,mtlFilename,8);
+    printf("Loading MTL file %s...\n", folder);
+
+    FILE * file = fopen(folder, "r");
+    if( file == NULL )
+    {
+        printf("Impossible to open the file ! Are you in the right path ? See Tutorial 1 for details\n");
+        getchar();
+        return nullptr;
+    }
+
+    while( 1 )
+    {
+
+        char lineHeader[128];
+        // read the first word of the line
+        int res = fscanf(file, "%s", lineHeader);
+        if (res == EOF)
+            break; // EOF = End Of File. Quit the loop.
+
+        // else : parse lineHeader
+        if ( strcmp( lineHeader, "newmtl" ) == 0 )
+        {
+            char c[100];
+            fscanf(file,"%s",c);
+            materials.push_back(new PerfectDifuse());
+        }
+        else if(strcmp( lineHeader, "Ka" ) == 0)
+        {
+            Vector3Bf c;
+            fscanf(file, "%f %f %f\n", &c.x, &c.y,&c.z );
+            Colour colour;
+            colour.r=c.x*255;
+            colour.g=c.y*255;
+            colour.b=c.z*255;
+
+        materials.at(materials.size()-1)->setColor(colour);
+        }
+        else
+        {
+            // Probably a comment, eat up the rest of the line
+            char stupidBuffer[1000000];
+            fgets(stupidBuffer, 1000000, file);
+        }
+
+    }
+
 }

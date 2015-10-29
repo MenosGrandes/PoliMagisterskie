@@ -141,7 +141,7 @@ int main(int argc, char **argv)
 
 
 //    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
-    rt->addObject(new Sphere(Vector3Bf(5,-5,0)  , 5,pd1));
+    rt->addObject(new Sphere(Vector3Bf(-12,2,0)  , 5,pd1));
 //    rt->addObject(new Sphere(Vector3Bf(0,0,-10)  , 2,pd1));
 //    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd1));
 
@@ -149,7 +149,13 @@ int main(int argc, char **argv)
 Mesh *m=FileLoader::loadMesh(("models/cube.obj"));
 m->setMaterial(new PerfectDifuse(Colour::Green));
     rt->addObject(m);
-
+Mesh *m2=FileLoader::loadMesh(("models/teapod.obj"));
+for(RayTriangle * tri : m2->m_triangles)
+{
+    tri->setMaterial(new PerfectDifuse(Colour::Gray));
+}
+m2->setMaterial(new PerfectDifuse(Colour::Gray));
+    rt->addObject(m2);
 //     rt->addObject(mesh2->m_triangles[1]);
 //    v
 //v

@@ -21,7 +21,7 @@ public:
         delete m_material;
     }
 protected:
-    IMaterial * m_material;
+    mutable IMaterial * m_material;
 
 
 };

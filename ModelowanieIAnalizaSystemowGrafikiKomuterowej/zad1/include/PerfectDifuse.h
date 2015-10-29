@@ -6,6 +6,8 @@ class PerfectDifuse : public IMaterial
 {
 public:
     PerfectDifuse(Colour c);
+    PerfectDifuse();
+
     virtual ~PerfectDifuse();
     Colour radiance(PointLight pl,const Vector3Bf &hitPoint, const Vector3Bf &normal)
     {
@@ -18,13 +20,9 @@ public:
         }
         return pl.getColor() * m_color*diffuseFactor;
     }
-    Colour getColor()
-    {
-        return m_color;
-    }
+
 protected:
 private:
-    Colour m_color;
 
 };
 

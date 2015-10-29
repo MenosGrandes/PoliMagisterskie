@@ -1,6 +1,6 @@
 #include "PerfectDifuse.h"
 
-PerfectDifuse::PerfectDifuse(Colour c):m_color(c)
+PerfectDifuse::PerfectDifuse(Colour c):IMaterial(c)
 {
     //ctor
 }
@@ -8,4 +8,8 @@ PerfectDifuse::PerfectDifuse(Colour c):m_color(c)
 PerfectDifuse::~PerfectDifuse()
 {
     //dtor
+}
+PerfectDifuse::PerfectDifuse():IMaterial()
+{
+
 }

@@ -123,6 +123,7 @@ RayTracer::Info RayTracer::traceRay(const Ray&ray)
             info.ray=ray;
         }
 
+
     }
 
 

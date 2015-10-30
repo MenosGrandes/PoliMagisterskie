@@ -11,10 +11,11 @@ public:
     virtual d_type::BBool intersect(const Ray& ray,d_type::Bfloat & distance,Vector3Bf & normal) const
     {
         d_type::Bbyte isHit=false;
+            distance=std::numeric_limits<d_type::Bfloat>::max();
+            d_type::Bfloat t;//=std::numeric_limits<d_type::Bfloat>::max();
 
         for(RayTriangle *a : m_triangles )
         {
-            d_type::Bfloat t=std::numeric_limits<d_type::Bfloat>::max();
 
             if(a->intersect(ray,t,normal)&& t<distance )
             {
@@ -25,6 +26,7 @@ public:
             //std::cout<<t <<" max :"<<std::numeric_limits<d_type::Bfloat>::max()<<"\n";
 
         }
+
 
         return isHit;
     };

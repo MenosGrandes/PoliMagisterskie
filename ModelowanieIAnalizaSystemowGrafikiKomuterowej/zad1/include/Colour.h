@@ -36,7 +36,12 @@ public :
 
 
 };
+inline std::ostream& operator<< (std::ostream& stream, const Colour& v)
+{
+    stream<<"COLOUR :"<<(d_type::Bint)v.r<<" "<<(d_type::Bint)v.g<<" "<<(d_type::Bint)v.b<<"\n";
 
+    return stream;
+}
 inline Colour operator +( const Colour& left,const  Colour&right)
 {
     return Colour(left.r+right.r,left.g+right.g,left.b+right.b,255);

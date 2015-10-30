@@ -147,22 +147,11 @@ Mesh* FileLoader::loadOBJ(std::string filename)
     // Material triMat=materials.at(0);
 
 
-Material material;
+
     for( unsigned int i=0; i<vertexIndices.size(); i++ )
     {
 
-//        if(!materials.empty() && !materialCounter.empty())
-//        {
-//            material=materialCounter.back().mat;
-//            std::cout<<(int)material.mat->getColor().r<<" "<<(int)material.mat->getColor().g<<" "<<(int)material.mat->getColor().b<<" "<< material.name<<"\n";
-//            --materialCounter.back().counter;
-//            if(materialCounter.back().counter==0)
-//            {
-//                  materialCounter.pop_back();
-//            }
-//
-//        }
-       // std::cout<<materials.size()<<"\n";
+        // std::cout<<materials.size()<<"\n";
         unsigned int vertexIndex = vertexIndices[i];
         unsigned int uvIndex = uvIndices[i];
         unsigned int normalIndex = normalIndices[i];
@@ -177,16 +166,23 @@ Material material;
 
         if(vertices.size() == 3)
         {
-//            if(!materials.empty())
-//            {
-//                mesh->m_triangles.push_back(new RayTriangle(vertices[0],vertices[1],vertices[2],material.mat));
-//
-//            }
-//            else
-//            {
-            mesh->m_triangles.push_back(new RayTriangle(vertices[0],vertices[1],vertices[2],new PerfectDifuse(Colour::randomColor())));
+            Material material;
+            if(!materials.empty() && !materialCounter.empty())
+            {
+                material=materialCounter.front().mat;
+                --materialCounter.front().counter;
+                if(materialCounter.front().counter==0)
+                {
+                    materialCounter.erase(materialCounter.begin());
+                }
+              mesh->m_triangles.push_back(new RayTriangle(vertices[0],vertices[1],vertices[2],material.mat));
 
-//            }
+            }
+            else
+            {
+                mesh->m_triangles.push_back(new RayTriangle(vertices[0],vertices[1],vertices[2],new PerfectDifuse(Colour::randomColor())));
+
+            }
             vertices.clear();
         }
         counter++;

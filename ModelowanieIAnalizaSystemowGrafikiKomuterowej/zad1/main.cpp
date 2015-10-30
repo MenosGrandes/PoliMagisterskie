@@ -44,6 +44,8 @@ using namespace d_type;
 #ifdef FOTO
 #define DRAWRAY
 #define ZAD3OBJECTS
+#define ZAD2OBJECTS
+#define ZAD4OBJECTS
 #define CLOCK
 int main(int argc, char **argv)
 {
@@ -100,25 +102,25 @@ int main(int argc, char **argv)
 //mesh->setMaterial(new PerfectDifuse(Colour::Red));
 
 
-    Vector2Bs img_size=Vector2Bs(200,200);
+    Vector2Bs img_size=Vector2Bs(600,600);
 
 
     RenderTarget *file = new RenderTarget(img_size);
     file->setCleanColour(Colour::Black);
 
-    ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,-25),0,Vector2Bf(100,100));
+    ICamera * orto=new OrtagonalCamera(Vector3Bf(2,0,-25),0,Vector2Bf(100,100));
 
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,10,20),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(80,15,5),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
-                                           1,
+                                           3,
                                            Vector2Bf(1,1));
 
 
-    Sampler * s= new Sampler(new DiskSampleDistributor(),new MultiJitteringSampleGenerator(),64,1);
+    Sampler * s= new Sampler(new DiskSampleDistributor(),new MultiJitteringSampleGenerator(),9,1);
     RayTracer *rt = new RayTracer(persp,file,s);
-    rt->enableAA(false);
-    rt->enableLight(false);
+    rt->enableAA(true);
+    rt->enableLight(true);
 
 
     PerfectDifuse * pd1=new PerfectDifuse(Colour::Red);
@@ -128,38 +130,35 @@ int main(int argc, char **argv)
 
 
 #ifdef ZAD2OBJECTS
-    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
-    rt->addObject(new Sphere(Vector3Bf( 4,0,0)  , 2,pd2));
-    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,pd3));
-    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
+//    rt->addObject(new Sphere(Vector3Bf(-18.f,0,0) , 2,pd1));
+//    rt->addObject(new Sphere(Vector3Bf( -6,0,0)  , 2,pd2));
+//    rt->addObject(new Sphere(Vector3Bf(-10,0,3)  , 2,pd3));
+//    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
     #endif // ZAD2
 #ifdef ZAD3OBJECTS
-    rt->addObject(FileLoader::loadMesh(("models/cube.obj")));
+
+Mesh * m =FileLoader::loadMesh(("models/EX1.obj"));
+//for(RayTriangle * tri : m->m_triangles)
+//{
+//    //std::cout<<tri->getMaterial()->getColor().r<<" "<<tri->getMaterial()->getColor().g<<" "<<tri->getMaterial()->getColor().b<<"\n";
+//    std::cout<<tri->getMaterial()->getColor();
+//}
+    rt->addObject(m);
+   rt->addObject(FileLoader::loadMesh(("models/teapod.obj")));
 
 #endif // ZAD3
-//
-//
-////m->setMaterial(new PerfectDifuse(Colour::Green));
-//
-////    rt->addObject(FileLoader::loadMesh(("models/teapod.obj")));
-////     rt->addObject(mesh2->m_triangles[1]);
-////    v
-////v
-////v
 
-    rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::Green));
+#ifdef ZAD4OBJECTS
+    rt->addLight( PointLight(Vector3Bf(5,5,0),Colour::White));
+#endif // ZAD4OBJECTS
 
-
-
-    // rt->addObject(p);
-    rt->rayTrace();
 
 
 #endif // ZAD2
 
-
-
-
+#ifdef DRAWRAY
+  rt->rayTrace();
+#endif // DRAWRAY
 
 
 

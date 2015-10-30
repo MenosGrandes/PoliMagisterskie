@@ -1,9 +1,9 @@
 #include "PerspectiveCamera.h"
 
 PerspectiveCamera::PerspectiveCamera(Vector3Bf origin, Vector3Bf lookAt, Vector3Bf up, d_type::Bfloat distance,Vector2Bf scale)
-    :m_origin(origin),m_lookAt(lookAt),m_up(up),m_distance(distance),m_scale(scale),
-     orto(m_origin-m_lookAt,m_up)
+    :m_origin(origin),m_lookAt(lookAt),m_up(up),m_distance(distance),m_scale(scale)
 {
+    orto=OrtBase(m_origin-m_lookAt,m_up);
 }
 
 

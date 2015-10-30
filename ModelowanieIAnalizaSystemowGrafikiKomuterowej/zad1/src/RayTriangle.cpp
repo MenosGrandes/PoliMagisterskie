@@ -43,7 +43,7 @@ bool RayTriangle::intersect(const Ray& ray,d_type::Bfloat &distance,Vector3Bf & 
     if (det < F_EPSILON) return false;
 
 // ray and triangle are parallel if det is close to 0
-    if (fabs(det) < F_EPSILON   ) return false;
+    //if (fabs(det) < F_EPSILON   ) return false;
 
     float invDet = 1 / det;
 

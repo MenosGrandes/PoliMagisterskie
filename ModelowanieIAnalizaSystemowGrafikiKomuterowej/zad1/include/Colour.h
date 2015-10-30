@@ -5,7 +5,7 @@
 #include "Vector3.h"
 #include <random>
 #include <iostream>
-
+#include <ctime>
 
 class Colour
 {
@@ -21,8 +21,9 @@ public :
     Colour():r(255),g(255),b(255),a(255) {};
     Colour(const Colour& next):r(next.r),g(next.g),b(next.b),a(next.a) {};
 
-    static Colour clampColour(Colour r);
 
+    static Colour clampColour(Colour r);
+     static Colour randomColor();
     const static  Colour Green;
     const static  Colour Yellow;
     const static  Colour White;
@@ -31,6 +32,7 @@ public :
     const static  Colour Blue;
     const static  Colour Gray;
     const static  Colour RoyalBlue;
+
 
 
 };
@@ -82,6 +84,9 @@ struct ColorDepth
     Colour color;
     d_type::Bfloat depth;
 };
+
+
+
 #endif // COLOUR_H
 
 

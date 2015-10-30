@@ -22,7 +22,7 @@ private :
     };
 public:
     PerspectiveCamera(Vector3Bf origin,Vector3Bf lookAt,Vector3Bf up,d_type::Bfloat distance,Vector2Bf scale);
-    virtual Ray& recalculateRay(Vector2Bf position);
+     Ray& recalculateRay(Vector2Bf position);
     Vector3Bf recalculateRayDirection(Vector2Bf location);
 protected:
 private:

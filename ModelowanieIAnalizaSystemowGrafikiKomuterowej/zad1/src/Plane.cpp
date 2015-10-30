@@ -59,7 +59,7 @@ bool Plane::intersect(const Ray&ray,d_type::Bfloat &distance,Vector3Bf & normal)
     }
 
 
-    return false;;
+    return false;
 
 
 }

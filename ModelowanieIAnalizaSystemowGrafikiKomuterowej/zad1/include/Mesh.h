@@ -15,12 +15,14 @@ public:
         for(RayTriangle *a : m_triangles )
         {
             d_type::Bfloat t=std::numeric_limits<d_type::Bfloat>::max();
-            if(a->intersect(ray,t,normal) )
+
+            if(a->intersect(ray,t,normal)&& t<distance )
             {
                 distance=t;
                 isHit=true;
                 m_material=a->getMaterial();
             }
+            //std::cout<<t <<" max :"<<std::numeric_limits<d_type::Bfloat>::max()<<"\n";
 
         }
 

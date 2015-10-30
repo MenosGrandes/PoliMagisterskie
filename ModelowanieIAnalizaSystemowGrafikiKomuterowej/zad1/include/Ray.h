@@ -10,7 +10,7 @@
 class Ray
 {
 public:
-    Ray():m_origin(),m_direction(),m_destination(),m_distance(0)
+    Ray():m_origin(),m_direction(),m_destination()
     {
     }
 
@@ -60,7 +60,6 @@ public:
 protected:
 private:
     Vector3Bf m_origin,m_direction, m_destination,m_directionMinusOrigin;
-    d_type::Bfloat m_distance;
 
 };
 

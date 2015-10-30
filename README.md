@@ -3,6 +3,7 @@
 ___
 1. W swietle kule i plane przyjmuja tylko kolor szary.
 2. Bardzo zle zoptymalizowana funkcja `Vector2Bf Sampler::single()` zajmuje baaaardzo duzo czasu. Tak naprawde to random w srodku zajmuje duzo czasu.
+</br>
 ## TODO:
 *******
 1. Metody anty aliasingu MultiJittered oraz Adaptacyjna do zrobienia,

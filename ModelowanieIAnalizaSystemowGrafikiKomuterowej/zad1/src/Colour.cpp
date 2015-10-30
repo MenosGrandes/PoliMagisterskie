@@ -10,6 +10,14 @@ const Colour Colour::RoyalBlue=Colour(67,110,238,255);
 
 
 
+Colour Colour::randomColor()
+{
+
+        std::cout<<std::rand()%255<<" "<<std::rand()%255<<" "<<std::rand()%255<<"\n";
+    return Colour(std::rand()%255,std::rand()%255,std::rand()%255,255);
+//   return Colour(23,1,42,255);
+
+}
 
 Colour Colour::clampColour(Colour c)
 {

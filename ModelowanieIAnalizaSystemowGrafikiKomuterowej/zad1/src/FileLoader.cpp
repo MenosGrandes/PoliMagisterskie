@@ -38,15 +38,15 @@ Mesh* FileLoader::loadOBJ(std::string filename)
     Mesh * mesh = new Mesh();
 
     const char * path = filename.c_str();
-    std::vector<IMaterial * > materials;
+    std::vector<Material> materials;
+    std::vector<MaterialCounter> materialCounter;
     printf("Loading OBJ file %s...\n", path);
 
     std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
     std::vector<Vector3Bf> temp_vertices;
     std::vector<Vector2Bf> temp_uvs;
     std::vector<Vector3Bf> temp_normals;
-
-
+    std::vector<Material>::iterator materialIterator=materials.begin();
     FILE * file = fopen(path, "r");
     if( file == NULL )
     {
@@ -71,13 +71,28 @@ Mesh* FileLoader::loadOBJ(std::string filename)
             char c[100];
             fscanf(file,"%s",c);
             LoadMTL(c,materials);
-
+            std::cout<<materials.size()<<"\n\n";
         }
         else if ( strcmp( lineHeader, "v" ) == 0 )
         {
             Vector3Bf vertex;
             fscanf(file, "%f %f %f\n", &vertex.x, &vertex.y, &vertex.z );
             temp_vertices.push_back(vertex);
+        }
+        else if ( strcmp( lineHeader, "usemtl" ) == 0 )
+        {
+            char c[100];
+            fscanf(file,"%s",c);
+            std::string name(c);
+
+            std::vector<Material>::iterator i=std::find(materials.begin(),materials.end(),Material(name));
+            if(i!=materials.end())
+            {
+//                materialIterator=i;
+                materialCounter.push_back(MaterialCounter(*i,0));
+
+
+            }
         }
         else if ( strcmp( lineHeader, "vt" ) == 0 )
         {
@@ -111,6 +126,11 @@ Mesh* FileLoader::loadOBJ(std::string filename)
             normalIndices.push_back(normalIndex[0]);
             normalIndices.push_back(normalIndex[1]);
             normalIndices.push_back(normalIndex[2]);
+            if(!materials.empty())
+            {
+                materialCounter.at(materialCounter.size()-1).counter++;
+
+            }
         }
         else
         {
@@ -123,10 +143,26 @@ Mesh* FileLoader::loadOBJ(std::string filename)
     int counter=0;
     std::vector<Vertex3Bf> vertices;
     // For each vertex of each triangle
+
+    // Material triMat=materials.at(0);
+
+
+Material material;
     for( unsigned int i=0; i<vertexIndices.size(); i++ )
     {
 
-        // Get the indices of its attributes
+//        if(!materials.empty() && !materialCounter.empty())
+//        {
+//            material=materialCounter.back().mat;
+//            std::cout<<(int)material.mat->getColor().r<<" "<<(int)material.mat->getColor().g<<" "<<(int)material.mat->getColor().b<<" "<< material.name<<"\n";
+//            --materialCounter.back().counter;
+//            if(materialCounter.back().counter==0)
+//            {
+//                  materialCounter.pop_back();
+//            }
+//
+//        }
+       // std::cout<<materials.size()<<"\n";
         unsigned int vertexIndex = vertexIndices[i];
         unsigned int uvIndex = uvIndices[i];
         unsigned int normalIndex = normalIndices[i];
@@ -141,20 +177,28 @@ Mesh* FileLoader::loadOBJ(std::string filename)
 
         if(vertices.size() == 3)
         {
-            mesh->m_triangles.push_back(new RayTriangle(vertices[0],vertices[1],vertices[2],new PerfectDifuse(Colour::Red)));
+//            if(!materials.empty())
+//            {
+//                mesh->m_triangles.push_back(new RayTriangle(vertices[0],vertices[1],vertices[2],material.mat));
+//
+//            }
+//            else
+//            {
+            mesh->m_triangles.push_back(new RayTriangle(vertices[0],vertices[1],vertices[2],new PerfectDifuse(Colour::randomColor())));
+
+//            }
             vertices.clear();
         }
+        counter++;
+
     }
 //    std::cout<<mesh->m_triangles.size()<<"\n";
 //    std::cout<<materials.size()<<"\n";
 //
-//    for(IMaterial * mat : materials)
-//    {
-//        std::cout<<(int)mat->getColor().r<<" "<<(int)mat->getColor().g<<" "<<(int)mat->getColor().b<<"\n";
-//    }
+
     return mesh;
 }
-bool FileLoader::LoadMTL(char* mtlFilename,std::vector<IMaterial*> &materials)
+bool FileLoader::LoadMTL(char* mtlFilename,std::vector<Material> &materials)
 {
 
     char folder[7];
@@ -184,7 +228,10 @@ bool FileLoader::LoadMTL(char* mtlFilename,std::vector<IMaterial*> &materials)
         {
             char c[100];
             fscanf(file,"%s",c);
-            materials.push_back(new PerfectDifuse());
+            std::string d(c);
+            Material material=Material(new PerfectDifuse(),d);
+
+            materials.push_back(material);
         }
         else if(strcmp( lineHeader, "Ka" ) == 0)
         {
@@ -195,7 +242,7 @@ bool FileLoader::LoadMTL(char* mtlFilename,std::vector<IMaterial*> &materials)
             colour.g=c.y*255;
             colour.b=c.z*255;
 
-        materials.at(materials.size()-1)->setColor(colour);
+            materials.at(materials.size()-1).mat->setColor(colour);
         }
         else
         {
@@ -205,5 +252,9 @@ bool FileLoader::LoadMTL(char* mtlFilename,std::vector<IMaterial*> &materials)
         }
 
     }
+//    for(Material mat : materials)
+//    {
+//        std::cout<<(int)mat.mat->getColor().r<<" "<<(int)mat.mat->getColor().g<<" "<<(int)mat.mat->getColor().b<<" "<<mat.name<<"\n";
+//    }
 
 }

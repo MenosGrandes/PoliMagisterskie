@@ -42,7 +42,8 @@ using namespace d_type;
 
 
 #ifdef FOTO
-#define ZAD2
+#define DRAWRAY
+#define ZAD3OBJECTS
 #define CLOCK
 int main(int argc, char **argv)
 {
@@ -92,74 +93,59 @@ int main(int argc, char **argv)
         std::cout<<n<<"\n";
     }
 #endif // ZAD1
-#ifdef ZAD2
+#ifdef DRAWRAY
 //Mesh * mesh=
 //
 //
 //mesh->setMaterial(new PerfectDifuse(Colour::Red));
 
 
-    Vector2Bs img_size=Vector2Bs(300,300);
+    Vector2Bs img_size=Vector2Bs(200,200);
 
 
     RenderTarget *file = new RenderTarget(img_size);
     file->setCleanColour(Colour::Black);
 
-    ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,-5),0,Vector2Bf(5,5));
+    ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,-25),0,Vector2Bf(100,100));
 
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(-38,27,16),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,10,20),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
-                                           3,
+                                           1,
                                            Vector2Bf(1,1));
 
 
-    Sampler * s= new Sampler(new DiskSampleDistributor(),new MultiJitteringSampleGenerator(),8,1);
+    Sampler * s= new Sampler(new DiskSampleDistributor(),new MultiJitteringSampleGenerator(),64,1);
     RayTracer *rt = new RayTracer(persp,file,s);
     rt->enableAA(false);
     rt->enableLight(false);
 
 
-    PerfectDifuse * pd1=new PerfectDifuse(Colour::Gray);
+    PerfectDifuse * pd1=new PerfectDifuse(Colour::Red);
     PerfectDifuse * pd2=new PerfectDifuse(Colour::Green);
     PerfectDifuse * pd3=new PerfectDifuse(Colour::Blue);
-    PerfectDifuse * pd4=new PerfectDifuse(Colour::Yellow);
+    PerfectDifuse * pd4=new PerfectDifuse(Colour::Gray);
 
 
+#ifdef ZAD2OBJECTS
+    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
+    rt->addObject(new Sphere(Vector3Bf( 4,0,0)  , 2,pd2));
+    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,pd3));
+    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
+    #endif // ZAD2
+#ifdef ZAD3OBJECTS
+    rt->addObject(FileLoader::loadMesh(("models/cube.obj")));
 
+#endif // ZAD3
 //
-//                  Mesh * m=new Mesh();
-//                  m->m_triangles.push_back();
-
-
-//RayTriangle *tr = new RayTriangle(
-//                                  Vertex3Bf(Vector3Bf(-0.5000, -0.5000, -0.5000),Colour::Green),
-//                                  Vertex3Bf(Vector3Bf(0 ,5.0000, -0.5000),Colour::Red),
-//                                  Vertex3Bf(Vector3Bf(-0.5000, 0.5000, -0.5000),Colour::Red));
-//                                  tr->setMaterial(pd3);
-                 // rt->addObject(tr);
-
-
-//    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
-    rt->addObject(new Sphere(Vector3Bf(-12,2,0)  , 5,pd1));
-//    rt->addObject(new Sphere(Vector3Bf(0,0,-10)  , 2,pd1));
-//    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd1));
-
-
-Mesh *m=FileLoader::loadMesh(("models/cube.obj"));
-m->setMaterial(new PerfectDifuse(Colour::Green));
-    rt->addObject(m);
-Mesh *m2=FileLoader::loadMesh(("models/teapod.obj"));
-for(RayTriangle * tri : m2->m_triangles)
-{
-    tri->setMaterial(new PerfectDifuse(Colour::Gray));
-}
-m2->setMaterial(new PerfectDifuse(Colour::Gray));
-    rt->addObject(m2);
-//     rt->addObject(mesh2->m_triangles[1]);
-//    v
-//v
-//v
+//
+////m->setMaterial(new PerfectDifuse(Colour::Green));
+//
+////    rt->addObject(FileLoader::loadMesh(("models/teapod.obj")));
+////     rt->addObject(mesh2->m_triangles[1]);
+////    v
+////v
+////v
 
     rt->addLight( PointLight(Vector3Bf(0,5,-5),Colour::Green));
 
@@ -190,7 +176,7 @@ m2->setMaterial(new PerfectDifuse(Colour::Gray));
 #endif // CLOCK
 
 
-#ifdef ZAD2
+#ifdef DRAWRAY
     file->drawToFile("file.tga");
     delete file;
 #endif // ZAD2

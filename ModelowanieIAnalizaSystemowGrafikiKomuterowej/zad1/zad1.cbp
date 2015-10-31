@@ -39,6 +39,9 @@
 		<Linker>
 			<Add option="-static-libgcc -static-libstdc++" />
 		</Linker>
+		<Unit filename="include/AdaptiveSampleGenerator.h">
+			<Option virtualFolder="Antyalising/Generator/" />
+		</Unit>
 		<Unit filename="include/Camera.h">
 			<Option virtualFolder="Camera/" />
 		</Unit>
@@ -65,9 +68,6 @@
 		</Unit>
 		<Unit filename="include/JitteredSampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
-		</Unit>
-		<Unit filename="include/LightIntensity.h">
-			<Option virtualFolder="Light/" />
 		</Unit>
 		<Unit filename="include/Matrix4.h">
 			<Option virtualFolder="Types/Matrix/" />
@@ -148,6 +148,9 @@
 			<Option virtualFolder="Types/" />
 		</Unit>
 		<Unit filename="main.cpp" />
+		<Unit filename="src/AdaptiveSampleGenerator.cpp">
+			<Option virtualFolder="Antyalising/Generator/" />
+		</Unit>
 		<Unit filename="src/Camera.cpp">
 			<Option virtualFolder="Camera/" />
 		</Unit>
@@ -171,9 +174,6 @@
 		</Unit>
 		<Unit filename="src/JitteredSampleGenerator.cpp">
 			<Option virtualFolder="Antyalising/Generator/" />
-		</Unit>
-		<Unit filename="src/LightIntensity.cpp">
-			<Option virtualFolder="Light/" />
 		</Unit>
 		<Unit filename="src/Matrix4.cpp">
 			<Option virtualFolder="Types/Matrix/" />

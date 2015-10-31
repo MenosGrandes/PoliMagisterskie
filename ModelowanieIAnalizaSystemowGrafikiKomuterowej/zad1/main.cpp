@@ -110,16 +110,16 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(2,0,-25),0,Vector2Bf(100,100));
 
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(80,15,5),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,0,-5),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
-                                           3,
+                                           1,
                                            Vector2Bf(1,1));
 
 
     Sampler * s= new Sampler(new DiskSampleDistributor(),new MultiJitteringSampleGenerator(),9,1);
     RayTracer *rt = new RayTracer(persp,file,s);
-    rt->enableAA(true);
+    rt->enableAA(false);
     rt->enableLight(true);
 
 
@@ -130,21 +130,17 @@ int main(int argc, char **argv)
 
 
 #ifdef ZAD2OBJECTS
-//    rt->addObject(new Sphere(Vector3Bf(-18.f,0,0) , 2,pd1));
-//    rt->addObject(new Sphere(Vector3Bf( -6,0,0)  , 2,pd2));
-//    rt->addObject(new Sphere(Vector3Bf(-10,0,3)  , 2,pd3));
-//    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
+    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
+    rt->addObject(new Sphere(Vector3Bf( 4,0,0)  , 2,pd2));
+    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,pd3));
+    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
     #endif // ZAD2
 #ifdef ZAD3OBJECTS
 
-Mesh * m =FileLoader::loadMesh(("models/EX1.obj"));
-//for(RayTriangle * tri : m->m_triangles)
-//{
-//    //std::cout<<tri->getMaterial()->getColor().r<<" "<<tri->getMaterial()->getColor().g<<" "<<tri->getMaterial()->getColor().b<<"\n";
-//    std::cout<<tri->getMaterial()->getColor();
-//}
-    rt->addObject(m);
-   rt->addObject(FileLoader::loadMesh(("models/teapod.obj")));
+//Mesh * m =FileLoader::loadMesh(("models/EX1.obj"));
+
+//    rt->addObject(m);
+//   rt->addObject(FileLoader::loadMesh(("models/teapod.obj")));
 
 #endif // ZAD3
 

@@ -18,7 +18,10 @@ public:
     }
     virtual ~IRaycastable()
     {
-        delete m_material;
+
+           delete m_material;
+
+
     }
 protected:
     mutable IMaterial * m_material;

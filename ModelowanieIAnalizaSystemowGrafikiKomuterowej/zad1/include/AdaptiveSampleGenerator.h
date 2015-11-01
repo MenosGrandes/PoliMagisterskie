@@ -23,7 +23,7 @@ class AdaptiveSampleGenerator : public ISampleGenerator
         {
             return m_maxIter;
         }
-        Vector2Bf * generateSamples(d_type::Bsize count)=0;
+        void generateSamples(d_type::Bsize count)=0;
 
     private:
         Colour m_colour;

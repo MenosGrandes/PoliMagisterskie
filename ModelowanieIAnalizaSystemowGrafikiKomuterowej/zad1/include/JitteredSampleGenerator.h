@@ -8,7 +8,7 @@ class JitteredSampleGenerator: public ISampleGenerator
 public:
     JitteredSampleGenerator();
     virtual ~JitteredSampleGenerator();
-    Vector2Bf * generateSamples(d_type::Bsize count);
+    void generateSamples(d_type::Bsize count);
 
 protected:
 private:

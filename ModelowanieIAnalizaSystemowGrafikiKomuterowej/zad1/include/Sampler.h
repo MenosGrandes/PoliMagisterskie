@@ -15,7 +15,7 @@ public:
         return m_sampleCount;
     }
 private:
-    std::vector<Vector2Bf*> m_sets;
+    std::vector<std::vector<Vector2Bf>> m_sets;
     d_type::Bint m_sampleNdx,m_setNdx,m_sampleCount;
 
     std::random_device rd;

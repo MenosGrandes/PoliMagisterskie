@@ -6,7 +6,7 @@ class RandomSampleGenerator: public ISampleGenerator
 {
 public:
     RandomSampleGenerator();
-    Vector2Bf * generateSamples(d_type::Bsize count);
+    void generateSamples(d_type::Bsize count);
 
     virtual ~RandomSampleGenerator();
 protected:

@@ -191,7 +191,7 @@ Mesh* FileLoader::loadOBJ(std::string filename)
 //    std::cout<<mesh->m_triangles.size()<<"\n";
 //    std::cout<<materials.size()<<"\n";
 //
-
+    mesh->createBoundingBox();
     return mesh;
 }
 bool FileLoader::LoadMTL(char* mtlFilename,std::vector<Material> &materials)

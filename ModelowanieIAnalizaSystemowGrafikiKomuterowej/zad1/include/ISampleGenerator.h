@@ -2,12 +2,12 @@
 #define ISAMPLEGENERATOR_H
 #include "Vector2.h"
 #include "../src/algorithms.hpp"
-#include <array>
+#include <vector>
 class ISampleGenerator
 {
 public:
-    virtual Vector2Bf * generateSamples(d_type::Bsize count)=0;
-
+    virtual void generateSamples(d_type::Bsize count)=0;
+    std::vector<Vector2Bf> m_samples;
 };
 
 #endif // ISAMPLEGENERATOR_H

@@ -9,7 +9,7 @@ AdaptiveSampleGenerator::~AdaptiveSampleGenerator()
 {
     //dtor
 }
-Vector2Bf * AdaptiveSampleGenerator::generateSamples(d_type::Bsize count)
+void AdaptiveSampleGenerator::generateSamples(d_type::Bsize count)
 {
 
 }

@@ -9,14 +9,13 @@ MultiJitteringSampleGenerator::~MultiJitteringSampleGenerator()
 {
     //dtor
 }
-Vector2Bf* MultiJitteringSampleGenerator::generateSamples(d_type::Bsize count)
+void MultiJitteringSampleGenerator::generateSamples(d_type::Bsize count)
 {
     std::mt19937 re(rd());
     std::uniform_real_distribution<d_type::Bfloat> ui(0, 1);
 
     FastSqrt a;
     d_type::Buint rows= static_cast<d_type::Buint>(a.sqrt7(count));
-    Vector2Bf * result=new Vector2Bf[rows*rows];
 
     d_type::Bfloat cellwidth=1/(rows*rows);
     for(d_type::Buint x=0; x<rows; x++)
@@ -25,10 +24,10 @@ Vector2Bf* MultiJitteringSampleGenerator::generateSamples(d_type::Bsize count)
         for(d_type::Buint y=0; y<rows; y++)
         {
 
-            result[x*rows+y]=Vector2Bf(
+            m_samples.push_back(Vector2Bf(
                                  (x*rows*cellwidth + y*cellwidth +ui(re)),
                                  (y*rows*cellwidth + x*cellwidth +ui(re))
-                             );
+                             ));
 
         }
     }
@@ -43,9 +42,9 @@ Vector2Bf* MultiJitteringSampleGenerator::generateSamples(d_type::Bsize count)
             d_type::Bint k;
             std::uniform_int_distribution<d_type::Bint> rand_i(y, rows-1);
             k=rand_i(re);
-            t=result[x*rows+y].x;
-            result[x*rows+y].x=result[x*rows+k].x;
-            result[x*rows+k].x=t;
+            t=m_samples[x*rows+y].x;
+            m_samples[x*rows+y].x=m_samples[x*rows+k].x;
+            m_samples[x*rows+k].x=t;
 
         }
     }
@@ -60,13 +59,12 @@ Vector2Bf* MultiJitteringSampleGenerator::generateSamples(d_type::Bsize count)
             d_type::Bint k;
             std::uniform_int_distribution<d_type::Bint> rand_i(y, rows-1);
             k=rand_i(re);
-            t=result[y*rows+x].y;
-            result[y*rows+x].y=result[k*rows+x].y;
-            result[k*rows+x].y=t;
+            t=m_samples[y*rows+x].y;
+            m_samples[y*rows+x].y=m_samples[k*rows+x].y;
+            m_samples[k*rows+x].y=t;
 
         }
     }
 
-    return result;
 
 }

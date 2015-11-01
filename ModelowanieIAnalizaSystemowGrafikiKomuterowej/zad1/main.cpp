@@ -24,6 +24,7 @@ using namespace d_type;
 #include "Plane.h"
 #include "OrtagonalCamera.h"
 #include "PerspectiveCamera.h"
+
 #include "RayTracer.h"
 #include "RandomSampleGenerator.h"
 #include "PerfectDifuse.h"
@@ -38,7 +39,6 @@ using namespace d_type;
 #else
 
 #endif // FOTO
-
 
 
 #ifdef FOTO
@@ -108,9 +108,9 @@ int main(int argc, char **argv)
     RenderTarget *file = new RenderTarget(img_size);
     file->setCleanColour(Colour::Black);
 
-    ICamera * orto=new OrtagonalCamera(Vector3Bf(2,0,-25),0,Vector2Bf(100,100));
+    ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
 
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,0,-5),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,0,-25),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
                                            1,
@@ -119,8 +119,7 @@ int main(int argc, char **argv)
 
     Sampler * s= new Sampler(new DiskSampleDistributor(),new MultiJitteringSampleGenerator(),9,1);
     RayTracer *rt = new RayTracer(persp,file,s);
-    rt->enableAA(false);
-    rt->enableLight(true);
+
 
 
     PerfectDifuse * pd1=new PerfectDifuse(Colour::Red);
@@ -130,16 +129,16 @@ int main(int argc, char **argv)
 
 
 #ifdef ZAD2OBJECTS
-    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
-    rt->addObject(new Sphere(Vector3Bf( 4,0,0)  , 2,pd2));
-    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,pd3));
-    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
+//    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
+//    rt->addObject(new Sphere(Vector3Bf( 4,0,0)  , 2,pd2));
+//    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,pd3));
+//    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
     #endif // ZAD2
 #ifdef ZAD3OBJECTS
 
-//Mesh * m =FileLoader::loadMesh(("models/EX1.obj"));
+Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
 
-//    rt->addObject(m);
+    rt->addObject(m);
 //   rt->addObject(FileLoader::loadMesh(("models/teapod.obj")));
 
 #endif // ZAD3

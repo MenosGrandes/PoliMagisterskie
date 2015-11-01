@@ -15,6 +15,8 @@ Ray& PerspectiveCamera::recalculateRay(Vector2Bf position)
 
 Vector3Bf PerspectiveCamera::recalculateRayDirection(Vector2Bf location)
 {
-    return Vector3Bf(orto.u*location.x + orto.v*location.y+orto.w*(-m_distance));
+    Vector3Bf v=Vector3Bf(orto.u*location.x + orto.v*location.y-m_distance*orto.w);
+        Vector3Bf::normalize(v);
+    return v;
 
 }

@@ -42,6 +42,9 @@
 		<Unit filename="include/AdaptiveSampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
 		</Unit>
+		<Unit filename="include/Box.h">
+			<Option virtualFolder="Ray/Raycastable/" />
+		</Unit>
 		<Unit filename="include/Camera.h">
 			<Option virtualFolder="Camera/" />
 		</Unit>
@@ -150,6 +153,9 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/AdaptiveSampleGenerator.cpp">
 			<Option virtualFolder="Antyalising/Generator/" />
+		</Unit>
+		<Unit filename="src/Box.cpp">
+			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
 		<Unit filename="src/Camera.cpp">
 			<Option virtualFolder="Camera/" />

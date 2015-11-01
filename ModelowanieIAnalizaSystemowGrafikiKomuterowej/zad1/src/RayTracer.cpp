@@ -35,9 +35,12 @@ void RayTracer::rayTrace()
         {
             finalColour=Colour::Black;
 
-
-            if(m_enableAA)
+            #ifdef ENABLE_AA
             {
+
+                #ifdef ADAPTIVE_AA
+
+                #else
                 for(d_type::Bint i=0; i<m_sampler->getSampleCount(); i++)
                 {
                     Vector2Bf sample = m_sampler->single();
@@ -50,8 +53,10 @@ void RayTracer::rayTrace()
 
                     finalColour+=shadeRay(ray)/(d_type::Bfloat)m_sampler->getSampleCount();
                 }
+                #endif // ADAPTIVE_AA
             }
-            else
+            #else ENABLE_AA
+
             {
 
                 Vector2Bf picCoord(
@@ -63,6 +68,7 @@ void RayTracer::rayTrace()
 
                 finalColour=shadeRay(ray);
             }
+            #endif // ENABLE_AA
             m_renderTanger->setPixel(Colour::clampColour(finalColour),x,y);
 
         }
@@ -82,7 +88,7 @@ Colour RayTracer::shadeRay(const Ray&ray)
     }
     Colour finalColor = Colour::Black;
     IMaterial * material= info.object->getMaterial();
-    if(m_enableLight)
+    #ifdef ENABLE_LIGHT
     {
 
 
@@ -91,12 +97,13 @@ Colour RayTracer::shadeRay(const Ray&ray)
             finalColor=material->radiance(m_pLightsVector[i],info.hitPoint,info.normal)+finalColor;
         }
     }
-    else
+   #else
+
     {
         finalColor =static_cast<PerfectDifuse*>(material)->getColor();
 
     }
-
+    #endif
 
     return finalColor;
 }

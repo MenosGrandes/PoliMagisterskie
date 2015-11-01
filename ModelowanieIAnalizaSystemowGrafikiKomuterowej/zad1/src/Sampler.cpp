@@ -4,10 +4,11 @@ Sampler::Sampler(ISampleDistributor* distributor, ISampleGenerator* generator, d
 {
     for(d_type::Bsize i=0; i<setCt; ++i)
     {
-        Vector2Bf * samples=generator->generateSamples(m_sampleCount);
+        generator->generateSamples(m_sampleCount);
+        std::vector<Vector2Bf> samples =generator->m_samples;
 
 
-        for(d_type::Buint i=0; i<m_sampleCount; ++i )
+        for(d_type::Buint i=0; i<samples.size(); ++i )
         {
             samples[i]=distributor->mapSample(samples[i]);
         }
@@ -26,7 +27,8 @@ Vector2Bf Sampler::single()
 
 //    std::mt19937 re(rd());
 //    std::uniform_int_distribution<d_type::Bint> ui(0, m_sets.size()-1);
-    Vector2Bf * s=m_sets.at(m_setNdx);
+std::vector<Vector2Bf> s= m_sets.at(m_setNdx);
+
     Vector2Bf sample=s[m_sampleNdx];
     m_sampleNdx++;
     if(m_sampleNdx>=m_sampleCount)

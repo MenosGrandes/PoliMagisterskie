@@ -8,7 +8,7 @@ class RegularSampleGenerator : public ISampleGenerator
 public:
     RegularSampleGenerator();
     virtual ~RegularSampleGenerator();
-    Vector2Bf * generateSamples(d_type::Bsize count);
+    void generateSamples(d_type::Bsize count);
 
 protected:
 private:

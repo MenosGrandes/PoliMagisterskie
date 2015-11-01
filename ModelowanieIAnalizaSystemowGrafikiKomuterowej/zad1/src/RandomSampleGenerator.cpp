@@ -11,11 +11,10 @@ RandomSampleGenerator::RandomSampleGenerator()
 
 }
 
-Vector2Bf* RandomSampleGenerator::generateSamples(d_type::Bsize count)
+void RandomSampleGenerator::generateSamples(d_type::Bsize count)
 {
 
 
-    Vector2Bf* samples = new Vector2Bf[count];
 
 
     std::mt19937 re(rd());
@@ -23,9 +22,8 @@ Vector2Bf* RandomSampleGenerator::generateSamples(d_type::Bsize count)
 
     for(d_type::Bsize i=0; i<count; i++)
     {
-        samples[i]=Vector2Bf(ui(re),ui(re));
+        m_samples.push_back(Vector2Bf(ui(re),ui(re)));
     }
 
 
-    return samples;
 }

@@ -1,12 +1,12 @@
 #include "RayTracer.h"
 
 RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target,Sampler *sampler)
-    :m_camera(camera),m_renderTanger(m_target),m_sampler(sampler),m_enableAA(false),m_enableLight(false)
+    :m_camera(camera),m_renderTanger(m_target),m_sampler(sampler)
 {
 
 }
 RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target)
-    :m_camera(camera),m_renderTanger(m_target),m_enableAA(false),m_enableLight(false)
+    :m_camera(camera),m_renderTanger(m_target)
 {
 
 }
@@ -34,12 +34,15 @@ void RayTracer::rayTrace()
         for(Bint y=0; y<m_renderTanger->getSize().y; y++)
         {
             finalColour=Colour::Black;
-
+//#define ENABLE_AA
+//#define ADAPTIVE_AA
             #ifdef ENABLE_AA
             {
 
                 #ifdef ADAPTIVE_AA
-
+                for(d_type::Bint i=0; i<m_; i++)
+                {
+                }
                 #else
                 for(d_type::Bint i=0; i<m_sampler->getSampleCount(); i++)
                 {
@@ -140,13 +143,4 @@ void RayTracer::addLight(PointLight light)
 {
     m_pLightsVector.push_back(light);
 }
-void RayTracer::enableLight(d_type::BBool val)
-{
-    m_enableLight=val;
-}
 
-void RayTracer::enableAA(d_type::BBool val)
-{
-    m_enableAA=val;
-
-}

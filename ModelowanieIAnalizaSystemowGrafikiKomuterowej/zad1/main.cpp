@@ -1,7 +1,4 @@
-#include "Triangle.h"
 #include "Matrix4.h"
-#include "RenderTarget.h"
-#include "VertexProcessor.h"
 #include "Vertex2.h"
 #include <cstdio>
 #include <iostream>
@@ -13,11 +10,16 @@
 
 
 
-//#define RENDERER
-#define FOTO
+#define RENDERER
+//#define FOTO
 
 using namespace d_type;
-
+#ifdef RENDERER
+#include "RenderTarget.h"
+#include "VertexProcessor.h"
+#include "Triangle.h"
+#include <SFML/Graphics.hpp>
+#endif // RENDERER
 
 #ifdef FOTO
 #include "Sphere.h"
@@ -184,25 +186,32 @@ int main(int argc, char **argv)
 {
 
 
-#ifdef OPENGL
-    GLFWWindow *w=new GLFWWindow(300,300);
 
-    w->loop();
-    w->terminate();
-#endif // OPENGL
-
-#ifdef CLOCK
-    std::chrono::time_point<std::chrono::system_clock> start, end;
-    start = std::chrono::system_clock::now();
-#endif // CLOCK
 
 
     Vector2Bs img_size=Vector2Bs(800,600);
+    sf::RenderWindow window(sf::VideoMode(img_size.x, img_size.y), "RENDERER!");
+    sf::Texture texture;
 
 
-    std::array<TriangleFloat*,2> triangleArray;
-    TriangleFloat *triangle= new TriangleFloat(Vector3Bf(-0.5f,0.1f,5),Vector3Bf(0.1f,-0.5f,1.0f),Vector3Bf(-0.5f,-0.5f,2.0));
-    TriangleFloat *triangle2= new TriangleFloat(Vector3Bf(0,-0.1f,3),Vector3Bf(-0.4f,-1.0f,10),Vector3Bf(-0.5f,0.1f,2));
+
+
+
+      RenderTarget *file = new RenderTarget(img_size);
+
+    if (!texture.create(img_size.x, img_size.y))
+    {
+        std::cout<<"ERROR WITH TEXTURE\n";
+    }
+
+
+
+
+
+
+    std::array<render::TriangleFloat*,2> triangleArray;
+    render::TriangleFloat *triangle= new render::TriangleFloat(Vector3Bf(-0.5f,0.1f,5),Vector3Bf(0.1f,-0.5f,1.0f),Vector3Bf(-0.5f,-0.5f,2.0));
+    render::TriangleFloat *triangle2= new render::TriangleFloat(Vector3Bf(0,-0.1f,3),Vector3Bf(-0.4f,-1.0f,10),Vector3Bf(-0.5f,0.1f,2));
     triangleArray[0]=triangle;
     triangleArray[1]=triangle2;
 
@@ -211,53 +220,92 @@ int main(int argc, char **argv)
     {
         triangleArray[i]->init(img_size);
     }
-
-
-    RenderTarget *file = new RenderTarget(img_size);
+    file->draw(*triangle2);
 
 
 
-    VertexProcessor *vp= new VertexProcessor();
-
-
-    vp->setLookat(Vector3Bf(0,-1,0),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
-    vp->setPerspective(10,800/600,Vector2Bf(1,1000));
-    //vp->multByRotation(90,Vector3Bf(1,0,0));
-    vp->setIdentity();
-    vp->transform();
-
-    TriangleFloat* t,t2;
-
-
-    t=new TriangleFloat();
-    t->first=vp->addTriangle(triangle2->first);
-    t->second=vp->addTriangle(triangle2->second);
-    t->third=vp->addTriangle(triangle2->third);
+//    VertexProcessor *vp= new VertexProcessor();
+//
+//
+//    vp->setLookat(Vector3Bf(0,-1,0),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
+//    vp->setPerspective(10,800/600,Vector2Bf(1,1000));
+//    //vp->multByRotation(90,Vector3Bf(1,0,0));
+//    vp->setIdentity();
+//    vp->transform();
+//
+//    render::TriangleFloat* t,t2;
+//
+//
+//    t=new render::TriangleFloat();
+//    t->first=vp->addTriangle(triangle2->first);
+//    t->second=vp->addTriangle(triangle2->second);
+//    t->third=vp->addTriangle(triangle2->third);
 
 
     //file->draw(t);
-    file->draw(*t);
+//    file->draw(*t);
 
-#ifdef CLOCK
 
-    end = std::chrono::system_clock::now();
-
-    std::chrono::duration<double> elapsed_seconds = end-start;
-    std::time_t end_time = std::chrono::system_clock::to_time_t(end);
-
-    std::cout << "finished computation at " << std::ctime(&end_time)
-              << "elapsed time: " << elapsed_seconds.count() << "s\n";
-#endif // CLOCK
     file->drawToFile("file.tga");
+//
+//
+//    //file->getDepthBuffer();
+//
+//    for(Bsize i=0; i<triangleArray.size(); i++)
+//    {
+//        delete triangleArray[i];
+//    }
+//    delete file;
 
 
-    //file->getDepthBuffer();
 
-    for(Bsize i=0; i<triangleArray.size(); i++)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    sf::Sprite sprite(texture);
+
+ while (window.isOpen())
     {
-        delete triangleArray[i];
+        sf::Event event;
+        while (window.pollEvent(event))
+        {
+            if (event.type == sf::Event::Closed)
+                window.close();
+        }
+            texture.update(file->getColorPixels());
+
+        window.clear();
+        window.draw(sprite);
+
+        window.display();
     }
-    delete file;
+
+
+
+
+
+
 
     d_type::Bint a;
     std::cin>>a;

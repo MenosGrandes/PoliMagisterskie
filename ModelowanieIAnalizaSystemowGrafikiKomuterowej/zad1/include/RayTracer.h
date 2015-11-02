@@ -38,7 +38,6 @@ private:
     ICamera *m_camera;
     RenderTarget *m_renderTanger;
     Sampler * m_sampler;
-    d_type::BBool m_enableLight,m_enableAA;
 
 };
 

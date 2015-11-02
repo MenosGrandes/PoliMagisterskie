@@ -24,7 +24,7 @@ class AdaptiveSampleGenerator : public ISampleGenerator
             return m_maxIter;
         }
         void generateSamples(d_type::Bsize count)=0;
-
+        void adaptiveSampleGenerate(Vector2Bf points[5]);
     private:
         Colour m_colour;
         d_type::Buint m_maxIter;

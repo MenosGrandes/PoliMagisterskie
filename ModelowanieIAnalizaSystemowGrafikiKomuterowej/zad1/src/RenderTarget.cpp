@@ -196,6 +196,24 @@ void RenderTarget::setCleanColour(const Colour& c)
 
 void RenderTarget::clearPixel(const d_type::Bint& x, const d_type::Bint& y)
 {
-    m_pixels[convert2dto1d(x,y)] = m_cleanColour    ;
+    m_pixels[convert2dto1d(x,y)] = m_cleanColour;
 
+}
+
+
+d_type::Bubyte * RenderTarget::getColorPixels()
+{
+
+    d_type::Bubyte * pixels = new d_type::Bubyte[getSizePixels()*4];
+    for (d_type::Bint i=0; i<getSizePixels() ; i++)
+    {
+        d_type::Bint k=i*4;
+        pixels[k]  =m_pixels[i].b;
+        pixels[k+1]=m_pixels[i].g;
+        pixels[k+2]=m_pixels[i].r;
+        pixels[k+3]=m_pixels[i].a;
+
+
+    }
+    return pixels;
 }

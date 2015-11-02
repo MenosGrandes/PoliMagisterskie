@@ -7,8 +7,8 @@
 #include <chrono>
 #include <ctime>
 #include <vector>
-
-
+#include <string>
+#include <sstream>
 
 #define RENDERER
 //#define FOTO
@@ -135,10 +135,10 @@ int main(int argc, char **argv)
 //    rt->addObject(new Sphere(Vector3Bf( 4,0,0)  , 2,pd2));
 //    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,pd3));
 //    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
-    #endif // ZAD2
+#endif // ZAD2
 #ifdef ZAD3OBJECTS
 
-Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
+    Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
 
     rt->addObject(m);
 //   rt->addObject(FileLoader::loadMesh(("models/teapod.obj")));
@@ -154,7 +154,7 @@ Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
 #endif // ZAD2
 
 #ifdef DRAWRAY
-  rt->rayTrace();
+    rt->rayTrace();
 #endif // DRAWRAY
 
 
@@ -182,6 +182,10 @@ Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
 }
 #endif
 #ifdef RENDERER
+float getFPS(const sf::Time& time)
+{
+    return (1000000.0f / time.asMicroseconds());
+}
 int main(int argc, char **argv)
 {
 
@@ -197,7 +201,7 @@ int main(int argc, char **argv)
 
 
 
-      RenderTarget *file = new RenderTarget(img_size);
+    RenderTarget *file = new RenderTarget(img_size);
 
     if (!texture.create(img_size.x, img_size.y))
     {
@@ -285,7 +289,10 @@ int main(int argc, char **argv)
 
     sf::Sprite sprite(texture);
 
- while (window.isOpen())
+    sf::Uint8 * pixels = new sf::Uint8[img_size.x*img_size.y*4];
+    sf::Clock FPSClock;
+    std::stringstream ss;
+    while (window.isOpen())
     {
         sf::Event event;
         while (window.pollEvent(event))
@@ -293,12 +300,22 @@ int main(int argc, char **argv)
             if (event.type == sf::Event::Closed)
                 window.close();
         }
-            texture.update(file->getColorPixels());
+
+
+        file->rewritePixelForTexture(pixels);
+        texture.update(pixels);
 
         window.clear();
         window.draw(sprite);
 
         window.display();
+
+        ss<<getFPS(FPSClock.restart());
+
+       window.setTitle(ss.str());
+       ss.str("");
+
+
     }
 
 

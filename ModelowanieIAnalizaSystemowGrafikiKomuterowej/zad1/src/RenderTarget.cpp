@@ -201,11 +201,14 @@ void RenderTarget::clearPixel(const d_type::Bint& x, const d_type::Bint& y)
 }
 
 
-d_type::Bubyte * RenderTarget::getColorPixels()
+Colour * RenderTarget::getColorPixels()
 {
 
-    d_type::Bubyte * pixels = new d_type::Bubyte[getSizePixels()*4];
-    for (d_type::Bint i=0; i<getSizePixels() ; i++)
+return m_pixels;
+}
+void RenderTarget::rewritePixelForTexture(d_type::Bubyte* pixels)
+{
+    for (d_type::Bint i=0; i<m_size.x*m_size.y ; i++)
     {
         d_type::Bint k=i*4;
         pixels[k]  =m_pixels[i].b;
@@ -215,5 +218,4 @@ d_type::Bubyte * RenderTarget::getColorPixels()
 
 
     }
-    return pixels;
 }

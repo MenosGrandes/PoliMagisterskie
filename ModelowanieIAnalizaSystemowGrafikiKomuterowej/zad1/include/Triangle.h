@@ -52,16 +52,7 @@ public :
 
     };
 
-    BBool calculate(Vector2<T> current)
-    {
-        if(!first || !second || !third)
-        {
-            return false;
-        }
-        return ((dx.x) * (current.y-first.y) - (dy.x)*(current.x - first.x )>0)
-               &&((dx.y) * (current.y-second.y)- (dy.y)*(current.x - second.x)>0)
-               &&((dx.z) * (current.y-third.y) - (dy.z) *(current.x - third.x)>0);
-    }
+
 
     BBool calculate(T x,T y)
     {

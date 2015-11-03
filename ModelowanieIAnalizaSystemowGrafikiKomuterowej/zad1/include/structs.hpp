@@ -10,8 +10,8 @@
 #define F_EPSILON 0.000001
 
 
-//#define ENABLE_AA
-//#define ENABLE_LIGHT
+#define ENABLE_AA
+#define ENABLE_LIGHT
 /**
  *  Namespace to group wrapped standard types
  *

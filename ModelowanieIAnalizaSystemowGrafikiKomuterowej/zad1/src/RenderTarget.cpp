@@ -162,6 +162,7 @@ void RenderTarget::drawToFile(std::string m_filename)
     //Write the pixel data
     for (d_type::Bint i=0; i<getSizePixels() ; i++)
     {
+//        std::cout<<(int)m_pixels[i].b <<" "<<(int)m_pixels[i].g<<" "<<(int)m_pixels[i].r<<" "<<(int)m_pixels[i].a<<"\n";
         o.put(m_pixels[i].b);
         o.put(m_pixels[i].g);
         o.put(m_pixels[i].r);
@@ -204,18 +205,19 @@ void RenderTarget::clearPixel(const d_type::Bint& x, const d_type::Bint& y)
 Colour * RenderTarget::getColorPixels()
 {
 
-return m_pixels;
+    return m_pixels;
 }
 void RenderTarget::rewritePixelForTexture(d_type::Bubyte* pixels)
 {
-    for (d_type::Bint i=0; i<m_size.x*m_size.y ; i++)
+    for (d_type::Bint i=m_size.x*m_size.y; i>0 ; i--)
     {
-        d_type::Bint k=i*4;
-        pixels[k]  =m_pixels[i].b;
-        pixels[k+1]=m_pixels[i].g;
-        pixels[k+2]=m_pixels[i].r;
-        pixels[k+3]=m_pixels[i].a;
+//     std::cout<<(int)m_pixels[i].b <<" "<<(int)m_pixels[i].g<<" "<<(int)m_pixels[i].r<<" "<<(int)m_pixels[i].a<<"\n";
 
+//        pixels[i+3]=m_pixels[i].a;
+//        pixels[i+2]=m_pixels[i].r;
+//        pixels[i+1]=m_pixels[i].g;
+//        pixels[i]  =m_pixels[i].b;
 
     }
+
 }

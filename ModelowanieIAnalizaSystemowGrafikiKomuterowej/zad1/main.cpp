@@ -194,8 +194,7 @@ int main(int argc, char **argv)
 
 
     Vector2Bs img_size=Vector2Bs(800,600);
-    sf::RenderWindow window(sf::VideoMode(img_size.x, img_size.y), "RENDERER!");
-    sf::Texture texture;
+
 
 
 
@@ -203,10 +202,6 @@ int main(int argc, char **argv)
 
     RenderTarget *file = new RenderTarget(img_size);
 
-    if (!texture.create(img_size.x, img_size.y))
-    {
-        std::cout<<"ERROR WITH TEXTURE\n";
-    }
 
 
 
@@ -215,7 +210,11 @@ int main(int argc, char **argv)
 
     std::array<render::TriangleFloat*,2> triangleArray;
     render::TriangleFloat *triangle= new render::TriangleFloat(Vector3Bf(-0.5f,0.1f,5),Vector3Bf(0.1f,-0.5f,1.0f),Vector3Bf(-0.5f,-0.5f,2.0));
-    render::TriangleFloat *triangle2= new render::TriangleFloat(Vector3Bf(0,-0.1f,3),Vector3Bf(-0.4f,-1.0f,10),Vector3Bf(-0.5f,0.1f,2));
+//    render::TriangleFloat *triangle2= new render::TriangleFloat(Vector3Bf(1,-0.1f,3),Vector3Bf(-0.4f,-1.0f,10),Vector3Bf(-0.5f,0.1f,2));
+
+
+    render::TriangleFloat *triangle2= new render::TriangleFloat(Vector3Bf(0,0,0),Vector3Bf(0.5f,0.5f,0),Vector3Bf(0.5f,0,0));
+
     triangleArray[0]=triangle;
     triangleArray[1]=triangle2;
 
@@ -224,20 +223,25 @@ int main(int argc, char **argv)
     {
         triangleArray[i]->init(img_size);
     }
+
+
+
+    VertexProcessor *vp= new VertexProcessor();
+//
+//
+    vp->setIdentity();
+    vp->setPerspective(45,4/3,Vector2Bf(1,10000));
+    vp->setLookat(Vector3Bf(0,0,-1),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
+    vp->transform();
+    triangle2->first= vp->addTriangle(triangle2->first);
+    triangle2->second=vp->addTriangle(triangle2->second);
+    triangle2->third=vp->addTriangle(triangle2->third);
     file->draw(*triangle2);
 
 
 
-//    VertexProcessor *vp= new VertexProcessor();
 //
-//
-//    vp->setLookat(Vector3Bf(0,-1,0),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
-//    vp->setPerspective(10,800/600,Vector2Bf(1,1000));
-//    //vp->multByRotation(90,Vector3Bf(1,0,0));
-//    vp->setIdentity();
-//    vp->transform();
-//
-//    render::TriangleFloat* t,t2;
+//    render::TriangleFloat * t,t2;
 //
 //
 //    t=new render::TriangleFloat();
@@ -273,6 +277,21 @@ int main(int argc, char **argv)
 
 
 
+//
+//
+//
+//
+//
+//    sf::RenderWindow window(sf::VideoMode(img_size.x, img_size.y), "RENDERER!");
+//
+//
+//
+//
+//    sf::Texture texture;
+//    if (!texture.create(img_size.x, img_size.y))
+//    {
+//        std::cout<<"ERROR WITH TEXTURE\n";
+//    }
 
 
 
@@ -281,51 +300,52 @@ int main(int argc, char **argv)
 
 
 
+//    sf::Sprite sprite(texture);
+//
+//    sf::Uint8 * pixels = new sf::Uint8[img_size.x*img_size.y*4];
+//    sf::Clock FPSClock;
+//    std::stringstream ss;
+//            file->rewritePixelForTexture(pixels);
+//        texture.update(pixels);
+////    sf::View view1;
+////    view1.setSize(img_size.x,img_size.y);
+////    view1.setViewport(sf::FloatRect(0, 0, 1, 1));
+////    window.setView(view1);
+////    view1.rotate(90);
+//    while (window.isOpen())
+//    {
+//        sf::Event event;
+//        while (window.pollEvent(event))
+//        {
+//            if (event.type == sf::Event::Closed)
+//                window.close();
+//        }
+//
+//
+//        file->rewritePixelForTexture(pixels);
+//        texture.update(pixels);
+//
+//        window.clear();
+//        window.draw(sprite);
+////texture.update(window);
+//        window.display();
+//
+//        ss<<getFPS(FPSClock.restart());
+//
+//       window.setTitle(ss.str());
+//       ss.str("");
+//
+//
+//    }
 
 
 
 
 
 
-    sf::Sprite sprite(texture);
 
-    sf::Uint8 * pixels = new sf::Uint8[img_size.x*img_size.y*4];
-    sf::Clock FPSClock;
-    std::stringstream ss;
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-        }
-
-
-        file->rewritePixelForTexture(pixels);
-        texture.update(pixels);
-
-        window.clear();
-        window.draw(sprite);
-
-        window.display();
-
-        ss<<getFPS(FPSClock.restart());
-
-       window.setTitle(ss.str());
-       ss.str("");
-
-
-    }
-
-
-
-
-
-
-
-    d_type::Bint a;
-    std::cin>>a;
+    d_type::Bint a32;
+    std::cin>>a32;
     return 0;
 }
 #endif // RENDERER

@@ -55,6 +55,7 @@ bool Plane::intersect(const Ray&ray,d_type::Bfloat &distance ,Info &info   ) con
         distance=t;
         info.m_normal=m_normal;
         info.m_localHitPoint=ray.getOrigin()+t*ray.getDirection();
+
         return true;
     }
 

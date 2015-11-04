@@ -136,10 +136,9 @@ int main(int argc, char **argv)
 #endif // V1
 #ifdef V2
     IRaycastable *sphere=new Sphere(Vector3Bf(7,0,0)  , 5);
-    sphere->setMaterial(new IMaterial(Colour::Red));
+    sphere->setMaterial(new IMaterial(Colour::Blue));
     rt->addObject(sphere);
     Mesh * m =FileLoader::loadMesh(("models/EX1.obj"));
-m->setMaterial(new IMaterial(Colour::Green));
     rt->addObject(m);
 #endif // V2
 

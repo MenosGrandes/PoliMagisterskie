@@ -12,12 +12,12 @@ public:
     virtual d_type::BBool intersect(const Ray& ray,d_type::Bfloat & distance,Info &info) const
     {
         d_type::Bbyte isHit=false;
-        distance=std::numeric_limits<d_type::Bfloat>::max();
-        d_type::Bfloat t;//=std::numeric_limits<d_type::Bfloat>::max();
+        distance=1000;
+        d_type::Bfloat t;
         if(m_boundingBox.intersect(ray,t,info)&& t<distance)
         {
 
-            d_type::Bfloat t2;//=std::numeric_limits<d_type::Bfloat>::max();
+            d_type::Bfloat t2;
 
             for(RayTriangle *a : m_triangles )
             {
@@ -26,8 +26,7 @@ public:
                 {
                     distance=t2;
                     isHit=true;
-//                info.m_normal=a->getVertex1().m_normal;
-//                info.m_localHitPoint=ray.getOrigin()+t2*ray.getDirection();
+                   m_material=a->getMaterial();
                 }
 
             }

@@ -89,7 +89,7 @@ Colour RayTracer::shadeRay(const Ray&ray)
         return Colour::RoyalBlue;
     }
     Colour finalColor = Colour::Black;
-    IMaterial * material= info.m_ObjMat;
+    IMaterial * material= info.m_obj->getMaterial();
 #ifdef ENABLE_LIGHT
     {
 
@@ -126,18 +126,20 @@ Info RayTracer::traceRay(const Ray&ray)
         if(m_objectVector[i]->intersect(ray,hitDistance,info) && hitDistance< minDistance)
         {
             info.m_hit=true;
-            info.m_normal=normal;
+            normal=info.m_normal;
             minDistance=hitDistance;
-            info.m_ObjMat=m_objectVector[i]->getMaterial();
-            info.m_hitPoint=ray.getOrigin()+ray.getDirection()*minDistance;
+            info.m_hitPoint=ray.getOrigin()+ray.getDirection()*hitDistance;
             localHitPoint=info.m_localHitPoint;
+            info.m_obj=m_objectVector[i];
         }
 
 
     }
     if(info.m_hit)
     {
-
+        info.m_t=minDistance;
+        info.m_normal=normal;
+        info.m_localHitPoint=localHitPoint;
     }
     return info;
 }

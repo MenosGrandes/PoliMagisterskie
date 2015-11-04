@@ -36,7 +36,7 @@ void Plane::setInPoint(const Vector3Bf val)
 }
 
 
-bool Plane::intersect(const Ray&ray,d_type::Bfloat &distance,Vector3Bf & normal) const
+bool Plane::intersect(const Ray&ray,d_type::Bfloat &distance ,Info &info   ) const
 {
     /*
     https://en.wikipedia.org/wiki/Line%E2%80%93plane_intersection
@@ -53,7 +53,8 @@ bool Plane::intersect(const Ray&ray,d_type::Bfloat &distance,Vector3Bf & normal)
     if( t > F_EPSILON)
     {
         distance=t;
-        normal=m_normal;
+        info.m_normal=m_normal;
+        info.m_localHitPoint=ray.getOrigin()+t*ray.getDirection();
         return true;
     }
 

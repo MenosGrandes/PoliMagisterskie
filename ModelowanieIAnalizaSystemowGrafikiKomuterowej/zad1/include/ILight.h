@@ -3,6 +3,7 @@
 #include "Vector3.h"
 #include "Colour.h"
 #include "Info.h"
+#include <vector>
 class ILight
 {
     public:
@@ -13,5 +14,5 @@ class ILight
     protected:
     d_type::BBool m_shadows;
 };
-
+typedef std::vector<ILight*> LightsVector;
 #endif // ILIGHT_H

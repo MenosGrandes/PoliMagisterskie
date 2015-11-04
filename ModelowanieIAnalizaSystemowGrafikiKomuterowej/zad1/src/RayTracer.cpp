@@ -84,12 +84,12 @@ void RayTracer::rayTrace()
 Colour RayTracer::shadeRay(const Ray&ray)
 {
     Info info = traceRay(ray);
-    if(info.m_object == nullptr)
+    if(info.m_hit == false)
     {
         return Colour::RoyalBlue;
     }
     Colour finalColor = Colour::Black;
-//    IMaterial * material= info.m_object->getMaterial();
+    IMaterial * material= info.m_ObjMat;
 #ifdef ENABLE_LIGHT
     {
 
@@ -102,7 +102,7 @@ Colour RayTracer::shadeRay(const Ray&ray)
 #else
 
     {
-//        finalColor =static_cast<PerfectDifuse*>(material)->getColor();
+        finalColor =(material)->m_colour;
 
     }
 #endif
@@ -114,27 +114,35 @@ Info RayTracer::traceRay(const Ray&ray)
 {
     d_type::Bfloat minDistance=std::numeric_limits<d_type::Bfloat>::max();
     d_type::Bfloat hitDistance=0.0f;
+    Vector3Bf localHitPoint=Vector3Bf(0,0,0);
     Vector3Bf normal=Vector3Bf(0,0,0);
-    Info info(nullptr,Vector3Bf(0,0,0),Vector3Bf(0,0,0),false);
+
+    Info info(Vector3Bf(0,0,0),Vector3Bf(0,0,0),false);
 
 
 
     for(d_type::Bsize i=0; i<m_objectVector.size(); i++)
     {
-        if(m_objectVector[i]->intersect(ray,hitDistance,normal) && hitDistance< minDistance)
+        if(m_objectVector[i]->intersect(ray,hitDistance,info) && hitDistance< minDistance)
         {
+            info.m_hit=true;
             info.m_normal=normal;
             minDistance=hitDistance;
-            info.m_object=m_objectVector[i];
+            info.m_ObjMat=m_objectVector[i]->getMaterial();
             info.m_hitPoint=ray.getOrigin()+ray.getDirection()*minDistance;
+            localHitPoint=info.m_localHitPoint;
         }
 
 
     }
+    if(info.m_hit)
+    {
+
+    }
     return info;
 }
-//void RayTracer::addLight(PointLight light)
-//{
-//    m_pLightsVector.push_back(light);
-//}
+void RayTracer::addLight(ILight* light)
+{
+    m_lightsVector.push_back(light);
+}
 

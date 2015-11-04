@@ -24,7 +24,7 @@ Box::~Box()
 {
     //dtor
 }
-d_type::BBool Box::intersect(const Ray& r, d_type::Bfloat& distance, Vector3Bf& normal) const
+d_type::BBool Box::intersect(const Ray& r, d_type::Bfloat& distance,Info &info) const
 {
     d_type::Bfloat tmin = (m_min.x - r.getOrigin().x) / r.getDirection().x;
     d_type::Bfloat tmax = (m_max.x - r.getOrigin().x) / r.getDirection().x;

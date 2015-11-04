@@ -78,6 +78,9 @@
 		<Unit filename="include/ILight.h">
 			<Option virtualFolder="BRDF/Light/" />
 		</Unit>
+		<Unit filename="include/IMaterial.h">
+			<Option virtualFolder="BRDF/Material/" />
+		</Unit>
 		<Unit filename="include/ISampleDistributor.h">
 			<Option virtualFolder="Antyalising/Distributor/" />
 		</Unit>
@@ -192,6 +195,9 @@
 		</Unit>
 		<Unit filename="src/ILight.cpp">
 			<Option virtualFolder="BRDF/Light/" />
+		</Unit>
+		<Unit filename="src/IMaterial.cpp">
+			<Option virtualFolder="BRDF/Material/" />
 		</Unit>
 		<Unit filename="src/ISampleDistributor.cpp">
 			<Option virtualFolder="Antyalising/Distributor/" />

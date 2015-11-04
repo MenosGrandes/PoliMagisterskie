@@ -2,28 +2,29 @@
 #define RAYCASTABLE_H
 #include "Ray.h"
 #include <vector>
-
+#include "Info.h"
+#include "IMaterial.h"
 class IRaycastable
 {
 public:
-    virtual d_type::BBool intersect(const Ray& ray,d_type::Bfloat & distance,Vector3Bf & normal) const=0 ;
-//    virtual IMaterial * getMaterial()
-//    {
-//        return m_material;
-//    }
-//    virtual void setMaterial(IMaterial * mat)
-//    {
-//        m_material=mat;
-//    }
+    virtual d_type::BBool intersect(const Ray& ray,d_type::Bfloat & distance,Info &info) const=0 ;
+    virtual IMaterial * getMaterial()
+    {
+        return m_material;
+    }
+    virtual void setMaterial(IMaterial * mat)
+    {
+        m_material=mat;
+    }
     virtual ~IRaycastable()
     {
 
-//        delete m_material;
+        //delete this->m_material;
 
 
     }
 protected:
-//    mutable IMaterial * m_material;
+    mutable IMaterial * m_material;
 
 
 };

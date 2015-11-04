@@ -9,12 +9,12 @@
 class Mesh : public IRaycastable
 {
 public:
-    virtual d_type::BBool intersect(const Ray& ray,d_type::Bfloat & distance,Vector3Bf & normal) const
+    virtual d_type::BBool intersect(const Ray& ray,d_type::Bfloat & distance,Info &info) const
     {
         d_type::Bbyte isHit=false;
         distance=std::numeric_limits<d_type::Bfloat>::max();
         d_type::Bfloat t;//=std::numeric_limits<d_type::Bfloat>::max();
-        if(m_boundingBox.intersect(ray,t,normal)&& t<distance)
+        if(m_boundingBox.intersect(ray,t,info)&& t<distance)
         {
 
             d_type::Bfloat t2;//=std::numeric_limits<d_type::Bfloat>::max();
@@ -22,13 +22,13 @@ public:
             for(RayTriangle *a : m_triangles )
             {
 
-                if(a->intersect(ray,t2,normal)&& t2<distance )
+                if(a->intersect(ray,t2,info)&& t2<distance )
                 {
                     distance=t2;
                     isHit=true;
-//                    m_material=a->getMaterial();
+//                info.m_normal=a->getVertex1().m_normal;
+//                info.m_localHitPoint=ray.getOrigin()+t2*ray.getDirection();
                 }
-                //std::cout<<t <<" max :"<<std::numeric_limits<d_type::Bfloat>::max()<<"\n";
 
             }
         }

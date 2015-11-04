@@ -8,6 +8,7 @@ RayTriangle::~RayTriangle()
 RayTriangle::RayTriangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 {
     m_vertex.x=(a),m_vertex.y=(b),m_vertex.z=(c);
+    m_material=new IMaterial(Colour::Yellow);
 }
 
 Vertex3Bf RayTriangle::getVertex1() const
@@ -30,7 +31,7 @@ Vector3Vertex3Bf RayTriangle::getVertices() const
 {
     return m_vertex;
 }
-bool RayTriangle::intersect(const Ray& ray,d_type::Bfloat &distance,Vector3Bf & normal) const
+bool RayTriangle::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) const
 {
 
     Vector3Bf v0v1 = m_vertex.y.m_position - m_vertex.x.m_position;
@@ -56,7 +57,8 @@ bool RayTriangle::intersect(const Ray& ray,d_type::Bfloat &distance,Vector3Bf & 
     if (v < 0 || u + v > 1) return false;
 
     distance = Vector3Bf::dotProduct(qvec,v0v2)  * invDet;
-    normal=m_vertex.x.m_normal;
+        info.m_normal=m_vertex.x.m_normal;
+        info.m_localHitPoint=ray.getOrigin()+distance*ray.getDirection();
     return true;
 
 

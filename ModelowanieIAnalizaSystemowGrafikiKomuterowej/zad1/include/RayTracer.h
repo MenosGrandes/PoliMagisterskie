@@ -18,8 +18,7 @@ public:
     void addLight(ILight * light);
     void rayTrace();
 
-    void enableLight(d_type::BBool val);
-    void enableAA(d_type::BBool val);
+
 private:
 
     Colour shadeRay(const Ray&ray);
@@ -28,7 +27,7 @@ private:
 
 
     RaycastableVector m_objectVector;
-//    PointLightVector m_pLightsVector;
+    LightsVector m_lightsVector;
     ICamera *m_camera;
     RenderTarget *m_renderTanger;
     Sampler * m_sampler;

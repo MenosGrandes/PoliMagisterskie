@@ -12,7 +12,7 @@ public:
     Vertex3Bf getVertex2() const;
     Vertex3Bf getVertex3() const;
     Vector3Vertex3Bf getVertices() const;
-    bool intersect(const Ray& ray,d_type::Bfloat &distance,Vector3Bf & normal) const;
+    bool intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) const;
 
 protected:
 private:

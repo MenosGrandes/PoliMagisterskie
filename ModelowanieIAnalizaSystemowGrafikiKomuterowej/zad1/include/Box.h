@@ -1,7 +1,6 @@
 #ifndef BOX_H
 #define BOX_H
 #include "Raycastable.h"
-#include "PerfectDifuse.h"
 class Box : public IRaycastable
 {
 public:

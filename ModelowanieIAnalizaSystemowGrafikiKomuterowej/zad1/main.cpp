@@ -10,8 +10,8 @@
 #include <string>
 #include <sstream>
 
-#define RENDERER
-//#define FOTO
+//#define RENDERER
+#define FOTO
 
 using namespace d_type;
 #ifdef RENDERER
@@ -29,7 +29,6 @@ using namespace d_type;
 
 #include "RayTracer.h"
 #include "RandomSampleGenerator.h"
-#include "PerfectDifuse.h"
 #include "Sampler.h"
 #include "SquareSampleDistributor.h"
 #include "RegularSampleGenerator.h"
@@ -98,11 +97,6 @@ int main(int argc, char **argv)
     }
 #endif // ZAD1
 #ifdef DRAWRAY
-//Mesh * mesh=
-//
-//
-//mesh->setMaterial(new PerfectDifuse(Colour::Red));
-
 
     Vector2Bs img_size=Vector2Bs(600,600);
 
@@ -112,42 +106,44 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
 
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,0,-25),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(53,-37.474,0),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
-                                           1,
+                                           2,
                                            Vector2Bf(1,1));
 
 
-    Sampler * s= new Sampler(new DiskSampleDistributor(),new MultiJitteringSampleGenerator(),9,1);
+    Sampler * s= new Sampler(new SquareSampleDistributor(),new MultiJitteringSampleGenerator(),9,1);
     RayTracer *rt = new RayTracer(persp,file,s);
 
 
 
-    PerfectDifuse * pd1=new PerfectDifuse(Colour::Red);
-    PerfectDifuse * pd2=new PerfectDifuse(Colour::Green);
-    PerfectDifuse * pd3=new PerfectDifuse(Colour::Blue);
-    PerfectDifuse * pd4=new PerfectDifuse(Colour::Gray);
+//    PerfectDifuse * pd1=new PerfectDifuse(Colour::Red);
+//    PerfectDifuse * pd2=new PerfectDifuse(Colour::Green);
+//    PerfectDifuse * pd3=new PerfectDifuse(Colour::Blue);
+//    PerfectDifuse * pd4=new PerfectDifuse(Colour::Gray);
+#define V2
+#ifdef V1
+    rt->addObject(new Sphere(Vector3Bf(-7.f,0,0) , 2,pd1));
+    rt->addObject(new Sphere(Vector3Bf( 9,0,0)  , 2,pd2));
+    rt->addObject(new Sphere(Vector3Bf(0,0,-5)  , 2,pd3));
+    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
 
-
-#ifdef ZAD2OBJECTS
-//    rt->addObject(new Sphere(Vector3Bf(-4.f,0,0) , 2,pd1));
-//    rt->addObject(new Sphere(Vector3Bf( 4,0,0)  , 2,pd2));
-//    rt->addObject(new Sphere(Vector3Bf(0,0,3)  , 2,pd3));
-//    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
-#endif // ZAD2
-#ifdef ZAD3OBJECTS
 
     Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
 
     rt->addObject(m);
-//   rt->addObject(FileLoader::loadMesh(("models/teapod.obj")));
+#endif // V1
+#ifdef V2
 
-#endif // ZAD3
+    rt->addObject(new Sphere(Vector3Bf(7,0,0)  , 5));
+    Mesh * m =FileLoader::loadMesh(("models/EX1.obj"));
 
-#ifdef ZAD4OBJECTS
-    rt->addLight( PointLight(Vector3Bf(5,5,0),Colour::White));
-#endif // ZAD4OBJECTS
+    rt->addObject(m);
+#endif // V2
+
+
+
 
 
 
@@ -231,14 +227,15 @@ int main(int argc, char **argv)
 //
     vp->setIdentity();
     vp->setPerspective(45,4/3,Vector2Bf(1,10000));
-    vp->setLookat(Vector3Bf(0,0,-1),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
-    vp->transform();
+    vp->setLookat(Vector3Bf(0,0,10),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
+
     triangle2->first= vp->addTriangle(triangle2->first);
     triangle2->second=vp->addTriangle(triangle2->second);
     triangle2->third=vp->addTriangle(triangle2->third);
+    vp->transform();
     file->draw(*triangle2);
-
-
+//
+    std::cout<<triangle2->first<<" "<<triangle2->second<< " "<<triangle2->third<< "\n";
 
 //
 //    render::TriangleFloat * t,t2;
@@ -268,7 +265,10 @@ int main(int argc, char **argv)
 
 
 
-
+    Matrix4Bfloat m1=Matrix4Bfloat(2.4142,0,0,0,0,2.4142,0,0,0,0,8.89998,-1,0,0,-2.0002,0);
+    Vector4Bf v4=Vector4Bf(400,300,0,1);
+    std::cout<<"!@#!@#!@#!@\n";
+    std::cout<<m1*v4;
 
 
 

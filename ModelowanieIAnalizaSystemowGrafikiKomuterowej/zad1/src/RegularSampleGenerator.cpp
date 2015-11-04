@@ -23,9 +23,9 @@ void RegularSampleGenerator::generateSamples(d_type::Bsize count)
         {
 
             m_samples.push_back(Vector2Bf(
-                                 (x+0.5f)/rows,
-                                 (y+0.5f)/rows
-                             ));
+                                    (x+0.5f)/rows,
+                                    (y+0.5f)/rows
+                                ));
 
         }
     }

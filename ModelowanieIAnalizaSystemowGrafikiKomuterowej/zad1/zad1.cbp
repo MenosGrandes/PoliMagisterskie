@@ -5,7 +5,7 @@
 		<Option title="zad1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Camera\;Ray\;RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Ray\Raycastable\;Triangle\;Light\;Antyalising\;Antyalising\Generator\;Antyalising\Distributor\;Material\;" />
+		<Option virtualFolders="Camera\;Ray\;RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Ray\Raycastable\;Triangle\;Antyalising\;Antyalising\Generator\;Antyalising\Distributor\;BRDF\;BRDF\Light\;BRDF\Material\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/zad1" prefix_auto="1" extension_auto="1" />
@@ -42,6 +42,7 @@
 		</Build>
 		<Compiler>
 			<Add option="-march=corei7" />
+			<Add option="-Weffc++" />
 			<Add option="-std=c++11" />
 			<Add option="-DSFML_STATIC" />
 			<Add directory="C:/Libs/SFML-2.1/include" />
@@ -52,6 +53,12 @@
 		</Linker>
 		<Unit filename="include/AdaptiveSampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
+		</Unit>
+		<Unit filename="include/Ambient.h">
+			<Option virtualFolder="BRDF/Light/" />
+		</Unit>
+		<Unit filename="include/BRDF.h">
+			<Option virtualFolder="BRDF/" />
 		</Unit>
 		<Unit filename="include/Box.h">
 			<Option virtualFolder="Ray/Raycastable/" />
@@ -69,10 +76,7 @@
 			<Option virtualFolder="Types/" />
 		</Unit>
 		<Unit filename="include/ILight.h">
-			<Option virtualFolder="Light/" />
-		</Unit>
-		<Unit filename="include/IMaterial.h">
-			<Option virtualFolder="Material/" />
+			<Option virtualFolder="BRDF/Light/" />
 		</Unit>
 		<Unit filename="include/ISampleDistributor.h">
 			<Option virtualFolder="Antyalising/Distributor/" />
@@ -80,8 +84,14 @@
 		<Unit filename="include/ISampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
 		</Unit>
+		<Unit filename="include/Info.h">
+			<Option virtualFolder="Ray/" />
+		</Unit>
 		<Unit filename="include/JitteredSampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
+		</Unit>
+		<Unit filename="include/Lambertian.h">
+			<Option virtualFolder="BRDF/" />
 		</Unit>
 		<Unit filename="include/Matrix4.h">
 			<Option virtualFolder="Types/Matrix/" />
@@ -95,17 +105,11 @@
 		<Unit filename="include/OrtagonalCamera.h">
 			<Option virtualFolder="Camera/" />
 		</Unit>
-		<Unit filename="include/PerfectDifuse.h">
-			<Option virtualFolder="Material/" />
-		</Unit>
 		<Unit filename="include/PerspectiveCamera.h">
 			<Option virtualFolder="Camera/" />
 		</Unit>
 		<Unit filename="include/Plane.h">
 			<Option virtualFolder="Ray/Raycastable/" />
-		</Unit>
-		<Unit filename="include/PointLight.h">
-			<Option virtualFolder="Light/" />
 		</Unit>
 		<Unit filename="include/RandomSampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
@@ -165,6 +169,12 @@
 		<Unit filename="src/AdaptiveSampleGenerator.cpp">
 			<Option virtualFolder="Antyalising/Generator/" />
 		</Unit>
+		<Unit filename="src/Ambient.cpp">
+			<Option virtualFolder="BRDF/Light/" />
+		</Unit>
+		<Unit filename="src/BRDF.cpp">
+			<Option virtualFolder="BRDF/" />
+		</Unit>
 		<Unit filename="src/Box.cpp">
 			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
@@ -181,16 +191,19 @@
 			<Option virtualFolder="Types/" />
 		</Unit>
 		<Unit filename="src/ILight.cpp">
-			<Option virtualFolder="Light/" />
-		</Unit>
-		<Unit filename="src/IMaterial.cpp">
-			<Option virtualFolder="Material/" />
+			<Option virtualFolder="BRDF/Light/" />
 		</Unit>
 		<Unit filename="src/ISampleDistributor.cpp">
 			<Option virtualFolder="Antyalising/Distributor/" />
 		</Unit>
+		<Unit filename="src/Info.cpp">
+			<Option virtualFolder="Ray/" />
+		</Unit>
 		<Unit filename="src/JitteredSampleGenerator.cpp">
 			<Option virtualFolder="Antyalising/Generator/" />
+		</Unit>
+		<Unit filename="src/Lambertian.cpp">
+			<Option virtualFolder="BRDF/" />
 		</Unit>
 		<Unit filename="src/Matrix4.cpp">
 			<Option virtualFolder="Types/Matrix/" />
@@ -204,17 +217,11 @@
 		<Unit filename="src/OrtagonalCamera.cpp">
 			<Option virtualFolder="Camera/" />
 		</Unit>
-		<Unit filename="src/PerfectDifuse.cpp">
-			<Option virtualFolder="Material/" />
-		</Unit>
 		<Unit filename="src/PerspectiveCamera.cpp">
 			<Option virtualFolder="Camera/" />
 		</Unit>
 		<Unit filename="src/Plane.cpp">
 			<Option virtualFolder="Ray/Raycastable/" />
-		</Unit>
-		<Unit filename="src/PointLight.cpp">
-			<Option virtualFolder="Light/" />
 		</Unit>
 		<Unit filename="src/RandomSampleGenerator.cpp">
 			<Option virtualFolder="Antyalising/Generator/" />

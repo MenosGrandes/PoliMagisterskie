@@ -25,9 +25,9 @@ void MultiJitteringSampleGenerator::generateSamples(d_type::Bsize count)
         {
 
             m_samples.push_back(Vector2Bf(
-                                 (x*rows*cellwidth + y*cellwidth +ui(re)),
-                                 (y*rows*cellwidth + x*cellwidth +ui(re))
-                             ));
+                                    (x*rows*cellwidth + y*cellwidth +ui(re)),
+                                    (y*rows*cellwidth + x*cellwidth +ui(re))
+                                ));
 
         }
     }

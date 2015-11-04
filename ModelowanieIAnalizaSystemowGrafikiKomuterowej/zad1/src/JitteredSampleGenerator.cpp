@@ -25,9 +25,9 @@ void JitteredSampleGenerator::generateSamples(d_type::Bsize count)
         {
 
             m_samples.push_back( Vector2Bf(
-                                 (x+ui(re))/rows,
-                                 (y+ui(re))/rows
-                             ));
+                                     (x+ui(re))/rows,
+                                     (y+ui(re))/rows
+                                 ));
 
         }
     }

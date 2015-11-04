@@ -59,7 +59,7 @@ public:
 
 protected:
 private:
-    Vector3Bf m_origin,m_direction, m_destination,m_directionMinusOrigin;
+    Vector3Bf m_origin,m_direction, m_destination;
 
 };
 

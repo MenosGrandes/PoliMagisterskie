@@ -6,7 +6,7 @@
 class Sphere : public IRaycastable
 {
 public:
-    Sphere(Vector3Bf center,d_type::Bfloat radius,IMaterial *material);
+    Sphere(Vector3Bf center,d_type::Bfloat radius);
 
     //GETTERS
     Vector3Bf getCenter() const;

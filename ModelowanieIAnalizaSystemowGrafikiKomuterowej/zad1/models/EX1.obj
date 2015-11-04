@@ -1,5 +1,5 @@
 # 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
-# File Created: 31.10.2015 11:13:38
+# File Created: 04.11.2015 10:30:55
 
 mtllib EX1.mtl
 
@@ -7,9 +7,9 @@ mtllib EX1.mtl
 # object Cylinder006
 #
 
-v  -0.065600 15.648500 0.415398
-v  -16.669201 -7.170698 17.018702
-v  16.537500 -7.170698 17.018702
+v  -0.065600 15.648500 0.415397
+v  -16.669201 -7.170697 17.018702
+v  16.537500 -7.170697 17.018702
 v  16.537500 -7.170702 -16.187899
 v  -16.669201 -7.170702 -16.187899
 v  14.950800 -4.989800 -0.133999
@@ -156,16 +156,16 @@ vt 0.483500 0.582300 0.000000
 # 79 texture coords
 
 g Cylinder006
-usemtl _EX1_EX108___Default
+usemtl _EX1_EX1_EX1_EX108___Default
 s 1
 f 1/1/1 2/2/2 3/3/2 
-usemtl _EX1_EX107___Default
+usemtl _EX1_EX1_EX1_EX107___Default
 f 1/1/1 4/2/3 5/3/3 
-usemtl _EX1_EX102___Default
+usemtl _EX1_EX1_EX1_EX102___Default
 s 4
 f 2/4/4 5/2/4 4/3/4 
 f 4/3/4 3/5/4 2/4/4 
-usemtl _EX1_EX113___Default
+usemtl _EX1_EX1_EX1_EX113___Default
 s 1
 f 6/6/1 7/7/5 8/8/5 
 f 8/8/5 9/9/1 6/6/1 
@@ -203,7 +203,7 @@ f 40/42/20 41/43/20 39/41/19
 f 39/41/19 38/40/19 40/42/20 
 f 41/43/20 40/42/20 6/6/1 
 f 6/6/1 9/9/1 41/43/20 
-usemtl _EX1_EX103___Default
+usemtl _EX1_EX1_EX1_EX103___Default
 s 2
 f 3/2/21 4/3/21 6/44/21 
 f 3/2/21 6/44/21 40/45/21 

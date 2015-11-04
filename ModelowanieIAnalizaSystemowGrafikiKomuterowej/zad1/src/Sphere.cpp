@@ -1,9 +1,8 @@
 #include "Sphere.h"
 
-Sphere::Sphere(Vector3Bf center, d_type::Bfloat radius,IMaterial *material):m_center(center),m_radius(radius),IRaycastable()
+Sphere::Sphere(Vector3Bf center, d_type::Bfloat radius):m_center(center),m_radius(radius),IRaycastable()
 {
     m_sqRadius=m_radius*m_radius;
-    this->m_material=material;
 }
 
 

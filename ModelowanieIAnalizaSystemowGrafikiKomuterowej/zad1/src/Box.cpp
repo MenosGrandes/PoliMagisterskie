@@ -7,7 +7,7 @@ Box::Box()
 
 Box::Box(const Vector3Bf& min, const Vector3Bf& max):m_min(min),m_max(max)
 {
-    this->m_material=new PerfectDifuse(Colour::Black);
+//    this->m_material=new PerfectDifuse(Colour::Black);
 }
 
 void Box::setMin(const Vector3Bf& min)

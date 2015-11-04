@@ -34,16 +34,15 @@ void RayTracer::rayTrace()
         for(Bint y=0; y<m_renderTanger->getSize().y; y++)
         {
             finalColour=Colour::Black;
-//#define ENABLE_AA
 //#define ADAPTIVE_AA
-            #ifdef ENABLE_AA
+#ifdef ENABLE_AA
             {
 
-                #ifdef ADAPTIVE_AA
+#ifdef ADAPTIVE_AA
                 for(d_type::Bint i=0; i<m_; i++)
                 {
                 }
-                #else
+#else
                 for(d_type::Bint i=0; i<m_sampler->getSampleCount(); i++)
                 {
                     Vector2Bf sample = m_sampler->single();
@@ -56,9 +55,9 @@ void RayTracer::rayTrace()
 
                     finalColour+=shadeRay(ray)/(d_type::Bfloat)m_sampler->getSampleCount();
                 }
-                #endif // ADAPTIVE_AA
+#endif // ADAPTIVE_AA
             }
-            #else ENABLE_AA
+#else ENABLE_AA
 
             {
 
@@ -71,7 +70,7 @@ void RayTracer::rayTrace()
 
                 finalColour=shadeRay(ray);
             }
-            #endif // ENABLE_AA
+#endif // ENABLE_AA
             m_renderTanger->setPixel(Colour::clampColour(finalColour),x,y);
 
         }
@@ -85,13 +84,13 @@ void RayTracer::rayTrace()
 Colour RayTracer::shadeRay(const Ray&ray)
 {
     Info info = traceRay(ray);
-    if(info.object == nullptr)
+    if(info.m_object == nullptr)
     {
         return Colour::RoyalBlue;
     }
     Colour finalColor = Colour::Black;
-    IMaterial * material= info.object->getMaterial();
-    #ifdef ENABLE_LIGHT
+//    IMaterial * material= info.m_object->getMaterial();
+#ifdef ENABLE_LIGHT
     {
 
 
@@ -100,47 +99,42 @@ Colour RayTracer::shadeRay(const Ray&ray)
             finalColor=material->radiance(m_pLightsVector[i],info.hitPoint,info.normal)+finalColor;
         }
     }
-   #else
+#else
 
     {
-        finalColor =static_cast<PerfectDifuse*>(material)->getColor();
+//        finalColor =static_cast<PerfectDifuse*>(material)->getColor();
 
     }
-    #endif
+#endif
 
     return finalColor;
 }
 
-RayTracer::Info RayTracer::traceRay(const Ray&ray)
+Info RayTracer::traceRay(const Ray&ray)
 {
     d_type::Bfloat minDistance=std::numeric_limits<d_type::Bfloat>::max();
     d_type::Bfloat hitDistance=0.0f;
-    //Colour c=m_renderTanger->getCleanColour();
     Vector3Bf normal=Vector3Bf(0,0,0);
-    Info info;
-    info.object=nullptr;
-    info.normal=Vector3Bf(0,0,0);
-    info.hitPoint=Vector3Bf(0,0,0);
+    Info info(nullptr,Vector3Bf(0,0,0),Vector3Bf(0,0,0),false);
+
+
 
     for(d_type::Bsize i=0; i<m_objectVector.size(); i++)
     {
         if(m_objectVector[i]->intersect(ray,hitDistance,normal) && hitDistance< minDistance)
         {
-            info.normal=normal;
+            info.m_normal=normal;
             minDistance=hitDistance;
-            info.object=m_objectVector[i];
-            info.hitPoint=ray.getOrigin()+ray.getDirection()*minDistance;
-            info.ray=ray;
+            info.m_object=m_objectVector[i];
+            info.m_hitPoint=ray.getOrigin()+ray.getDirection()*minDistance;
         }
 
 
     }
-
-
     return info;
 }
-void RayTracer::addLight(PointLight light)
-{
-    m_pLightsVector.push_back(light);
-}
+//void RayTracer::addLight(PointLight light)
+//{
+//    m_pLightsVector.push_back(light);
+//}
 

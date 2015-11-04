@@ -18,6 +18,7 @@ public :
 
     void init(const Vector2Bs& m_size)
     {
+        std::cout<<first<<" "<<second<< " "<<third<< "\n";
 
         Greatest g;
         Smallest s;
@@ -31,6 +32,7 @@ public :
 
         this->third.x=(this->third.x+1)*m_size.x*0.5f;
         this->third.y=(this->third.y+1)*m_size.y*0.5f;
+        std::cout<<"AFTER :"<<first<<" "<<second<< " "<<third<< "\n";
 
 //Calculate rect where this triangle is
         this->rect=Vector4<T>(s.min(first.x,second.x,third.x),g.max(first.x,second.x,third.x),s.min(first.y,second.y,third.y),g.max(first.y,second.y,third.y));

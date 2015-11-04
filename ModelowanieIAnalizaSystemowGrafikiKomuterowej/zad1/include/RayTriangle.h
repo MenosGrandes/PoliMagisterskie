@@ -6,7 +6,7 @@
 class RayTriangle : public IRaycastable
 {
 public:
-    RayTriangle(Vertex3Bf a,Vertex3Bf b,Vertex3Bf c,IMaterial *material);
+    RayTriangle(Vertex3Bf a,Vertex3Bf b,Vertex3Bf c);
     virtual ~RayTriangle();
     Vertex3Bf getVertex1() const;
     Vertex3Bf getVertex2() const;

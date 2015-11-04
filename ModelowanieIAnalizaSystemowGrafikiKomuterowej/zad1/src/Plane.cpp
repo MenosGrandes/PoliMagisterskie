@@ -2,11 +2,10 @@
 
 Plane::Plane():m_normal(),m_inPoint()
 {
-    this->m_material=nullptr;
+//    this->m_material=nullptr;
 }
-Plane::Plane(Vector3Bf inPoint,Vector3Bf normal,IMaterial *material):m_normal(normal),m_inPoint(inPoint)
+Plane::Plane(Vector3Bf inPoint,Vector3Bf normal):m_normal(normal),m_inPoint(inPoint)
 {
-    this->m_material=material;
 }
 
 Plane::~Plane()

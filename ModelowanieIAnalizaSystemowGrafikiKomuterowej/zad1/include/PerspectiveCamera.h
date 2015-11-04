@@ -17,12 +17,12 @@ private :
             Vector3Bf::normalize(u);
             v=Vector3Bf::cross(w,u);
         }
-        OrtBase() {};
+        OrtBase():u(Vector3Bf()),v(Vector3Bf()),w(Vector3Bf()) {};
 
     };
 public:
     PerspectiveCamera(Vector3Bf origin,Vector3Bf lookAt,Vector3Bf up,d_type::Bfloat distance,Vector2Bf scale);
-     Ray& recalculateRay(Vector2Bf position);
+    Ray& recalculateRay(Vector2Bf position);
     Vector3Bf recalculateRayDirection(Vector2Bf location);
 protected:
 private:

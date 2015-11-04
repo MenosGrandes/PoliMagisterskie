@@ -14,24 +14,24 @@ public:
         d_type::Bbyte isHit=false;
         distance=std::numeric_limits<d_type::Bfloat>::max();
         d_type::Bfloat t;//=std::numeric_limits<d_type::Bfloat>::max();
-    if(m_boundingBox.intersect(ray,t,normal)&& t<distance)
-    {
-
-        d_type::Bfloat t2;//=std::numeric_limits<d_type::Bfloat>::max();
-
-        for(RayTriangle *a : m_triangles )
+        if(m_boundingBox.intersect(ray,t,normal)&& t<distance)
         {
 
-            if(a->intersect(ray,t2,normal)&& t2<distance )
-            {
-                distance=t2;
-                isHit=true;
-                m_material=a->getMaterial();
-            }
-            //std::cout<<t <<" max :"<<std::numeric_limits<d_type::Bfloat>::max()<<"\n";
+            d_type::Bfloat t2;//=std::numeric_limits<d_type::Bfloat>::max();
 
+            for(RayTriangle *a : m_triangles )
+            {
+
+                if(a->intersect(ray,t2,normal)&& t2<distance )
+                {
+                    distance=t2;
+                    isHit=true;
+//                    m_material=a->getMaterial();
+                }
+                //std::cout<<t <<" max :"<<std::numeric_limits<d_type::Bfloat>::max()<<"\n";
+
+            }
         }
-    }
 
         return isHit;
     };

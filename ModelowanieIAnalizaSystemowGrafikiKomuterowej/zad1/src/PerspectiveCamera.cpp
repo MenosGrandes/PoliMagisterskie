@@ -1,9 +1,9 @@
 #include "PerspectiveCamera.h"
 
 PerspectiveCamera::PerspectiveCamera(Vector3Bf origin, Vector3Bf lookAt, Vector3Bf up, d_type::Bfloat distance,Vector2Bf scale)
-    :m_origin(origin),m_lookAt(lookAt),m_up(up),m_distance(distance),m_scale(scale)
+    :m_origin(origin),m_lookAt(lookAt),m_up(up),m_distance(distance),m_scale(scale),orto(OrtBase(m_origin-m_lookAt,m_up))
 {
-    orto=OrtBase(m_origin-m_lookAt,m_up);
+
 }
 
 
@@ -16,7 +16,7 @@ Ray& PerspectiveCamera::recalculateRay(Vector2Bf position)
 Vector3Bf PerspectiveCamera::recalculateRayDirection(Vector2Bf location)
 {
     Vector3Bf v=Vector3Bf(orto.u*location.x + orto.v*location.y-m_distance*orto.w);
-        Vector3Bf::normalize(v);
+    Vector3Bf::normalize(v);
     return v;
 
 }

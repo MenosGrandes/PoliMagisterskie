@@ -1,7 +1,7 @@
 # 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
-# File Created: 31.10.2015 11:13:38
+# File Created: 04.11.2015 10:30:55
 
-newmtl _EX1_EX108___Default
+newmtl _EX1_EX1_EX1_EX108___Default
 	Ns 9.999999
 	Ni 1.500000
 	d 1.000000
@@ -13,7 +13,7 @@ newmtl _EX1_EX108___Default
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
 
-newmtl _EX1_EX107___Default
+newmtl _EX1_EX1_EX1_EX107___Default
 	Ns 9.999999
 	Ni 1.500000
 	d 1.000000
@@ -25,7 +25,7 @@ newmtl _EX1_EX107___Default
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
 
-newmtl _EX1_EX102___Default
+newmtl _EX1_EX1_EX1_EX102___Default
 	Ns 9.999999
 	Ni 1.500000
 	d 1.000000
@@ -37,7 +37,7 @@ newmtl _EX1_EX102___Default
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
 
-newmtl _EX1_EX113___Default
+newmtl _EX1_EX1_EX1_EX113___Default
 	Ns 9.999999
 	Ni 1.500000
 	d 1.000000
@@ -49,7 +49,7 @@ newmtl _EX1_EX113___Default
 	Ks 0.000000 0.000000 0.000000
 	Ke 0.000000 0.000000 0.000000
 
-newmtl _EX1_EX103___Default
+newmtl _EX1_EX1_EX1_EX103___Default
 	Ns 9.999999
 	Ni 1.500000
 	d 1.000000

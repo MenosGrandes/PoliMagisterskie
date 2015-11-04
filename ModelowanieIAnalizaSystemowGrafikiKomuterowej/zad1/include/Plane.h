@@ -6,7 +6,7 @@ class Plane : public IRaycastable
 {
 public:
     Plane();
-    Plane(Vector3Bf normal,Vector3Bf inPoint,IMaterial *material);
+    Plane(Vector3Bf normal,Vector3Bf inPoint);
     virtual ~Plane();
     //GETTERS
     Vector3Bf getNormal() const;

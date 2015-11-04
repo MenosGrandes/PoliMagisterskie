@@ -13,9 +13,9 @@ public :
     d_type::Bubyte r,g,b,a;
     Colour(d_type::Bubyte _r,d_type::Bubyte _g,d_type::Bubyte _b,d_type::Bubyte _a):r(_r),g(_g),b(_b),a(_a) {};
 
-    Colour(d_type::Bubyte _r,d_type::Bubyte _g,d_type::Bubyte _b):r(_r),g(_g),b(_b)
+    Colour(d_type::Bubyte _r,d_type::Bubyte _g,d_type::Bubyte _b):r(_r),g(_g),b(_b),a(255)
     {
-        this->a=255;
+
     };
 
     Colour():r(255),g(255),b(255),a(255) {};
@@ -23,7 +23,7 @@ public :
 
 
     static Colour clampColour(Colour r);
-     static Colour randomColor();
+    static Colour randomColor();
     const static  Colour Green;
     const static  Colour Yellow;
     const static  Colour White;

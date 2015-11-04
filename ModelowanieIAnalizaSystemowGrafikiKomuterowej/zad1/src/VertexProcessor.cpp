@@ -2,9 +2,10 @@
 
 VertexProcessor::VertexProcessor()
 {
-    this->view2proj=Matrix4Bfloat::Identity;
-    this->world2view=Matrix4Bfloat::Identity;
-    this->obj2world=Matrix4Bfloat::Identity;
+//    this->view2proj=Matrix4Bfloat::Identity;
+//    this->world2view=Matrix4Bfloat::Identity;
+//    this->obj2world=Matrix4Bfloat::Identity;
+//    this->obj2proj=Matrix4Bfloat::Identity;
 }
 
 VertexProcessor::~VertexProcessor()
@@ -95,6 +96,7 @@ void VertexProcessor::multByRotation(d_type::Bfloat a, Vector3Bf v)
 Vector3Bf VertexProcessor::addTriangle(Vector3Bf tr)
 {
     Vector4Bf r = obj2proj*Vector4Bf(tr.x,tr.y,tr.z,1);
+    std::cout<<"!!!!!!!!!!!!!!!!\n "<<obj2proj<<"\n";
     return Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
 }
 

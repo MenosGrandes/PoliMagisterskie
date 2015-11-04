@@ -99,6 +99,9 @@
 		<Unit filename="include/Matrix4.h">
 			<Option virtualFolder="Types/Matrix/" />
 		</Unit>
+		<Unit filename="include/MatteMaterial.h">
+			<Option virtualFolder="BRDF/Material/" />
+		</Unit>
 		<Unit filename="include/Mesh.h">
 			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
@@ -110,6 +113,9 @@
 		</Unit>
 		<Unit filename="include/PerspectiveCamera.h">
 			<Option virtualFolder="Camera/" />
+		</Unit>
+		<Unit filename="include/PhongMaterial.h">
+			<Option virtualFolder="BRDF/Material/" />
 		</Unit>
 		<Unit filename="include/Plane.h">
 			<Option virtualFolder="Ray/Raycastable/" />
@@ -214,6 +220,9 @@
 		<Unit filename="src/Matrix4.cpp">
 			<Option virtualFolder="Types/Matrix/" />
 		</Unit>
+		<Unit filename="src/MatteMaterial.cpp">
+			<Option virtualFolder="BRDF/Material/" />
+		</Unit>
 		<Unit filename="src/Mesh.cpp">
 			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
@@ -225,6 +234,9 @@
 		</Unit>
 		<Unit filename="src/PerspectiveCamera.cpp">
 			<Option virtualFolder="Camera/" />
+		</Unit>
+		<Unit filename="src/PhongMaterial.cpp">
+			<Option virtualFolder="BRDF/Material/" />
 		</Unit>
 		<Unit filename="src/Plane.cpp">
 			<Option virtualFolder="Ray/Raycastable/" />

@@ -13,6 +13,9 @@ public:
     }
     virtual ~IMaterial();
     Colour m_colour;
+
+/////////////////////////////////////////////////////////
+
 };
 
 #endif // IMATERIAL_H

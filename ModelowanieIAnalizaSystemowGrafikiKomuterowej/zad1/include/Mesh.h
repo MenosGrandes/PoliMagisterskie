@@ -26,7 +26,7 @@ public:
                 {
                     distance=t2;
                     isHit=true;
-                   m_material=a->getMaterial();
+                    m_material=a->getMaterial();
                 }
 
             }

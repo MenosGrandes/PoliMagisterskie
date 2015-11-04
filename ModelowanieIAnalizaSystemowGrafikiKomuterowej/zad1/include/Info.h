@@ -1,14 +1,13 @@
 #ifndef INFO_H
 #define INFO_H
 #include "Ray.h"
-
-class IRaycastable;
+#include "IMaterial.h"
 class Info
 {
 public:
     Info(Vector3Bf normal,Vector3Bf hitPoint,d_type::BBool hit);
     virtual ~Info();
-    IRaycastable* m_obj;
+    IMaterial* m_material;
     Vector3Bf m_normal,m_hitPoint,m_localHitPoint,m_dir;
     d_type::BBool m_hit;
     Ray ray;

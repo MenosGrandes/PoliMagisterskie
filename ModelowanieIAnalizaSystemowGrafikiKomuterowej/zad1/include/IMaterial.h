@@ -6,14 +6,9 @@ class Info;
 class IMaterial
 {
 public:
-    IMaterial(Colour c):m_colour(c){ }
-    IMaterial():m_colour(Colour::White){}
-    void setColor(Colour c)
-    {
-        m_colour=c;
-    }
-    virtual ~IMaterial();
-    Colour m_colour;
+
+IMaterial(){}
+~IMaterial();
 
 /////////////////////////////////////////////////////////
 virtual Colour shade(Info&info);

@@ -1,6 +1,6 @@
 #include "Sphere.h"
 
-Sphere::Sphere(Vector3Bf center, d_type::Bfloat radius):m_center(center),m_radius(radius),IRaycastable()
+Sphere::Sphere(Vector3Bf center, d_type::Bfloat radius):IRaycastable(),m_center(center),m_radius(radius)
 {
     m_sqRadius=m_radius*m_radius;
 }

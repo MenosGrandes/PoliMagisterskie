@@ -23,9 +23,9 @@ public:
     }
     virtual Colour shade(Info&info)
     {
-        Vector3Bf wo= info.ray.getDirection();
+        Vector3Bf wo= -info.ray.getDirection();
         Colour L=m_ambient->rho(info,wo)*info.m_rayTracer->getAmbientLight()->L(info);
-        std::vector<ILight*> lights = info.m_rayTracer->getLights();
+        const std::vector<ILight*> &lights = info.m_rayTracer->getLights();
         d_type::Buint lightSize= lights.size();
 
         for(d_type::Bsize i=0; i<lightSize; ++i)

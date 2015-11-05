@@ -163,10 +163,10 @@ void RenderTarget::drawToFile(std::string m_filename)
     for (d_type::Bint i=0; i<getSizePixels() ; i++)
     {
 //        std::cout<<(int)m_pixels[i].b <<" "<<(int)m_pixels[i].g<<" "<<(int)m_pixels[i].r<<" "<<(int)m_pixels[i].a<<"\n";
-        o.put(m_pixels[i].b);
-        o.put(m_pixels[i].g);
-        o.put(m_pixels[i].r);
-        o.put(m_pixels[i].a);
+        o.put(m_pixels[i].b*255);
+        o.put(m_pixels[i].g*255);
+        o.put(m_pixels[i].r*255);
+        o.put(m_pixels[i].a*255);
     }
 
     //close the file

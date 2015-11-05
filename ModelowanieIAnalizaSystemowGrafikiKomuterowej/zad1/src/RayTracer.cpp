@@ -1,12 +1,12 @@
 #include "RayTracer.h"
 
 RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target,Sampler *sampler)
-    :m_camera(camera),m_renderTanger(m_target),m_sampler(sampler),m_ambientLight(new Ambient(1,Colour::Black))
+    :m_camera(camera),m_renderTanger(m_target),m_sampler(sampler),m_ambientLight(new Ambient())
 {
 
 }
 RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target)
-    :m_camera(camera),m_renderTanger(m_target),m_ambientLight(new Ambient(1,Colour::Black))
+    :m_camera(camera),m_renderTanger(m_target),m_ambientLight(new Ambient())
 {
 
 }
@@ -39,15 +39,8 @@ void RayTracer::rayTrace()
         for(Bint y=0; y<m_renderTanger->getSize().y; y++)
         {
             finalColour=Colour::Black;
-//#define ADAPTIVE_AA
-#ifdef ENABLE_AA
-            {
 
-#ifdef ADAPTIVE_AA
-                for(d_type::Bint i=0; i<m_; i++)
-                {
-                }
-#else
+
                 for(d_type::Bint i=0; i<m_sampler->getSampleCount(); i++)
                 {
                     Vector2Bf sample = m_sampler->single();
@@ -58,25 +51,11 @@ void RayTracer::rayTrace()
 
                     ray=m_camera->recalculateRay(picCoord);
 
-                    finalColour+=shadeRay(ray)/(d_type::Bfloat)m_sampler->getSampleCount();
+                    finalColour+=(shadeRay(ray));///m_sampler->getSampleCount();
+
                 }
-#endif // ADAPTIVE_AA
-            }
-#else ENABLE_AA
-
-            {
-
-                Vector2Bf picCoord(
-                    ((x+0.5f) / m_renderTanger->getSize().x)*2 -1,
-                    ((y+0.5f) / m_renderTanger->getSize().y)*2 -1
-                );
-
-                ray=m_camera->recalculateRay(picCoord);
-
-                finalColour=shadeRay(ray);
-            }
-#endif // ENABLE_AA
-            m_renderTanger->setPixel(Colour::clampColour(finalColour),x,y);
+                //finalColour/=m_sampler->getSampleCount();
+            m_renderTanger->setPixel(Colour::maxToOne(finalColour),x,y);
 
         }
 
@@ -95,22 +74,11 @@ Colour RayTracer::shadeRay(const Ray&ray)
     }
     Colour finalColor = Colour::Black;
     IMaterial * material= info.m_material;
-#ifdef ENABLE_LIGHT
-    {
 
     info.ray=ray;
-    finalColor=info.m_material->shade(info);
+    return material->shade(info);
 
-    }
-#else
 
-    {
-        finalColor =(material)->m_colour;
-
-    }
-#endif
-
-    return finalColor;
 }
 
 Info RayTracer::traceRay(const Ray&ray)

@@ -109,14 +109,14 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
 
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(53,-37.474,0),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,0,30),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
                                            2,
                                            Vector2Bf(1,1));
 
 
-    Sampler * s= new Sampler(new SquareSampleDistributor(),new MultiJitteringSampleGenerator(),9,1);
+    Sampler * s= new Sampler(new SquareSampleDistributor(),new MultiJitteringSampleGenerator(),16,1);
     RayTracer *rt = new RayTracer(persp,file,s);
 
 
@@ -130,7 +130,6 @@ int main(int argc, char **argv)
     rt->addObject(new Sphere(Vector3Bf(-7.f,0,0) , 2,pd1));
     rt->addObject(new Sphere(Vector3Bf( 9,0,0)  , 2,pd2));
     rt->addObject(new Sphere(Vector3Bf(0,0,-5)  , 2,pd3));
-    rt->addObject(new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0),pd4));
 
 
     Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
@@ -138,30 +137,40 @@ int main(int argc, char **argv)
     rt->addObject(m);
 #endif // V1
 #ifdef V2
+
+    MatteMaterial* mat2=new MatteMaterial();
+    mat2->setKa(0.25f);
+    mat2->setKd(0.65f);
+    mat2->setCd(Colour::Green);
+
+IRaycastable * plane= new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
+plane->setMaterial(mat2);
+    rt->addObject(plane);
+
     MatteMaterial* mat=new MatteMaterial();
     mat->setKa(0.25f);
-    mat->setKd(0.25f);
-    mat->setCd(Colour::Black);
-    IRaycastable *sphere=new Sphere(Vector3Bf(7,0,0)  , 5);
+    mat->setKd(0.95f);
+    mat->setCd(Colour::Red);
+    IRaycastable *sphere=new Sphere(Vector3Bf(0,0,0)  , 2);
     sphere->setMaterial(mat);
 
-    IRaycastable *sphere2=new Sphere(Vector3Bf(-1,0,0)  , 5);
-    sphere2->setMaterial(mat);
 
-    IRaycastable *sphere3=new Sphere(Vector3Bf(0,0,3)  , 5);
-    sphere3->setMaterial(mat);
 
-    rt->addObject(sphere3);
-    rt->addObject(sphere2);
     rt->addObject(sphere);
 
-//    Mesh * m =FileLoader::loadMesh(("models/EX1.obj"));
-//    rt->addObject(m);
-    PointLight * light= new PointLight();
-    light->m_location=Vector3Bf(0,10,0);
-    light->m_ls=3.0f;
 
-    rt->addLight(light);
+//    Mesh * m =FileLoader::loadMesh(("models/EX1.obj"));
+//    MatteMaterial * meshMat = new MatteMaterial();
+//    meshMat->setKa(0.25f);
+//    meshMat->setKd(0.45f);
+//    meshMat->setCd(Colour::Blue);
+//    m->setMaterial(meshMat);
+//    rt->addObject(m);
+        PointLight * light= new PointLight();
+        light->m_location=Vector3Bf(0,10,10);
+        light->m_ls=3.00f;
+        light->m_colour=Colour::Red;
+        rt->addLight(light);
 #endif // V2
 
 

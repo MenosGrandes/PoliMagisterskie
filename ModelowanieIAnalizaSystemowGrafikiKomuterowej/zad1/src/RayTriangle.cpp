@@ -8,7 +8,7 @@ RayTriangle::~RayTriangle()
 RayTriangle::RayTriangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 {
     m_vertex.x=(a),m_vertex.y=(b),m_vertex.z=(c);
-    m_material=new IMaterial(Colour::Yellow);
+
 }
 
 Vertex3Bf RayTriangle::getVertex1() const

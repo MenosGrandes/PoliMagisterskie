@@ -20,7 +20,7 @@ public:
     void addLight(ILight * light);
     void rayTrace();
 
-    Ambient* getAmbientLight()
+    ILight* getAmbientLight()
     {
         return m_ambientLight;
     }
@@ -41,7 +41,7 @@ private:
     ICamera *m_camera;
     RenderTarget *m_renderTanger;
     Sampler * m_sampler;
-    Ambient * m_ambientLight;
+    ILight * m_ambientLight;
 
 };
 

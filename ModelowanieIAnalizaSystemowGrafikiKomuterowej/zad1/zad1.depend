@@ -9,7 +9,7 @@
 1445931142 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector2.h
 	"structs.hpp"
 
-1446631733 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\structs.hpp
+1446716076 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\structs.hpp
 	<limits>
 	<algorithm>
 	<cmath>
@@ -46,19 +46,19 @@
 1446633182 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ilight.cpp
 	"ILight.h"
 
-1446634298 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ilight.h
+1446715408 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ilight.h
 	"Vector3.h"
 	"Colour.h"
 	"Info.h"
 	<vector>
 
-1446636078 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\imaterial.cpp
+1446711643 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\imaterial.cpp
 	"IMaterial.h"
 
-1446650238 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\imaterial.h
+1446715633 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\imaterial.h
 	"Colour.h"
 
-1446634226 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\pointlight.h
+1446709930 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\pointlight.h
 	"ILight.h"
 
 1445931142 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\isampledistributor.cpp
@@ -136,7 +136,7 @@
 	"Info.h"
 	"IMaterial.h"
 
-1446634069 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\pointlight.cpp
+1446709599 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\pointlight.cpp
 	"PointLight.h"
 
 1446288776 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\randomsamplegenerator.cpp
@@ -149,17 +149,17 @@
 1445931142 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ray.cpp
 	"Ray.h"
 
-1446639027 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytracer.cpp
+1446714462 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytracer.cpp
 	"RayTracer.h"
 
-1446634316 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raytracer.h
-	"Raycastable.h"
+1446712185 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raytracer.h
 	"Camera.h"
 	"RenderTarget.h"
 	"Sampler.h"
 	"Info.h"
-	"ILight.h"
 	<limits>
+	"Ambient.h"
+	"Raycastable.h"
 
 1446482431 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\rendertarget.h
 	"Triangle.h"
@@ -202,7 +202,7 @@
 1446631406 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sampler.cpp
 	"Sampler.h"
 
-1446638838 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sphere.cpp
+1446714884 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sphere.cpp
 	"Sphere.h"
 
 1446634928 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\sphere.h
@@ -227,7 +227,7 @@
 	"Triangle.h"
 	"Camera.h"
 
-1446639188 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
+1446714945 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
 	"Matrix4.h"
 	"Vertex2.h"
 	<cstdio>
@@ -257,6 +257,8 @@
 	"RayTriangle.h"
 	"FileLoader.h"
 	"MultiJitteringSampleGenerator.h"
+	"PointLight.h"
+	"MatteMaterial.h"
 
 1445931142 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vertex2.h
 	"Vector2.h"
@@ -634,38 +636,40 @@
 	<string>
 	<vector>
 
-1446665140 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\info.h
+1446712574 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\info.h
 	"Ray.h"
 	"IMaterial.h"
 
 1446630078 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\brdf.cpp
 	"BRDF.h"
 
-1446631406 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\brdf.h
+1446715188 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\brdf.h
 	"Sampler.h"
 	"Colour.h"
 	"Info.h"
 
-1446635108 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\info.cpp
+1446711746 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\info.cpp
 	"Info.h"
 
-1446631822 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\lambertian.cpp
+1446715343 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\lambertian.cpp
 	"Lambertian.h"
 
-1446631643 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\lambertian.h
+1446710847 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\lambertian.h
 	"BRDF.h"
 
 1446633363 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ambient.cpp
 	"Ambient.h"
 
-1446633403 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ambient.h
+1446714988 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ambient.h
 	"ILight.h"
 
-1446648549 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\mattematerial.cpp
+1446711721 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\mattematerial.cpp
 	"MatteMaterial.h"
 
-1446648587 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\mattematerial.h
+1446714109 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\mattematerial.h
 	"IMaterial.h"
+	"Lambertian.h"
+	"RayTracer.h"
 
 1446648562 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\phongmaterial.cpp
 	"PhongMaterial.h"

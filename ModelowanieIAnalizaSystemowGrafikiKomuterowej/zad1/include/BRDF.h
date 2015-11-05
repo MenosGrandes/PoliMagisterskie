@@ -9,11 +9,11 @@ public:
     BRDF();
     virtual ~BRDF();
     //RETURN BRDF ITSELF
-    virtual Colour f(const Info& info,const Vector3Bf &wi,const Vector3Bf &wo) const =0;
+    virtual Colour f(const Info& info,const Vector3Bf &wi,const Vector3Bf &wo) const {return Colour::Black;}
     ///COMPUTE THE DIRECTIONAL OR REFLECTED RAYS FOR SIMULATING REFLECTIVE MATERIALS AND DIFFUSE-DIFFUSE LIGHT TRANSPORT
-    virtual Colour sample_f(const Info& info, Vector3Bf &wi,const Vector3Bf &wo) const=0;
+    virtual Colour sample_f(const Info& info, Vector3Bf &wi,const Vector3Bf &wo) const{return Colour::Black;}
     ///RETURN BISFERICAL REFLECTIONS
-    virtual Colour rho(const Info& info,const Vector3Bf &wo) const =0;
+    virtual Colour rho(const Info& info,const Vector3Bf &wo) const {return Colour::Black;}
 
 protected:
     Sampler* m_sampler;

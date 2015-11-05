@@ -37,6 +37,9 @@ using namespace d_type;
 #include "RayTriangle.h"
 #include "FileLoader.h"
 #include "MultiJitteringSampleGenerator.h"
+#include "PointLight.h"
+#include "MatteMaterial.h"
+
 #else
 
 #endif // FOTO
@@ -135,11 +138,30 @@ int main(int argc, char **argv)
     rt->addObject(m);
 #endif // V1
 #ifdef V2
+    MatteMaterial* mat=new MatteMaterial();
+    mat->setKa(0.25f);
+    mat->setKd(0.25f);
+    mat->setCd(Colour::Black);
     IRaycastable *sphere=new Sphere(Vector3Bf(7,0,0)  , 5);
-    sphere->setMaterial(new IMaterial(Colour::Blue));
+    sphere->setMaterial(mat);
+
+    IRaycastable *sphere2=new Sphere(Vector3Bf(-1,0,0)  , 5);
+    sphere2->setMaterial(mat);
+
+    IRaycastable *sphere3=new Sphere(Vector3Bf(0,0,3)  , 5);
+    sphere3->setMaterial(mat);
+
+    rt->addObject(sphere3);
+    rt->addObject(sphere2);
     rt->addObject(sphere);
-    Mesh * m =FileLoader::loadMesh(("models/EX1.obj"));
-    rt->addObject(m);
+
+//    Mesh * m =FileLoader::loadMesh(("models/EX1.obj"));
+//    rt->addObject(m);
+    PointLight * light= new PointLight();
+    light->m_location=Vector3Bf(0,10,0);
+    light->m_ls=3.0f;
+
+    rt->addLight(light);
 #endif // V2
 
 

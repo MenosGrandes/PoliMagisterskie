@@ -120,6 +120,9 @@
 		<Unit filename="include/Plane.h">
 			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
+		<Unit filename="include/PointLight.h">
+			<Option virtualFolder="BRDF/Light/" />
+		</Unit>
 		<Unit filename="include/RandomSampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
 		</Unit>
@@ -240,6 +243,9 @@
 		</Unit>
 		<Unit filename="src/Plane.cpp">
 			<Option virtualFolder="Ray/Raycastable/" />
+		</Unit>
+		<Unit filename="src/PointLight.cpp">
+			<Option virtualFolder="BRDF/Light/" />
 		</Unit>
 		<Unit filename="src/RandomSampleGenerator.cpp">
 			<Option virtualFolder="Antyalising/Generator/" />

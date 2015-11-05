@@ -6,7 +6,12 @@ class Ambient : public ILight
 {
     public:
         Ambient():ILight(),m_ls(0),m_colour(Colour::White){}
-        virtual ~Ambient();
+        Ambient(d_type::Bfloat ls,Colour c):ILight(),m_ls(ls),m_colour(c){}
+
+        ~Ambient()
+        {
+
+        }
          Vector3Bf getDirection(Info &info)
          {
              return Vector3Bf(0,0,0);

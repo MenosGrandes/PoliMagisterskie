@@ -1,12 +1,17 @@
 #include "RayTracer.h"
 
 RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target,Sampler *sampler)
-    :m_camera(camera),m_renderTanger(m_target),m_sampler(sampler)
+    :m_camera(camera),m_renderTanger(m_target),m_sampler(sampler),m_ambientLight(new Ambient(1,Colour::Black))
 {
 
 }
 RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target)
-    :m_camera(camera),m_renderTanger(m_target)
+    :m_camera(camera),m_renderTanger(m_target),m_ambientLight(new Ambient(1,Colour::Black))
+{
+
+}
+RayTracer::RayTracer(ICamera* camera, RenderTarget* m_target, Sampler* sampler, Ambient* ambient)
+:m_camera(camera),m_renderTanger(m_target),m_ambientLight(ambient)
 {
 
 }
@@ -93,11 +98,9 @@ Colour RayTracer::shadeRay(const Ray&ray)
 #ifdef ENABLE_LIGHT
     {
 
+    info.ray=ray;
+    finalColor=info.m_material->shade(info);
 
-        for(d_type::Bsize i =0; i<m_pLightsVector.size(); i++)
-        {
-            finalColor=material->radiance(m_pLightsVector[i],info.hitPoint,info.normal)+finalColor;
-        }
     }
 #else
 
@@ -117,7 +120,7 @@ Info RayTracer::traceRay(const Ray&ray)
     Vector3Bf localHitPoint=Vector3Bf(0,0,0);
     Vector3Bf normal=Vector3Bf(0,0,0);
 
-    Info info(Vector3Bf(0,0,0),Vector3Bf(0,0,0),false);
+    Info info(Vector3Bf(0,0,0),Vector3Bf(0,0,0),false,(this));
 
 
 

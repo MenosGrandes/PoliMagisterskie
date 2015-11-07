@@ -28,6 +28,10 @@ public:
     {
         return m_lightsVector;
     }
+    void setAmbientLight(Ambient* am)
+    {
+        this->m_ambientLight=am;
+    }
 
 private:
 

@@ -51,10 +51,10 @@ void RayTracer::rayTrace()
 
                     ray=m_camera->recalculateRay(picCoord);
 
-                    finalColour+=(shadeRay(ray));///m_sampler->getSampleCount();
+                    finalColour+=shadeRay(ray);///m_sampler->getSampleCount();
 
                 }
-                //finalColour/=m_sampler->getSampleCount();
+            finalColour/=m_sampler->getSampleCount();
             m_renderTanger->setPixel(Colour::maxToOne(finalColour),x,y);
 
         }
@@ -72,12 +72,9 @@ Colour RayTracer::shadeRay(const Ray&ray)
     {
         return Colour::RoyalBlue;
     }
-    Colour finalColor = Colour::Black;
-    IMaterial * material= info.m_material;
 
     info.ray=ray;
-    return material->shade(info);
-
+    return info.m_material->shade(info);
 
 }
 

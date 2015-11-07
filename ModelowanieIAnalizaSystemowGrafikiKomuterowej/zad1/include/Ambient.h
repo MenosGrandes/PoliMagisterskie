@@ -5,7 +5,7 @@
 class Ambient : public ILight
 {
     public:
-        Ambient():ILight(),m_ls(1),m_colour(Colour::White){}
+        Ambient():ILight(),m_ls(1.0f),m_colour(Colour::White){}
         Ambient(d_type::Bfloat ls,Colour c):ILight(),m_ls(ls),m_colour(c){}
 
         ~Ambient()

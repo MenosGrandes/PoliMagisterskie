@@ -11,6 +11,9 @@ MultiJitteringSampleGenerator::~MultiJitteringSampleGenerator()
 }
 void MultiJitteringSampleGenerator::generateSamples(d_type::Bsize count)
 {
+
+    assert((count%2==0 && count>2)&& "Number of samples must be 2^x and greater than 2!");
+
     std::mt19937 re(rd());
     std::uniform_real_distribution<d_type::Bfloat> ui(0, 1);
 

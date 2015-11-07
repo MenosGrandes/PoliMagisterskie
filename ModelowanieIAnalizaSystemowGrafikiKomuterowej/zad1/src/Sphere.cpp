@@ -77,6 +77,9 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) const
 #ifdef M_INTER
 
 
+
+
+
     d_type::Bfloat t;
 
     FastSqrt sqrtf;
@@ -99,16 +102,20 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) const
     if(t<F_EPSILON)
     {
         t=(-b+sqrtf.sqrt7(delta))/(2*a);
-         if(t<F_EPSILON)
-        {
-        return false;
-        }
 
+    }
+    if(t<F_EPSILON)
+    {
+        return false;
     }
 
 
-    info.m_localHitPoint=(ray.getOrigin()+(ray.getDirection()*t));
-    info.m_normal=(oc+t*direction)/(d_type::Bfloat)m_radius;
+
+
+
+        info.m_localHitPoint=(ray.getOrigin()+(ray.getDirection()*t));
+    info.m_normal=info.m_localHitPoint-m_center;
+    Vector3Bf::normalize(info.m_normal);
     distance=t;
     return true;
 

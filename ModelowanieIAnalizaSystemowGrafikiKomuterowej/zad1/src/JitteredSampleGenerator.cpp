@@ -12,6 +12,11 @@ JitteredSampleGenerator::~JitteredSampleGenerator()
 void JitteredSampleGenerator::generateSamples(d_type::Bsize count)
 {
 
+if(count%2!=0)
+{
+    assert(count%2!=0 && "Number of samples must be 2^x");
+}
+
     std::mt19937 re(rd());
     std::uniform_real_distribution<d_type::Bfloat> ui(0, 1);
     FastSqrt a;

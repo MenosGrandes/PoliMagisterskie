@@ -40,7 +40,7 @@ public :
 };
 inline std::ostream& operator<< (std::ostream& stream, const Colour& v)
 {
-    stream<<"COLOUR :"<<(d_type::Bint)v.r<<" "<<(d_type::Bint)v.g<<" "<<(d_type::Bint)v.b<<"\n";
+    stream<<"COLOUR :"<<(d_type::Bfloat)v.r<<" "<<(d_type::Bfloat)v.g<<" "<<(d_type::Bfloat)v.b<<"\n";
 
     return stream;
 }
@@ -72,18 +72,14 @@ inline Colour operator *( const Colour& left,const  Colour &right)
 template <typename T>
 inline Colour operator /( const Colour& left,const  T right)
 {
-    Colour c=left;
-    c.r=c.r*(1/right);
-    c.g=c.g*(1/right);
-    c.b=c.b*(1/right);
-    return c;
+
+    return (Colour (left.r / right, left.g / right, left.b / right,1));
 }
 template <typename T>
 inline void operator /=(  Colour& left,const  T right)
 {
-    left.r=left.r*(1/right);
-    left.g=left.g*(1/right);
-    left.b=left.b*(1/right);
+     left= Colour(left.r / right, left.g / right, left.b / right,1);
+
 
 }
 inline Colour operator +=(Colour& left, const Colour& right)

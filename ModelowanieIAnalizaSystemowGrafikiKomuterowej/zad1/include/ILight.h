@@ -10,7 +10,7 @@ class ILight
         ILight();
         virtual ~ILight();
         virtual Vector3Bf getDirection(Info &info) =0;
-        virtual Colour L(Info &info) =0;
+        virtual Colour L(Info &info) {return Colour::Black;}
     protected:
     d_type::BBool m_shadows;
 };

@@ -101,7 +101,7 @@ int main(int argc, char **argv)
 #endif // ZAD1
 #ifdef DRAWRAY
 
-    Vector2Bs img_size=Vector2Bs(600,600);
+    Vector2Bs img_size=Vector2Bs(300,300);
 
 
     RenderTarget *file = new RenderTarget(img_size);
@@ -112,34 +112,18 @@ int main(int argc, char **argv)
     ICamera *persp = new PerspectiveCamera(Vector3Bf(0,0,30),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
-                                           2,
+                                           3,
                                            Vector2Bf(1,1));
 
 
-    Sampler * s= new Sampler(new SquareSampleDistributor(),new MultiJitteringSampleGenerator(),16,1);
+    Sampler * s= new Sampler(new SquareSampleDistributor(),new MultiJitteringSampleGenerator(),4,1);
     RayTracer *rt = new RayTracer(persp,file,s);
 
 
 
-//    PerfectDifuse * pd1=new PerfectDifuse(Colour::Red);
-//    PerfectDifuse * pd2=new PerfectDifuse(Colour::Green);
-//    PerfectDifuse * pd3=new PerfectDifuse(Colour::Blue);
-//    PerfectDifuse * pd4=new PerfectDifuse(Colour::Gray);
-#define V2
-#ifdef V1
-    rt->addObject(new Sphere(Vector3Bf(-7.f,0,0) , 2,pd1));
-    rt->addObject(new Sphere(Vector3Bf( 9,0,0)  , 2,pd2));
-    rt->addObject(new Sphere(Vector3Bf(0,0,-5)  , 2,pd3));
-
-
-    Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
-
-    rt->addObject(m);
-#endif // V1
-#ifdef V2
 
     MatteMaterial* mat2=new MatteMaterial();
-    mat2->setKa(0.25f);
+    mat2->setKa(0.6);
     mat2->setKd(0.65f);
     mat2->setCd(Colour::Green);
 
@@ -150,14 +134,29 @@ plane->setMaterial(mat2);
     MatteMaterial* mat=new MatteMaterial();
     mat->setKa(0.25f);
     mat->setKd(0.95f);
-    mat->setCd(Colour::Red);
+    mat->setCd(Colour::Yellow);
     IRaycastable *sphere=new Sphere(Vector3Bf(0,0,0)  , 2);
     sphere->setMaterial(mat);
-
-
-
     rt->addObject(sphere);
-
+//
+//
+//    MatteMaterial* mat3=new MatteMaterial();
+//    mat3->setKa(0.25f);
+//    mat3->setKd(0.95f);
+//    mat3->setCd(Colour::Blue);
+//    IRaycastable *sphere2=new Sphere(Vector3Bf(-7,0,0)  , 2);
+//    sphere2->setMaterial(mat3);
+//
+//    rt->addObject(sphere2);
+//
+//    MatteMaterial* mat4=new MatteMaterial();
+//    mat4->setKa(0.25f);
+//    mat4->setKd(0.95f);
+//    mat4->setCd(Colour::Green);
+//    IRaycastable *sphere3=new Sphere(Vector3Bf(2,0,3)  , 2);
+//    sphere3->setMaterial(mat4);
+//
+//    rt->addObject(sphere3);
 
 //    Mesh * m =FileLoader::loadMesh(("models/EX1.obj"));
 //    MatteMaterial * meshMat = new MatteMaterial();
@@ -166,12 +165,16 @@ plane->setMaterial(mat2);
 //    meshMat->setCd(Colour::Blue);
 //    m->setMaterial(meshMat);
 //    rt->addObject(m);
+
+    Ambient*ambient= new Ambient(1.f,Colour::White);
+    rt->setAmbientLight(ambient);
+
         PointLight * light= new PointLight();
-        light->m_location=Vector3Bf(0,10,10);
-        light->m_ls=3.00f;
-        light->m_colour=Colour::Red;
+        light->m_location=Vector3Bf(0,5,5);
+        light->m_ls=2.00f;
+        light->m_colour=Colour::White;
         rt->addLight(light);
-#endif // V2
+
 
 
 

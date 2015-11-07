@@ -3,6 +3,7 @@
 #include "Vector2.h"
 #include "../src/algorithms.hpp"
 #include <vector>
+#include <cassert>
 class ISampleGenerator
 {
 public:

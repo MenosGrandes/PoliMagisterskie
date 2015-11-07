@@ -27,10 +27,12 @@ public:
                     distance=t2;
                     isHit=true;
                     m_material=a->getMaterial();
+
                 }
 
             }
         }
+
 
         return isHit;
     };

@@ -60,7 +60,6 @@ bool RayTriangle::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) 
 
         info.m_normal=m_vertex.x.m_normal;
         info.m_localHitPoint=ray.getOrigin()+distance*ray.getDirection();
-
     return true;
 
 

@@ -26,13 +26,13 @@ public:
         Vector3Bf wo= -info.ray.getDirection();
         Colour L=m_ambient->rho(info,wo)*info.m_rayTracer->getAmbientLight()->L(info);
         const std::vector<ILight*> &lights = info.m_rayTracer->getLights();
-        d_type::Buint lightSize= lights.size();
+        const d_type::Buint lightSize= lights.size();
 
         for(d_type::Bsize i=0; i<lightSize; ++i)
         {
             Vector3Bf wi = lights[i]->getDirection(info);
             d_type::Bfloat ndotwi=Vector3Bf::dotProduct(info.m_normal,wi);
-            if(ndotwi > 0)
+            if(ndotwi > 0.0)
             {
                 L+=m_diffuse->f(info,wo,wi)*lights[i]->L(info)*ndotwi;
             }

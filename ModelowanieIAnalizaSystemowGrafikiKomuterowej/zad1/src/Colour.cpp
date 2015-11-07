@@ -20,11 +20,13 @@ Colour Colour::randomColor()
 
 Colour Colour::clampColour(Colour c)
 {
-if(c.r>1 || c.g>1 || c.b>1)
-{
-    c.r=1;c.g=0;c.b=0;
-}
-return c;
+    if(c.r>1 || c.g>1 || c.b>1)
+    {
+        c.r=1;
+        c.g=0;
+        c.b=0;
+    }
+    return c;
 }
 Colour Colour::maxToOne(Colour c)
 {

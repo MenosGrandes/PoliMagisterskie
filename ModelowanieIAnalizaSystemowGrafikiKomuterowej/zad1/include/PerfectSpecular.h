@@ -1,18 +1,17 @@
-#ifndef LAMBERTIAN_H
-#define LAMBERTIAN_H
+#ifndef PERFECTSPECULAR_H
+#define PERFECTSPECULAR_H
 #include "BRDF.h"
 
-class Lambertian : public BRDF
+class PerfectSpecular : public BRDF
 {
 public:
-    Lambertian();
-    virtual ~Lambertian();
+    PerfectSpecular();
+    virtual ~PerfectSpecular();
     virtual Colour f(const Info& info,const Vector3Bf &wi,const Vector3Bf &wo) const ;
     virtual Colour sample_f(const Info& info, Vector3Bf &wi,const Vector3Bf &wo) const;
     virtual Colour rho(const Info& info,const Vector3Bf &wo) const ;
-
-    d_type::Bfloat kd;
-    Colour cd;
+protected:
+private:
 };
 
-#endif // LAMBERTIAN_H
+#endif // PERFECTSPECULAR_H

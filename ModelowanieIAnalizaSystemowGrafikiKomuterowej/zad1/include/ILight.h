@@ -6,12 +6,15 @@
 #include <vector>
 class ILight
 {
-    public:
-        ILight();
-        virtual ~ILight();
-        virtual Vector3Bf getDirection(Info &info) =0;
-        virtual Colour L(Info &info) {return Colour::Black;}
-    protected:
+public:
+    ILight();
+    virtual ~ILight();
+    virtual Vector3Bf getDirection(Info &info) =0;
+    virtual Colour L(Info &info)
+    {
+        return Colour::Black;
+    }
+protected:
     d_type::BBool m_shadows;
 };
 typedef std::vector<ILight*> LightsVector;

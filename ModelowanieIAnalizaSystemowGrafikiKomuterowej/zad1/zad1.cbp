@@ -5,7 +5,7 @@
 		<Option title="zad1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Camera\;Ray\;RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Ray\Raycastable\;Triangle\;Antyalising\;Antyalising\Generator\;Antyalising\Distributor\;BRDF\;BRDF\Light\;BRDF\Material\;" />
+		<Option virtualFolders="Camera\;Ray\;RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Ray\Raycastable\;Triangle\;Antyalising\;Antyalising\Generator\;Antyalising\Distributor\;BRDF\;BRDF\Light\;BRDF\Material\;BRDF\Reflections\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/zad1" prefix_auto="1" extension_auto="1" />
@@ -75,6 +75,9 @@
 		<Unit filename="include/FileLoader.h">
 			<Option virtualFolder="Types/" />
 		</Unit>
+		<Unit filename="include/GlossySpecular.h">
+			<Option virtualFolder="BRDF/Reflections/" />
+		</Unit>
 		<Unit filename="include/ILight.h">
 			<Option virtualFolder="BRDF/Light/" />
 		</Unit>
@@ -94,7 +97,7 @@
 			<Option virtualFolder="Antyalising/Generator/" />
 		</Unit>
 		<Unit filename="include/Lambertian.h">
-			<Option virtualFolder="BRDF/" />
+			<Option virtualFolder="BRDF/Reflections/" />
 		</Unit>
 		<Unit filename="include/Matrix4.h">
 			<Option virtualFolder="Types/Matrix/" />
@@ -110,6 +113,9 @@
 		</Unit>
 		<Unit filename="include/OrtagonalCamera.h">
 			<Option virtualFolder="Camera/" />
+		</Unit>
+		<Unit filename="include/PerfectSpecular.h">
+			<Option virtualFolder="BRDF/Reflections/" />
 		</Unit>
 		<Unit filename="include/PerspectiveCamera.h">
 			<Option virtualFolder="Camera/" />
@@ -202,6 +208,9 @@
 		<Unit filename="src/FileLoader.cpp">
 			<Option virtualFolder="Types/" />
 		</Unit>
+		<Unit filename="src/GlossySpecular.cpp">
+			<Option virtualFolder="BRDF/Reflections/" />
+		</Unit>
 		<Unit filename="src/ILight.cpp">
 			<Option virtualFolder="BRDF/Light/" />
 		</Unit>
@@ -218,7 +227,7 @@
 			<Option virtualFolder="Antyalising/Generator/" />
 		</Unit>
 		<Unit filename="src/Lambertian.cpp">
-			<Option virtualFolder="BRDF/" />
+			<Option virtualFolder="BRDF/Reflections/" />
 		</Unit>
 		<Unit filename="src/Matrix4.cpp">
 			<Option virtualFolder="Types/Matrix/" />
@@ -234,6 +243,9 @@
 		</Unit>
 		<Unit filename="src/OrtagonalCamera.cpp">
 			<Option virtualFolder="Camera/" />
+		</Unit>
+		<Unit filename="src/PerfectSpecular.cpp">
+			<Option virtualFolder="BRDF/Reflections/" />
 		</Unit>
 		<Unit filename="src/PerspectiveCamera.cpp">
 			<Option virtualFolder="Camera/" />

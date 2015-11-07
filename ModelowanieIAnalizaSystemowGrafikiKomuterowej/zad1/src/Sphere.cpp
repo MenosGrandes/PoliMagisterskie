@@ -113,7 +113,7 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) const
 
 
 
-        info.m_localHitPoint=(ray.getOrigin()+(ray.getDirection()*t));
+    info.m_localHitPoint=(ray.getOrigin()+(ray.getDirection()*t));
     info.m_normal=info.m_localHitPoint-m_center;
     Vector3Bf::normalize(info.m_normal);
     distance=t;

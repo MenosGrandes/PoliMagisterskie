@@ -78,7 +78,7 @@ inline Colour operator /( const Colour& left,const  T right)
 template <typename T>
 inline void operator /=(  Colour& left,const  T right)
 {
-     left= Colour(left.r / right, left.g / right, left.b / right,1);
+    left= Colour(left.r / right, left.g / right, left.b / right,1);
 
 
 }

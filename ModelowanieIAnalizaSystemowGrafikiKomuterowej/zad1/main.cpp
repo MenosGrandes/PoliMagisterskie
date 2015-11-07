@@ -39,6 +39,7 @@ using namespace d_type;
 #include "MultiJitteringSampleGenerator.h"
 #include "PointLight.h"
 #include "MatteMaterial.h"
+#include "PhongMaterial.h"
 
 #else
 
@@ -101,7 +102,7 @@ int main(int argc, char **argv)
 #endif // ZAD1
 #ifdef DRAWRAY
 
-    Vector2Bs img_size=Vector2Bs(300,300);
+    Vector2Bs img_size=Vector2Bs(800,800);
 
 
     RenderTarget *file = new RenderTarget(img_size);
@@ -123,18 +124,18 @@ int main(int argc, char **argv)
 
 
     MatteMaterial* mat2=new MatteMaterial();
-    mat2->setKa(0.6);
-    mat2->setKd(0.65f);
+    mat2->setKa(0.5);
+    mat2->setKd(0.15f);
     mat2->setCd(Colour::Green);
 
-IRaycastable * plane= new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
-plane->setMaterial(mat2);
+    IRaycastable * plane= new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
+    plane->setMaterial(mat2);
     rt->addObject(plane);
 
     MatteMaterial* mat=new MatteMaterial();
     mat->setKa(0.25f);
     mat->setKd(0.95f);
-    mat->setCd(Colour::Yellow);
+    mat->setCd(Colour::Red);
     IRaycastable *sphere=new Sphere(Vector3Bf(0,0,0)  , 2);
     sphere->setMaterial(mat);
     rt->addObject(sphere);
@@ -169,11 +170,11 @@ plane->setMaterial(mat2);
     Ambient*ambient= new Ambient(1.f,Colour::White);
     rt->setAmbientLight(ambient);
 
-        PointLight * light= new PointLight();
-        light->m_location=Vector3Bf(0,5,5);
-        light->m_ls=2.00f;
-        light->m_colour=Colour::White;
-        rt->addLight(light);
+    PointLight * light= new PointLight();
+    light->m_location=Vector3Bf(0,5,5);
+    light->m_ls=2.00f;
+    light->m_colour=Colour::White;
+    rt->addLight(light);
 
 
 

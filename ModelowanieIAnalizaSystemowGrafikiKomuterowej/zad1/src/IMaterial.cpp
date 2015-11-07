@@ -13,10 +13,10 @@ Colour IMaterial::shade(Info& info)
 
 Colour IMaterial::areaLightShade(Info& info)
 {
-   return Colour::Black;
+    return Colour::Black;
 }
 
 Colour IMaterial::pathShade(Info& info)
 {
-   return Colour::Black;
+    return Colour::Black;
 }

@@ -11,7 +11,7 @@ RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target)
 
 }
 RayTracer::RayTracer(ICamera* camera, RenderTarget* m_target, Sampler* sampler, Ambient* ambient)
-:m_camera(camera),m_renderTanger(m_target),m_ambientLight(ambient)
+    :m_camera(camera),m_renderTanger(m_target),m_ambientLight(ambient)
 {
 
 }
@@ -41,21 +41,21 @@ void RayTracer::rayTrace()
             finalColour=Colour::Black;
 
 
-                for(d_type::Bint i=0; i<m_sampler->getSampleCount(); i++)
-                {
-                    Vector2Bf sample = m_sampler->single();
-                    Vector2Bf picCoord(
-                        ((x+sample.x) / m_renderTanger->getSize().x)*2 -1,
-                        ((y+sample.y) / m_renderTanger->getSize().y)*2 -1
-                    );
+            for(d_type::Bint i=0; i<m_sampler->getSampleCount(); i++)
+            {
+                Vector2Bf sample = m_sampler->single();
+                Vector2Bf picCoord(
+                    ((x+sample.x) / m_renderTanger->getSize().x)*2 -1,
+                    ((y+sample.y) / m_renderTanger->getSize().y)*2 -1
+                );
 
-                    ray=m_camera->recalculateRay(picCoord);
+                ray=m_camera->recalculateRay(picCoord);
 
-                    finalColour+=shadeRay(ray);///m_sampler->getSampleCount();
+                finalColour+=shadeRay(ray);///m_sampler->getSampleCount();
 
-                }
+            }
             finalColour/=m_sampler->getSampleCount();
-            m_renderTanger->setPixel(Colour::maxToOne(finalColour),x,y);
+            m_renderTanger->setPixel(Colour::clampColour(finalColour),x,y);
 
         }
 

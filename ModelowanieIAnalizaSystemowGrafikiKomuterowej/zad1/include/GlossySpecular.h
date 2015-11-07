@@ -1,18 +1,18 @@
-#ifndef LAMBERTIAN_H
-#define LAMBERTIAN_H
+#ifndef GLOSSYSPECULAR_H
+#define GLOSSYSPECULAR_H
 #include "BRDF.h"
 
-class Lambertian : public BRDF
+class GlossySpecular : public BRDF
 {
 public:
-    Lambertian();
-    virtual ~Lambertian();
+    GlossySpecular();
+    virtual ~GlossySpecular();
     virtual Colour f(const Info& info,const Vector3Bf &wi,const Vector3Bf &wo) const ;
     virtual Colour sample_f(const Info& info, Vector3Bf &wi,const Vector3Bf &wo) const;
     virtual Colour rho(const Info& info,const Vector3Bf &wo) const ;
 
-    d_type::Bfloat kd;
-    Colour cd;
+    d_type::Bfloat m_ks,m_exp;
+    Colour m_cs;
 };
 
-#endif // LAMBERTIAN_H
+#endif // GLOSSYSPECULAR_H

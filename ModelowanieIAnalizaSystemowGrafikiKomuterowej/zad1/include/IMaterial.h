@@ -7,13 +7,13 @@ class IMaterial
 {
 public:
 
-IMaterial(){}
-~IMaterial();
+    IMaterial() {}
+    ~IMaterial();
 
 /////////////////////////////////////////////////////////
-virtual Colour shade(Info&info);
-virtual Colour areaLightShade(Info&info);
-virtual Colour pathShade(Info&info);
+    virtual Colour shade(Info&info);
+    virtual Colour areaLightShade(Info&info);
+    virtual Colour pathShade(Info&info);
 
 };
 

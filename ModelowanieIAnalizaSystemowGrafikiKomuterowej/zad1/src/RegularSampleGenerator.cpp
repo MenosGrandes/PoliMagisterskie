@@ -15,7 +15,7 @@ void RegularSampleGenerator::generateSamples(d_type::Bsize count)
     FastSqrt a;
     d_type::Buint rows= static_cast<d_type::Buint>(a.sqrt7(count));
 
-assert(count%2==0 && "Sample count must be 2^x!");
+    assert(count%2==0 && "Sample count must be 2^x!");
     for(d_type::Buint x=0; x<rows; x++)
     {
 

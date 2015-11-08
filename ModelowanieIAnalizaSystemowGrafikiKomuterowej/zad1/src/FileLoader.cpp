@@ -185,7 +185,7 @@ Mesh* FileLoader::loadOBJ(std::string filename)
                 RayTriangle *tri =new RayTriangle(vertices[0],vertices[1],vertices[2]);
                 MatteMaterial *mat=new MatteMaterial();
                 mat->setCd(Colour::randomColor());
-                mat->setKa(0.24f);
+                mat->setKa(0.64f);
                 mat->setKd(0.55f);
                 tri->setMaterial(mat);
                 mesh->m_triangles.push_back(tri);//,new PerfectDifuse(Colour::randomColor())));

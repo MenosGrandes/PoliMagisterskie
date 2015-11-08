@@ -17,6 +17,7 @@ public:
 protected:
 private:
     Vector3Vertex3Bf m_vertex;
+    Vector3Bf m_FaceNormal;
 };
 
 #endif // RAYTRIANGLE_H

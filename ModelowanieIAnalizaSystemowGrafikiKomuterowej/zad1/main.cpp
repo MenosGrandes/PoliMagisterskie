@@ -109,8 +109,8 @@ int main(int argc, char **argv)
     file->setCleanColour(Colour::Black);
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
-
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,0,30),
+    // X Z Y
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(30,30,30),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
                                            3,
@@ -128,7 +128,7 @@ int main(int argc, char **argv)
     mat2->setKd(0.15f);
     mat2->setCd(Colour::Green);
 
-    IRaycastable * plane= new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
+//    IRaycastable * plane= new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
 
 
     PhongMaterial* mat=new PhongMaterial();
@@ -140,11 +140,11 @@ int main(int argc, char **argv)
 
     mat->setExponent(10.f);
 
-    IRaycastable *sphere=new Sphere(Vector3Bf(0,3,0)  , 2);
-    sphere->setMaterial(mat);
-    rt->addObject(sphere);
-        plane->setMaterial(mat2);
-    rt->addObject(plane);
+//    IRaycastable *sphere=new Sphere(Vector3Bf(0,3,0)  , 2);
+//    sphere->setMaterial(mat);
+//    rt->addObject(sphere);
+//        plane->setMaterial(mat2);
+//    rt->addObject(plane);
 //
 //
 //    MatteMaterial* mat3=new MatteMaterial();
@@ -165,19 +165,15 @@ int main(int argc, char **argv)
 //
 //    rt->addObject(sphere3);
 
-//    Mesh * m =FileLoader::loadMesh(("models/EX1.obj"));
-//    MatteMaterial * meshMat = new MatteMaterial();
-//    meshMat->setKa(0.25f);
-//    meshMat->setKd(0.45f);
-//    meshMat->setCd(Colour::Blue);
-//    m->setMaterial(meshMat);
-//    rt->addObject(m);
+    Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
+
+    rt->addObject(m);
 
     Ambient*ambient= new Ambient(1.f,Colour::White);
     rt->setAmbientLight(ambient);
 
     PointLight * light= new PointLight();
-    light->m_location=Vector3Bf(0,15,5);
+    light->m_location=Vector3Bf(0,0,0);
     light->m_ls=1.00f;
     light->m_colour=Colour::White;
     rt->addLight(light);

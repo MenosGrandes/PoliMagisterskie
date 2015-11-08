@@ -10,16 +10,16 @@ public:
     virtual ~MatteMaterial();
     void setKa(const d_type::Bfloat k )
     {
-        m_ambient->kd=k;
+        m_ambient->m_kd=k;
     }
     void setKd(const d_type::Bfloat k )
     {
-        m_diffuse->kd=k;
+        m_diffuse->m_kd=k;
     }
     void setCd(const Colour &c)
     {
-        m_diffuse->cd=c;
-        m_ambient->cd=c;
+        m_diffuse->m_cd=c;
+        m_ambient->m_cd=c;
     }
     virtual Colour shade(Info&info)
     {

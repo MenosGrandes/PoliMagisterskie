@@ -55,7 +55,7 @@ void RayTracer::rayTrace()
 
             }
             finalColour/=m_sampler->getSampleCount();
-            m_renderTanger->setPixel(Colour::clampColour(finalColour),x,y);
+            m_renderTanger->setPixel(Colour::maxToOne(finalColour),x,y);
 
         }
 

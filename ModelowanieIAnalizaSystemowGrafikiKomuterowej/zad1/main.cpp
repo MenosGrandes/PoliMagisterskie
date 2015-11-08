@@ -129,16 +129,22 @@ int main(int argc, char **argv)
     mat2->setCd(Colour::Green);
 
     IRaycastable * plane= new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
-    plane->setMaterial(mat2);
-    rt->addObject(plane);
 
-    MatteMaterial* mat=new MatteMaterial();
+
+    PhongMaterial* mat=new PhongMaterial();
     mat->setKa(0.25f);
-    mat->setKd(0.95f);
-    mat->setCd(Colour::Red);
-    IRaycastable *sphere=new Sphere(Vector3Bf(0,0,0)  , 2);
+    mat->setKd(0.75f);
+    mat->setKs(0.1f);
+
+    mat->setCd(Colour::Green);
+
+    mat->setExponent(10.f);
+
+    IRaycastable *sphere=new Sphere(Vector3Bf(0,3,0)  , 2);
     sphere->setMaterial(mat);
     rt->addObject(sphere);
+        plane->setMaterial(mat2);
+    rt->addObject(plane);
 //
 //
 //    MatteMaterial* mat3=new MatteMaterial();
@@ -171,8 +177,8 @@ int main(int argc, char **argv)
     rt->setAmbientLight(ambient);
 
     PointLight * light= new PointLight();
-    light->m_location=Vector3Bf(0,5,5);
-    light->m_ls=2.00f;
+    light->m_location=Vector3Bf(0,15,5);
+    light->m_ls=1.00f;
     light->m_colour=Colour::White;
     rt->addLight(light);
 

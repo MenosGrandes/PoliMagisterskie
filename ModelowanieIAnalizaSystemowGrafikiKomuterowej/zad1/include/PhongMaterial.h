@@ -8,8 +8,30 @@
 class PhongMaterial: public IMaterial
 {
 public:
-    PhongMaterial();
-    virtual ~PhongMaterial();
+    PhongMaterial():IMaterial(),m_ambient(new Lambertian()),m_diffuse(new Lambertian()),m_specular(new GlossySpecular()){}
+    virtual ~PhongMaterial(){}
+     void setKa(const d_type::Bfloat k )
+    {
+        m_ambient->m_kd=k;
+    }
+    void setKd(const d_type::Bfloat k )
+    {
+        m_diffuse->m_kd=k;
+    }
+    void setKs(const d_type::Bfloat k )
+    {
+        m_specular->m_ks=k;
+    }
+    void setCd(const Colour &c)
+    {
+        m_diffuse->m_cd=c;
+        m_ambient->m_cd=c;
+        m_specular->m_cs=c;
+    }
+    void setExponent(const d_type::Bfloat k)
+    {
+        m_specular->m_exp=k;
+    }
     virtual Colour shade(Info&info)
     {
         Vector3Bf wo=-info.ray.getDirection();
@@ -23,7 +45,7 @@ public:
             d_type::Bfloat ndotwi=Vector3Bf::dotProduct(info.m_normal,wi);
             if(ndotwi > 0.0)
             {
-                L+=(m_diffuse->f(info,wo,wi)+m_specular->f(info,wi,wo))*lights[i]->L(info)*ndotwi;
+                L+=(m_diffuse->f(info,wo,wi)+m_specular->f(info,wo,wi))*lights[i]->L(info)*ndotwi;
             }
         }
         return L;

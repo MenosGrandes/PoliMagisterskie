@@ -33,7 +33,7 @@ void RayTracer::rayTrace()
 {
     Ray ray;
     Colour finalColour=Colour::Black;
-
+    const d_type::Buint simple_count=m_sampler->getSampleCount();
     for(Bint x=0; x<m_renderTanger->getSize().x; x++)
     {
         for(Bint y=0; y<m_renderTanger->getSize().y; y++)
@@ -41,9 +41,9 @@ void RayTracer::rayTrace()
             finalColour=Colour::Black;
 
 
-            for(d_type::Bint i=0; i<m_sampler->getSampleCount(); i++)
+            for(d_type::Bint i=0; i<simple_count; i++)
             {
-                Vector2Bf sample = m_sampler->single();
+                const Vector2Bf sample = m_sampler->single();
                 Vector2Bf picCoord(
                     ((x+sample.x) / m_renderTanger->getSize().x)*2 -1,
                     ((y+sample.y) / m_renderTanger->getSize().y)*2 -1
@@ -54,7 +54,7 @@ void RayTracer::rayTrace()
                 finalColour+=shadeRay(ray);///m_sampler->getSampleCount();
 
             }
-            finalColour/=m_sampler->getSampleCount();
+            finalColour/=simple_count;
             m_renderTanger->setPixel(Colour::maxToOne(finalColour),x,y);
 
         }

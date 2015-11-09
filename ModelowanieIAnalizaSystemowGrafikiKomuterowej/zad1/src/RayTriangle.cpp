@@ -7,15 +7,12 @@ RayTriangle::~RayTriangle()
 }
 RayTriangle::RayTriangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 {
-    //https://www.opengl.org/wiki/Calculating_a_Surface_Normal
+    //https://www.opengl.org/wiki/Calculating_a_Surface_Normal - >NIE DZIALA!!!!
+    // z ksiazki RayTracingFromTheGroundUP DZIA£¥
     m_vertex.x=(a),m_vertex.y=(b),m_vertex.z=(c);
 
-Vector3Bf U = Vector3Bf(b.m_position - a.m_position);
-Vector3Bf V = Vector3Bf(c.m_position - a.m_position);
-
-m_FaceNormal.x=U.y*V.z - U.z*V.y;
-m_FaceNormal.y=U.z*V.x - U.x*V.z;
-m_FaceNormal.z=U.x*V.y - U.y*V.x;
+    m_FaceNormal=Vector3Bf::cross(b.m_position-a.m_position,c.m_position-a.m_position);
+    Vector3Bf::normalize(m_FaceNormal);
 
 
 }

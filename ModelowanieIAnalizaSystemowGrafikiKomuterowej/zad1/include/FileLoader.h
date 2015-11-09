@@ -5,6 +5,7 @@
 #include <string.h>
 #include <algorithm>    // std::find
 #include "Mesh.h"
+#include "PhongMaterial.h"
 #include "MatteMaterial.h"
 class FileLoader
 {

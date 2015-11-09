@@ -32,7 +32,10 @@ public:
     {
         this->m_ambientLight=am;
     }
-
+    std::vector<IRaycastable*> getObjects()
+    {
+        return m_objectVector;
+    }
 private:
 
     Colour shadeRay(const Ray&ray);

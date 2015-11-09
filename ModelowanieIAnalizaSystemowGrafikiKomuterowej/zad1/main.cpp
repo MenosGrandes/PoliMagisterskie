@@ -40,7 +40,8 @@ using namespace d_type;
 #include "PointLight.h"
 #include "MatteMaterial.h"
 #include "PhongMaterial.h"
-
+#include "CheckCPU.h"
+#include "DirectionalLight.h"
 #else
 
 #endif // FOTO
@@ -54,7 +55,8 @@ using namespace d_type;
 #define CLOCK
 int main(int argc, char **argv)
 {
-
+CheckCPU cpu;
+std::cout<<"There are "<<cpu.getNumberOfCores()<<" cores in CPU.\n";
 
 
 #ifdef CLOCK
@@ -110,17 +112,20 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
     // X Z Y
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(30,30,30),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(30,10,10),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
-                                           3,
+                                           2,
                                            Vector2Bf(1,1));
 
 
-    Sampler * s= new Sampler(new SquareSampleDistributor(),new MultiJitteringSampleGenerator(),4,1);
+    Sampler * s= new Sampler(new SquareSampleDistributor(),new RandomSampleGenerator(),4,1);
     RayTracer *rt = new RayTracer(persp,file,s);
 
-
+    MatteMaterial* mat=new MatteMaterial();
+    mat->setKa(0.25f);
+    mat->setKd(0.6f);
+    mat->setCd(Colour::Red);
 
 
     MatteMaterial* mat2=new MatteMaterial();
@@ -128,23 +133,21 @@ int main(int argc, char **argv)
     mat2->setKd(0.15f);
     mat2->setCd(Colour::Green);
 
-//    IRaycastable * plane= new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
+    IRaycastable * plane= new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
 
 
-    PhongMaterial* mat=new PhongMaterial();
-    mat->setKa(0.25f);
-    mat->setKd(0.75f);
-    mat->setKs(0.1f);
-
-    mat->setCd(Colour::Green);
-
-    mat->setExponent(10.f);
+    PhongMaterial* mat3=new PhongMaterial();
+    mat3->setKa(0.25f);
+    mat3->setKd(0.6f);
+    mat3->setKs(0.1f);
+    mat3->setCd(Colour::Red);
+    mat3->setExponent(0.25f);
 
 //    IRaycastable *sphere=new Sphere(Vector3Bf(0,3,0)  , 2);
 //    sphere->setMaterial(mat);
 //    rt->addObject(sphere);
-//        plane->setMaterial(mat2);
-//    rt->addObject(plane);
+        plane->setMaterial(mat2);
+    rt->addObject(plane);
 //
 //
 //    MatteMaterial* mat3=new MatteMaterial();
@@ -156,29 +159,30 @@ int main(int argc, char **argv)
 //
 //    rt->addObject(sphere2);
 //
-//    MatteMaterial* mat4=new MatteMaterial();
-//    mat4->setKa(0.25f);
-//    mat4->setKd(0.95f);
-//    mat4->setCd(Colour::Green);
-//    IRaycastable *sphere3=new Sphere(Vector3Bf(2,0,3)  , 2);
-//    sphere3->setMaterial(mat4);
+
+    IRaycastable *sphere3=new Sphere(Vector3Bf(2,0,3)  , 2);
+    sphere3->setMaterial(mat);
+
+   rt->addObject(sphere3);
+
+//    Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
 //
-//    rt->addObject(sphere3);
-
-    Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
-
-    rt->addObject(m);
+//    rt->addObject(m);
 
     Ambient*ambient= new Ambient(1.f,Colour::White);
     rt->setAmbientLight(ambient);
-
+///LIGHTS
     PointLight * light= new PointLight();
-    light->m_location=Vector3Bf(0,0,0);
-    light->m_ls=1.00f;
+    light->m_location=Vector3Bf(0,10,10);
+    light->m_ls=2.00f;
     light->m_colour=Colour::White;
     rt->addLight(light);
 
-
+//    DirectionalLight * dir_Light=new DirectionalLight();
+//    dir_Light->m_direction=Vector3Bf(30,30,30);
+//    dir_Light->m_ls=0.1f;
+//    dir_Light->m_colour=Colour::White;
+//    rt->addLight(dir_Light);
 
 
 

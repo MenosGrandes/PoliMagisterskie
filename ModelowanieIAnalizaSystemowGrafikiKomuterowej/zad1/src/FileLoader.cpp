@@ -67,7 +67,7 @@ Mesh* FileLoader::loadOBJ(std::string filename)
         // else : parse lineHeader
         if ( strcmp( lineHeader, "mtllib" ) == 0 )
         {
-//
+
 //            char c[100];
 //            fscanf(file,"%s",c);
 //            LoadMTL(c,materials);
@@ -144,7 +144,7 @@ Mesh* FileLoader::loadOBJ(std::string filename)
     std::vector<Vertex3Bf> vertices;
     // For each vertex of each triangle
 
-    // Material triMat=materials.at(0);
+//     Material triMat=materials.at(0);
 
 
 
@@ -181,16 +181,18 @@ Mesh* FileLoader::loadOBJ(std::string filename)
 //
 //            }
 //            else
-            {
+//            {
                 RayTriangle *tri =new RayTriangle(vertices[0],vertices[1],vertices[2]);
-                MatteMaterial *mat=new MatteMaterial();
+                PhongMaterial *mat=new PhongMaterial();
                 mat->setCd(Colour::randomColor());
-                mat->setKa(0.64f);
-                mat->setKd(0.55f);
+                mat->setKa(0.25f);
+                mat->setKd(0.6f);
+                mat->setKs(0.2f);
+                mat->setExponent(1.0f);
                 tri->setMaterial(mat);
                 mesh->m_triangles.push_back(tri);//,new PerfectDifuse(Colour::randomColor())));
 
-            }
+//            }
             vertices.clear();
         }
         counter++;
@@ -234,7 +236,7 @@ bool FileLoader::LoadMTL(char* mtlFilename,std::vector<Material> &materials)
             char c[100];
             fscanf(file,"%s",c);
             std::string d(c);
-            Material material=Material(new IMaterial(),d);
+            Material material=Material(new PhongMaterial(),d);
 
             materials.push_back(material);
         }
@@ -242,12 +244,9 @@ bool FileLoader::LoadMTL(char* mtlFilename,std::vector<Material> &materials)
         {
             Vector3Bf c;
             fscanf(file, "%f %f %f\n", &c.x, &c.y,&c.z );
-            Colour colour;
-            colour.r=c.x*255;
-            colour.g=c.y*255;
-            colour.b=c.z*255;
 
-            materials.at(materials.size()-1).mat->setColor(colour);
+
+            materials.at(materials.size()-1).setKa()
         }
         else
         {
@@ -262,5 +261,5 @@ bool FileLoader::LoadMTL(char* mtlFilename,std::vector<Material> &materials)
 //        std::cout<<(int)mat.mat->getColor().r<<" "<<(int)mat.mat->getColor().g<<" "<<(int)mat.mat->getColor().b<<" "<<mat.name<<"\n";
 //    }
 }
-
 */
+

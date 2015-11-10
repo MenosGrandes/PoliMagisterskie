@@ -168,6 +168,9 @@
 		<Unit filename="include/Triangle.h">
 			<Option virtualFolder="Triangle/" />
 		</Unit>
+		<Unit filename="include/TriangleMesh.h">
+			<Option virtualFolder="Triangle/" />
+		</Unit>
 		<Unit filename="include/Vector2.h">
 			<Option virtualFolder="Types/Vector/" />
 		</Unit>
@@ -299,6 +302,9 @@
 			<Option virtualFolder="Antyalising/Distributor/" />
 		</Unit>
 		<Unit filename="src/Triangle.cpp">
+			<Option virtualFolder="Triangle/" />
+		</Unit>
+		<Unit filename="src/TriangleMesh.cpp">
 			<Option virtualFolder="Triangle/" />
 		</Unit>
 		<Unit filename="src/VertexProcessor.cpp">

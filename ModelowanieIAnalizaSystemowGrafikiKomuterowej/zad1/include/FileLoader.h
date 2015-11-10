@@ -46,6 +46,8 @@ private:
 
     static Mesh* loadOBJ(std::string filename);
     static bool LoadMTL(char * mtlFilename,std::vector<Material> &materials);
+
+
 };
 
 #endif // FILELOADER_H

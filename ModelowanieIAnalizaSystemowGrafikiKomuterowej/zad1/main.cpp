@@ -17,7 +17,7 @@ using namespace d_type;
 #ifdef RENDERER
 #include "RenderTarget.h"
 #include "VertexProcessor.h"
-#include "Triangle.h"
+#include "TriangleMesh.h"
 #include <SFML/Graphics.hpp>
 #endif // RENDERER
 
@@ -260,29 +260,41 @@ int main(int argc, char **argv)
 ///potem obliczanie kamery
 ///i potem kanoniczne
 
-
+    render::TriangleMesh *mesh= new render::TriangleMesh();
+    mesh->loadOBJ("models/cube.obj");
 
     VertexProcessor *vp= new VertexProcessor();
 //
 //
     vp->setIdentity();
-    vp->setLookat(Vector3Bf(0,0,20),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
+    vp->setLookat(Vector3Bf(0,0,50),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
     vp->setPerspective(45,1,Vector2Bf(0.1f,10000));
     vp->transform();
-    triangle2->first= vp->addTriangle(triangle2->first);
-    triangle2->second=vp->addTriangle(triangle2->second);
-    triangle2->third=vp->addTriangle(triangle2->third);
+    vp->addTriangle(triangle2);
+    vp->addTriangle(triangle);
+    vp->addTriangle(mesh);
 
-    triangle->first= vp->addTriangle(triangle->first);
-    triangle->second=vp->addTriangle(triangle->second);
-    triangle->third=vp->addTriangle(triangle->third);
+//    triangle2->first= vp->addTriangle(triangle2->first);
+//    triangle2->second=vp->addTriangle(triangle2->second);
+//    triangle2->third=vp->addTriangle(triangle2->third);
+//
+//    triangle->first= vp->addTriangle(triangle->first);
+//    triangle->second=vp->addTriangle(triangle->second);
+//    triangle->third=vp->addTriangle(triangle->third);
 
 
     for(Bsize i=0; i<triangleArray.size(); i++)
     {
         triangleArray[i]->init(img_size);
     }
-
+    for(render::TriangleFloat * tri : mesh->getTriangles())
+    {
+        tri->init(img_size);
+    }
+    for(render::TriangleFloat * tri : mesh->getTriangles())
+    {
+       file->draw(*tri);
+    }
     file->draw(*triangle2);
     file->draw(*triangle);
 

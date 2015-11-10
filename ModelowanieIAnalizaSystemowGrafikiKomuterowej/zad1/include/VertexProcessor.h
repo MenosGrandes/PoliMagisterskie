@@ -2,8 +2,9 @@
 #define VERTEXPROCESSOR_H
 
 #include "Matrix4.h"
-#include "Triangle.h"
 #include "Camera.h"
+#include "Triangle.h"
+#include "TriangleMesh.h"
 class VertexProcessor
 {
 public:
@@ -15,6 +16,9 @@ public:
     void multByScale(const Vector3Bf& vec);
     void multByRotation(d_type::Bfloat a,Vector3Bf vec);
     Vector3Bf addTriangle(Vector3Bf tr);
+    void addTriangle(render::TriangleFloat* tri);
+    void addTriangle(render::TriangleMesh* tri);
+
     //for camera
 //    void setPerspective(d_type::Bfloat aspect,const Camera& camera);
     void setIdentity();

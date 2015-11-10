@@ -19,7 +19,7 @@ void VertexProcessor::setPerspective(d_type::Bfloat fovy, d_type::Bfloat aspect,
 
     d_type::Bfloat f=cosf(fovy)/sinf(fovy);
 
-             view2proj=Matrix4Bfloat(
+    view2proj=Matrix4Bfloat(
                   Vector4Bf(f/aspect,0,0,0), //1,0,0,0
                   Vector4Bf(0,f,0,0), //0,2.4190,0,0
                   Vector4Bf(0,0,(nearfar.x+nearfar.y)/(nearfar.x-nearfar.y),(2*nearfar.x*nearfar.y)/(nearfar.x-nearfar.y)),// 0,0,-1.000002,-1
@@ -108,6 +108,37 @@ Vector3Bf VertexProcessor::addTriangle(Vector3Bf tr)
     return Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
 //Vector4Bf r = obj2proj*Vector4Bf(tr.x,tr.y,tr.z,1);
 //return Vector3Bf(r.x,r.y,r.z);
+}
+void VertexProcessor::addTriangle(render::TriangleFloat* tri)
+{
+    Vector4Bf r ;
+    r= obj2proj*Vector4Bf(tri->first.x,tri->first.y,tri->first.z,1);
+    tri->first = Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
+
+    r = obj2proj*Vector4Bf(tri->second.x,tri->second.y,tri->second.z,1);
+    tri->second = Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
+
+    r = obj2proj*Vector4Bf(tri->third.x,tri->third.y,tri->third.z,1);
+    tri->third = Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
+
+}
+void VertexProcessor::addTriangle(render::TriangleMesh * tri)
+{
+
+    std::vector<render::TriangleFloat*> triangles=tri->getTriangles();
+    const d_type::Bsize vectorSize=triangles.size();
+    for(d_type::Buint i=0;i<vectorSize;i++)
+    {
+    Vector4Bf r ;
+    r= obj2proj*Vector4Bf(triangles.at(i)->first.x,triangles.at(i)->first.y,triangles.at(i)->first.z,1);
+    triangles.at(i)->first = Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
+
+    r = obj2proj*Vector4Bf(triangles.at(i)->second.x,triangles.at(i)->second.y,triangles.at(i)->second.z,1);
+    triangles.at(i)->second = Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
+
+    r = obj2proj*Vector4Bf(triangles.at(i)->third.x,triangles.at(i)->third.y,triangles.at(i)->third.z,1);
+    triangles.at(i)->third = Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
+    }
 }
 
 

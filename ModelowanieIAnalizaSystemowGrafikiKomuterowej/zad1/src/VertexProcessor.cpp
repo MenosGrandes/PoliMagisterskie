@@ -2,10 +2,10 @@
 
 VertexProcessor::VertexProcessor()
 {
-//    this->view2proj=Matrix4Bfloat::Identity;
-//    this->world2view=Matrix4Bfloat::Identity;
-//    this->obj2world=Matrix4Bfloat::Identity;
-//    this->obj2proj=Matrix4Bfloat::Identity;
+    this->view2proj=Matrix4Bfloat::Identity;
+    this->world2view=Matrix4Bfloat::Identity;
+    this->obj2world=Matrix4Bfloat::Identity;
+    this->obj2proj=Matrix4Bfloat::Identity;
 }
 
 VertexProcessor::~VertexProcessor()
@@ -14,30 +14,35 @@ VertexProcessor::~VertexProcessor()
 }
 void VertexProcessor::setPerspective(d_type::Bfloat fovy, d_type::Bfloat aspect, const Vector2Bf& nearfar)
 {
+    ///KOLUMNOWO MAM!!!!
     fovy *= M_PI/ 360;
+
     d_type::Bfloat f=cosf(fovy)/sinf(fovy);
-    view2proj=Matrix4Bfloat(
-                  Vector4Bf(f/aspect,0,0,0),
-                  Vector4Bf(0,f,0,0),
-                  Vector4Bf(0,0,(nearfar.x+nearfar.y)/(nearfar.x-nearfar.y),-1),
-                  Vector4Bf(0,0,(2*nearfar.x*nearfar.y)/(nearfar.x-nearfar.y),0)
+
+             view2proj=Matrix4Bfloat(
+                  Vector4Bf(f/aspect,0,0,0), //1,0,0,0
+                  Vector4Bf(0,f,0,0), //0,2.4190,0,0
+                  Vector4Bf(0,0,(nearfar.x+nearfar.y)/(nearfar.x-nearfar.y),(2*nearfar.x*nearfar.y)/(nearfar.x-nearfar.y)),// 0,0,-1.000002,-1
+                  Vector4Bf(0,0,-1,0)//0,0,-0.2,0
               );
 
-
+//std::cout<<"setPerspective\n "<<view2proj;
 }
 
 void VertexProcessor::setLookat( Vector3Bf eye,  Vector3Bf center, Vector3Bf up)
 {
-    Vector3Bf f= center - eye;
-    Vector3Bf::normalize(f);
-    Vector3Bf::normalize(up);
-    Vector3Bf s= Vector3Bf::cross(f,up);
-    Vector3Bf u= Vector3Bf::cross(s,f);
+    //DOBRZE LICZY
+    Vector3Bf f= center - eye; // dobrze
+    Vector3Bf::normalize(f);// dobrze
+    Vector3Bf::normalize(up);// dobrze
+    Vector3Bf s= Vector3Bf::cross(f,up);// dobrze
+    Vector3Bf u= Vector3Bf::cross(s,f);// dobrze
+
     world2view = Matrix4Bfloat(
-                     Vector4Bf(s.x,u.x,-f.x,0),
-                     Vector4Bf(s.y,u.y,-f.y,0),
-                     Vector4Bf(s.z,u.z,-f.z,0),
-                     Vector4Bf(-eye.x,-eye.y,-eye.z,1)
+                     Vector4Bf(s.x,s.y,s.z,-eye.x), //1,0,0,0
+                     Vector4Bf(u.x,u.y,u.z,-eye.y), //0,1,0,0
+                     Vector4Bf(-f.x,-f.y,-f.z,-eye.z), // 0,0,1,0
+                     Vector4Bf(0,0,0,1)//0,0,-10,1
                  );
 
 }
@@ -96,8 +101,13 @@ void VertexProcessor::multByRotation(d_type::Bfloat a, Vector3Bf v)
 Vector3Bf VertexProcessor::addTriangle(Vector3Bf tr)
 {
     Vector4Bf r = obj2proj*Vector4Bf(tr.x,tr.y,tr.z,1);
-    std::cout<<"!!!!!!!!!!!!!!!!\n "<<obj2proj<<"\n";
+    std::cout<<"!!!!!!!!!!!!!!!!MATRIX\n "<<obj2proj<<"\n";
+    std::cout<<"!!!!!! VECTOR:\n"<<Vector4Bf(tr.x,tr.y,tr.z,1)<<"\n";
+    std::cout<<"!!!!!! WYNIK:\n"<<r<<"\n";
+
     return Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
+//Vector4Bf r = obj2proj*Vector4Bf(tr.x,tr.y,tr.z,1);
+//return Vector3Bf(r.x,r.y,r.z);
 }
 
 
@@ -108,6 +118,8 @@ void VertexProcessor::setIdentity()
 
 void VertexProcessor::transform()
 {
-    Matrix4Bfloat obj2view = world2view*obj2world;
+    Matrix4Bfloat obj2view= world2view*obj2world;
     obj2proj = view2proj*obj2view;
+
+
 }

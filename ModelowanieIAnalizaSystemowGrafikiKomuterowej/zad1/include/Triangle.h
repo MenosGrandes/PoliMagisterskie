@@ -18,12 +18,12 @@ public :
 
     void init(const Vector2Bs& m_size)
     {
-        std::cout<<first<<" "<<second<< " "<<third<< "\n";
 
         Greatest g;
         Smallest s;
 
 //CANONIC VIEW
+
         this->first.x=(this->first.x+1)*m_size.x*0.5f;
         this->first.y=(this->first.y+1)*m_size.y*0.5f;
 
@@ -32,7 +32,6 @@ public :
 
         this->third.x=(this->third.x+1)*m_size.x*0.5f;
         this->third.y=(this->third.y+1)*m_size.y*0.5f;
-        std::cout<<"AFTER :"<<first<<" "<<second<< " "<<third<< "\n";
 
 //Calculate rect where this triangle is
         this->rect=Vector4<T>(s.min(first.x,second.x,third.x),g.max(first.x,second.x,third.x),s.min(first.y,second.y,third.y),g.max(first.y,second.y,third.y));
@@ -131,7 +130,7 @@ public :
 
 
         ColorDepth d;
-        d.color=Colour(l1*255,l2*255,l3*255 ,255);
+        d.color=Colour(l1,l2,l3 ,1);
         d.depth=calculateDepth(Vector3<T>(l1,l2,l3));
 
         return d;

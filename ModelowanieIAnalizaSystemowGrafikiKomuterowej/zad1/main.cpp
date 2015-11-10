@@ -10,8 +10,8 @@
 #include <string>
 #include <sstream>
 
-//#define RENDERER
-#define FOTO
+#define RENDERER
+//  #define FOTO
 
 using namespace d_type;
 #ifdef RENDERER
@@ -139,9 +139,9 @@ std::cout<<"There are "<<cpu.getNumberOfCores()<<" cores in CPU.\n";
     PhongMaterial* mat3=new PhongMaterial();
     mat3->setKa(0.25f);
     mat3->setKd(0.6f);
-    mat3->setKs(0.1f);
+    mat3->setKs(0.5f);
     mat3->setCd(Colour::Red);
-    mat3->setExponent(0.25f);
+    mat3->setExponent(0.5f);
 
 //    IRaycastable *sphere=new Sphere(Vector3Bf(0,3,0)  , 2);
 //    sphere->setMaterial(mat);
@@ -161,7 +161,7 @@ std::cout<<"There are "<<cpu.getNumberOfCores()<<" cores in CPU.\n";
 //
 
     IRaycastable *sphere3=new Sphere(Vector3Bf(2,0,3)  , 2);
-    sphere3->setMaterial(mat);
+    sphere3->setMaterial(mat3);
 
    rt->addObject(sphere3);
 
@@ -173,7 +173,7 @@ std::cout<<"There are "<<cpu.getNumberOfCores()<<" cores in CPU.\n";
     rt->setAmbientLight(ambient);
 ///LIGHTS
     PointLight * light= new PointLight();
-    light->m_location=Vector3Bf(0,10,10);
+    light->m_location=Vector3Bf(10,10,10);
     light->m_ls=2.00f;
     light->m_colour=Colour::White;
     rt->addLight(light);
@@ -230,7 +230,7 @@ int main(int argc, char **argv)
 
 
 
-    Vector2Bs img_size=Vector2Bs(800,600);
+    Vector2Bs img_size=Vector2Bs(500,500);
 
 
 
@@ -256,10 +256,9 @@ int main(int argc, char **argv)
     triangleArray[1]=triangle2;
 
 
-    for(Bsize i=0; i<triangleArray.size(); i++)
-    {
-        triangleArray[i]->init(img_size);
-    }
+///NAJPIERW z -1 -1
+///potem obliczanie kamery
+///i potem kanoniczne
 
 
 
@@ -267,16 +266,28 @@ int main(int argc, char **argv)
 //
 //
     vp->setIdentity();
-    vp->setPerspective(45,4/3,Vector2Bf(1,10000));
-    vp->setLookat(Vector3Bf(0,0,10),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
-
+    vp->setLookat(Vector3Bf(0,0,20),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
+    vp->setPerspective(45,1,Vector2Bf(0.1f,10000));
+    vp->transform();
     triangle2->first= vp->addTriangle(triangle2->first);
     triangle2->second=vp->addTriangle(triangle2->second);
     triangle2->third=vp->addTriangle(triangle2->third);
-    vp->transform();
+
+    triangle->first= vp->addTriangle(triangle->first);
+    triangle->second=vp->addTriangle(triangle->second);
+    triangle->third=vp->addTriangle(triangle->third);
+
+
+    for(Bsize i=0; i<triangleArray.size(); i++)
+    {
+        triangleArray[i]->init(img_size);
+    }
+
     file->draw(*triangle2);
+    file->draw(*triangle);
+
 //
-    std::cout<<triangle2->first<<" "<<triangle2->second<< " "<<triangle2->third<< "\n";
+//    std::cout<<triangle2->first<<" "<<triangle2->second<< " "<<triangle2->third<< "\n";
 
 //
 //    render::TriangleFloat * t,t2;
@@ -306,10 +317,11 @@ int main(int argc, char **argv)
 
 
 
-    Matrix4Bfloat m1=Matrix4Bfloat(2.4142,0,0,0,0,2.4142,0,0,0,0,8.89998,-1,0,0,-2.0002,0);
-    Vector4Bf v4=Vector4Bf(400,300,0,1);
-    std::cout<<"!@#!@#!@#!@\n";
-    std::cout<<m1*v4;
+//    Matrix4Bfloat m1=Matrix4Bfloat(8.f,4.f,2.f,5.f,6.f,9.f,8.f,5.f,21.f,4.f,7.f,5.f,1.f,1.f,5.f,6.f);
+//    Matrix4Bfloat m2=Matrix4Bfloat(7.25,1.25,2.58,2.78,7.69,6.58,5.78,7.1,	22.2,22.999,2.85,5.89,	3.64,95.695,	964.69,6);
+//
+//    std::cout<<"!@#!@#!@#!@\n";
+//    std::cout<<m1*m2;
 
 
 

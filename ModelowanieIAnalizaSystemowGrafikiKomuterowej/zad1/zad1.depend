@@ -94,7 +94,7 @@
 1446631406 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\matrix4.cpp
 	"Matrix4.h"
 
-1446631406 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\matrix4.h
+1447154962 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\matrix4.h
 	"Vector4.h"
 	<ostream>
 	<iostream>
@@ -169,7 +169,7 @@
 	<iostream>
 	<fstream>
 
-1446631406 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\triangle.h
+1447156214 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\triangle.h
 	"Vector4.h"
 	"Vector3.h"
 	"Colour.h"
@@ -222,7 +222,7 @@
 1445931142 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\triangle.cpp
 	"Triangle.h"
 
-1446631406 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\vertexprocessor.cpp
+1447155924 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\vertexprocessor.cpp
 	"VertexProcessor.h"
 
 1445931142 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vertexprocessor.h
@@ -230,7 +230,7 @@
 	"Triangle.h"
 	"Camera.h"
 
-1447074209 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
+1447155724 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
 	"Matrix4.h"
 	"Vertex2.h"
 	<cstdio>

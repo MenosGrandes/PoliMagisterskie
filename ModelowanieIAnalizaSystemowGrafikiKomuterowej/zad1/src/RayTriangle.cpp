@@ -47,10 +47,10 @@ bool RayTriangle::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) 
 
 // if the determinant is negative the triangle is backfacing
 // if the determinant is close to 0, the ray misses the triangle
-    //if (det < F_EPSILON) return false;
+    if (det < F_EPSILON) return false;
 
 // ray and triangle are parallel if det is close to 0
-    if (fabs(det) < F_EPSILON   ) return false;
+//    if (fabs(det) < F_EPSILON   ) return false;
 
     float invDet = 1 / det;
 

@@ -10,8 +10,8 @@
 #include <string>
 #include <sstream>
 
-#define RENDERER
-//  #define FOTO
+//#define RENDERER
+  #define FOTO
 
 using namespace d_type;
 #ifdef RENDERER
@@ -121,7 +121,8 @@ std::cout<<"There are "<<cpu.getNumberOfCores()<<" cores in CPU.\n";
 
     Sampler * s= new Sampler(new SquareSampleDistributor(),new RandomSampleGenerator(),4,1);
     RayTracer *rt = new RayTracer(persp,file,s);
-
+    #define MATERIALS1
+#ifdef MATERIALS1
     MatteMaterial* mat=new MatteMaterial();
     mat->setKa(0.25f);
     mat->setKd(0.6f);
@@ -141,48 +142,32 @@ std::cout<<"There are "<<cpu.getNumberOfCores()<<" cores in CPU.\n";
     mat3->setKd(0.6f);
     mat3->setKs(0.5f);
     mat3->setCd(Colour::Red);
-    mat3->setExponent(0.5f);
+    mat3->setExponent(0.6f);
 
-//    IRaycastable *sphere=new Sphere(Vector3Bf(0,3,0)  , 2);
-//    sphere->setMaterial(mat);
-//    rt->addObject(sphere);
-        plane->setMaterial(mat2);
+
+    plane->setMaterial(mat2);
     rt->addObject(plane);
-//
-//
-//    MatteMaterial* mat3=new MatteMaterial();
-//    mat3->setKa(0.25f);
-//    mat3->setKd(0.95f);
-//    mat3->setCd(Colour::Blue);
-//    IRaycastable *sphere2=new Sphere(Vector3Bf(-7,0,0)  , 2);
-//    sphere2->setMaterial(mat3);
-//
-//    rt->addObject(sphere2);
-//
 
-    IRaycastable *sphere3=new Sphere(Vector3Bf(2,0,3)  , 2);
+
+
+    IRaycastable *sphere3=new Sphere(Vector3Bf(12,0,3)  , 2);
     sphere3->setMaterial(mat3);
 
    rt->addObject(sphere3);
 
-//    Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
-//
-//    rt->addObject(m);
+    Mesh * m =FileLoader::loadMesh(("models/cube.obj"));
 
-    Ambient*ambient= new Ambient(1.f,Colour::White);
+    rt->addObject(m);
+
+    Ambient*ambient= new Ambient(0.5f,Colour::White);
     rt->setAmbientLight(ambient);
-///LIGHTS
+
     PointLight * light= new PointLight();
     light->m_location=Vector3Bf(10,10,10);
-    light->m_ls=2.00f;
+    light->m_ls=5.00f;
     light->m_colour=Colour::White;
     rt->addLight(light);
-
-//    DirectionalLight * dir_Light=new DirectionalLight();
-//    dir_Light->m_direction=Vector3Bf(30,30,30);
-//    dir_Light->m_ls=0.1f;
-//    dir_Light->m_colour=Colour::White;
-//    rt->addLight(dir_Light);
+#endif // MATERIALS1
 
 
 

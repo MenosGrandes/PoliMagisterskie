@@ -14,6 +14,7 @@ public:
         d_type::Bbyte isHit=false;
         distance=1000;
         d_type::Bfloat t;
+        Vector3Bf normal;
         if(m_boundingBox.intersect(ray,t,info)&& t<distance)
         {
 
@@ -27,11 +28,17 @@ public:
                     distance=t2;
                     isHit=true;
                     m_material=a->getMaterial();
+//                    normal=info.m_normal;
 
                 }
 
             }
         }
+//        if(isHit)
+//        {
+//            info.m_material=m_material;
+//            info.m_normal=normal;
+//        }
 
 
         return isHit;

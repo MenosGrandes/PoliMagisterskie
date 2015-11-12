@@ -43,6 +43,7 @@ public:
     void clearPixel(const d_type::Bint &x,const  d_type::Bint &y);
     Colour * getColorPixels();
     void rewritePixelForTexture(d_type::Bubyte * pixels);
+    void drawToFile(Colour * colors);
 private:
     //convert 2D to 1D indexing
     d_type::Bint convert2dto1d(d_type::Bint x, d_type::Bint y);

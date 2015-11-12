@@ -5,10 +5,13 @@
 /** \def M_PI
 \brief Mathematic PI
 */
+
 #define M_PI 3.14159265
+#define TWO_PI 2*M_PI
+#define INV_PI 1/M_PI
+#define INV_TWO_PI 1/TWO_PI
 
 #define F_EPSILON 0.000001
-#define INV_PI 1/M_PI
 
 
 /**

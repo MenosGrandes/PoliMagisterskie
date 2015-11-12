@@ -3,7 +3,7 @@
 #include "IMaterial.h"
 #include "Lambertian.h"
 #include "RayTracer.h"
-class MatteMaterial : public IMaterial
+    class MatteMaterial : public IMaterial
 {
 public:
     MatteMaterial():IMaterial(),m_ambient(new Lambertian()),m_diffuse(new Lambertian()) {}

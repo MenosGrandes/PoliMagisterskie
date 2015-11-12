@@ -11,7 +11,7 @@ RayTriangle::RayTriangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
     // z ksiazki RayTracingFromTheGroundUP DZIA£¥
     m_vertex.x=(a),m_vertex.y=(b),m_vertex.z=(c);
 
-    m_FaceNormal=Vector3Bf::cross(b.m_position-a.m_position,c.m_position-a.m_position);
+    m_FaceNormal=Vector3Bf::cross(a.m_position-b.m_position,a.m_position-c.m_position);
     Vector3Bf::normalize(m_FaceNormal);
 
 
@@ -64,7 +64,7 @@ bool RayTriangle::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) 
 
     distance = Vector3Bf::dotProduct(qvec,v0v2)  * invDet;
 
-    info.m_normal=m_FaceNormal;
+    info.m_normal=this->m_FaceNormal;
     info.m_localHitPoint=ray.getOrigin()+distance*ray.getDirection();
     return true;
 

@@ -26,6 +26,10 @@ public:
     {
         m_diffuse->m_cd=c;
         m_ambient->m_cd=c;
+
+    }
+    void setCs(const Colour &c)
+    {
         m_specular->m_cs=c;
     }
     void setExponent(const d_type::Bfloat k)

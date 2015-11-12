@@ -74,6 +74,10 @@ Colour RayTracer::shadeRay(const Ray&ray)
     }
 
     info.ray=ray;
+//       std::cout<<"~~!~!!\n";
+//    std::cout<<ray.getDirection();
+//
+//    std::cout<<info.ray.getDirection();
     return info.m_material->shade(info);
 
 }

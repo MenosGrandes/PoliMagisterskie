@@ -49,10 +49,10 @@ void VertexProcessor::setLookat( Vector3Bf eye,  Vector3Bf center, Vector3Bf up)
 void VertexProcessor::multByTranslation(const Vector3Bf& vec)
 {
     Matrix4Bfloat m(
-        Vector4Bf(1,0,0,0),
-        Vector4Bf(0,1,0,0),
-        Vector4Bf(0,0,1,0),
-        Vector4Bf(vec.x,vec.y,vec.z,1)
+        Vector4Bf(1,0,0,vec.x),
+        Vector4Bf(0,1,0,vec.y),
+        Vector4Bf(0,0,1,vec.z),
+        Vector4Bf(0,0,0,1)
     );
 
     obj2world*=m;
@@ -73,37 +73,61 @@ void VertexProcessor::multByRotation(d_type::Bfloat a, Vector3Bf v)
 {
     d_type::Bfloat s=sinf(a*M_PI/180),c=cosf(a*M_PI/180);
     Vector3Bf::normalize(v);
+//
+//    Matrix4Bfloat m(
+//        Vector4Bf(
+//            v.x*v.x*(1-c)+c,
+//            v.y*v.x*(1-c)+v.z*s,
+//            v.x*v.z*(1-c)-v.y*s,
+//            0
+//        ),
+//        Vector4Bf(
+//            v.x*v.y*(1-c)-v.z*s,
+//            v.y*v.y*(1-c)+c,
+//            v.y*v.z*(1-c)+v.x*s,
+//            0
+//        ),
+//        Vector4Bf(
+//            v.x*v.z*(1-c)+v.y*s,
+//            v.y*v.z*(1-c)-v.x*s,
+//            v.z*v.z*(1-c)+c,
+//            0
+//        ),
+//        Vector4Bf(0,0,0,1)
+//    );
+//
+
 
     Matrix4Bfloat m(
         Vector4Bf(
             v.x*v.x*(1-c)+c,
-            v.y*v.x*(1-c)+v.z*s,
-            v.x*v.z*(1-c)-v.y*s,
+            v.x*v.y*(1-c)-v.z*s,
+            v.x*v.z*(1-c)+v.y*s,
             0
+
         ),
         Vector4Bf(
-            v.x*v.y*(1-c)-v.z*s,
+            v.y*v.x*(1-c)+v.z*s,
             v.y*v.y*(1-c)+c,
-            v.y*v.z*(1-c)+v.x*s,
+            v.y*v.z*(1-c)-v.x*s,
             0
+
         ),
         Vector4Bf(
             v.x*v.z*(1-c)+v.y*s,
-            v.y*v.z*(1-c)-v.x*s,
+            v.y*v.z*(1-c)+v.x*s,
             v.z*v.z*(1-c)+c,
             0
         ),
         Vector4Bf(0,0,0,1)
     );
-    obj2world*=m;
+    obj2world=m;
 
 }
 Vector3Bf VertexProcessor::addTriangle(Vector3Bf tr)
 {
     Vector4Bf r = obj2proj*Vector4Bf(tr.x,tr.y,tr.z,1);
-    std::cout<<"!!!!!!!!!!!!!!!!MATRIX\n "<<obj2proj<<"\n";
-    std::cout<<"!!!!!! VECTOR:\n"<<Vector4Bf(tr.x,tr.y,tr.z,1)<<"\n";
-    std::cout<<"!!!!!! WYNIK:\n"<<r<<"\n";
+
 
     return Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
 //Vector4Bf r = obj2proj*Vector4Bf(tr.x,tr.y,tr.z,1);

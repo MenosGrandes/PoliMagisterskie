@@ -17,8 +17,11 @@ class ImageTexture : public Texture
             }
             else
             {
-                //row=(int)
+               // row=(int)(info.m_textCoord.x*(m_height-1));
+                // column=(int)(info.m_textCoord.y*(m_width-1));
+
             }
+//            return m_image->getColour(row,column);
         }
     protected:
     private:

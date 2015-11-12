@@ -28,17 +28,17 @@ public:
                     distance=t2;
                     isHit=true;
                     m_material=a->getMaterial();
-//                    normal=info.m_normal;
+                    normal=info.m_normal;
 
                 }
 
             }
         }
-//        if(isHit)
-//        {
-//            info.m_material=m_material;
-//            info.m_normal=normal;
-//        }
+        if(isHit)
+        {
+            info.m_material=m_material;
+            info.m_normal=normal;
+        }
 
 
         return isHit;

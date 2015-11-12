@@ -96,11 +96,6 @@ d_type::Bint RenderTarget::getSizePixels() const
 
 void RenderTarget::draw( render::TriangleFloat& triangle)
 {
-    std::cout<<"RenderTargetDrawTriangle\n";
-//KANONICZNA FORMA
-
-
-
 
     for(Bfloat x =triangle.rect.x; x<triangle.rect.y; x++)
     {
@@ -209,15 +204,59 @@ Colour * RenderTarget::getColorPixels()
 }
 void RenderTarget::rewritePixelForTexture(d_type::Bubyte* pixels)
 {
-    for (d_type::Bint i=m_size.x*m_size.y; i>0 ; i--)
+    for (d_type::Bint i=0; i<m_size.x*m_size.y ; i++)
     {
-//     std::cout<<(int)m_pixels[i].b <<" "<<(int)m_pixels[i].g<<" "<<(int)m_pixels[i].r<<" "<<(int)m_pixels[i].a<<"\n";
-
-//        pixels[i+3]=m_pixels[i].a;
-//        pixels[i+2]=m_pixels[i].r;
-//        pixels[i+1]=m_pixels[i].g;
-//        pixels[i]  =m_pixels[i].b;
+        d_type::Bint k=i*4;
+        pixels[k+3]=m_pixels[i].a*255;
+        pixels[k+2]=m_pixels[i].r*255;
+        pixels[k+1]=m_pixels[i].g*255;
+        pixels[k]  =m_pixels[i].b*255;
 
     }
 
+}
+
+void RenderTarget::drawToFile(Colour* colors)
+{
+    //Error checking
+    if (m_size.x <= 0 || m_size.y <= 0)
+    {
+        std::cout << "Image size is not set properly\n";
+        return;
+    }
+
+    std::ofstream o("Wynikowy.tga", std::ios::out | std::ios::binary);
+
+    //Write the header
+    o.put(0);
+    o.put(0);
+    o.put(2);                         /* uncompressed RGB */
+    o.put(0);
+    o.put(0);
+    o.put(0);
+    o.put(0);
+    o.put(0);
+    o.put(0);
+    o.put(0);           /* X origin */
+    o.put(0);
+    o.put(0);           /* y origin */
+    o.put((m_size.x  & 0x00FF));
+    o.put((m_size.x & 0xFF00) / 256);
+    o.put((m_size.y  & 0x00FF));
+    o.put((m_size.y  & 0xFF00) / 256);
+    o.put(32);                        /* 24 bit bitmap */
+    o.put(0);
+
+    //Write the pixel data
+    for (d_type::Bint i=0; i<getSizePixels() ; i++)
+    {
+        //std::cout<<(float)m_pixels[i].b <<" "<<(float)m_pixels[i].g<<" "<<(float)m_pixels[i].r<<" "<<(float)m_pixels[i].a<<"\n";
+        o.put(colors[i].b*255);
+        o.put(colors[i].g*255);
+        o.put(colors[i].r*255);
+        o.put(colors[i].a*255);
+    }
+
+    //close the file
+    o.close();
 }

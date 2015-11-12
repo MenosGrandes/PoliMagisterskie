@@ -119,10 +119,6 @@ public:
         }
         int counter=0;
         std::vector<Vector3Bf> vertices;
-        // For each vertex of each triangle
-
-//     Material triMat=materials.at(0);
-
 
 
         for( unsigned int i=0; i<vertexIndices.size(); i++ )
@@ -143,34 +139,13 @@ public:
 
             if(vertices.size() == 3)
             {
-//            Material material;
-//            if(!materials.empty() && !materialCounter.empty())
-//            {
-//                material=materialCounter.front().mat;
-//                --materialCounter.front().counter;
-//                if(materialCounter.front().counter==0)
-//                {
-//                    materialCounter.erase(materialCounter.begin());
-//                }
-//                RayTriangle* tri=new RayTriangle(vertices[0],vertices[1],vertices[2]);
-//                tri->setMaterial(material.mat);
-//               mesh->m_triangles.push_back(tri);
-//
-//            }
-//            else
-//            {
-
-                m_triangles.push_back(new render::TriangleFloat(vertices[0],vertices[1],vertices[2]));//,new PerfectDifuse(Colour::randomColor())));
-
-//            }
+                m_triangles.push_back(new render::TriangleFloat(vertices[0],vertices[1],vertices[2]));
                 vertices.clear();
             }
             counter++;
 
         }
-//    std::cout<<mesh->m_triangles.size()<<"\n";
-//    std::cout<<materials.size()<<"\n";
-//
+
     }
 private:
     std::vector<TriangleFloat *> m_triangles;

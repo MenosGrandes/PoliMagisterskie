@@ -171,6 +171,9 @@
 		<Unit filename="include/Sampler.h">
 			<Option virtualFolder="Antyalising/" />
 		</Unit>
+		<Unit filename="include/SpericalMapping.h">
+			<Option virtualFolder="BRDF/Texture/Mapping/" />
+		</Unit>
 		<Unit filename="include/Sphere.h">
 			<Option virtualFolder="Ray/Raycastable/" />
 		</Unit>
@@ -327,6 +330,9 @@
 		</Unit>
 		<Unit filename="src/Sampler.cpp">
 			<Option virtualFolder="Antyalising/" />
+		</Unit>
+		<Unit filename="src/SpericalMapping.cpp">
+			<Option virtualFolder="BRDF/Texture/Mapping/" />
 		</Unit>
 		<Unit filename="src/Sphere.cpp">
 			<Option virtualFolder="Ray/Raycastable/" />

@@ -58,7 +58,6 @@ public :
     BBool calculate(T x,T y)
     {
 
-
         if(topLeft.x && topLeft.y &&!topLeft.z)
         {
             return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>0)

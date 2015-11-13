@@ -209,6 +209,16 @@ inline bool operator !=(const Vector3<T>& left, const Vector3<T>& right)
     return (left.x != right.x) || (left.y != right.y) || (left.z != right.z);
 }
 ///////////////////////////////////////////////////////////
+template <typename T, typename B>
+inline bool operator >=(const Vector3<T>& left, const B& right)
+{
+    if(left.x>=right &&left.y>=right&&left.z>=right)
+    {
+        return true;
+    }
+    return false;
+}
+///////////////////////////////////////////////////////////
 template <typename T>
 T Vector3<T>::min()
 {

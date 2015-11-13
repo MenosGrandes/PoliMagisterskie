@@ -44,7 +44,10 @@ public :
         this->dx=Vector3<T>(first.x-second.x,second.x-third.x,third.x-first.x);
         this->dy=Vector3<T>(first.y-second.y,second.y-third.y,third.y-first.y);
 //TopLeft
-        this->topLeft =Vector3Bb(dy.x < 0 || (dy.x == 0 && dx.x > 0), dy.y < 0 || (dy.y == 0 && dx.y > 0), dy.z < 0 || (dy.z == 0 && dx.z > 0) );
+//        this->topLeft =Vector3Bb(dy.x < 0 || (dy.x == 0 && dx.x > 0),
+//                                 dy.y < 0 || (dy.y == 0 && dx.y > 0),
+//                                 dy.z < 0 || (dy.z == 0 && dx.z > 0) );
+//                                 std::cout<<topLeft<<" top left\n";
 
     }
 
@@ -54,48 +57,24 @@ public :
     };
 
 
-
-    BBool calculate(T x,T y)
+d_type::Bint orient2d(const Vector3<T> &a, const Vector3<T> &b,  const  Vector3<T>& c)
+{
+    return (b.x-a.x)*(c.y-a.y) - (b.y-a.y)*(c.x-a.x);
+}
+    Vector3Bi calculate(T x,T y)
     {
 
-        if(topLeft.x && topLeft.y &&!topLeft.z)
-        {
-            return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>0)
-                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>0)
-                     &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>=0);
-        }
-        else if(topLeft.x && !topLeft.y&&!topLeft.z)
-        {
-            return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>0)
-                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>=0)
-                     &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>=0);
-        }
-        else if (topLeft.y && !topLeft.x&&!topLeft.z)
-        {
-            return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>=0)
-                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>0)
-                     &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>=0);
-        }
-        else if (topLeft.y && topLeft.z && !topLeft.x)
-        {
-            return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>=0)
-                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>0)
-                     &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>0);
-        }
-        else  if(topLeft.z && !topLeft.y && !topLeft.x)
+//return Vector3Bi(
+//                 (third.x-second.x)*(y - second.y) - (third.y-second.y)*(x-second.x),
+//                 (first.x-third.x)*(y-third.y) - (first.y-third.y)*(x-third.x),
+//                 (second.x-first.x)*(y-first.y) -(second.y-first.y)*(x-first.x)
+//                 );
 
-        {
-            return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>=0)
-                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>=0)
-                     &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>0);
-        }
-        else if (topLeft.z && topLeft.x && !topLeft.y)
-        {
-            return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>0)
-                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>=0)
-                     &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>0);
-        }
-        return false;
+return Vector3Bi(
+                 orient2d(second,third,Vector3<T>(x,y,0)),
+                 orient2d(third,first,Vector3<T>(x,y,0)),
+                 orient2d(first,second,Vector3<T>(x,y,0))
+                 );
 
     }
 

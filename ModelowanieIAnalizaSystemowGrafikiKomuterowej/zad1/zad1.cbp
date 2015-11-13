@@ -17,11 +17,6 @@
 					<Add option="-g" />
 					<Add directory="include" />
 				</Compiler>
-				<Linker>
-					<Add library="sfml-graphics-s-d" />
-					<Add library="sfml-window-s-d" />
-					<Add library="sfml-system-s-d" />
-				</Linker>
 			</Target>
 			<Target title="Release">
 				<Option output="bin/Release/zad1" prefix_auto="1" extension_auto="1" />
@@ -34,22 +29,15 @@
 				</Compiler>
 				<Linker>
 					<Add option="-s" />
-					<Add library="sfml-graphics-s" />
-					<Add library="sfml-window-s" />
-					<Add library="sfml-system-s" />
 				</Linker>
 			</Target>
 		</Build>
 		<Compiler>
 			<Add option="-march=corei7" />
-			<Add option="-Weffc++" />
 			<Add option="-std=c++11" />
-			<Add option="-DSFML_STATIC" />
-			<Add directory="C:/Libs/SFML-2.1/include" />
 		</Compiler>
 		<Linker>
 			<Add option="-static-libgcc -static-libstdc++" />
-			<Add directory="C:/Libs/SFML-2.1/lib" />
 		</Linker>
 		<Unit filename="include/AdaptiveSampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
@@ -374,6 +362,12 @@
 				<doxyfile_dot class_diagrams="1" />
 				<general />
 			</DoxyBlocks>
+			<wxsmith version="1">
+				<gui name="wxWidgets" src="" main="" init_handlers="necessary" language="CPP" />
+				<resources>
+					<wxFrame wxs="wxsmith/NewFrame.wxs" src="NewFrame.cpp" hdr="NewFrame.h" fwddecl="0" i18n="1" name="NewFrame" language="CPP" />
+				</resources>
+			</wxsmith>
 		</Extensions>
 	</Project>
 </CodeBlocks_project_file>

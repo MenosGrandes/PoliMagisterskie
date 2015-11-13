@@ -101,7 +101,7 @@ void RenderTarget::draw( render::TriangleFloat& triangle)
     {
         for(Bfloat y=triangle.rect.z; y<triangle.rect.w; y++)
         {
-            if(triangle.calculate(x,y))
+            if(triangle.calculate(x,y)>=0)
             {
                 setPixel(triangle.calculateLambdaColor(x,y),x,y);
             }
@@ -204,15 +204,15 @@ Colour * RenderTarget::getColorPixels()
 }
 void RenderTarget::rewritePixelForTexture(d_type::Bubyte* pixels)
 {
-    for (d_type::Bint i=0; i<m_size.x*m_size.y ; i++)
-    {
-        d_type::Bint k=i*4;
-        pixels[k+3]=m_pixels[i].a*255;
-        pixels[k+2]=m_pixels[i].r*255;
-        pixels[k+1]=m_pixels[i].g*255;
-        pixels[k]  =m_pixels[i].b*255;
-
-    }
+//    for (d_type::Bint i=0; i<m_size.x*m_size.y ; i++)
+//    {
+//        d_type::Bint k=i*4;
+//        pixels[k+3]=m_pixels[i].a*255;
+//        pixels[k+2]=m_pixels[i].r*255;
+//        pixels[k+1]=m_pixels[i].g*255;
+//        pixels[k]  =m_pixels[i].b*255;
+//
+//    }
 
 }
 

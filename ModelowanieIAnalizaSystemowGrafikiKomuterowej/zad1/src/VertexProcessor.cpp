@@ -16,7 +16,6 @@ void VertexProcessor::setPerspective(d_type::Bfloat fovy, d_type::Bfloat aspect,
 {
     ///KOLUMNOWO MAM!!!!
     fovy *= M_PI/ 360;
-
     d_type::Bfloat f=cosf(fovy)/sinf(fovy);
 
     view2proj=Matrix4Bfloat(
@@ -73,30 +72,6 @@ void VertexProcessor::multByRotation(d_type::Bfloat a, Vector3Bf v)
 {
     d_type::Bfloat s=sinf(a*M_PI/180),c=cosf(a*M_PI/180);
     Vector3Bf::normalize(v);
-//
-//    Matrix4Bfloat m(
-//        Vector4Bf(
-//            v.x*v.x*(1-c)+c,
-//            v.y*v.x*(1-c)+v.z*s,
-//            v.x*v.z*(1-c)-v.y*s,
-//            0
-//        ),
-//        Vector4Bf(
-//            v.x*v.y*(1-c)-v.z*s,
-//            v.y*v.y*(1-c)+c,
-//            v.y*v.z*(1-c)+v.x*s,
-//            0
-//        ),
-//        Vector4Bf(
-//            v.x*v.z*(1-c)+v.y*s,
-//            v.y*v.z*(1-c)-v.x*s,
-//            v.z*v.z*(1-c)+c,
-//            0
-//        ),
-//        Vector4Bf(0,0,0,1)
-//    );
-//
-
 
     Matrix4Bfloat m(
         Vector4Bf(
@@ -121,7 +96,7 @@ void VertexProcessor::multByRotation(d_type::Bfloat a, Vector3Bf v)
         ),
         Vector4Bf(0,0,0,1)
     );
-    obj2world=m;
+    obj2world=m*obj2world;
 
 }
 Vector3Bf VertexProcessor::addTriangle(Vector3Bf tr)

@@ -10,15 +10,14 @@
 #include <string>
 #include <sstream>
 
-// #define RENDERER
-#define FOTO
+ #define RENDERER
+//#define FOTO
 
 using namespace d_type;
 #ifdef RENDERER
 #include "RenderTarget.h"
 #include "VertexProcessor.h"
 #include "TriangleMesh.h"
-#include <SFML/Graphics.hpp>
 #endif // RENDERER
 
 #ifdef FOTO
@@ -674,132 +673,27 @@ rt->addLight(dirLight);
 }
 #endif
 #ifdef RENDERER
-float getFPS(const sf::Time& time)
-{
-    return (1000000.0f / time.asMicroseconds());
-}
+
 int main(int argc, char **argv)
 {
 
 
 
-
-
     Vector2Bs img_size=Vector2Bs(500,500);
-
-
-
-
-
-
     RenderTarget *file = new RenderTarget(img_size);
-
-
-
-
-
-
-
-    std::array<render::TriangleFloat*,2> triangleArray;
-    render::TriangleFloat *triangle= new render::TriangleFloat(Vector3Bf(-0.5f,0.1f,5),Vector3Bf(0.1f,-0.5f,1.0f),Vector3Bf(-0.5f,-0.5f,2.0));
-//    render::TriangleFloat *triangle2= new render::TriangleFloat(Vector3Bf(1,-0.1f,3),Vector3Bf(-0.4f,-1.0f,10),Vector3Bf(-0.5f,0.1f,2));
-
-
-    render::TriangleFloat *triangle2= new render::TriangleFloat(Vector3Bf(0,0,0),Vector3Bf(0.5f,0.5f,0),Vector3Bf(0.5f,0,0));
-
-    triangleArray[0]=triangle;
-    triangleArray[1]=triangle2;
-
-
-///NAJPIERW z -1 -1
-///potem obliczanie kamery
-///i potem kanoniczne
-
     render::TriangleMesh *mesh= new render::TriangleMesh();
-    mesh->loadOBJ("models/teapod.obj");
-
+    mesh->loadOBJ("models/cube.obj");
     VertexProcessor *vp= new VertexProcessor();
 
-//    vp->setIdentity();
-//    vp->setLookat(Vector3Bf(0,10,50),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
-//    vp->setPerspective(45,1,Vector2Bf(0.1f,10000));
-//    vp->transform();
-//    vp->addTriangle(triangle2);
-//    vp->addTriangle(triangle);
-//    vp->addTriangle(mesh);
-//
-//
-//    for(Bsize i=0; i<triangleArray.size(); i++)
-//    {
-//        triangleArray[i]->init(img_size);
-//    }
-//    for(render::TriangleFloat * tri : mesh->getTriangles())
-//    {
-//        tri->init(img_size);
-//    }
-//
-//
-//    for(render::TriangleFloat * tri : mesh->getTriangles())
-//    {
-//       file->draw(*tri);
-//    }
-//    file->draw(*triangle2);
-//    file->draw(*triangle);
-//
-    file->drawToFile("file.tga");
-
-
-
-    sf::RenderWindow window(sf::VideoMode(img_size.x, img_size.y), "RENDERER!");
-
-
-
-
-    sf::Texture texture;
-    if (!texture.create(img_size.x, img_size.y))
-    {
-        std::cout<<"ERROR WITH TEXTURE\n";
-    }
-
-
-
-
-
-
-
-
-    sf::Sprite sprite(texture);
-
-    sf::Uint8 * pixels = new sf::Uint8[img_size.x*img_size.y*4];
-    sf::Clock FPSClock;
-    std::stringstream ss;
-    file->rewritePixelForTexture(pixels);
-    texture.update(pixels);
-    d_type::Bfloat angle=180;
-    while (window.isOpen())
-    {
-        sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
-            if (event.type == sf::Event::KeyPressed)
-            {
-                if (event.key.code == sf::Keyboard::Q)
-                {
-                    angle+=50;
-                    std::cout<<angle<<"\n";;
-                }
-            }
-        }
         vp->setIdentity();
         vp->setLookat(Vector3Bf(0,10,50),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
         vp->setPerspective(45,1,Vector2Bf(0.1f,20));
-        vp->multByRotation(54,Vector3Bf(0,1,0));
-//        std::cout<<angle<<"\n";
+        vp->multByRotation(45,Vector3Bf(0,0,1));
+//        vp->multByScale(Vector3Bf(0.5f,0.5f,0.5f));
+//       vp->multByTranslation(Vector3Bf(0,10,0));
+//        vp->multByRotation(50,Vector3Bf(1,0,0));
         vp->transform();
         vp->addTriangle(mesh);
-
 
 
         for(render::TriangleFloat * tri : mesh->getTriangles())
@@ -807,28 +701,9 @@ int main(int argc, char **argv)
             tri->init(img_size);
             file->draw(*tri);
         }
-//    for(Bsize i=0; i<triangleArray.size(); i++)
-//    {
-//        triangleArray[i]->init(img_size);
-//        file->draw(*triangleArray[i]);
-//    }
 
-        texture.update(pixels);
+                                        file->drawToFile("asdasd.tga");
 
-        file->rewritePixelForTexture(pixels);
-
-        window.clear();
-        window.draw(sprite);
-        //texture.update(window);
-        window.display();
-
-//        std::cout<<getFPS(FPSClock.restart())<<"\n";
-
-//       window.setTitle(ss.str());
-//       ss.str("");
-
-
-    }
 
 
 

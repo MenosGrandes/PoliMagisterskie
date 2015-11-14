@@ -5,7 +5,7 @@
 		<Option title="zad1" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="Camera\;Ray\;RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Ray\Raycastable\;Triangle\;Antyalising\;Antyalising\Generator\;Antyalising\Distributor\;BRDF\;BRDF\Light\;BRDF\Material\;BRDF\Reflections\;Threads\;BRDF\Texture\;BRDF\Texture\Mapping\;" />
+		<Option virtualFolders="Camera\;Ray\;RenderTarget\;Types\;Algorithms\;Types\Vertex\;Types\Vector\;Types\Matrix\;Types\Vertex\VertexArray\;Ray\Raycastable\;Antyalising\;Antyalising\Generator\;Antyalising\Distributor\;BRDF\;BRDF\Light\;BRDF\Material\;BRDF\Reflections\;Threads\;BRDF\Texture\;BRDF\Texture\Mapping\;" />
 		<Build>
 			<Target title="Debug">
 				<Option output="bin/Debug/zad1" prefix_auto="1" extension_auto="1" />
@@ -177,12 +177,6 @@
 		<Unit filename="include/TextureMatte.h">
 			<Option virtualFolder="BRDF/Texture/" />
 		</Unit>
-		<Unit filename="include/Triangle.h">
-			<Option virtualFolder="Triangle/" />
-		</Unit>
-		<Unit filename="include/TriangleMesh.h">
-			<Option virtualFolder="Triangle/" />
-		</Unit>
 		<Unit filename="include/Vector2.h">
 			<Option virtualFolder="Types/Vector/" />
 		</Unit>
@@ -197,9 +191,6 @@
 		</Unit>
 		<Unit filename="include/Vertex3.h">
 			<Option virtualFolder="Types/Vertex/" />
-		</Unit>
-		<Unit filename="include/VertexProcessor.h">
-			<Option virtualFolder="RenderTarget/" />
 		</Unit>
 		<Unit filename="include/structs.hpp">
 			<Option virtualFolder="Types/" />
@@ -336,15 +327,6 @@
 		</Unit>
 		<Unit filename="src/TextureMatte.cpp">
 			<Option virtualFolder="BRDF/Texture/" />
-		</Unit>
-		<Unit filename="src/Triangle.cpp">
-			<Option virtualFolder="Triangle/" />
-		</Unit>
-		<Unit filename="src/TriangleMesh.cpp">
-			<Option virtualFolder="Triangle/" />
-		</Unit>
-		<Unit filename="src/VertexProcessor.cpp">
-			<Option virtualFolder="RenderTarget/" />
 		</Unit>
 		<Unit filename="src/algorithms.hpp">
 			<Option virtualFolder="Algorithms/" />

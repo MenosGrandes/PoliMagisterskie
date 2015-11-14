@@ -1,15 +1,15 @@
 # depslib dependency file v1.0
-1447508253 source:c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\main.cpp
+1447522037 source:c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\main.cpp
 	"Bitmap.h"
 	"RenderContext.h"
-	"Vector2.h"
+	"src/algorithms.hpp"
 
-1447499056 c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\include\matrix4.h
+1447522089 c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\include\matrix4.h
+	"structs.hpp"
 	"Vector4.h"
-	<ostream>
-	<iostream>
+	<cmath>
 
-1447499056 c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\include\vector4.h
+1447517731 c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\include\vector4.h
 	"structs.hpp"
 
 1447503805 c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\include\structs.hpp
@@ -19,9 +19,10 @@
 	<iostream>
 	<stdint.h>
 
-1447499056 c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\include\vertex2.h
-	"Vector2.h"
+1447522272 c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\include\vertex2.h
+	"Vector4.h"
 	"Colour.h"
+	"Matrix4.h"
 
 1447499056 c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\include\vector2.h
 	"structs.hpp"
@@ -78,7 +79,7 @@
 	<sys/sysctl.h>
 	<unistd.h>
 
-1447499056 source:c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\src\matrix4.cpp
+1447516197 source:c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\src\matrix4.cpp
 	"Matrix4.h"
 
 1447502406 source:c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\src\rendertarget.cpp
@@ -441,9 +442,10 @@
 	<random>
 	"Bitmap.h"
 
-1447508240 c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\include\rendercontext.h
+1447521533 c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\include\rendercontext.h
 	"Bitmap.h"
+	"Vertex2.h"
 
-1447508277 source:c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\src\rendercontext.cpp
+1447521980 source:c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\src\rendercontext.cpp
 	"RenderContext.h"
 

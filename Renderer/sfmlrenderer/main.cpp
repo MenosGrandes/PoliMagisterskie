@@ -1,7 +1,7 @@
 
 #include "Bitmap.h"
 #include "RenderContext.h"
-#include "Vector2.h"
+#include "src/algorithms.hpp"
 float getFPS(const sf::Time& time)
 {
     return (1000000.0f / time.asMicroseconds());
@@ -18,7 +18,25 @@ int main()
     sf::Clock FPSClock;
         sf::Clock gameClock;
 
-    sf::Int64 previousTime=gameClock.restart().asMicroseconds();
+    Vertex2 max,min,mid;
+    max.position=Vector4Bf(-1,-1,0,1);
+    min.position=Vector4Bf(0,1,0,1);
+    mid.position=Vector4Bf(1,-1,0,1);
+    Matrix4f projection=Matrix4f();
+    projection.InitPerspective((d_type::Bfloat)ToRadians::toRadians(70),size.x/size.y,0.1f,1000.0f);
+    d_type::Bfloat rotationV=0;
+
+
+
+    Matrix4f translation=Matrix4f();
+    translation.InitTranslation(0,2,5);
+
+    Matrix4f rotation=Matrix4f();
+    rotation.InitRotation(0,0,0);
+
+    Matrix4f transform=Matrix4f();
+    transform=projection.Mul(translation.Mul(rotation));
+
     while (window.isOpen())
     {
         sf::Event event;
@@ -41,13 +59,24 @@ int main()
             }
         }
 
+
+
+
+
+
+
+
+    rotationV+=gameClock.restart().asMicroseconds()/1000000.f;
+    translation.InitTranslation(0,0,3);
+
+    rotation.InitRotation(0,rotationV,0);
+    transform=projection.Mul(translation.Mul(rotation));
+
+
         window.clear();
         bitmap->clear(0);
-        for(int j=100;j<200;j++)
-        {
-            bitmap->drawScanBuffer(j,300-j,300+j);
-        }
-        bitmap->fillShape(100,200);
+
+        bitmap->fillTriangle(max.transform(transform),mid.transform(transform),min.transform(transform));
         bitmap->swapBuffers();
         window.draw(*bitmap);
         window.display();

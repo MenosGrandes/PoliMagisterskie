@@ -15,8 +15,12 @@ public:
     explicit Vector4(const Vector4<U>& vector);
     T min();
     T max();
-    static T dotProduct(const Vector4<T>& p1, const Vector4<T>& p2);
-
+    T dotProduct( const Vector4<T>& p2);
+    T length();
+    Vector4<T> cross(const Vector4<T>& p1);
+    Vector4<T> normalized();
+    Vector4<T> rotate(Vector4<T> axis, d_type::Bfloat angle);
+    Vector4<T> lerp(Vector4<T> dest, d_type::Bfloat lerpFactor);
 
 
     T x; ///< X coordinate of the vector
@@ -25,9 +29,9 @@ public:
     T w; ///< W coordinate of the vector / depth
 };
 template <typename T>
-T Vector4<T>::dotProduct(const Vector4<T>& p1, const Vector4<T>& p2)
+T Vector4<T>::dotProduct( const Vector4<T>& p2)
 {
-    return (p1.x*p2.x + p1.y*p2.y + p1.z*p2.z + p1.w*p2.w );
+    return (x*p2.x +y*p2.y + z*p2.z + w*p2.w );
 }
 
 template <typename T>
@@ -169,17 +173,60 @@ inline bool operator !=(const Vector4<T>& left, const Vector4<T>& right)
 }
 
 template <typename T>
-T Vector4<T>::max()
+inline T Vector4<T>::max()
 {
     // there are a number of ways to structure this loop, this is just one
     return std::max({x,y,z,w});;
 };
 template <typename T>
-T Vector4<T>::min()
+inline T Vector4<T>::min()
 {
     return std::min({x,y,z,w});;
 };
 
+
+template <typename T>
+inline T Vector4<T>::length()
+{
+    return (T)sqrt(x * x + y * y + z * z + w * w);
+};
+
+
+template <typename T>
+inline Vector4<T> Vector4<T>::cross (const Vector4<T>& p1)
+{
+    T x_ = y * p1.z - z * p1.y;
+    T y_ = z * p1.x - x * p1.z;
+    T z_ = x * p1.y- y * p1.x;
+
+    return  Vector4<T>(x_, y_, z_, 0);
+};
+template <typename T>
+inline Vector4<T> Vector4<T>::normalized()
+{
+    T _length = length();
+
+    return  Vector4<T>(x / _length, y / _length, z / _length, w / _length);
+}
+
+template <typename T>
+inline Vector4<T> Vector4<T>::rotate(Vector4<T> axis, d_type::Bfloat angle)
+{
+    d_type::Bfloat sinAngle = (d_type::Bfloat)sinf(-angle);
+    d_type::Bfloat cosAngle = (d_type::Bfloat)cosf(-angle);
+
+        return (this.cross(axis*sinAngle) + (this*cosAngle + (axis*this.dotProduct(axis*(1-cosAngle)))));
+
+//    return cross(axis.Mul(sinAngle)).Add(           //Rotation on local X
+//               (this.Mul(cosAngle)).Add(                     //Rotation on local Z
+//                   axis.Mul(this.Dot(axis.Mul(1 - cosAngle))))); //Rotation on local Y
+}
+template <typename T>
+inline Vector4<T> Vector4<T>::lerp(Vector4<T> dest, d_type::Bfloat lerpFactor)
+{
+    return dest-(this)*(lerpFactor)+(this);
+
+}
 
 typedef Vector4<Bint>   Vector4Bi;
 typedef Vector4<Bfloat> Vector4Bf;

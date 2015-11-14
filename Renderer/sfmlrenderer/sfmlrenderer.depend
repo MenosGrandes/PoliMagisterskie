@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1447522037 source:c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\main.cpp
+1447524587 source:c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\main.cpp
 	"Bitmap.h"
 	"RenderContext.h"
 	"src/algorithms.hpp"
@@ -446,6 +446,6 @@
 	"Bitmap.h"
 	"Vertex2.h"
 
-1447521980 source:c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\src\rendercontext.cpp
+1447524574 source:c:\users\menos\desktop\polimagisterskie\renderer\sfmlrenderer\src\rendercontext.cpp
 	"RenderContext.h"
 

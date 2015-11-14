@@ -23,13 +23,13 @@ int main()
     min.position=Vector4Bf(0,1,0,1);
     mid.position=Vector4Bf(1,-1,0,1);
     Matrix4f projection=Matrix4f();
-    projection.InitPerspective((d_type::Bfloat)ToRadians::toRadians(45),size.x/size.y,0.1f,1000.0f);
+    projection.InitPerspective((d_type::Bfloat)ToRadians::toRadians(70),size.x/size.y,0.1f,1000.0f);
     d_type::Bfloat rotationV=0;
 
 
 
     Matrix4f translation=Matrix4f();
-    translation.InitTranslation(0,2,5);
+    translation.InitTranslation(0,0,3);
 
     Matrix4f rotation=Matrix4f();
     rotation.InitRotation(0,0,0);

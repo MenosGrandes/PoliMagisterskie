@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<wxsmith>
-	<object class="wxFrame" name="NewFrame">
-		<object class="wxButton" name="ID_BUTTON1" variable="Button1" member="yes">
-			<label>Label</label>
-			<pos>152,296</pos>
-		</object>
-	</object>
-</wxsmith>

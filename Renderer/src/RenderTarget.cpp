@@ -5,7 +5,12 @@ RenderTarget::RenderTarget(d_type::Bshort width, d_type::Bshort height)
     m_size.x = width;
     m_size.y = height;
     m_pixels = new Colour[getSizePixels()];
+    m_dBuffer=new d_type::Bfloat[getSizePixels()];
+    for(d_type::Bint i=0; i<getSizePixels(); i++)
+    {
+        m_dBuffer[i]=100000.0f;
 
+    }
 
 
 }
@@ -18,7 +23,12 @@ RenderTarget::~RenderTarget()
 RenderTarget::RenderTarget(Vector2Bs size):m_size(size)
 {
     m_pixels = new Colour[getSizePixels()];
+    m_dBuffer=new d_type::Bfloat[getSizePixels()];
+    for(d_type::Bint i=0; i<getSizePixels(); i++)
+    {
+        m_dBuffer[i]=100000.0f;
 
+    }
 }
 //Set all pixels at once
 void RenderTarget::setAllPixels(Colour *pixels)
@@ -31,8 +41,18 @@ void RenderTarget::setPixel(Colour inputcolor, const d_type::Bint &x, const d_ty
 {
     m_pixels[convert2dto1d(x,y)] = inputcolor;
 }
+void RenderTarget::setPixel(ColorDepth colorDepth, const d_type::Bint &x, const d_type::Bint &y)
+{
+
+//std::cout<<colorDepth.depth<<" "<<m_dBuffer[convert2dto1d(x,y)]<<"\n";
+    if(colorDepth.depth < m_dBuffer[convert2dto1d(x,y)])
+    {
+        m_pixels[convert2dto1d(x,y)] = colorDepth.color;
+        m_dBuffer[convert2dto1d(x,y)]= colorDepth.depth;
+    }
 
 
+}
 //Convert 2d array indexing to 1d indexing
 d_type::Bint RenderTarget::convert2dto1d(d_type::Bint x, d_type::Bint y)
 {
@@ -72,6 +92,35 @@ d_type::Bint RenderTarget::getSizePixels() const
 {
 
     return m_size.x * m_size.y;
+}
+
+void RenderTarget::draw( render::TriangleFloat& triangle)
+{
+
+    for(Bfloat x =triangle.rect.x; x<triangle.rect.y; x++)
+    {
+        for(Bfloat y=triangle.rect.z; y<triangle.rect.w; y++)
+        {
+            if(triangle.calculate(x,y)>=0)
+            {
+                setPixel(triangle.calculateLambdaColor(x,y),x,y);
+            }
+
+        }
+
+
+    }
+
+}
+d_type::Bfloat RenderTarget::getDepthBuffer() const
+{
+
+    for(d_type::Bint i=0; i<getSizePixels(); i++)
+    {
+        std::cout<<m_dBuffer[i]<<"\n";
+
+    }
+    return 0.0f;
 }
 
 void RenderTarget::drawToFile(std::string m_filename)
@@ -152,6 +201,19 @@ Colour * RenderTarget::getColorPixels()
 {
 
     return m_pixels;
+}
+void RenderTarget::rewritePixelForTexture(d_type::Bubyte* pixels)
+{
+//    for (d_type::Bint i=0; i<m_size.x*m_size.y ; i++)
+//    {
+//        d_type::Bint k=i*4;
+//        pixels[k+3]=m_pixels[i].a*255;
+//        pixels[k+2]=m_pixels[i].r*255;
+//        pixels[k+1]=m_pixels[i].g*255;
+//        pixels[k]  =m_pixels[i].b*255;
+//
+//    }
+
 }
 
 void RenderTarget::drawToFile(Colour* colors)

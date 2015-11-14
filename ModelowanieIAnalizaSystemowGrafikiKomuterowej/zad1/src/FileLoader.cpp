@@ -182,15 +182,15 @@ Mesh* FileLoader::loadOBJ(std::string filename)
 //            }
 //            else
 //            {
-                RayTriangle *tri =new RayTriangle(vertices[0],vertices[1],vertices[2]);
-                PhongMaterial *mat3=new PhongMaterial();
-    mat3->setKa(0.1f);
-    mat3->setKd(0.1f);
-    mat3->setKs(0.5f);
-    mat3->setCd(Colour::Green);
-    mat3->setExponent(1.f);
-                tri->setMaterial(mat3);
-                mesh->m_triangles.push_back(tri);//,new PerfectDifuse(Colour::randomColor())));
+            RayTriangle *tri =new RayTriangle(vertices[0],vertices[1],vertices[2]);
+            PhongMaterial *mat3=new PhongMaterial();
+            mat3->setKa(0.1f);
+            mat3->setKd(0.1f);
+            mat3->setKs(0.5f);
+            mat3->setCd(Colour::Green);
+            mat3->setExponent(1.f);
+            tri->setMaterial(mat3);
+            mesh->m_triangles.push_back(tri);//,new PerfectDifuse(Colour::randomColor())));
 
 //            }
             vertices.clear();

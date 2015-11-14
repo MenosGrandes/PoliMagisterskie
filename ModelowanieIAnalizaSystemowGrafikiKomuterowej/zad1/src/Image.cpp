@@ -4,16 +4,16 @@ Image::Image(char *filename)
 {
 
     typedef struct
-{
-    unsigned char imageTypeCode;
-    short int imageWidth;
-    short int imageHeight;
-    unsigned char bitCount;
-    unsigned char *imageData;
-} TGAFILE;
+    {
+        unsigned char imageTypeCode;
+        short int imageWidth;
+        short int imageHeight;
+        unsigned char bitCount;
+        unsigned char *imageData;
+    } TGAFILE;
 
-TGAFILE *tgaFile=new TGAFILE();
-        FILE *filePtr;
+    TGAFILE *tgaFile=new TGAFILE();
+    FILE *filePtr;
     unsigned char ucharBad;
     short int sintBad;
     long imageSize;
@@ -39,7 +39,7 @@ TGAFILE *tgaFile=new TGAFILE();
     if (tgaFile->imageTypeCode != 2 && tgaFile->imageTypeCode != 3)
     {
         fclose(filePtr);
-std::cout<<"ERROR IN IMAGETYPE\n";
+        std::cout<<"ERROR IN IMAGETYPE\n";
     }
 
     // Read 13 bytes of data we don't need.
@@ -72,11 +72,11 @@ std::cout<<"ERROR IN IMAGETYPE\n";
     // Read the image data.
     fread(tgaFile->imageData, sizeof(unsigned char), imageSize, filePtr);
 
-d_type::Buint counter=0;
-    for(int i =0;i<imageSize;i+=4)
+    d_type::Buint counter=0;
+    for(int i =0; i<imageSize; i+=4)
     {
-    //B G R A
-    // R G B A
+        //B G R A
+        // R G B A
         m_pixels[counter]=Colour((d_type::Bfloat)tgaFile->imageData[i+2]/255,
                                  (d_type::Bfloat)tgaFile->imageData[i+1]/255,
                                  (d_type::Bfloat)tgaFile->imageData[i]/255,

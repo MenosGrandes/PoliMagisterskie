@@ -1,9 +1,10 @@
 #ifndef RENDERTARGET_H
 #define RENDERTARGET_H
+#include "Triangle.h"
 
 #include <iostream>
 #include <fstream>
-#include "Colour.h"
+
 
 
 class RenderTarget
@@ -13,6 +14,8 @@ public:
     RenderTarget(d_type::Bshort width, d_type::Bshort height);
     RenderTarget(Vector2Bs size);
     ~RenderTarget();
+    void draw();
+    void draw( render::TriangleFloat& drawable);
     void drawToFile( std::string m_filename);
     void clear();
 
@@ -31,6 +34,7 @@ public:
     //Set all pixels at once
     void setAllPixels(Colour *pixels);
     //set individual pixels
+    void setPixel(ColorDepth colorDepth, const d_type::Bint &xposition,const  d_type::Bint &yposition);
     void setPixel(Colour inputcolor, const d_type::Bint &x,const  d_type::Bint &y);
 
     d_type::Bfloat getDepthBuffer() const;
@@ -38,6 +42,7 @@ public:
     void setCleanColour(const Colour&c);
     void clearPixel(const d_type::Bint &x,const  d_type::Bint &y);
     Colour * getColorPixels();
+    void rewritePixelForTexture(d_type::Bubyte * pixels);
     void drawToFile(Colour * colors);
 private:
     //convert 2D to 1D indexing
@@ -46,6 +51,8 @@ private:
 
     //ColorBuffer
     Colour *m_pixels;
+    //DepthBuffer
+    d_type::Bfloat *m_dBuffer;
     //Size of pizxel table, so size of picture
     Vector2Bs m_size;
 

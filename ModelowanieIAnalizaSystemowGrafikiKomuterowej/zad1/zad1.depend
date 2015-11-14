@@ -35,6 +35,8 @@
 	"DirectionalLight.h"
 	"Image.h"
 
+1447344117 
+
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\matrix4.h
 	"Vector4.h"
 	<ostream>
@@ -42,6 +44,8 @@
 
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector4.h
 	"structs.hpp"
+
+1447413369 pp"
 
 1447316148 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\structs.hpp
 	<limits>
@@ -91,9 +95,13 @@
 	"Triangle.h"
 	"TriangleMesh.h"
 
+1447180402 esh.h"
+
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\camera.h
 	"Vector2.h"
 	"Ray.h"
+
+1447312707 "
 
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ray.h
 	"Vector3.h"
@@ -107,6 +115,8 @@
 	<stdio.h>
 	<string.h>
 	<algorithm>
+
+1447316854 >
 
 1367997278 c:\libs\sfml-2.1\include\sfml\graphics.hpp
 	<SFML/Window.hpp>
@@ -131,6 +141,8 @@
 	<SFML/Graphics/VertexArray.hpp>
 	<SFML/Graphics/View.hpp>
 
+1367997278 hics/View.hpp>
+
 1367997281 c:\libs\sfml-2.1\include\sfml\window.hpp
 	<SFML/System.hpp>
 	<SFML/Window/Context.hpp>
@@ -142,6 +154,8 @@
 	<SFML/Window/VideoMode.hpp>
 	<SFML/Window/Window.hpp>
 	<SFML/Window/WindowStyle.hpp>
+
+1367997281 ow/WindowStyle.hpp>
 
 1367997281 c:\libs\sfml-2.1\include\sfml\system.hpp
 	<SFML/Config.hpp>
@@ -159,17 +173,25 @@
 	<SFML/System/Vector2.hpp>
 	<SFML/System/Vector3.hpp>
 
+1367997281 em/Vector3.hpp>
+
 1374390132 c:\libs\sfml-2.1\include\sfml\config.hpp
 
 1367997281 c:\libs\sfml-2.1\include\sfml\system\clock.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/Time.hpp>
 
+1367997281 em/Time.hpp>
+
 1367997281 c:\libs\sfml-2.1\include\sfml\system\export.hpp
 	<SFML/Config.hpp>
 
+1367997278 ig.hpp>
+
 1367997281 c:\libs\sfml-2.1\include\sfml\system\time.hpp
 	<SFML/System/Export.hpp>
+
+1367997281 em/Export.hpp>
 
 1367997281 c:\libs\sfml-2.1\include\sfml\system\err.hpp
 	<SFML/System/Export.hpp>
@@ -181,6 +203,8 @@
 1367997281 c:\libs\sfml-2.1\include\sfml\system\lock.hpp
 	<SFML/System/Export.hpp>
 	<SFML/System/NonCopyable.hpp>
+
+1367997279 em/NonCopyable.hpp>
 
 1367997281 c:\libs\sfml-2.1\include\sfml\system\noncopyable.hpp
 	<SFML/System/Export.hpp>
@@ -204,6 +228,8 @@
 	<cstdlib>
 	<SFML/System/Thread.inl>
 
+1367997281 em/Thread.inl>
+
 1367997281 c:\libs\sfml-2.1\include\sfml\system\thread.inl
 
 1367997281 c:\libs\sfml-2.1\include\sfml\system\threadlocal.hpp
@@ -215,6 +241,8 @@
 	<SFML/System/ThreadLocal.hpp>
 	<SFML/System/ThreadLocalPtr.inl>
 
+1367997281 em/ThreadLocalPtr.inl>
+
 1367997281 c:\libs\sfml-2.1\include\sfml\system\threadlocalptr.inl
 
 1367997281 c:\libs\sfml-2.1\include\sfml\system\utf.hpp
@@ -225,15 +253,21 @@
 	<cstdlib>
 	<SFML/System/Utf.inl>
 
+1367997281 em/Utf.inl>
+
 1372053422 c:\libs\sfml-2.1\include\sfml\system\utf.inl
 
 1367997281 c:\libs\sfml-2.1\include\sfml\system\vector2.hpp
 	<SFML/System/Vector2.inl>
 
+1367997281 em/Vector2.inl>
+
 1367997281 c:\libs\sfml-2.1\include\sfml\system\vector2.inl
 
 1367997281 c:\libs\sfml-2.1\include\sfml\system\vector3.hpp
 	<SFML/System/Vector3.inl>
+
+1367997281 em/Vector3.inl>
 
 1367997281 c:\libs\sfml-2.1\include\sfml\system\vector3.inl
 
@@ -249,6 +283,8 @@
 1367997281 c:\libs\sfml-2.1\include\sfml\window\glresource.hpp
 	<SFML/Window/Export.hpp>
 
+1367997281 ow/Export.hpp>
+
 1367997281 c:\libs\sfml-2.1\include\sfml\window\contextsettings.hpp
 
 1367997281 c:\libs\sfml-2.1\include\sfml\window\event.hpp
@@ -256,6 +292,8 @@
 	<SFML/Window/Joystick.hpp>
 	<SFML/Window/Keyboard.hpp>
 	<SFML/Window/Mouse.hpp>
+
+1367997281 ow/Mouse.hpp>
 
 1367997281 c:\libs\sfml-2.1\include\sfml\window\joystick.hpp
 	<SFML/Window/Export.hpp>
@@ -266,6 +304,8 @@
 1367997281 c:\libs\sfml-2.1\include\sfml\window\mouse.hpp
 	<SFML/Window/Export.hpp>
 	<SFML/System/Vector2.hpp>
+
+1367997279 em/Vector2.hpp>
 
 1367997281 c:\libs\sfml-2.1\include\sfml\window\videomode.hpp
 	<SFML/Window/Export.hpp>
@@ -283,6 +323,8 @@
 	<SFML/System/NonCopyable.hpp>
 	<SFML/System/String.hpp>
 
+1371061192 em/String.hpp>
+
 1367997281 c:\libs\sfml-2.1\include\sfml\window\windowhandle.hpp
 	<SFML/Config.hpp>
 
@@ -292,6 +334,8 @@
 
 1367997278 c:\libs\sfml-2.1\include\sfml\graphics\color.hpp
 	<SFML/Graphics/Export.hpp>
+
+1367997278 hics/Export.hpp>
 
 1367997278 c:\libs\sfml-2.1\include\sfml\graphics\export.hpp
 	<SFML/Config.hpp>
@@ -311,10 +355,14 @@
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
 
+1367997279 hics/Rect.hpp>
+
 1367997279 c:\libs\sfml-2.1\include\sfml\graphics\rect.hpp
 	<SFML/System/Vector2.hpp>
 	<algorithm>
 	<SFML/Graphics/Rect.inl>
+
+1367997279 hics/Rect.inl>
 
 1368305601 c:\libs\sfml-2.1\include\sfml\graphics\rect.inl
 
@@ -322,6 +370,8 @@
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Image.hpp>
 	<SFML/Window/GlResource.hpp>
+
+1367997280 ow/GlResource.hpp>
 
 1368172116 c:\libs\sfml-2.1\include\sfml\graphics\image.hpp
 	<SFML/Graphics/Export.hpp>
@@ -335,6 +385,8 @@
 	<SFML/Graphics/BlendMode.hpp>
 	<SFML/Graphics/Transform.hpp>
 
+1368255064 hics/Transform.hpp>
+
 1367997280 c:\libs\sfml-2.1\include\sfml\graphics\transform.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Rect.hpp>
@@ -344,6 +396,8 @@
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Texture.hpp>
 	<SFML/Graphics/RenderTarget.hpp>
+
+1367997279 hics/RenderTarget.hpp>
 
 1367997279 c:\libs\sfml-2.1\include\sfml\graphics\rendertarget.hpp
 	<SFML/Graphics/Export.hpp>
@@ -399,6 +453,8 @@
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/RenderStates.hpp>
 
+1367997278 hics/RenderStates.hpp>
+
 1368255064 c:\libs\sfml-2.1\include\sfml\graphics\transformable.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Transform.hpp>
@@ -414,6 +470,8 @@
 1367997278 c:\libs\sfml-2.1\include\sfml\graphics\circleshape.hpp
 	<SFML/Graphics/Export.hpp>
 	<SFML/Graphics/Shape.hpp>
+
+1367997279 hics/Shape.hpp>
 
 1367997279 c:\libs\sfml-2.1\include\sfml\graphics\rectangleshape.hpp
 	<SFML/Graphics/Export.hpp>
@@ -447,11 +505,15 @@
 	<iostream>
 	"../src/algorithms.hpp"
 
+1447180402 gorithms.hpp"
+
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raycastable.h
 	"Ray.h"
 	<vector>
 	"Info.h"
 	"IMaterial.h"
+
+1447314366 .h"
 
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\info.h
 	"Ray.h"
@@ -462,6 +524,8 @@
 
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\plane.h
 	"Raycastable.h"
+
+1447342160 le.h"
 
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ortagonalcamera.h
 	"Camera.h"
@@ -510,8 +574,12 @@
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\squaresampledistributor.h
 	"ISampleDistributor.h"
 
+1447180402 stributor.h"
+
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\regularsamplegenerator.h
 	"ISampleGenerator.h"
+
+1447180402 nerator.h"
 
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\disksampledistributor.h
 	"ISampleDistributor.h"
@@ -536,6 +604,8 @@
 	"Mesh.h"
 	"PhongMaterial.h"
 	"MatteMaterial.h"
+
+1447180402 rial.h"
 
 1447341991 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\mesh.h
 	"Raycastable.h"
@@ -596,6 +666,8 @@
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\adaptivesamplegenerator.cpp
 	"AdaptiveSampleGenerator.h"
 
+1447180402 ampleGenerator.h"
+
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\adaptivesamplegenerator.h
 	"ISampleGenerator.h"
 	"Colour.h"
@@ -615,11 +687,15 @@
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\checkcpu.cpp
 	"CheckCPU.h"
 
+1447180402 h"
+
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\colour.cpp
 	"Colour.h"
 
 1447312378 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\constcolour.cpp
 	"ConstColour.h"
+
+1447312378 ur.h"
 
 1447312544 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\constcolour.h
 	"Texture.h"
@@ -631,14 +707,22 @@
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\directionallight.cpp
 	"DirectionalLight.h"
 
+1447180402 alLight.h"
+
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\disksampledistributor.cpp
 	"DiskSampleDistributor.h"
+
+1447180402 eDistributor.h"
 
 1447343608 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\fileloader.cpp
 	"FileLoader.h"
 
+1447343608 r.h"
+
 1447357195 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\glossyspecular.cpp
 	"GlossySpecular.h"
+
+1447357195 cular.h"
 
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ilight.cpp
 	"ILight.h"
@@ -648,6 +732,8 @@
 
 1447313724 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\imagetexture.cpp
 	"ImageTexture.h"
+
+1447313724 ure.h"
 
 1447316574 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\imagetexture.h
 	"Texture.h"
@@ -675,6 +761,8 @@
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\lambertian.cpp
 	"Lambertian.h"
 
+1447180402 n.h"
+
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\matrix4.cpp
 	"Matrix4.h"
 
@@ -687,17 +775,25 @@
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\multijitteringsamplegenerator.cpp
 	"MultiJitteringSampleGenerator.h"
 
+1447180402 eringSampleGenerator.h"
+
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ortagonalcamera.cpp
 	"OrtagonalCamera.h"
 
+1447180402 Camera.h"
+
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\perfectspecular.cpp
 	"PerfectSpecular.h"
+
+1447180402 ecular.h"
 
 1447180402 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\perfectspecular.h
 	"BRDF.h"
 
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\perspectivecamera.cpp
 	"PerspectiveCamera.h"
+
+1447180402 veCamera.h"
 
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\phongmaterial.cpp
 	"PhongMaterial.h"
@@ -708,8 +804,12 @@
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\pointlight.cpp
 	"PointLight.h"
 
+1447180402 t.h"
+
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\randomsamplegenerator.cpp
 	"RandomSampleGenerator.h"
+
+1447180402 pleGenerator.h"
 
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ray.cpp
 	"Ray.h"
@@ -723,14 +823,20 @@
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\regularsamplegenerator.cpp
 	"RegularSampleGenerator.h"
 
+1447180402 mpleGenerator.h"
+
 1447412196 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\rendertarget.cpp
 	"RenderTarget.h"
+
+1447412196 get.h"
 
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sampler.cpp
 	"Sampler.h"
 
 1447315786 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\spericalmapping.cpp
 	"SpericalMapping.h"
+
+1447315786 apping.h"
 
 1447316631 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\spericalmapping.h
 	"IMapping.h"
@@ -741,11 +847,15 @@
 1447180402 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\squaresampledistributor.cpp
 	"SquareSampleDistributor.h"
 
+1447180402 pleDistributor.h"
+
 1447312365 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\texture.cpp
 	"Texture.h"
 
 1447312391 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\texturelambertian.cpp
 	"TextureLambertian.h"
+
+1447312391 mbertian.h"
 
 1447312707 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\texturelambertian.h
 	"BRDF.h"
@@ -753,6 +863,8 @@
 
 1447312403 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\texturematte.cpp
 	"TextureMatte.h"
+
+1447312403 tte.h"
 
 1447314366 c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\texturematte.h
 	"IMaterial.h"
@@ -766,5 +878,439 @@
 	"TriangleMesh.h"
 
 1447414236 source:c:\users\filip\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\vertexprocessor.cpp
+	"VertexProcessor.h"
+
+1447414236 cessor.h"
+
+1447483372 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/main.cpp
+	"Matrix4.h"
+	"Vertex2.h"
+	<cstdio>
+	<iostream>
+	<array>
+	<limits>
+	<chrono>
+	<ctime>
+	<vector>
+	<string>
+	<sstream>
+	"Sphere.h"
+	"Plane.h"
+	"OrtagonalCamera.h"
+	"PerspectiveCamera.h"
+	"RayTracer.h"
+	"RandomSampleGenerator.h"
+	"Sampler.h"
+	"SquareSampleDistributor.h"
+	"RegularSampleGenerator.h"
+	"DiskSampleDistributor.h"
+	"JitteredSampleGenerator.h"
+	"RayTriangle.h"
+	"FileLoader.h"
+	"MultiJitteringSampleGenerator.h"
+	"PointLight.h"
+	"MatteMaterial.h"
+	"PhongMaterial.h"
+	"CheckCPU.h"
+	"DirectionalLight.h"
+	"Image.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Matrix4.h
+	"Vector4.h"
+	<ostream>
+	<iostream>
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector4.h
+	"structs.hpp"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/structs.hpp
+	<limits>
+	<algorithm>
+	<cmath>
+	<iostream>
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vertex2.h
+	"Vector2.h"
+	"Colour.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector2.h
+	"structs.hpp"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Colour.h
+	"structs.hpp"
+	"Vector2.h"
+	"Vector3.h"
+	<random>
+	<iostream>
+	<ctime>
+
+1447483827 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vector3.h
+	"structs.hpp"
+
+1447483502 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/RenderTarget.h
+	<iostream>
+	<fstream>
+	"Colour.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Triangle.h
+	"Vector4.h"
+	"Vector3.h"
+	"Colour.h"
+	"../src/algorithms.hpp"
+	<iostream>
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/algorithms.hpp
+	<vector>
+	<limits>
+	<algorithm>
+	<random>
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/VertexProcessor.h
+	"Matrix4.h"
+	"Camera.h"
+	"Triangle.h"
+	"TriangleMesh.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Camera.h
+	"Vector2.h"
+	"Ray.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Ray.h
+	"Vector3.h"
+	<vector>
+	<limits>
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/TriangleMesh.h
+	"Triangle.h"
+	<vector>
+	<string>
+	<stdio.h>
+	<string.h>
+	<algorithm>
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Sphere.h
+	"Raycastable.h"
+	<iostream>
+	"../src/algorithms.hpp"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Raycastable.h
+	"Ray.h"
+	<vector>
+	"Info.h"
+	"IMaterial.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Info.h
+	"Ray.h"
+	"IMaterial.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/IMaterial.h
+	"Colour.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Plane.h
+	"Raycastable.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/OrtagonalCamera.h
+	"Camera.h"
+	"../src/algorithms.hpp"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/PerspectiveCamera.h
+	"Camera.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/RayTracer.h
+	"Camera.h"
+	"RenderTarget.h"
+	"Sampler.h"
+	"Info.h"
+	<limits>
+	"Ambient.h"
+	"Raycastable.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Sampler.h
+	"ISampleDistributor.h"
+	"ISampleGenerator.h"
+	<vector>
+	<random>
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/ISampleDistributor.h
+	"Vector2.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/ISampleGenerator.h
+	"Vector2.h"
+	"../src/algorithms.hpp"
+	<vector>
+	<cassert>
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Ambient.h
+	"ILight.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/ILight.h
+	"Vector3.h"
+	"Colour.h"
+	"Info.h"
+	<vector>
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/RandomSampleGenerator.h
+	"ISampleGenerator.h"
+	<random>
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/SquareSampleDistributor.h
+	"ISampleDistributor.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/RegularSampleGenerator.h
+	"ISampleGenerator.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/DiskSampleDistributor.h
+	"ISampleDistributor.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/JitteredSampleGenerator.h
+	"ISampleGenerator.h"
+	<random>
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/RayTriangle.h
+	"Vertex3.h"
+	"Raycastable.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Vertex3.h
+	"Vector3.h"
+	"Colour.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/FileLoader.h
+	<string>
+	<stdio.h>
+	<string.h>
+	<algorithm>
+	"Mesh.h"
+	"PhongMaterial.h"
+	"MatteMaterial.h"
+
+1447483597 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Mesh.h
+	"Raycastable.h"
+	<memory>
+	<limits>
+	<vector>
+	"RayTriangle.h"
+	"Box.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Box.h
+	"Raycastable.h"
+
+1447483827 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/PhongMaterial.h
+	"IMaterial.h"
+	"Lambertian.h"
+	"GlossySpecular.h"
+	"RayTracer.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Lambertian.h
+	"BRDF.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/BRDF.h
+	"Sampler.h"
+	"Colour.h"
+	"Info.h"
+
+1447483827 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/GlossySpecular.h
+	"BRDF.h"
+
+1447483827 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/MatteMaterial.h
+	"IMaterial.h"
+	"Lambertian.h"
+	"RayTracer.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/MultiJitteringSampleGenerator.h
+	"ISampleGenerator.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/PointLight.h
+	"ILight.h"
+	"Raycastable.h"
+	"RayTracer.h"
+
+1447483827 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/CheckCPU.h
+	<windows.h>
+	<sys/param.h>
+	<sys/sysctl.h>
+	<unistd.h>
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/DirectionalLight.h
+	"ILight.h"
+
+1447483827 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Image.h
+	<iostream>
+	<fstream>
+	<stdlib.h>
+	"Colour.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/AdaptiveSampleGenerator.cpp
+	"AdaptiveSampleGenerator.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/AdaptiveSampleGenerator.h
+	"ISampleGenerator.h"
+	"Colour.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Ambient.cpp
+	"Ambient.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Box.cpp
+	"Box.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/BRDF.cpp
+	"BRDF.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Camera.cpp
+	"Camera.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/CheckCPU.cpp
+	"CheckCPU.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Colour.cpp
+	"Colour.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/ConstColour.cpp
+	"ConstColour.h"
+
+1447483827 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/ConstColour.h
+	"Texture.h"
+
+1447483827 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/Texture.h
+	"Colour.h"
+	"Info.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/DirectionalLight.cpp
+	"DirectionalLight.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/DiskSampleDistributor.cpp
+	"DiskSampleDistributor.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/FileLoader.cpp
+	"FileLoader.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/GlossySpecular.cpp
+	"GlossySpecular.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/ILight.cpp
+	"ILight.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Image.cpp
+	"Image.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/ImageTexture.cpp
+	"ImageTexture.h"
+
+1447483827 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/ImageTexture.h
+	"Texture.h"
+	"IMapping.h"
+	"Image.h"
+
+1447483827 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/IMapping.h
+	"Vector3.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/IMapping.cpp
+	"IMapping.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/IMaterial.cpp
+	"IMaterial.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Info.cpp
+	"Info.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/ISampleDistributor.cpp
+	"ISampleDistributor.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/JitteredSampleGenerator.cpp
+	"JitteredSampleGenerator.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Lambertian.cpp
+	"Lambertian.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Matrix4.cpp
+	"Matrix4.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/MatteMaterial.cpp
+	"MatteMaterial.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Mesh.cpp
+	"Mesh.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/MultiJitteringSampleGenerator.cpp
+	"MultiJitteringSampleGenerator.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/OrtagonalCamera.cpp
+	"OrtagonalCamera.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/PerfectSpecular.cpp
+	"PerfectSpecular.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/PerfectSpecular.h
+	"BRDF.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/PerspectiveCamera.cpp
+	"PerspectiveCamera.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/PhongMaterial.cpp
+	"PhongMaterial.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Plane.cpp
+	"Plane.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/PointLight.cpp
+	"PointLight.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RandomSampleGenerator.cpp
+	"RandomSampleGenerator.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Ray.cpp
+	"Ray.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RayTracer.cpp
+	"RayTracer.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RayTriangle.cpp
+	"RayTriangle.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RegularSampleGenerator.cpp
+	"RegularSampleGenerator.h"
+
+1447483514 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/RenderTarget.cpp
+	"RenderTarget.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Sampler.cpp
+	"Sampler.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/SpericalMapping.cpp
+	"SpericalMapping.h"
+
+1447483827 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/SpericalMapping.h
+	"IMapping.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Sphere.cpp
+	"Sphere.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/SquareSampleDistributor.cpp
+	"SquareSampleDistributor.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Texture.cpp
+	"Texture.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/TextureLambertian.cpp
+	"TextureLambertian.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/TextureLambertian.h
+	"BRDF.h"
+	"Texture.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/TextureMatte.cpp
+	"TextureMatte.h"
+
+1447482261 /home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/include/TextureMatte.h
+	"IMaterial.h"
+	"TextureLambertian.h"
+	"RayTracer.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/Triangle.cpp
+	"Triangle.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/TriangleMesh.cpp
+	"TriangleMesh.h"
+
+1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/VertexProcessor.cpp
 	"VertexProcessor.h"
 

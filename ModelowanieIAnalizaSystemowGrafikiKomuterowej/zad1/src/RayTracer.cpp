@@ -26,6 +26,7 @@ RayTracer::~RayTracer()
 void RayTracer::addObject(IRaycastable* ray)
 {
     m_objectVector.push_back(ray);
+    std::cout<<m_objectVector.size()<<"\n";
 }
 
 //tutaj mozna pokombinowac z watkami

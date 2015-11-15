@@ -50,11 +50,11 @@ public:
             if(ndotwi > 0.0)
             {
                 d_type::BBool shadow=false;
-//                if(lights[i]->castShadows())
-//                {
-//                    Ray shadowRay(info.m_hitPoint,wi,DIRECTION)
-//                    shadow=lights[i]->inShadow(shadowRay,info);
-//                }
+                if(lights[i]->castShadows())
+                {
+                    Ray shadowRay(info.m_hitPoint,wi,DIRECTION);
+                    shadow=lights[i]->inShadow(shadowRay,info);
+                }
                 if(!shadow)
                 {
                     L+=(m_diffuse->f(info,wo,wi)+m_specular->f(info,wo,wi))*lights[i]->L(info)*ndotwi;

@@ -82,4 +82,8 @@ Vector3Bf Box::getMax() const
     return m_max;
 }
 
+d_type::BBool Box::shadowHit(const Ray& ray, d_type::Bfloat& distance) const
+{
+    return false;
+}
 

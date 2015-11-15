@@ -14,7 +14,8 @@ public:
     //SETTERS
     void setNormal(const Vector3Bf val) ;
     void setInPoint(const Vector3Bf val ) ;
-    bool intersect(const Ray&ray,d_type::Bfloat &distance,Info &info) const ;
+    d_type::BBool intersect(const Ray&ray,d_type::Bfloat &distance,Info &info) const ;
+    d_type::BBool shadowHit(const Ray& ray,d_type::Bfloat & distance)const;
 
 protected:
 private:

@@ -13,6 +13,7 @@ public:
     Vertex3Bf getVertex3() const;
     Vector3Vertex3Bf getVertices() const;
     bool intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) const;
+    virtual d_type::BBool shadowHit(const Ray& ray,d_type::Bfloat & distance) const;
 
 protected:
 private:

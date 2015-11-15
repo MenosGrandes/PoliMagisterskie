@@ -17,13 +17,15 @@ public:
     void setRadius(const d_type::Buint center);
     //METHODS
     bool intersect(const Ray&ray,d_type::Bfloat &distance,Info &info) const ;
+    virtual d_type::BBool shadowHit(const Ray& ray,d_type::Bfloat & distance) const;
+
 protected:
 private:
     //MEMBERS
     Vector3Bf m_center;
     d_type::Buint m_radius;
     d_type::Bfloat m_sqRadius;
-
+static const double kEpsilon;
 
 
 };

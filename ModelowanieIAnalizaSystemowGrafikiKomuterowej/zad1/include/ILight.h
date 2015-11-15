@@ -14,6 +14,16 @@ public:
     {
         return Colour::Black;
     }
+    void setShadows(d_type::BBool shadow)
+    {
+        m_shadows=shadow;
+    }
+    d_type::BBool castShadows()
+    {
+        return m_shadows;
+    }
+    virtual d_type::BBool inShadow(const Ray&ray, const Info&info)=0;
+
 protected:
     d_type::BBool m_shadows;
 };

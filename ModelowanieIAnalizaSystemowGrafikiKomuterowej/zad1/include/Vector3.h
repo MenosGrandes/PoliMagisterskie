@@ -33,7 +33,7 @@ public :
     Vector3<T> reflect(const Vector3<T>&v);
     Vector3<T> lerp(const Vector3<T>&v, const T f);
     static void normalize(Vector3<T>&v);
-
+    T distance(const Vector3<T> vector);
     T x, y, z;
 
     static const Vector3<T> Up;
@@ -179,6 +179,7 @@ inline Vector3<T> operator /(const Vector3<T>& left, T right)
 {
     return Vector3<T>(left.x / right, left.y / right, left.z / right);
 }
+///////////////////////////////////////////////////////////
 
 
 ////////////////////////////////////////////////////////////
@@ -304,6 +305,14 @@ void Vector3<T>::normalize(Vector3<T>&v)
     {
         v/=n;
     }
+}
+
+template <typename T>
+T Vector3<T>::distance(const Vector3<T> p)
+{
+     return (sqrt(		(x- p.x) * (x - p.x)
+                   + 	(y - p.y) * (y - p.y)
+                   +	(z - p.z) * (z - p.z) ));
 }
 
 

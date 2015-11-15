@@ -8,6 +8,7 @@ public:
     Box(const Vector3Bf& min,const Vector3Bf& max);
     virtual ~Box();
     virtual d_type::BBool intersect(const Ray& ray,d_type::Bfloat & distance,Info &info) const;
+    virtual d_type::BBool shadowHit(const Ray& ray,d_type::Bfloat & distance)const;
     Vector3Bf getMin() const;
     void setMin(const Vector3Bf& min );
     Vector3Bf getMax() const;

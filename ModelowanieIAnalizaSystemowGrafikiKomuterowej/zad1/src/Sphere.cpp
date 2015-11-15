@@ -1,4 +1,5 @@
 #include "Sphere.h"
+const double Sphere::kEpsilon = 0.001;
 
 Sphere::Sphere(Vector3Bf center, d_type::Bfloat radius):IRaycastable(),m_center(center),m_radius(radius)
 {
@@ -82,13 +83,12 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) const
 
     d_type::Bfloat t;
 
-    FastSqrt sqrtf;
     Vector3Bf direction=ray.getDirection();
     Vector3Bf oc=ray.getOrigin()-m_center;
 
     d_type::Bfloat a=direction.lengthSquared();
 
-    d_type::Bfloat b=(Vector3Bf::dotProduct(oc*2.0f,direction));
+    d_type::Bfloat b=(Vector3Bf::dotProduct(oc*2.0d,direction));
 
     d_type::Bfloat c=oc.lengthSquared() - m_sqRadius;
 
@@ -98,13 +98,13 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) const
         return false;
     }
 
-    t=(-b-sqrtf.sqrt7(delta))/(2*a);
-    if(t<F_EPSILON)
+    t=(-b-sqrt(delta))/(2*a);
+    if(t<kEpsilon)
     {
-        t=(-b+sqrtf.sqrt7(delta))/(2*a);
+        t=(-b+sqrt(delta))/(2*a);
 
     }
-    if(t<F_EPSILON)
+    if(t<kEpsilon)
     {
         return false;
     }
@@ -122,4 +122,39 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) const
 
 #endif // M_INTER
 
+}
+
+
+d_type::BBool Sphere::shadowHit(const Ray& ray, d_type::Bfloat& distance) const
+{
+
+d_type::Bfloat t;
+
+    Vector3Bf direction=ray.getDirection();
+    Vector3Bf oc=ray.getOrigin()-m_center;
+
+    d_type::Bfloat a=direction.lengthSquared();
+
+    d_type::Bfloat b=(Vector3Bf::dotProduct(oc*2.0d,direction));
+
+    d_type::Bfloat c=oc.lengthSquared() - m_sqRadius;
+
+    d_type::Bfloat delta=b*b - 4*a*c;
+    if(delta <0)
+    {
+        return false;
+    }
+
+    t=(-b-sqrt(delta))/(2*a);
+    if(t<F_EPSILON)
+    {
+        t=(-b+sqrt(delta))/(2*a);
+
+    }
+    if(t<F_EPSILON)
+    {
+        return false;
+    }
+    distance=t;
+    return true;
 }

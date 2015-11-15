@@ -20,7 +20,10 @@ public:
     {
         return (m_ls *m_colour);
     }
+        virtual d_type::BBool inShadow(const Ray&ray, const Info&info)
+        {
 
+        }
     d_type::Bfloat m_ls;
     Colour m_colour;
 };

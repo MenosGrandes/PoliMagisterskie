@@ -34,7 +34,16 @@ public:
             d_type::Bfloat ndotwi=Vector3Bf::dotProduct(info.m_normal,wi);
             if(ndotwi > 0.0)
             {
-                L+=m_diffuse->f(info,wo,wi)*lights[i]->L(info)*ndotwi;
+                d_type::BBool shadow=false;
+                if(lights[i]->castShadows())
+                {
+                    Ray shadowRay(info.m_hitPoint,wi,DIRECTION);
+                    shadow=lights[i]->inShadow(shadowRay,info);
+                }
+                if(!shadow)
+                {
+                    L+=m_diffuse->f(info,wo,wi)*lights[i]->L(info)*ndotwi;
+                }
             }
         }
         return L;

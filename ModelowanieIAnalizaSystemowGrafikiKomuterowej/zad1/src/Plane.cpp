@@ -64,4 +64,16 @@ bool Plane::intersect(const Ray&ray,d_type::Bfloat &distance ,Info &info   ) con
 
 
 }
+         d_type::BBool Plane::shadowHit(const Ray& ray,d_type::Bfloat & distance) const
+        {
+            d_type::Bfloat t= Vector3Bf::dotProduct(m_inPoint - ray.getOrigin(), m_normal)* Vector3Bf::dotProduct(ray.getDirection(), m_normal);
+            if(t > F_EPSILON)
+            {
+                    distance=t;
+                    return true;
+            }else
+            {
+                return false;
+            }
+        }
 

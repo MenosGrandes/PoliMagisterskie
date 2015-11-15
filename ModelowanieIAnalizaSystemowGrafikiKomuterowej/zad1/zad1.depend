@@ -1314,7 +1314,7 @@
 1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/VertexProcessor.cpp
 	"VertexProcessor.h"
 
-1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
+1447586368 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
 	"Matrix4.h"
 	"Vertex2.h"
 	<cstdio>
@@ -1354,7 +1354,7 @@
 1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector4.h
 	"structs.hpp"
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\structs.hpp
+1447582281 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\structs.hpp
 	<limits>
 	<algorithm>
 	<cmath>
@@ -1375,15 +1375,15 @@
 	<iostream>
 	<ctime>
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector3.h
+1447581523 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector3.h
 	"structs.hpp"
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\sphere.h
+1447582232 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\sphere.h
 	"Raycastable.h"
 	<iostream>
 	"../src/algorithms.hpp"
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raycastable.h
+1447579677 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raycastable.h
 	"Ray.h"
 	<vector>
 	"Info.h"
@@ -1407,7 +1407,7 @@
 	<algorithm>
 	<random>
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\plane.h
+1447583339 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\plane.h
 	"Raycastable.h"
 
 1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ortagonalcamera.h
@@ -1450,10 +1450,10 @@
 	<vector>
 	<cassert>
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ambient.h
+1447579957 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ambient.h
 	"ILight.h"
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ilight.h
+1447580038 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\ilight.h
 	"Vector3.h"
 	"Colour.h"
 	"Info.h"
@@ -1485,7 +1485,7 @@
 	"PhongMaterial.h"
 	"MatteMaterial.h"
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\mesh.h
+1447579738 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\mesh.h
 	"Raycastable.h"
 	<memory>
 	<limits>
@@ -1493,7 +1493,7 @@
 	"RayTriangle.h"
 	"Box.h"
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raytriangle.h
+1447579756 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raytriangle.h
 	"Vertex3.h"
 	"Raycastable.h"
 
@@ -1501,10 +1501,10 @@
 	"Vector3.h"
 	"Colour.h"
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\box.h
+1447585180 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\box.h
 	"Raycastable.h"
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\phongmaterial.h
+1447579046 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\phongmaterial.h
 	"IMaterial.h"
 	"Lambertian.h"
 	"GlossySpecular.h"
@@ -1521,7 +1521,7 @@
 1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\glossyspecular.h
 	"BRDF.h"
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\mattematerial.h
+1447583491 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\mattematerial.h
 	"IMaterial.h"
 	"Lambertian.h"
 	"RayTracer.h"
@@ -1529,7 +1529,7 @@
 1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\multijitteringsamplegenerator.h
 	"ISampleGenerator.h"
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\pointlight.h
+1447578629 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\pointlight.h
 	"ILight.h"
 	"Raycastable.h"
 	"RayTracer.h"
@@ -1540,7 +1540,7 @@
 	<sys/sysctl.h>
 	<unistd.h>
 
-1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\directionallight.h
+1447579952 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\directionallight.h
 	"ILight.h"
 
 1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\image.h
@@ -1559,7 +1559,7 @@
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ambient.cpp
 	"Ambient.h"
 
-1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\box.cpp
+1447585189 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\box.cpp
 	"Box.h"
 
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\brdf.cpp
@@ -1590,10 +1590,10 @@
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\disksampledistributor.cpp
 	"DiskSampleDistributor.h"
 
-1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\fileloader.cpp
+1447585463 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\fileloader.cpp
 	"FileLoader.h"
 
-1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\glossyspecular.cpp
+1447582303 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\glossyspecular.cpp
 	"GlossySpecular.h"
 
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ilight.cpp
@@ -1625,7 +1625,7 @@
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\isampledistributor.cpp
 	"ISampleDistributor.h"
 
-1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\jitteredsamplegenerator.cpp
+1447582622 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\jitteredsamplegenerator.cpp
 	"JitteredSampleGenerator.h"
 
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\lambertian.cpp
@@ -1640,7 +1640,7 @@
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\mesh.cpp
 	"Mesh.h"
 
-1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\multijitteringsamplegenerator.cpp
+1447582630 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\multijitteringsamplegenerator.cpp
 	"MultiJitteringSampleGenerator.h"
 
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ortagonalcamera.cpp
@@ -1658,7 +1658,7 @@
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\phongmaterial.cpp
 	"PhongMaterial.h"
 
-1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\plane.cpp
+1447583347 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\plane.cpp
 	"Plane.h"
 
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\pointlight.cpp
@@ -1670,13 +1670,13 @@
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ray.cpp
 	"Ray.h"
 
-1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytracer.cpp
+1447583776 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytracer.cpp
 	"RayTracer.h"
 
-1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytriangle.cpp
+1447586281 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytriangle.cpp
 	"RayTriangle.h"
 
-1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\regularsamplegenerator.cpp
+1447582637 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\regularsamplegenerator.cpp
 	"RegularSampleGenerator.h"
 
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\rendertarget.cpp
@@ -1691,7 +1691,7 @@
 1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\spericalmapping.h
 	"IMapping.h"
 
-1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sphere.cpp
+1447585262 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sphere.cpp
 	"Sphere.h"
 
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\squaresampledistributor.cpp

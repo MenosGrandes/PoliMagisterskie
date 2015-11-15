@@ -11,7 +11,7 @@
 #define INV_PI 1/M_PI
 #define INV_TWO_PI 1/TWO_PI
 
-#define F_EPSILON 0.000001
+#define F_EPSILON 0.001
 
 
 /**
@@ -37,9 +37,9 @@ typedef unsigned short	Bushort;
 /** 4-byte unsigned */
 typedef unsigned int	Buint;
 /**  single precision float */
-typedef float		    Bfloat;
+typedef double		    Bfloat;
 /** double precision float */
-typedef double		    Bdouble;
+typedef float		    Bdouble;
 /** size_t wrapper*/
 typedef size_t          Bsize;
 typedef char          Bchar;

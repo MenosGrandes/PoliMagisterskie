@@ -6,12 +6,7 @@
 *.exe
 *.o
 *.so
-# Images #
-############
-*.tga
-*.jpg
-*.png
-*.bmp
+
  
 # Packages #
 ############

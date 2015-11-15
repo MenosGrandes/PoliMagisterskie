@@ -49,7 +49,7 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
     // X Z Y
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(30,10,10),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(54,-37,10),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
                                            2,
@@ -1122,39 +1122,39 @@ PointLight* light_ptr2 = new PointLight();
 //	plane_ptr->setMaterial(MatteMaterial_ptr3);
 //	rt->addObject(plane_ptr);
 
-   MatteMaterial* mat=new MatteMaterial();
-    mat->setKa(0.25f);
-    mat->setKd(0.6f);
-    mat->setCd(Colour::Red);
+//   MatteMaterial* mat=new MatteMaterial();
+//    mat->setKa(0.25f);
+//    mat->setKd(0.6f);
+//    mat->setCd(Colour::Red);
+//
+//
+//    MatteMaterial* mat2=new MatteMaterial();
+//    mat2->setKa(0.5);
+//    mat2->setKd(0.15f);
+//    mat2->setCd(Colour::Green);
+//
+//    IRaycastable * plane= new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
+//
+//
+//    PhongMaterial* mat3=new PhongMaterial();
+//    mat3->setKa(0.25f);
+//    mat3->setKd(0.6f);
+//    mat3->setKs(0.5f);
+//    mat3->setCd(Colour::Red);
+//    mat3->setExponent(0.6f);
+//
+//
+//    plane->setMaterial(mat2);
+//    rt->addObject(plane);
+//
+//
+//
+//    IRaycastable *sphere3=new Sphere(Vector3Bf(12,0,3)  , 2);
+//    sphere3->setMaterial(mat3);
+//
+//   rt->addObject(sphere3);
 
-
-    MatteMaterial* mat2=new MatteMaterial();
-    mat2->setKa(0.5);
-    mat2->setKd(0.15f);
-    mat2->setCd(Colour::Green);
-
-    IRaycastable * plane= new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
-
-
-    PhongMaterial* mat3=new PhongMaterial();
-    mat3->setKa(0.25f);
-    mat3->setKd(0.6f);
-    mat3->setKs(0.5f);
-    mat3->setCd(Colour::Red);
-    mat3->setExponent(0.6f);
-
-
-    plane->setMaterial(mat2);
-    rt->addObject(plane);
-
-
-
-    IRaycastable *sphere3=new Sphere(Vector3Bf(12,0,3)  , 2);
-    sphere3->setMaterial(mat3);
-
-   rt->addObject(sphere3);
-
-    Mesh * m =FileLoader::loadMesh(("models/teapod.obj"));
+    Mesh * m =FileLoader::loadMesh(("models/cube.obj"));
 
     rt->addObject(m);
 
@@ -1162,9 +1162,10 @@ PointLight* light_ptr2 = new PointLight();
     rt->setAmbientLight(ambient);
 
     PointLight * light= new PointLight();
-    light->m_location=Vector3Bf(10,10,10);
-    light->m_ls=5.00f;
+    light->m_location=Vector3Bf(0,10,10);
+    light->m_ls=3.00f;
     light->m_colour=Colour::White;
+    light->setShadows(false);
     rt->addLight(light);
 }
 #endif // CUBESHADOW

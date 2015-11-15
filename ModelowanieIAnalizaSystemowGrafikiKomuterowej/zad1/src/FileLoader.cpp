@@ -76,8 +76,9 @@ Mesh* FileLoader::loadOBJ(std::string filename)
         else if ( strcmp( lineHeader, "v" ) == 0 )
         {
             Vector3Bf vertex;
-            fscanf(file, "%f %f %f\n", &vertex.x, &vertex.y, &vertex.z );
+            fscanf(file, "%lf %lf %lf\n", &vertex.x, &vertex.y, &vertex.z );
             temp_vertices.push_back(vertex);
+            std::cout<<vertex.x<<"\n";
         }
         else if ( strcmp( lineHeader, "usemtl" ) == 0 )
         {
@@ -97,14 +98,14 @@ Mesh* FileLoader::loadOBJ(std::string filename)
         else if ( strcmp( lineHeader, "vt" ) == 0 )
         {
             Vector2Bf uv;
-            fscanf(file, "%f %f \n", &uv.x, &uv.y );
+            fscanf(file, "%lf %lf \n", &uv.x, &uv.y );
             uv.y = -uv.y; // Invert V coordinate since we will only use DDS texture, which are inverted. Remove if you want to use TGA or BMP loaders.
             temp_uvs.push_back(uv);
         }
         else if ( strcmp( lineHeader, "vn" ) == 0 )
         {
             Vector3Bf normal;
-            fscanf(file, "%f %f %f\n", &normal.x, &normal.y, &normal.z );
+            fscanf(file, "%lf %lf %lf\n", &normal.x, &normal.y, &normal.z );
             temp_normals.push_back(normal);
         }
         else if ( strcmp( lineHeader, "f" ) == 0 )
@@ -189,7 +190,7 @@ Mesh* FileLoader::loadOBJ(std::string filename)
             mat3->setCd(Colour::Yellow);
             tri->setMaterial(mat3);
             mesh->m_triangles.push_back(tri);//,new PerfectDifuse(Colour::randomColor())));
-
+//            std::cout<<vertices[0].m_position<<"\n";
 //            }
             vertices.clear();
         }

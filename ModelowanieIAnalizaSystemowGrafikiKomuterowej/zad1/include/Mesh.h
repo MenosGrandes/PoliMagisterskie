@@ -143,7 +143,10 @@ public:
         }
         m_boundingBox=Box(Vector3Bf(min_x,min_y,min_z),Vector3Bf(max_x,max_y,max_z));
     }
-    virtual d_type::BBool shadowHit(const Ray& ray,d_type::Bfloat & distance) const{}
+    virtual d_type::BBool shadowHit(const Ray& ray,d_type::Bfloat & distance) const{
+    std::cout<<"BOX";
+
+    }
 
     Box m_boundingBox;
     std::vector<RayTriangle *> m_triangles;

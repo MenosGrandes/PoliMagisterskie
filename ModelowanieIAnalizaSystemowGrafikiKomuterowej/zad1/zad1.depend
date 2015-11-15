@@ -1314,7 +1314,7 @@
 1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/VertexProcessor.cpp
 	"VertexProcessor.h"
 
-1447586368 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
+1447594172 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
 	"Matrix4.h"
 	"Vertex2.h"
 	<cstdio>
@@ -1354,7 +1354,7 @@
 1447499056 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\vector4.h
 	"structs.hpp"
 
-1447582281 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\structs.hpp
+1447593078 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\structs.hpp
 	<limits>
 	<algorithm>
 	<cmath>
@@ -1485,7 +1485,7 @@
 	"PhongMaterial.h"
 	"MatteMaterial.h"
 
-1447579738 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\mesh.h
+1447592487 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\mesh.h
 	"Raycastable.h"
 	<memory>
 	<limits>
@@ -1493,7 +1493,7 @@
 	"RayTriangle.h"
 	"Box.h"
 
-1447579756 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raytriangle.h
+1447592405 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raytriangle.h
 	"Vertex3.h"
 	"Raycastable.h"
 
@@ -1590,7 +1590,7 @@
 1447499056 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\disksampledistributor.cpp
 	"DiskSampleDistributor.h"
 
-1447585463 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\fileloader.cpp
+1447593890 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\fileloader.cpp
 	"FileLoader.h"
 
 1447582303 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\glossyspecular.cpp
@@ -1673,7 +1673,7 @@
 1447583776 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytracer.cpp
 	"RayTracer.h"
 
-1447586281 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytriangle.cpp
+1447592478 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytriangle.cpp
 	"RayTriangle.h"
 
 1447582637 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\regularsamplegenerator.cpp

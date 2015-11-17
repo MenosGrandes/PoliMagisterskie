@@ -51,7 +51,7 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
     // X Z Y
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,0,10),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,0,3),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
                                           1,
@@ -1171,7 +1171,7 @@ PointLight* light_ptr2 = new PointLight();
 }
 #endif // CUBESHADOW
 
-Sphere *sp = new Sphere(Vector3Bf(2,-2,2),2);
+Sphere *sp = new Sphere(Vector3Bf(0,0,0),1);
 
 TextureMatte *m = new TextureMatte();
 m->setCd(new ImageTexture(new Image("foto2.tga"),new SpericalMapping()));
@@ -1180,8 +1180,12 @@ m->setKd(0.34);
 sp->setMaterial(m);
 rt->addObject(sp);
 
-
-    rt->rayTrace();
+PointLight * pl = new PointLight();
+pl->m_ls=3.0f;
+pl->setShadows(false);
+pl->m_location=Vector3Bf(0,0,6);
+rt->addLight(pl);
+rt->rayTrace();
 
 //Image* img=new Image("foto2.tga");
 //file->drawToFile(img->getPixels(),img->getHres(),img->getVres());

@@ -38,7 +38,7 @@ public:
     void setCleanColour(const Colour&c);
     void clearPixel(const d_type::Bint &x,const  d_type::Bint &y);
     Colour * getColorPixels();
-    void drawToFile(Colour * colors);
+    void drawToFile(Colour * colors,d_type::Bint width,d_type::Bint height);
 private:
     //convert 2D to 1D indexing
     d_type::Bint convert2dto1d(d_type::Bint x, d_type::Bint y);

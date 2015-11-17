@@ -52,7 +52,8 @@ Image::Image(char *filename)
     // Read the image's width and height.
     fread(&tgaFile->imageWidth, sizeof(short int), 1, filePtr);
     fread(&tgaFile->imageHeight, sizeof(short int), 1, filePtr);
-
+    this->hres=tgaFile->imageWidth;
+    this->vres=tgaFile->imageHeight;
     // Read the bit depth.
     fread(&tgaFile->bitCount, sizeof(unsigned char), 1, filePtr);
 
@@ -81,10 +82,11 @@ Image::Image(char *filename)
                                  (d_type::Bfloat)tgaFile->imageData[i+1]/255,
                                  (d_type::Bfloat)tgaFile->imageData[i]/255,
                                  (d_type::Bfloat)tgaFile->imageData[i+3]/255);
-
+//m_pixels[counter]=Colour::randomColor();
 
         counter++;
     }
+    std::cout<<counter<<"\n";
     fclose(filePtr);
     std::cout<<"IMAGE LOADED\n";
 }

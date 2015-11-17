@@ -7,19 +7,23 @@ class SpericalMapping : public IMapping
 public:
     SpericalMapping();
 
-    void getTexelCoord(const Vector3Bf localHitPoint, const d_type::Buint m_width, const d_type::Buint m_height, d_type::Buint& row, d_type::Buint& column)
+    void getTexelCoord(const Vector3Bf &localHitPoint, const d_type::Bint m_width, const d_type::Bint m_height, d_type::Bint& row, d_type::Bint& column) const
     {
-        d_type::Bfloat theta=acosf(localHitPoint.y);
-        d_type::Bfloat phi= atan2f(localHitPoint.x,localHitPoint.z);
-        if(phi<0.0)
-        {
-            phi+=TWO_PI;
-        }
-        d_type::Bfloat u =phi*INV_TWO_PI;
-        d_type::Bfloat v=1-theta*INV_PI;
+        float theta = acos(localHitPoint.y);
+        float phi = atan2(localHitPoint.x, localHitPoint.z);
 
-        column = (d_type::Buint)((m_width-1)*u);
-        row = (d_type::Buint)((m_height-1)*v);
+        if (phi < 0.0)
+                phi += TWO_PI;
+
+        // map theta and phi to u, v (range is 0 to 1)
+
+        float u = phi * INV_TWO_PI;
+        float v = 1.0 - theta * INV_PI;
+
+        // map u and v to texel coordinates
+
+        column = (int) ((m_width - 1) * u);
+        row = (int) ((m_height - 1) * v);
 
     }
     virtual ~SpericalMapping();

@@ -31,7 +31,9 @@
 #include "CheckCPU.h"
 #include "DirectionalLight.h"
 #include "Image.h"
-
+#include "ImageTexture.h"
+#include "TextureMatte.h"
+#include "SpericalMapping.h"
 int main(int argc, char **argv)
 {
     CheckCPU cpu;
@@ -49,10 +51,10 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
     // X Z Y
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(54,-37,10),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,0,10),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
-                                           2,
+                                          1,
                                            Vector2Bf(1,1));
 
 
@@ -67,7 +69,6 @@ int main(int argc, char **argv)
 
 
 
-#define CUBESHADOW
 #ifdef CHAPTER15
     {
         DirectionalLight * dirLight=new DirectionalLight();
@@ -1170,11 +1171,20 @@ PointLight* light_ptr2 = new PointLight();
 }
 #endif // CUBESHADOW
 
+Sphere *sp = new Sphere(Vector3Bf(2,-2,2),2);
+
+TextureMatte *m = new TextureMatte();
+m->setCd(new ImageTexture(new Image("foto2.tga"),new SpericalMapping()));
+m->setKa(0.45);
+m->setKd(0.34);
+sp->setMaterial(m);
+rt->addObject(sp);
 
 
     rt->rayTrace();
 
-
+//Image* img=new Image("foto2.tga");
+//file->drawToFile(img->getPixels(),img->getHres(),img->getVres());
 
 
     end = std::chrono::system_clock::now();

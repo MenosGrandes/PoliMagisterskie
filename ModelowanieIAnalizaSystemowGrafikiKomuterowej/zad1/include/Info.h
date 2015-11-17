@@ -15,6 +15,7 @@ public:
     d_type::Buint m_depth;
     d_type::Bfloat m_t;
     RayTracer * m_rayTracer;
+    Vector2Bf uv;
 
 };
 

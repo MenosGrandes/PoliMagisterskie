@@ -1,6 +1,6 @@
 #include "TextureMatte.h"
 
-TextureMatte::TextureMatte()
+TextureMatte::TextureMatte():m_diffuse(new TextureLambertian()),m_ambient(new TextureLambertian())
 {
     //ctor
 }

@@ -23,7 +23,7 @@ protected:
 private:
     //MEMBERS
     Vector3Bf m_center;
-    d_type::Buint m_radius;
+    d_type::Bfloat m_radius;
     d_type::Bfloat m_sqRadius;
 static const double kEpsilon;
 

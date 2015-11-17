@@ -154,7 +154,7 @@ Colour * RenderTarget::getColorPixels()
     return m_pixels;
 }
 
-void RenderTarget::drawToFile(Colour* colors)
+void RenderTarget::drawToFile(Colour* colors,d_type::Bint width,d_type::Bint height)
 {
     //Error checking
     if (m_size.x <= 0 || m_size.y <= 0)
@@ -178,15 +178,15 @@ void RenderTarget::drawToFile(Colour* colors)
     o.put(0);           /* X origin */
     o.put(0);
     o.put(0);           /* y origin */
-    o.put((m_size.x  & 0x00FF));
-    o.put((m_size.x & 0xFF00) / 256);
-    o.put((m_size.y  & 0x00FF));
-    o.put((m_size.y  & 0xFF00) / 256);
+    o.put((width  & 0x00FF));
+    o.put((width & 0xFF00) / 256);
+    o.put((height  & 0x00FF));
+    o.put((height  & 0xFF00) / 256);
     o.put(32);                        /* 24 bit bitmap */
     o.put(0);
 
     //Write the pixel data
-    for (d_type::Bint i=0; i<getSizePixels() ; i++)
+    for (d_type::Bint i=0; i<width*height ; i++)
     {
         //std::cout<<(float)m_pixels[i].b <<" "<<(float)m_pixels[i].g<<" "<<(float)m_pixels[i].r<<" "<<(float)m_pixels[i].a<<"\n";
         o.put(colors[i].b*255);

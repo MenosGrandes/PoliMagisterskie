@@ -7,7 +7,7 @@ class IMapping
 public:
     IMapping();
     virtual ~IMapping();
-    virtual void getTexelCoord(const Vector3Bf localHitPoint,const d_type::Buint m_width,const d_type::Buint m_height, d_type::Buint&row,d_type::Buint& column ) const =0;
+    virtual void getTexelCoord(const Vector3Bf &localHitPoint,const d_type::Bint m_width,const d_type::Bint m_height, d_type::Bint&row,d_type::Bint& column ) const =0;
 protected:
 private:
 };

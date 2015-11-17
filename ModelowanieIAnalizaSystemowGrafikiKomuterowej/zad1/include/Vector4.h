@@ -184,6 +184,5 @@ T Vector4<T>::min()
 typedef Vector4<Bint>   Vector4Bi;
 typedef Vector4<Bfloat> Vector4Bf;
 typedef Vector4<BBool> Vector4Bb;
-typedef Vector4<Bdouble> Vector4Bd;
 
 #endif // VECTOR4_H

@@ -113,6 +113,8 @@ Info RayTracer::traceRay(const Ray&ray)
         info.m_t=minDistance;
         info.m_normal=normal;
         info.m_localHitPoint=localHitPoint;
+//        std::cout<<"!~~~~~!~!\n";
+//        std::cout<<info.m_localHitPoint<<"\n";
     }
     return info;
 }

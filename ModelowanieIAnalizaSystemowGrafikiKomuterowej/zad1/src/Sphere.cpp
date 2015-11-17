@@ -120,6 +120,43 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) const
     return true;
 
 
+
+
+//        d_type::Bfloat          t;
+//        Vector3Bf        temp    = ray.getOrigin() - m_center;
+//        d_type::Bfloat          a               = Vector3Bf::dotProduct(ray.getDirection() , ray.getDirection());
+//        d_type::Bfloat          b               = 2.0 * Vector3Bf::dotProduct(temp , ray.getDirection());
+//        d_type::Bfloat          c               = Vector3Bf::dotProduct(temp , temp) - m_radius * m_radius;
+//        d_type::Bfloat          disc    = b * b - 4.0 * a * c;
+//
+//        if (disc < 0.0)
+//                return(false);
+//        else {
+//                d_type::Bfloat e = sqrt(disc);
+//                d_type::Bfloat denom = 2.0 * a;
+//                t = (-b - e) / denom;    // smaller root
+//
+//                if (t > kEpsilon) {
+//                        distance = t;
+//                        info.m_normal        = (temp + t * ray.getDirection()) / m_radius;
+//                        info.m_localHitPoint = ray.getOrigin() + t * ray.getDirection();
+//                        return (true);
+//                }
+//
+//                t = (-b + e) / denom;    // larger root
+//
+//                if (t > kEpsilon) {
+//                        distance = t;
+//                        info.m_normal   = (temp + t * ray.getDirection()) / m_radius;
+//
+//                        info.m_localHitPoint = ray.getOrigin() + t * ray.getDirection();
+//
+//                        return (true);
+//                }
+//        }
+//
+//        return (false);
+
 #endif // M_INTER
 
 }
@@ -135,7 +172,7 @@ d_type::Bfloat t;
 
     d_type::Bfloat a=direction.lengthSquared();
 
-    d_type::Bfloat b=(Vector3Bf::dotProduct(oc*2.0d,direction));
+    d_type::Bfloat b=(Vector3Bf::dotProduct(oc*2.0,direction));
 
     d_type::Bfloat c=oc.lengthSquared() - m_sqRadius;
 
@@ -146,12 +183,12 @@ d_type::Bfloat t;
     }
 
     t=(-b-sqrt(delta))/(2*a);
-    if(t<F_EPSILON)
+    if(t<kEpsilon)
     {
         t=(-b+sqrt(delta))/(2*a);
 
     }
-    if(t<F_EPSILON)
+    if(t<kEpsilon)
     {
         return false;
     }

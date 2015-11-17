@@ -9,6 +9,14 @@ class TextureMatte : public IMaterial
 public:
     TextureMatte();
     virtual ~TextureMatte();
+        void setKa(const d_type::Bfloat k )
+    {
+        m_ambient->m_kd=k;
+    }
+    void setKd(const d_type::Bfloat k )
+    {
+        m_diffuse->m_kd=k;
+    }
     void setCd( Texture*texture)
     {
         m_ambient->m_texture=texture;
@@ -26,13 +34,13 @@ public:
             Vector3Bf wi = lights[i]->getDirection(info);
             //Vector3Bf::normalize(wi);
             d_type::Bfloat ndotwi=Vector3Bf::dotProduct(info.m_normal,wi);
-            d_type::Bfloat ndotwo=Vector3Bf::dotProduct(info.m_normal,wo);
 
-            if(ndotwi > 0.0&&ndotwo> 0 )
+            if(ndotwi > 0.0)
             {
                 L+=m_diffuse->f(info,wo,wi)*lights[i]->L(info)*ndotwi;
             }
         }
+        return L;
 
     }
 private :

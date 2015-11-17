@@ -6,12 +6,13 @@
 \brief Mathematic PI
 */
 
-#define M_PI 3.14159265
-#define TWO_PI 2*M_PI
-#define INV_PI 1/M_PI
-#define INV_TWO_PI 1/TWO_PI
+#define M_PI 3.1415926535897932384
+#define TWO_PI 6.2831853071795864769
+#define INV_PI 0.3183098861837906715
+#define INV_TWO_PI 0.1591549430918953358
 
 #define F_EPSILON 0.001
+
 
 
 /**
@@ -38,8 +39,6 @@ typedef unsigned short	Bushort;
 typedef unsigned int	Buint;
 /**  single precision float */
 typedef double		    Bfloat;
-/** double precision float */
-typedef float		    Bdouble;
 /** size_t wrapper*/
 typedef size_t          Bsize;
 typedef char          Bchar;

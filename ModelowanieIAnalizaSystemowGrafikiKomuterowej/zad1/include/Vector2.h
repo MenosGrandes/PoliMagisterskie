@@ -266,7 +266,6 @@ T  Vector2<T>::dotProduct(const Vector2<T>& p1, const Vector2<T>& p2)
 
 
 typedef Vector2<d_type::Bfloat> Vector2Bf;
-typedef Vector2<d_type::Bdouble> Vector2Bd;
 typedef Vector2<d_type::Bint> Vector2Bi;
 typedef Vector2<d_type::Buint> Vector2Bui;
 typedef Vector2<d_type::Bshort> Vector2Bs;

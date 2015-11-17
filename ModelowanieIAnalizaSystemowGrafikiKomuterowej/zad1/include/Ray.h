@@ -13,6 +13,10 @@ public:
     Ray():m_origin(),m_direction(),m_destination()
     {
     }
+    Ray (const Ray& ray)
+            :       m_origin(ray.getOrigin()),
+                    m_direction(ray.getDirection())
+    {}
 
 
     Ray(Vector3Bf origin,Vector3Bf vec,bool destORDir):m_origin(origin)

@@ -99,6 +99,9 @@
 		<Unit filename="include/Info.h">
 			<Option virtualFolder="Ray/" />
 		</Unit>
+		<Unit filename="include/Instance.h">
+			<Option virtualFolder="Ray/Raycastable/" />
+		</Unit>
 		<Unit filename="include/JitteredSampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
 		</Unit>
@@ -149,6 +152,9 @@
 		</Unit>
 		<Unit filename="include/Raycastable.h">
 			<Option virtualFolder="Ray/Raycastable/" />
+		</Unit>
+		<Unit filename="include/RectMapping.h">
+			<Option virtualFolder="BRDF/Texture/Mapping/" />
 		</Unit>
 		<Unit filename="include/RegularSampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
@@ -259,6 +265,9 @@
 		<Unit filename="src/Info.cpp">
 			<Option virtualFolder="Ray/" />
 		</Unit>
+		<Unit filename="src/Instance.cpp">
+			<Option virtualFolder="Ray/Raycastable/" />
+		</Unit>
 		<Unit filename="src/JitteredSampleGenerator.cpp">
 			<Option virtualFolder="Antyalising/Generator/" />
 		</Unit>
@@ -306,6 +315,9 @@
 		</Unit>
 		<Unit filename="src/RayTriangle.cpp">
 			<Option virtualFolder="Ray/Raycastable/" />
+		</Unit>
+		<Unit filename="src/RectMapping.cpp">
+			<Option virtualFolder="BRDF/Texture/Mapping/" />
 		</Unit>
 		<Unit filename="src/RegularSampleGenerator.cpp">
 			<Option virtualFolder="Antyalising/Generator/" />

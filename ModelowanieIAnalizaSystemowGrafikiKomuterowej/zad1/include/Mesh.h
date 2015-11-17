@@ -15,33 +15,33 @@ public:
         distance=1000;
         d_type::Bfloat t;
         Vector3Bf normal;
-        if(m_boundingBox.intersect(ray,t,info)&& t<distance)
-        {
-
-            d_type::Bfloat t2;
-
-            for(RayTriangle *a : m_triangles )
-            {
-
-                if(a->intersect(ray,t2,info)&& t2<distance )
-                {
-                    distance=t2;
-                    isHit=true;
-                    m_material=a->getMaterial();
-                    normal=info.m_normal;
-
-                }
-
-            }
-        }
-        if(isHit)
-        {
-            info.m_material=m_material;
-            info.m_normal=normal;
-        }
-
-
-        return isHit;
+//        if(m_boundingBox.intersect(ray,t,info)&& t<distance)
+//        {
+//
+//            d_type::Bfloat t2;
+//
+//            for(RayTriangle *a : m_triangles )
+//            {
+//
+//                if(a->intersect(ray,t2,info)&& t2<distance )
+//                {
+//                    distance=t2;
+//                    isHit=true;
+//                    m_material=a->getMaterial();
+//                    normal=info.m_normal;
+//
+//                }
+//
+//            }
+//        }
+//        if(isHit)
+//        {
+//            info.m_material=m_material;
+//            info.m_normal=normal;
+//        }
+//
+//
+//        return isHit;
     };
     void createBoundingBox()
     {

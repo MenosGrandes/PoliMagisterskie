@@ -1,21 +1,37 @@
 #ifndef BOX_H
 #define BOX_H
-#include "Raycastable.h"
-class Box : public IRaycastable
+#include "Vector3.h"
+#include "Ray.h"
+class Box
 {
 public:
-    Box();
-    Box(const Vector3Bf& min,const Vector3Bf& max);
-    virtual ~Box();
-    virtual d_type::BBool intersect(const Ray& ray,d_type::Bfloat & distance,Info &info) const;
-    virtual d_type::BBool shadowHit(const Ray& ray,d_type::Bfloat & distance)const;
-    Vector3Bf getMin() const;
-    void setMin(const Vector3Bf& min );
-    Vector3Bf getMax() const;
-    void setMax(const Vector3Bf& max);
+    d_type::Bfloat x0, x1, y0, y1, z0, z1;
 
-private:
-    Vector3Bf m_min,m_max;
+    Box(void);
+
+    Box(const d_type::Bfloat x0, const d_type::Bfloat x1,
+        const d_type::Bfloat y0, const d_type::Bfloat y1,
+        const d_type::Bfloat z0, const d_type::Bfloat z1);
+
+    Box(const Vector3Bf p0, const Vector3Bf p1);
+
+    Box(const Box& bbox);
+
+    Box&
+    operator=(const Box& bbox);
+
+    Box*
+    clone(void) const;
+
+    ~Box(void);
+
+    bool
+    hit(const Ray& ray) const;
+
+    bool
+    inside(const Vector3Bf& p) const;
+
+
 };
 
 #endif // BOX_H

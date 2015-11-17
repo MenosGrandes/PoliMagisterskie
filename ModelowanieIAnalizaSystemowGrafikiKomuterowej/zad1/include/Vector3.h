@@ -7,6 +7,7 @@
 #ifndef VECTOR3_H
 #define VECTOR3_H
 #include "structs.hpp"
+#include "Matrix4.h"
 using namespace d_type;
 
 
@@ -314,8 +315,13 @@ T Vector3<T>::distance(const Vector3<T> p)
                    + 	(y - p.y) * (y - p.y)
                    +	(z - p.z) * (z - p.z) ));
 }
+template <typename T>
+Vector3<T> operator* (const Matrix4& mat, const Vector3<T>& p) {
+        return (Vector3<T>(mat.m[0][0] * p.x + mat.m[0][1] * p.y + mat.m[0][2] * p.z + mat.m[0][3],
+                                        mat.m[1][0] * p.x + mat.m[1][1] * p.y + mat.m[1][2] * p.z + mat.m[1][3],
+                                        mat.m[2][0] * p.x + mat.m[2][1] * p.y + mat.m[2][2] * p.z + mat.m[2][3]));
 
-
+}
 
 // Define the most common types
 typedef Vector3<Bint>   Vector3Bi;

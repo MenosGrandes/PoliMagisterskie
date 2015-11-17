@@ -12,8 +12,8 @@ public:
     {
 
 
-        d_type::Bfloat theta=acos(localHitPoint.y/m_size);
-        d_type::Bfloat phi = atan2(localHitPoint.z/m_size,localHitPoint.x/m_size);
+        d_type::Bfloat theta=acos(localHitPoint.y);
+        d_type::Bfloat phi = atan2(localHitPoint.z,localHitPoint.x);
         if(phi<0.0)
         {
             phi+=TWO_PI;

@@ -35,6 +35,8 @@
 #include "TextureMatte.h"
 #include "SpericalMapping.h"
 #include "TexturePhong.h"
+#include "RectMapping.h"
+#include "Instance.h"
 int main(int argc, char **argv)
 {
     CheckCPU cpu;
@@ -52,7 +54,7 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
     // X Z Y
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,0,3),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,1,-8),
                                            Vector3Bf(0,0,0),
                                            Vector3Bf::Up,
                                           1,
@@ -69,7 +71,7 @@ int main(int argc, char **argv)
 
 
 
-#define PLANE_TEXTURE
+#define EARTH
 #ifdef CHAPTER15
     {
         DirectionalLight * dirLight=new DirectionalLight();
@@ -1175,8 +1177,7 @@ PointLight* light_ptr2 = new PointLight();
 {
 
 
-d_type::Bfloat earthSize=2;
-Sphere *sp = new Sphere(Vector3Bf(0,0,0),earthSize);
+d_type::Bfloat earthSize=1;
 
 TexturePhong *m = new TexturePhong();
 m->setCd(new ImageTexture(new Image("foto2.tga"),new SpericalMapping(earthSize)));
@@ -1185,8 +1186,14 @@ m->setKa(0.45);
 m->setKd(0.34);
 m->setExponent(10.0f);
 m->setKs(0.1f);
-sp->setMaterial(m);
-rt->addObject(sp);
+
+
+
+Instance * earth = new Instance(new Sphere(Vector3Bf(0,0,0),earthSize));
+//earth->scale(20.0);
+earth->setMaterial(m);
+
+rt->addObject(earth);
 
 
 
@@ -1199,6 +1206,13 @@ rt->addLight(pl);
 #endif
 #ifdef PLANE_TEXTURE
 {
+Plane * p = new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
+TextureMatte * m = new TextureMatte();
+m->setCd(new ImageTexture(new Image("foto2.tga"),new RectMapping()));
+m->setKa(0.4f);
+m->setKd(0.5f);
+p->setMaterial(m);
+rt->addObject(p);
 
 }
 #endif // PLANE_TEXTURE

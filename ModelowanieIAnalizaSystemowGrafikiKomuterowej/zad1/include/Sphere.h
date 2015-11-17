@@ -3,6 +3,7 @@
 #include "Raycastable.h"
 #include <iostream>
 #include "../src/algorithms.hpp"
+#include "Box.h"
 class Sphere : public IRaycastable
 {
 public:
@@ -18,6 +19,7 @@ public:
     //METHODS
     bool intersect(const Ray&ray,d_type::Bfloat &distance,Info &info) const ;
     virtual d_type::BBool shadowHit(const Ray& ray,d_type::Bfloat & distance) const;
+     virtual Box getBoundingBox(void) const;
 
 protected:
 private:

@@ -161,6 +161,16 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) const
 
 }
 
+Box Sphere::getBoundingBox(void) const {
+                double delta = 0.0001;
+        //
+        //      return(BBox(min(p0.x, p0.x + a.x + b.x) - delta, max(p0.x, p0.x + a.x + b.x) + delta,
+        //                              min(p0.y, p0.y + a.y + b.y) - delta, max(p0.y, p0.y + a.y + b.y) + delta,
+        //                              min(p0.z, p0.z + a.z + b.z) - delta, max(p0.z, p0.z + a.z + b.z) + delta));
+
+        return (Box(Vector3Bf (m_center.x - m_radius - delta, m_center.y - m_radius - delta, m_center.z - m_radius - delta),
+                 Vector3Bf(m_center.x + m_radius + delta, m_center.y + m_radius + delta, m_center.z + m_radius + delta)));
+}
 
 d_type::BBool Sphere::shadowHit(const Ray& ray, d_type::Bfloat& distance) const
 {

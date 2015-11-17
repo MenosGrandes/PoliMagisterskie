@@ -1,89 +1,132 @@
 #include "Box.h"
+Box::Box (void)
+: x0(-1), x1(1), y0(-1), y1(1), z0(-1), z1(1)
+{}
 
-Box::Box()
-{
-    //ctor
+
+Box::Box (const d_type::Bfloat _x0, const d_type::Bfloat _x1,
+                        const d_type::Bfloat _y0, const d_type::Bfloat _y1,
+                        const d_type::Bfloat _z0, const d_type::Bfloat _z1)
+:       x0(_x0),
+        x1(_x1),
+        y0(_y0),
+        y1(_y1),
+        z0(_z0),
+        z1(_z1)
+{}
+
+Box::Box (const Vector3Bf p0, const Vector3Bf p1)
+:       x0(p0.x),
+        x1(p1.x),
+        y0(p0.y),
+        y1(p1.y),
+        z0(p0.z),
+        z1(p1.z)
+{}
+
+Box::Box(const Box& bbox)
+:       x0(bbox.x0),
+        x1(bbox.x1),
+        y0(bbox.y0),
+        y1(bbox.y1),
+        z0(bbox.z0),
+        z1(bbox.z1)
+{}
+
+Box&
+Box::operator=(const Box& rhs) {
+        if (this == &rhs)
+                return (*this);
+
+        x0      = rhs.x0;
+        x1      = rhs.x1;
+        y0      = rhs.y0;
+        y1      = rhs.y1;
+        z0      = rhs.z0;
+        z1      = rhs.z1;
+
+        return (*this);
 }
 
-Box::Box(const Vector3Bf& min, const Vector3Bf& max):m_min(min),m_max(max)
-{
-//    this->m_material=new PerfectDifuse(Colour::Black);
+Box*
+Box::clone(void) const {
+        return (new Box(*this));
 }
 
-void Box::setMin(const Vector3Bf& min)
-{
-    this->m_min=min;
+Box::~Box(void) {}
+
+bool
+Box::hit(const Ray& ray) const {
+
+        d_type::Bfloat ox = ray.getOrigin().x;
+        d_type::Bfloat oy = ray.getOrigin().y;
+        d_type::Bfloat oz = ray.getOrigin().z;
+
+        d_type::Bfloat dx = ray.getDirection().x;
+        d_type::Bfloat dy = ray.getDirection().y;
+        d_type::Bfloat dz = ray.getDirection().z;
+
+        d_type::Bfloat tx_min, ty_min, tz_min;
+        d_type::Bfloat tx_max, ty_max, tz_max;
+
+        d_type::Bfloat a = 1.0 / dx;
+        if (a >= 0) {
+                tx_min = (x0 - ox) * a;
+                tx_max = (x1 - ox) * a;
+        }
+        else {
+                tx_min = (x1 - ox) * a;
+                tx_max = (x0 - ox) * a;
+        }
+
+        d_type::Bfloat b = 1.0 / dy;
+        if (b >= 0) {
+                ty_min = (y0 - oy) * b;
+                ty_max = (y1 - oy) * b;
+        }
+        else {
+                ty_min = (y1 - oy) * b;
+                ty_max = (y0 - oy) * b;
+        }
+
+        d_type::Bfloat c = 1.0 / dz;
+        if (c >= 0) {
+                tz_min = (z0 - oz) * c;
+                tz_max = (z1 - oz) * c;
+        }
+        else {
+                tz_min = (z1 - oz) * c;
+                tz_max = (z0 - oz) * c;
+        }
+
+        d_type::Bfloat t0, t1;
+
+        // find largest entering t value
+
+        if (tx_min > ty_min)
+                t0 = tx_min;
+        else
+                t0 = ty_min;
+
+        if (tz_min > t0)
+                t0 = tz_min;
+
+        // find smallest exiting t value
+        if (tx_max < ty_max)
+                t1 = tx_max;
+        else {
+                t1 = ty_max;
+        }
+
+        if (tz_max < t1)
+                t1 = tz_max;
+
+        return (t0 < t1 && t1 > 0.0001);
+
 }
 
-void Box::setMax(const Vector3Bf& max)
-{
-    this->m_max=max;
-}
-
-Box::~Box()
-{
-    //dtor
-}
-d_type::BBool Box::intersect(const Ray& r, d_type::Bfloat& distance,Info &info) const
-{
-    d_type::Bfloat tmin = (m_min.x - r.getOrigin().x) / r.getDirection().x;
-    d_type::Bfloat tmax = (m_max.x - r.getOrigin().x) / r.getDirection().x;
-
-    if (tmin > tmax) std::swap(tmin, tmax);
-
-    d_type::Bfloat tymin = (m_min.y - r.getOrigin().y) / r.getDirection().y;
-    d_type::Bfloat tymax = (m_max.y - r.getOrigin().y) / r.getDirection().y;
-
-    if (tymin > tymax) std::swap(tymin, tymax);
-
-    if ((tmin > tymax) || (tymin > tmax))
-        return false;
-
-    if (tymin > tmin)
-        tmin = tymin;
-
-    if (tymax < tmax)
-        tmax = tymax;
-
-    float tzmin = (m_min.z - r.getOrigin().z) / r.getDirection().z;
-    float tzmax = (m_max.z - r.getOrigin().z) / r.getDirection().z;
-
-    if (tzmin > tzmax) std::swap(tzmin, tzmax);
-
-    if ((tmin > tzmax) || (tzmin > tmax))
-        return false;
-
-    if (tzmin > tmin)
-        tmin = tzmin;
-
-    if (tzmax < tmax)
-        tmax = tzmax;
-
-    distance = tmin;
-
-    if (distance < 0)
-    {
-        distance = tmax;
-        if (distance < 0) return false;
-    }
-
-    return true;
-}
-
-Vector3Bf Box::getMin() const
-{
-    return m_min;
-}
-
-
-
-Vector3Bf Box::getMax() const
-{
-    return m_max;
-}
-
-d_type::BBool Box::shadowHit(const Ray& ray, d_type::Bfloat& distance) const
-{
-    return false;
-}
+bool
+Box::inside(const Vector3Bf& p) const {
+        return ((p.x > x0 && p.x < x1) && (p.y > y0 && p.y < y1) && (p.z > z0 && p.z < z1));
+};
 

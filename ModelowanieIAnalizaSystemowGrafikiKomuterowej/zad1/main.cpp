@@ -34,6 +34,7 @@
 #include "ImageTexture.h"
 #include "TextureMatte.h"
 #include "SpericalMapping.h"
+#include "TexturePhong.h"
 int main(int argc, char **argv)
 {
     CheckCPU cpu;
@@ -68,7 +69,7 @@ int main(int argc, char **argv)
 
 
 
-
+#define PLANE_TEXTURE
 #ifdef CHAPTER15
     {
         DirectionalLight * dirLight=new DirectionalLight();
@@ -1170,21 +1171,37 @@ PointLight* light_ptr2 = new PointLight();
     rt->addLight(light);
 }
 #endif // CUBESHADOW
+#ifdef EARTH
+{
 
-Sphere *sp = new Sphere(Vector3Bf(0,0,0),1);
 
-TextureMatte *m = new TextureMatte();
-m->setCd(new ImageTexture(new Image("foto2.tga"),new SpericalMapping()));
+d_type::Bfloat earthSize=2;
+Sphere *sp = new Sphere(Vector3Bf(0,0,0),earthSize);
+
+TexturePhong *m = new TexturePhong();
+m->setCd(new ImageTexture(new Image("foto2.tga"),new SpericalMapping(earthSize)));
+m->setCs(Colour::White);
 m->setKa(0.45);
 m->setKd(0.34);
+m->setExponent(10.0f);
+m->setKs(0.1f);
 sp->setMaterial(m);
 rt->addObject(sp);
 
+
+
 PointLight * pl = new PointLight();
 pl->m_ls=3.0f;
-pl->setShadows(false);
+pl->setShadows(true);
 pl->m_location=Vector3Bf(0,0,6);
 rt->addLight(pl);
+}
+#endif
+#ifdef PLANE_TEXTURE
+{
+
+}
+#endif // PLANE_TEXTURE
 rt->rayTrace();
 
 //Image* img=new Image("foto2.tga");

@@ -86,7 +86,6 @@ Image::Image(char *filename)
 
         counter++;
     }
-    std::cout<<counter<<"\n";
     fclose(filePtr);
     std::cout<<"IMAGE LOADED\n";
 }

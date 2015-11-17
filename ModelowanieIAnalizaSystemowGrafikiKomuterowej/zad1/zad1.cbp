@@ -171,10 +171,16 @@
 		<Unit filename="include/Texture.h">
 			<Option virtualFolder="BRDF/Texture/" />
 		</Unit>
+		<Unit filename="include/TextureGlossySpecular.h">
+			<Option virtualFolder="BRDF/Texture/" />
+		</Unit>
 		<Unit filename="include/TextureLambertian.h">
 			<Option virtualFolder="BRDF/Texture/" />
 		</Unit>
 		<Unit filename="include/TextureMatte.h">
+			<Option virtualFolder="BRDF/Texture/" />
+		</Unit>
+		<Unit filename="include/TexturePhong.h">
 			<Option virtualFolder="BRDF/Texture/" />
 		</Unit>
 		<Unit filename="include/Vector2.h">
@@ -322,10 +328,16 @@
 		<Unit filename="src/Texture.cpp">
 			<Option virtualFolder="BRDF/Texture/" />
 		</Unit>
+		<Unit filename="src/TextureGlossySpecular.cpp">
+			<Option virtualFolder="BRDF/Texture/" />
+		</Unit>
 		<Unit filename="src/TextureLambertian.cpp">
 			<Option virtualFolder="BRDF/Texture/" />
 		</Unit>
 		<Unit filename="src/TextureMatte.cpp">
+			<Option virtualFolder="BRDF/Texture/" />
+		</Unit>
+		<Unit filename="src/TexturePhong.cpp">
 			<Option virtualFolder="BRDF/Texture/" />
 		</Unit>
 		<Unit filename="src/algorithms.hpp">

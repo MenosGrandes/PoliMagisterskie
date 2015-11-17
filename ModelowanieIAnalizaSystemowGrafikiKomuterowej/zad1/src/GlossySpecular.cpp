@@ -14,15 +14,9 @@ Colour GlossySpecular::f(const Info& info, const Vector3Bf& wi, const Vector3Bf&
 
     d_type::Bfloat rDOTwo=Vector3Bf::dotProduct(r,wo);
 
-//      std::cout<<rDOTwo<<"\n";
-//      if(wo!=Vector3Bf(0,0,0))
-//      {
-//    std::cout<<"r= "<<r<<"\nwo ="<<wo<<"\n";
-//      }
     if(rDOTwo>0.0)
     {
         L=m_ks*m_cs*pow(rDOTwo,m_exp);
-//        std::cout<<rDOTwo<<"^"<<m_exp<<"="<<pow(rDOTwo,m_exp);
 
     }
     return L;

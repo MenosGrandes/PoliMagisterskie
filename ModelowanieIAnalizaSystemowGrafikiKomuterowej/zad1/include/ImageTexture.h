@@ -17,7 +17,7 @@ public:
         if(m_mapping!=nullptr)
         {
             //std::cout<<"~~~~~~~~~~~~~\nrow "<<row<<" column"<<column<<"\n";
-             m_mapping->getTexelCoord(info.m_hitPoint,hres, vres, row, column);
+             m_mapping->getTexelCoord(info.m_localHitPoint,hres, vres, row, column);
             //std::cout<<"row "<<row<<" column"<<column<<"\n";
 
         }

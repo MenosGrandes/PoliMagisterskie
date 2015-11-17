@@ -37,6 +37,7 @@
 #include "TexturePhong.h"
 #include "RectMapping.h"
 #include "Instance.h"
+#include "ReflectiveMaterial.h"
 int main(int argc, char **argv)
 {
     CheckCPU cpu;
@@ -54,10 +55,10 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
     // X Z Y
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(0,1,-8),
-                                           Vector3Bf(0,0,0),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(-35, 25, 35),
+                                           Vector3Bf(0.0, 0.4, -0.2),
                                            Vector3Bf::Up,
-                                          1,
+                                          10,
                                            Vector2Bf(1,1));
 
 
@@ -1179,23 +1180,33 @@ PointLight* light_ptr2 = new PointLight();
 
 d_type::Bfloat earthSize=1;
 
+
+
+
+Sphere * s =new Sphere(Vector3Bf(0,5,0),1);
 TexturePhong *m = new TexturePhong();
-m->setCd(new ImageTexture(new Image("foto2.tga"),new SpericalMapping(earthSize)));
+m->setCd(new ImageTexture(new Image("textures/earth.tga"),new SpericalMapping(s)));
 m->setCs(Colour::White);
 m->setKa(0.45);
 m->setKd(0.34);
 m->setExponent(10.0f);
 m->setKs(0.1f);
+s->setMaterial(m);
+
+rt->addObject(s);
 
 
+Sphere * s2 =new Sphere(Vector3Bf(5,0,0),1);
+TexturePhong *m2 = new TexturePhong();
+m2->setCd(new ImageTexture(new Image("textures/mars.tga"),new SpericalMapping(s2)));
+m2->setCs(Colour::White);
+m2->setKa(0.45);
+m2->setKd(0.34);
+m2->setExponent(10.0f);
+m2->setKs(0.1f);
+s2->setMaterial(m2);
 
-Instance * earth = new Instance(new Sphere(Vector3Bf(0,0,0),earthSize));
-//earth->scale(20.0);
-earth->setMaterial(m);
-
-rt->addObject(earth);
-
-
+rt->addObject(s2);
 
 PointLight * pl = new PointLight();
 pl->m_ls=3.0f;
@@ -1216,6 +1227,75 @@ rt->addObject(p);
 
 }
 #endif // PLANE_TEXTURE
+#ifdef MIRROR
+PointLight* light_ptr = new PointLight();
+	light_ptr->m_location=Vector3Bf(0, 20, 20);
+	light_ptr->m_ls=(5.0);
+	light_ptr->setShadows(false);
+	rt->addLight(light_ptr);
+
+
+	// the four spheres
+
+	float ka = 0.75;
+	float kd = 0.75;
+	float ks = 0.1;
+	float e = 20.0;
+	float kr = 1.0;
+
+	ReflectiveMaterial* ReflectiveMaterial_ptr1 = new ReflectiveMaterial;
+	ReflectiveMaterial_ptr1->setKa(ka);
+	ReflectiveMaterial_ptr1->setKd(kd);
+	ReflectiveMaterial_ptr1->setKs(ks);
+	ReflectiveMaterial_ptr1->setCd(Colour(0.168, 0.171, 0.009));    	// pink
+	ReflectiveMaterial_ptr1->setExponent(e);
+	ReflectiveMaterial_ptr1->setKr(kr);
+
+	Sphere* sphere_ptr1 = new Sphere(Vector3Bf(0.0, 1.414, 0.0), 0.866);
+	sphere_ptr1->setMaterial(ReflectiveMaterial_ptr1);
+	rt->addObject(sphere_ptr1);
+
+
+	ReflectiveMaterial* ReflectiveMaterial_ptr2 = new ReflectiveMaterial;
+	ReflectiveMaterial_ptr2->setKa(ka);
+	ReflectiveMaterial_ptr2->setKd(kd);
+	ReflectiveMaterial_ptr2->setCd(Colour(0.094, 0.243, 0.029));   	// green
+	ReflectiveMaterial_ptr2->setKs(ks);
+	ReflectiveMaterial_ptr2->setExponent(e);
+	ReflectiveMaterial_ptr2->setKr(kr);
+
+	Sphere* sphere_ptr2 = new Sphere(Vector3Bf(0.0, 0.0, 1.0), 0.866);
+	sphere_ptr2->setMaterial(ReflectiveMaterial_ptr2);
+	rt->addObject(sphere_ptr2);
+
+
+	ReflectiveMaterial* ReflectiveMaterial_ptr3 = new ReflectiveMaterial;
+	ReflectiveMaterial_ptr3->setKa(ka);
+	ReflectiveMaterial_ptr3->setKd(kd);
+	ReflectiveMaterial_ptr3->setCd(Colour(0.243, 0.018, 0.164));     	// red
+	ReflectiveMaterial_ptr3->setKs(ks);
+	ReflectiveMaterial_ptr3->setExponent(e);
+	ReflectiveMaterial_ptr3->setKr(kr);
+
+	Sphere* sphere_ptr3 = new Sphere(Vector3Bf(0.866, 0.0, -0.5), 0.866);
+	sphere_ptr3->setMaterial(ReflectiveMaterial_ptr3);
+	rt->addObject(sphere_ptr3);
+
+
+	ReflectiveMaterial* ReflectiveMaterial_ptr4 = new ReflectiveMaterial;
+	ReflectiveMaterial_ptr4->setKa(ka);
+	ReflectiveMaterial_ptr4->setKd(kd);
+	ReflectiveMaterial_ptr4->setCd(Colour(0.094, 0.1, 0.243));    		// blue
+	ReflectiveMaterial_ptr4->setKs(ks);
+	ReflectiveMaterial_ptr4->setExponent(e);
+	ReflectiveMaterial_ptr4->setKr(kr);
+
+	Sphere* sphere_ptr4 = new Sphere(Vector3Bf(-0.866, 0.0, -0.5), 0.866);
+	sphere_ptr4->setMaterial(ReflectiveMaterial_ptr4);
+	rt->addObject(sphere_ptr4);
+
+rt->setDepth(12);
+#endif // MIRROR
 rt->rayTrace();
 
 //Image* img=new Image("foto2.tga");

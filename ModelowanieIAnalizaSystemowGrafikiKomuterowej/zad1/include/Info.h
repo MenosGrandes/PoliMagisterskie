@@ -11,11 +11,11 @@ public:
     IMaterial* m_material;
     Vector3Bf m_normal,m_hitPoint,m_localHitPoint,m_dir;
     d_type::BBool m_hit;
-    Ray ray;
+    Ray m_ray;
     d_type::Buint m_depth;
     d_type::Bfloat m_t;
     RayTracer * m_rayTracer;
-    Vector2Bf uv;
+    Vector2Bf m_uv;
 
 };
 

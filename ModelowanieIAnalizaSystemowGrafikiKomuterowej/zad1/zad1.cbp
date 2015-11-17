@@ -156,6 +156,9 @@
 		<Unit filename="include/RectMapping.h">
 			<Option virtualFolder="BRDF/Texture/Mapping/" />
 		</Unit>
+		<Unit filename="include/ReflectiveMaterial.h">
+			<Option virtualFolder="BRDF/Material/" />
+		</Unit>
 		<Unit filename="include/RegularSampleGenerator.h">
 			<Option virtualFolder="Antyalising/Generator/" />
 		</Unit>
@@ -318,6 +321,9 @@
 		</Unit>
 		<Unit filename="src/RectMapping.cpp">
 			<Option virtualFolder="BRDF/Texture/Mapping/" />
+		</Unit>
+		<Unit filename="src/ReflectiveMaterial.cpp">
+			<Option virtualFolder="BRDF/Material/" />
 		</Unit>
 		<Unit filename="src/RegularSampleGenerator.cpp">
 			<Option virtualFolder="Antyalising/Generator/" />

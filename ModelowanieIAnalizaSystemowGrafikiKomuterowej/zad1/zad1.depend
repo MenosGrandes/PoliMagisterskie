@@ -1314,7 +1314,7 @@
 1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/VertexProcessor.cpp
 	"VertexProcessor.h"
 
-1447763125 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
+1447780691 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
 	"Matrix4.h"
 	"Vertex2.h"
 	<cstdio>
@@ -1351,6 +1351,7 @@
 	"TexturePhong.h"
 	"RectMapping.h"
 	"Instance.h"
+	"ReflectiveMaterial.h"
 
 1447759089 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\matrix4.h
 	"Vector4.h"
@@ -1403,7 +1404,7 @@
 	<vector>
 	<limits>
 
-1447751076 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\info.h
+1447779802 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\info.h
 	"Ray.h"
 	"IMaterial.h"
 
@@ -1430,7 +1431,7 @@
 1447751076 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\perspectivecamera.h
 	"Camera.h"
 
-1447751076 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raytracer.h
+1447772568 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\raytracer.h
 	"Camera.h"
 	"RenderTarget.h"
 	"Sampler.h"
@@ -1514,7 +1515,7 @@
 	"Vector3.h"
 	"Ray.h"
 
-1447751076 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\phongmaterial.h
+1447779812 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\phongmaterial.h
 	"IMaterial.h"
 	"Lambertian.h"
 	"GlossySpecular.h"
@@ -1531,7 +1532,7 @@
 1447751076 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\glossyspecular.h
 	"BRDF.h"
 
-1447751076 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\mattematerial.h
+1447779816 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\mattematerial.h
 	"IMaterial.h"
 	"Lambertian.h"
 	"RayTracer.h"
@@ -1615,7 +1616,7 @@
 1447751077 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\imagetexture.cpp
 	"ImageTexture.h"
 
-1447753862 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\imagetexture.h
+1447779825 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\imagetexture.h
 	"Texture.h"
 	"IMapping.h"
 	"Image.h"
@@ -1629,7 +1630,7 @@
 1447751077 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\imaterial.cpp
 	"IMaterial.h"
 
-1447751077 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\info.cpp
+1447779699 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\info.cpp
 	"Info.h"
 
 1447751077 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\isampledistributor.cpp
@@ -1656,10 +1657,11 @@
 1447751077 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ortagonalcamera.cpp
 	"OrtagonalCamera.h"
 
-1447751077 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\perfectspecular.cpp
+1447780176 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\perfectspecular.cpp
 	"PerfectSpecular.h"
 
-1447751076 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\perfectspecular.h
+1447773656 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\perfectspecular.h
+	"Colour.h"
 	"BRDF.h"
 
 1447751077 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\perspectivecamera.cpp
@@ -1680,7 +1682,7 @@
 1447751077 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\ray.cpp
 	"Ray.h"
 
-1447751412 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytracer.cpp
+1447779866 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytracer.cpp
 	"RayTracer.h"
 
 1447751077 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\raytriangle.cpp
@@ -1698,10 +1700,11 @@
 1447751077 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\spericalmapping.cpp
 	"SpericalMapping.h"
 
-1447762634 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\spericalmapping.h
+1447780835 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\spericalmapping.h
 	"IMapping.h"
+	"Sphere.h"
 
-1447763488 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sphere.cpp
+1447773786 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\sphere.cpp
 	"Sphere.h"
 
 1447751077 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\squaresampledistributor.cpp
@@ -1720,7 +1723,7 @@
 1447751077 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\texturematte.cpp
 	"TextureMatte.h"
 
-1447751076 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\texturematte.h
+1447779829 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\texturematte.h
 	"IMaterial.h"
 	"TextureLambertian.h"
 	"RayTracer.h"
@@ -1728,7 +1731,7 @@
 1447756313 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\texturephong.cpp
 	"TexturePhong.h"
 
-1447756368 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\texturephong.h
+1447779835 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\texturephong.h
 	"IMaterial.h"
 	"TextureLambertian.h"
 	"GlossySpecular.h"
@@ -1755,4 +1758,12 @@
 	"Box.h"
 	"Info.h"
 	"Matrix4.h"
+
+1447771758 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\src\reflectivematerial.cpp
+	"ReflectiveMaterial.h"
+
+1447780328 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\reflectivematerial.h
+	"PhongMaterial.h"
+	"RayTracer.h"
+	"PerfectSpecular.h"
 

@@ -66,22 +66,7 @@ void RayTracer::rayTrace()
     }
     std::cout<<"DONE\n";
 }
-Colour RayTracer::shadeRay(const Ray&ray)
-{
-    Info info = traceRay(ray);
-    if(info.m_hit == false)
-    {
-        return Colour::RoyalBlue;
-    }
 
-    info.ray=ray;
-//       std::cout<<"~~!~!!\n";
-//    std::cout<<ray.getDirection();
-//
-//    std::cout<<info.ray.getDirection();
-    return info.m_material->shade(info);
-
-}
 
 Info RayTracer::traceRay(const Ray&ray)
 {
@@ -113,8 +98,7 @@ Info RayTracer::traceRay(const Ray&ray)
         info.m_t=minDistance;
         info.m_normal=normal;
         info.m_localHitPoint=localHitPoint;
-//        std::cout<<"!~~~~~!~!\n";
-//        std::cout<<info.m_localHitPoint<<"\n";
+
     }
     return info;
 }
@@ -122,4 +106,40 @@ void RayTracer::addLight(ILight* light)
 {
     m_lightsVector.push_back(light);
 }
+Colour RayTracer::shadeRay(const Ray&ray)
+{
+    Info info = traceRay(ray);
+    if(info.m_hit == false)
+    {
+        return Colour::RoyalBlue;
+    }
 
+    info.m_ray=ray;
+
+    return info.m_material->shade(info);
+
+}
+Colour RayTracer::shadeRay(const Ray& ray, d_type::Bint depth)
+{
+
+    if(depth>m_depth)
+    {
+        return Colour::Black;
+    }
+
+
+
+//std::cout<<depth<<"\n";
+    Info info = traceRay(ray);
+    if(info.m_hit == false)
+    {
+        return Colour::RoyalBlue;
+    }
+
+    info.m_ray=ray;
+    info.m_depth=depth;
+    //std::cout<<m_depth<<"\n";
+  //  std::cout<<info.m_depth<<" depth\n";
+    return info.m_material->shade(info);
+
+}

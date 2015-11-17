@@ -36,10 +36,17 @@ public:
     {
         return m_objectVector;
     }
-private:
-
+    void setDepth(const d_type::Bint depth)
+    {
+        m_depth=depth;
+    }
     Colour shadeRay(const Ray&ray);
     Info traceRay(const Ray&ray);
+    Colour shadeRay(const Ray&ray,d_type::Bint depth);
+
+private:
+
+
 
 
 
@@ -49,7 +56,7 @@ private:
     RenderTarget *m_renderTanger;
     Sampler * m_sampler;
     ILight * m_ambientLight;
-
+    d_type::Bint m_depth;
 };
 
 #endif // RAYTRACER_H

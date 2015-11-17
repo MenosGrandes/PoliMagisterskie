@@ -23,8 +23,8 @@ public:
         }
         else
         {
-             row=(int)(info.uv.x*(hres-1));
-             column=(int)(info.uv.y*(vres-1));
+             row=(int)(info.m_uv.x*(hres-1));
+             column=(int)(info.m_uv.y*(vres-1));
 
         }
         if (row < 0 || column < 0 || row > vres - 1 || column > hres - 1)

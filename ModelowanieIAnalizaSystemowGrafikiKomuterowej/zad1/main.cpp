@@ -55,10 +55,10 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
     // X Z Y
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(-35, 25, 35),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(-35, 25, 55),
                                            Vector3Bf(0.0, 0.4, -0.2),
                                            Vector3Bf::Up,
-                                          10,
+                                          50,
                                            Vector2Bf(1,1));
 
 
@@ -72,7 +72,7 @@ int main(int argc, char **argv)
 
 
 
-#define EARTH
+#define MIRROR
 #ifdef CHAPTER15
     {
         DirectionalLight * dirLight=new DirectionalLight();
@@ -1219,7 +1219,7 @@ rt->addLight(pl);
 {
 Plane * p = new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
 TextureMatte * m = new TextureMatte();
-m->setCd(new ImageTexture(new Image("foto2.tga"),new RectMapping()));
+m->setCd(new ImageTexture(new Image("textures/plane.tga"),new RectMapping(p,Vector2Bf(0.1,0.1))));
 m->setKa(0.4f);
 m->setKd(0.5f);
 p->setMaterial(m);
@@ -1231,7 +1231,7 @@ rt->addObject(p);
 PointLight* light_ptr = new PointLight();
 	light_ptr->m_location=Vector3Bf(0, 20, 20);
 	light_ptr->m_ls=(5.0);
-	light_ptr->setShadows(false);
+	light_ptr->setShadows(true);
 	rt->addLight(light_ptr);
 
 

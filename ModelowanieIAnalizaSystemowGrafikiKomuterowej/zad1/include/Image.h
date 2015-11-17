@@ -22,7 +22,8 @@ public:
         return vres;
     }
 
-    Colour getColour(const int row, const int column) const {
+    Colour getColour(const int row, const int column) const
+    {
         int index = column+(row*hres);//column + hres * (vres - row - 1);
         int pixels_size = hres*vres;
 
@@ -30,6 +31,9 @@ public:
                 return (m_pixels[index]);
         else
                 return (Colour::Red);
+
+
+
 }
 
 protected:

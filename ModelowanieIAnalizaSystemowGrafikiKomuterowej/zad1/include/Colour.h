@@ -87,7 +87,7 @@ inline Colour operator +=(Colour& left, const Colour& right)
     left.r += right.r;
     left.g += right.g;
     left.b += right.b;
-    left.a =1;
+    left.a +=right.a;
 
     return left;
 }

@@ -86,7 +86,7 @@ Info RayTracer::traceRay(const Ray&ray)
             info.m_hit=true;
             normal=info.m_normal;
             minDistance=hitDistance;
-            info.m_hitPoint=ray.getOrigin()+ray.getDirection()*hitDistance;
+            info.m_hitPoint=ray.getOrigin()+ray.getDirection()*minDistance;
             localHitPoint=info.m_localHitPoint;
             info.m_material=m_objectVector[i]->getMaterial();
         }
@@ -122,24 +122,26 @@ Colour RayTracer::shadeRay(const Ray&ray)
 Colour RayTracer::shadeRay(const Ray& ray, d_type::Bint depth)
 {
 
-    if(depth>m_depth)
+    if(depth>=m_depth)
     {
         return Colour::Black;
     }
-
-
-
-//std::cout<<depth<<"\n";
-    Info info = traceRay(ray);
-    if(info.m_hit == false)
+    else
     {
-        return Colour::RoyalBlue;
+        Info info = traceRay(ray);
+        if(info.m_hit == false)
+        {
+            return Colour::RoyalBlue;
+        }
+        else
+        {
+            info.m_ray=ray;
+            info.m_depth=depth;
+            //std::cout<<m_depth<<"\n";
+            //  std::cout<<info.m_depth<<" depth\n";
+            return info.m_material->shade(info);
+        }
+
+
     }
-
-    info.m_ray=ray;
-    info.m_depth=depth;
-    //std::cout<<m_depth<<"\n";
-  //  std::cout<<info.m_depth<<" depth\n";
-    return info.m_material->shade(info);
-
 }

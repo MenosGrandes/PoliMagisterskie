@@ -1,7 +1,8 @@
 #ifndef GLOSSYSPECULAR_H
 #define GLOSSYSPECULAR_H
 #include "BRDF.h"
-
+#include "Sampler.h"
+#include "Colour.h"
 class GlossySpecular : public BRDF
 {
 public:

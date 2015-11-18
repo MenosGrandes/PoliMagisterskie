@@ -18,9 +18,9 @@ class ReflectiveMaterial : public PhongMaterial
         Colour L(PhongMaterial::shade(info)); // direct illumination
 
         Vector3Bf wo = -info.m_ray.getDirection();
-        Vector3Bf wi;
+        Vector3Bf wi= Vector3Bf(0,0,0);
         Colour fr = m_reflective->sample_f(info, wi, wo);
-        Ray reflected_ray(info.m_hitPoint, wi,DIRECTION);
+        Ray reflected_ray=Ray(info.m_hitPoint, wi,DIRECTION);
 
         L += fr * info.m_rayTracer->shadeRay(reflected_ray,info.m_depth+1)* Vector3Bf::dotProduct(info.m_normal,wi);
         return (L);

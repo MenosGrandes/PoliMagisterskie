@@ -72,6 +72,9 @@
 		<Unit filename="include/FileLoader.h">
 			<Option virtualFolder="Types/" />
 		</Unit>
+		<Unit filename="include/GlossyReflection.h">
+			<Option virtualFolder="BRDF/Material/" />
+		</Unit>
 		<Unit filename="include/GlossySpecular.h">
 			<Option virtualFolder="BRDF/Reflections/" />
 		</Unit>
@@ -243,6 +246,9 @@
 		</Unit>
 		<Unit filename="src/FileLoader.cpp">
 			<Option virtualFolder="Types/" />
+		</Unit>
+		<Unit filename="src/GlossyReflection.cpp">
+			<Option virtualFolder="BRDF/Material/" />
 		</Unit>
 		<Unit filename="src/GlossySpecular.cpp">
 			<Option virtualFolder="BRDF/Reflections/" />

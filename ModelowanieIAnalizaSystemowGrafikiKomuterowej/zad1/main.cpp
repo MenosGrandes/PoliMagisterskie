@@ -55,16 +55,16 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
     // X Z Y
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(-35, 25, 55),
-                                           Vector3Bf(0.0, 0.4, -0.2),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(50, 10, 40),
+                                           Vector3Bf(0, 0,0),
                                            Vector3Bf::Up,
-                                          50,
+                                          150,
                                            Vector2Bf(1,1));
 
 
     Sampler * s= new Sampler(new SquareSampleDistributor(),new RandomSampleGenerator(),4,1);
     RayTracer *rt = new RayTracer(persp,file,s);
-
+    rt->setDepth(0);
 
 //Image * im=new Image("file.tga");
 //file->drawToFile(im->getPixels());
@@ -1174,16 +1174,22 @@ PointLight* light_ptr2 = new PointLight();
     rt->addLight(light);
 }
 #endif // CUBESHADOW
-#ifdef EARTH
+#ifdef TEXTURE
 {
 
 
-d_type::Bfloat earthSize=1;
+Plane * p = new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
+TextureMatte * mM = new TextureMatte();
+mM->setCd(new ImageTexture(new Image("textures/plane.tga"),new RectMapping(p,Vector2Bf(0.001,0.001))));
+mM->setKa(0.4f);
+mM->setKd(0.5f);
+p->setMaterial(mM);
+rt->addObject(p);
 
 
 
 
-Sphere * s =new Sphere(Vector3Bf(0,5,0),1);
+Sphere * s =new Sphere(Vector3Bf(0,5,0),2);
 TexturePhong *m = new TexturePhong();
 m->setCd(new ImageTexture(new Image("textures/earth.tga"),new SpericalMapping(s)));
 m->setCs(Colour::White);
@@ -1196,7 +1202,7 @@ s->setMaterial(m);
 rt->addObject(s);
 
 
-Sphere * s2 =new Sphere(Vector3Bf(5,0,0),1);
+Sphere * s2 =new Sphere(Vector3Bf(5,3,0),2);
 TexturePhong *m2 = new TexturePhong();
 m2->setCd(new ImageTexture(new Image("textures/mars.tga"),new SpericalMapping(s2)));
 m2->setCs(Colour::White);
@@ -1210,28 +1216,23 @@ rt->addObject(s2);
 
 PointLight * pl = new PointLight();
 pl->m_ls=3.0f;
-pl->setShadows(true);
+pl->setShadows(false);
 pl->m_location=Vector3Bf(0,0,6);
 rt->addLight(pl);
 }
 #endif
-#ifdef PLANE_TEXTURE
-{
-Plane * p = new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
-TextureMatte * m = new TextureMatte();
-m->setCd(new ImageTexture(new Image("textures/plane.tga"),new RectMapping(p,Vector2Bf(0.1,0.1))));
-m->setKa(0.4f);
-m->setKd(0.5f);
-p->setMaterial(m);
-rt->addObject(p);
-
-}
-#endif // PLANE_TEXTURE
 #ifdef MIRROR
+{
+
+//    ICamera *persp = new PerspectiveCamera(Vector3Bf(50, 10, 40),
+//                                           Vector3Bf(0, 0,0),
+//                                           Vector3Bf::Up,
+//                                          150,
+//                                           Vector2Bf(1,1));
 PointLight* light_ptr = new PointLight();
 	light_ptr->m_location=Vector3Bf(0, 20, 20);
 	light_ptr->m_ls=(5.0);
-	light_ptr->setShadows(true);
+	light_ptr->setShadows(false);
 	rt->addLight(light_ptr);
 
 
@@ -1241,7 +1242,7 @@ PointLight* light_ptr = new PointLight();
 	float kd = 0.75;
 	float ks = 0.1;
 	float e = 20.0;
-	float kr = 1.0;
+	float kr = 1;
 
 	ReflectiveMaterial* ReflectiveMaterial_ptr1 = new ReflectiveMaterial;
 	ReflectiveMaterial_ptr1->setKa(ka);
@@ -1295,6 +1296,7 @@ PointLight* light_ptr = new PointLight();
 	rt->addObject(sphere_ptr4);
 
 rt->setDepth(12);
+}
 #endif // MIRROR
 rt->rayTrace();
 

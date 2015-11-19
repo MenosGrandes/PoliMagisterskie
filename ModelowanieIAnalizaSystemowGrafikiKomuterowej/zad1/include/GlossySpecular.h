@@ -6,7 +6,7 @@
 class GlossySpecular : public BRDF
 {
 public:
-    GlossySpecular():BRDF() {}
+    GlossySpecular():BRDF(),m_ks(1.0f),m_exp(1.0f),m_cs(Colour::White) {}
     virtual ~GlossySpecular();
     virtual Colour f(const Info& info,const Vector3Bf &wi,const Vector3Bf &wo) const ;
     virtual Colour sample_f(const Info& info, Vector3Bf &wi,const Vector3Bf &wo) const;

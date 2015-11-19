@@ -13,10 +13,15 @@ class ReflectiveMaterial : public PhongMaterial
         {
             m_reflective->setKr(kr);
         }
+        void setCr(const Colour & c)
+        {
+            //std::cout<<"SET CR"<<c<<"\n";
+            m_reflective->setCr(c);
+        }
          virtual Colour shade(Info&info)
         {
         Colour L(PhongMaterial::shade(info)); // direct illumination
-
+//std::cout<<"reflective "<<m_reflective->getCr()<<"\n";
         Vector3Bf wo = -info.m_ray.getDirection();
         Vector3Bf wi= Vector3Bf(0,0,0);
         Colour fr = m_reflective->sample_f(info, wi, wo);

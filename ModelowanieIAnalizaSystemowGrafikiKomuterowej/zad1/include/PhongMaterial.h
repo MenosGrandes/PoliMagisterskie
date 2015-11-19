@@ -24,12 +24,16 @@ public:
     }
     void setCd(const Colour &c)
     {
+
+        std::cout<<"SET CD"<<c<<"\n";
         m_diffuse->m_cd=c;
         m_ambient->m_cd=c;
 
     }
     void setCs(const Colour &c)
     {
+    std::cout<<"SET CS"<<c<<"\n";
+
         m_specular->m_cs=c;
     }
     void setExponent(const d_type::Bfloat k)
@@ -38,6 +42,7 @@ public:
     }
     virtual Colour shade(Info&info)
     {
+        //std::cout<<"SPECULAr: "<<m_specular->m_cs<<" AMBIENT:"<<m_ambient->m_cd<<" DIFFUSE"<<m_diffuse->m_cd<<"\n";
         Vector3Bf wo=-info.m_ray.getDirection();
         Colour L= m_ambient->rho(info,wo)*info.m_rayTracer->getAmbientLight()->L(info);
         const std::vector<ILight*> &lights = info.m_rayTracer->getLights();

@@ -58,7 +58,7 @@ int main(int argc, char **argv)
     ICamera *persp = new PerspectiveCamera(Vector3Bf(50, 10, 40),
                                            Vector3Bf(0, 0,0),
                                            Vector3Bf::Up,
-                                          150,
+                                          100,
                                            Vector2Bf(1,1));
 
 
@@ -1249,12 +1249,14 @@ PointLight* light_ptr = new PointLight();
 	ReflectiveMaterial_ptr1->setKd(kd);
 	ReflectiveMaterial_ptr1->setKs(ks);
 	ReflectiveMaterial_ptr1->setCd(Colour(0.168, 0.171, 0.009));    	// pink
+	ReflectiveMaterial_ptr1->setCr(Colour::White);
 	ReflectiveMaterial_ptr1->setExponent(e);
 	ReflectiveMaterial_ptr1->setKr(kr);
 
 	Sphere* sphere_ptr1 = new Sphere(Vector3Bf(0.0, 1.414, 0.0), 0.866);
 	sphere_ptr1->setMaterial(ReflectiveMaterial_ptr1);
 	rt->addObject(sphere_ptr1);
+	//std::cout<<ReflectiveMaterial_ptr1->getCs()<<"\n";
 
 
 	ReflectiveMaterial* ReflectiveMaterial_ptr2 = new ReflectiveMaterial;
@@ -1264,12 +1266,13 @@ PointLight* light_ptr = new PointLight();
 	ReflectiveMaterial_ptr2->setKs(ks);
 	ReflectiveMaterial_ptr2->setExponent(e);
 	ReflectiveMaterial_ptr2->setKr(kr);
+	ReflectiveMaterial_ptr2->setCr(Colour::White);
 
 	Sphere* sphere_ptr2 = new Sphere(Vector3Bf(0.0, 0.0, 1.0), 0.866);
 	sphere_ptr2->setMaterial(ReflectiveMaterial_ptr2);
 	rt->addObject(sphere_ptr2);
-
-
+//
+//
 	ReflectiveMaterial* ReflectiveMaterial_ptr3 = new ReflectiveMaterial;
 	ReflectiveMaterial_ptr3->setKa(ka);
 	ReflectiveMaterial_ptr3->setKd(kd);
@@ -1277,7 +1280,7 @@ PointLight* light_ptr = new PointLight();
 	ReflectiveMaterial_ptr3->setKs(ks);
 	ReflectiveMaterial_ptr3->setExponent(e);
 	ReflectiveMaterial_ptr3->setKr(kr);
-
+	ReflectiveMaterial_ptr3->setCr(Colour::White);
 	Sphere* sphere_ptr3 = new Sphere(Vector3Bf(0.866, 0.0, -0.5), 0.866);
 	sphere_ptr3->setMaterial(ReflectiveMaterial_ptr3);
 	rt->addObject(sphere_ptr3);
@@ -1290,6 +1293,7 @@ PointLight* light_ptr = new PointLight();
 	ReflectiveMaterial_ptr4->setKs(ks);
 	ReflectiveMaterial_ptr4->setExponent(e);
 	ReflectiveMaterial_ptr4->setKr(kr);
+	ReflectiveMaterial_ptr4->setCr(Colour::White);
 
 	Sphere* sphere_ptr4 = new Sphere(Vector3Bf(-0.866, 0.0, -0.5), 0.866);
 	sphere_ptr4->setMaterial(ReflectiveMaterial_ptr4);

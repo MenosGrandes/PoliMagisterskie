@@ -1,6 +1,6 @@
 #include "PerfectSpecular.h"
 
-PerfectSpecular::PerfectSpecular()
+PerfectSpecular::PerfectSpecular():m_kr(1.0f),m_cr(Colour(1.0,1.0,1.0,1.0))
 {
     //ctor
 }
@@ -11,7 +11,7 @@ PerfectSpecular::~PerfectSpecular()
 }
 Colour PerfectSpecular::f(const Info& info, const Vector3Bf& wi, const Vector3Bf& wo) const
 {
-return (m_kr * m_cr * INV_PI);
+return Colour::Black;
 
 }
 
@@ -28,6 +28,6 @@ return (m_kr * m_cr / (Vector3Bf::dotProduct(info.m_normal , wi)));
 
 Colour PerfectSpecular::rho(const Info& info, const Vector3Bf& wo) const
 {
-return (m_kr * m_cr);
+return Colour::Black;
 
 }

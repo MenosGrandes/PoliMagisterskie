@@ -145,3 +145,30 @@ Colour RayTracer::shadeRay(const Ray& ray, d_type::Bint depth)
 
     }
 }
+Colour RayTracer::shadeRay(const Ray& ray, d_type::Bfloat& tmin, d_type::Bint depth)
+{
+    if(depth>m_depth)
+    {
+        return Colour::Black;
+    }
+    else
+    {
+        Info info = traceRay(ray);
+        if(info.m_hit == false)
+        {
+            tmin=1E01;
+            return Colour::RoyalBlue;
+        }
+        else
+        {
+            info.m_ray=ray;
+            info.m_depth=depth;
+            tmin=info.m_t;
+            //std::cout<<m_depth<<"\n";
+            //  std::cout<<info.m_depth<<" depth\n";
+            return info.m_material->shade(info);
+        }
+
+
+    }
+}

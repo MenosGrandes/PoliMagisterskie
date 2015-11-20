@@ -66,6 +66,9 @@
 		<Unit filename="include/ConstColour.h">
 			<Option virtualFolder="BRDF/Texture/" />
 		</Unit>
+		<Unit filename="include/DielectricMaterial.h">
+			<Option virtualFolder="BRDF/Material/" />
+		</Unit>
 		<Unit filename="include/DirectionalLight.h">
 			<Option virtualFolder="BRDF/Light/" />
 		</Unit>
@@ -74,6 +77,9 @@
 		</Unit>
 		<Unit filename="include/FileLoader.h">
 			<Option virtualFolder="Types/" />
+		</Unit>
+		<Unit filename="include/FresnelReflector.h">
+			<Option virtualFolder="BRDF/Reflections/" />
 		</Unit>
 		<Unit filename="include/FresnelTransmitter.h">
 			<Option virtualFolder="BTDF/" />
@@ -250,6 +256,9 @@
 		<Unit filename="src/ConstColour.cpp">
 			<Option virtualFolder="BRDF/Texture/" />
 		</Unit>
+		<Unit filename="src/DielectricMaterial.cpp">
+			<Option virtualFolder="BRDF/Material/" />
+		</Unit>
 		<Unit filename="src/DirectionalLight.cpp">
 			<Option virtualFolder="BRDF/Light/" />
 		</Unit>
@@ -258,6 +267,9 @@
 		</Unit>
 		<Unit filename="src/FileLoader.cpp">
 			<Option virtualFolder="Types/" />
+		</Unit>
+		<Unit filename="src/FresnelReflector.cpp">
+			<Option virtualFolder="BRDF/Reflections/" />
 		</Unit>
 		<Unit filename="src/FresnelTransmitter.cpp">
 			<Option virtualFolder="BTDF/" />

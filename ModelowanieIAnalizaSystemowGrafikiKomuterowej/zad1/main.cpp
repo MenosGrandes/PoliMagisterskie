@@ -39,6 +39,7 @@
 #include "Instance.h"
 #include "ReflectiveMaterial.h"
 #include "TransparentMaterial.h"
+#include "DielectricMaterial.h"
 int main(int argc, char **argv)
 {
     CheckCPU cpu;
@@ -73,7 +74,7 @@ int main(int argc, char **argv)
 
 
 
-#define TRANSPARENT_EX
+#define FRESNEL
 #ifdef CHAPTER15
     {
         DirectionalLight * dirLight=new DirectionalLight();
@@ -1308,6 +1309,9 @@ rt->setDepth(12);
 }
 #endif // MIRROR
 #ifdef TRANSPARENT_EX
+	{
+
+
 	PointLight* light_ptr1 = new PointLight;
 	light_ptr1->m_location=Vector3Bf(40, 50, 0);
 	light_ptr1->m_ls=(4.5);
@@ -1319,7 +1323,7 @@ rt->setDepth(12);
 	glass->setExp(2000.0);
 	glass->setIndexRef(1.0f);
 	glass->setKr(0.1);
-	glass->setTransmissionCoof(0.9);
+	glass->setTransmissionCoof(1.46);
     glass->setCd(Colour::White);
     glass->setCr(Colour::White);
 	Sphere * sp= new Sphere(Vector3Bf(0.0, 4.5, 0.0), 3.0);
@@ -1350,7 +1354,56 @@ p->setMaterial(mM);
 rt->addObject(p);
 
 rt->setDepth(3);
+}
 #endif // TRANSPARENT_SPHERE
+#ifdef FRESNEL
+
+	PointLight* light_ptr1 = new PointLight;
+	light_ptr1->m_location=Vector3Bf(40, 50, 0);
+	light_ptr1->m_ls=(4.5);
+	light_ptr1->setShadows(false);
+	rt->addLight(light_ptr1);
+
+	DielectricMaterial * glass= new DielectricMaterial();
+	glass->setKs(0.2);
+	glass->setExp(2000.0);
+	glass->setRefractionIN(1.5);
+	glass->setRefractionOUT(1.0);
+	glass->setCfIn(Colour::White);
+	glass->setCfOut(Colour::White);
+//	glass->setKr(0.1);
+    glass->setCd(Colour::White);
+//    glass->setCr(Colour::White);
+	Sphere * sp= new Sphere(Vector3Bf(0.0, 4.5, 0.0), 3.0);
+	sp->setMaterial(glass);
+	rt->addObject(sp);
+
+
+
+ReflectiveMaterial*	reflective_ptr = new ReflectiveMaterial;
+	reflective_ptr->setKa(0.3);
+	reflective_ptr->setKd(0.3);
+	reflective_ptr->setCd(Colour::Red);
+	reflective_ptr->setKs(0.2);
+	reflective_ptr->setExponent(2000.0);
+	reflective_ptr->setKr(0.25);
+	reflective_ptr->setCr(Colour::White);
+
+	Sphere* sphere_ptr2 = new Sphere(Vector3Bf(4, 4, -6), 3);
+	sphere_ptr2->setMaterial(reflective_ptr);
+	rt->addObject(sphere_ptr2);
+
+Plane * p = new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
+TextureMatte * mM = new TextureMatte();
+mM->setCd(new ImageTexture(new Image("textures/plane.tga"),new RectMapping(p,Vector2Bf(0.001,0.001))));
+mM->setKa(0.4f);
+mM->setKd(0.5f);
+p->setMaterial(mM);
+rt->addObject(p);
+
+rt->setDepth(2);
+#endif // FRESNEL
+
 rt->rayTrace();
 
 //Image* img=new Image("foto2.tga");

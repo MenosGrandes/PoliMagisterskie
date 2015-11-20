@@ -43,6 +43,7 @@ public:
     Colour shadeRay(const Ray&ray);
     Info traceRay(const Ray&ray);
     Colour shadeRay(const Ray&ray,d_type::Bint depth);
+    Colour shadeRay(const Ray&ray,d_type::Bfloat& tmin,d_type::Bint depth);
 
 private:
 

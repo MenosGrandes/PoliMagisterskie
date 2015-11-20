@@ -9,6 +9,11 @@ const Colour Colour::Gray=Colour(0.5,0.5,0.5,1);
 const Colour Colour::RoyalBlue=Colour(0.2626,0.5,0.9333,1);
 
 
+Colour Colour::powc(d_type::Bfloat p) const
+{
+    return (Colour(pow(r, p), pow(g, p), pow(b, p),1));
+
+}
 
 Colour Colour::randomColor()
 {

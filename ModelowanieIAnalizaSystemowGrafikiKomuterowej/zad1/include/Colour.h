@@ -22,6 +22,7 @@ public :
     Colour(const Colour& next):r(next.r),g(next.g),b(next.b),a(next.a) {};
 
 
+    Colour powc(d_type::Bfloat p) const;
     static Colour clampColour(Colour r);
     static Colour maxToOne(Colour r);
 

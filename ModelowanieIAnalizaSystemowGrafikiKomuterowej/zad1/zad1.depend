@@ -1314,7 +1314,7 @@
 1447482261 source:/home/filip/Pulpit/PoliMagisterskie/ModelowanieIAnalizaSystemowGrafikiKomuterowej/zad1/src/VertexProcessor.cpp
 	"VertexProcessor.h"
 
-1448026340 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
+1448030563 source:c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\main.cpp
 	"Matrix4.h"
 	"Vertex2.h"
 	<cstdio>
@@ -1353,6 +1353,7 @@
 	"Instance.h"
 	"ReflectiveMaterial.h"
 	"TransparentMaterial.h"
+	"DielectricMaterial.h"
 
 1447932748 c:\users\menos\desktop\polimagisterskie\modelowanieianalizasystemowgrafikikomuterowej\zad1\include\matrix4.h
 	"Vector4.h"

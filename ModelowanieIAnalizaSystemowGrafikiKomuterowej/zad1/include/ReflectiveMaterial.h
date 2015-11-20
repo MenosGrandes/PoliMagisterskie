@@ -18,7 +18,7 @@ class ReflectiveMaterial : public PhongMaterial
             //std::cout<<"SET CR"<<c<<"\n";
             m_reflective->setCr(c);
         }
-         virtual Colour shade(Info&info)
+          Colour shade(Info&info)
         {
         Colour L(PhongMaterial::shade(info)); // direct illumination
 //std::cout<<"reflective "<<m_reflective->getCr()<<"\n";

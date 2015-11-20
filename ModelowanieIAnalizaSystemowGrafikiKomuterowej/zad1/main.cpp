@@ -38,6 +38,7 @@
 #include "RectMapping.h"
 #include "Instance.h"
 #include "ReflectiveMaterial.h"
+#include "TransparentMaterial.h"
 int main(int argc, char **argv)
 {
     CheckCPU cpu;
@@ -55,10 +56,10 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
     // X Z Y
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(50, 10, 40),
-                                           Vector3Bf(0, 0,0),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(-8, 5.5, 40),
+                                           Vector3Bf(1, 4, 0),
                                            Vector3Bf::Up,
-                                          100,
+                                          10,
                                            Vector2Bf(1,1));
 
 
@@ -72,7 +73,7 @@ int main(int argc, char **argv)
 
 
 
-#define MIRROR
+#define TRANSPARENT_EX
 #ifdef CHAPTER15
     {
         DirectionalLight * dirLight=new DirectionalLight();
@@ -1229,6 +1230,10 @@ rt->addLight(pl);
 //                                           Vector3Bf::Up,
 //                                          150,
 //                                           Vector2Bf(1,1));
+
+
+    Ambient*ambient= new Ambient(1.0f,Colour::White);
+    rt->setAmbientLight(ambient);
 PointLight* light_ptr = new PointLight();
 	light_ptr->m_location=Vector3Bf(0, 20, 20);
 	light_ptr->m_ls=(5.0);
@@ -1302,6 +1307,50 @@ PointLight* light_ptr = new PointLight();
 rt->setDepth(12);
 }
 #endif // MIRROR
+#ifdef TRANSPARENT_EX
+	PointLight* light_ptr1 = new PointLight;
+	light_ptr1->m_location=Vector3Bf(40, 50, 0);
+	light_ptr1->m_ls=(4.5);
+	light_ptr1->setShadows(false);
+	rt->addLight(light_ptr1);
+
+	TransparentMaterial * glass= new TransparentMaterial();
+	glass->setKs(0.2);
+	glass->setExp(2000.0);
+	glass->setIndexRef(1.0f);
+	glass->setKr(0.1);
+	glass->setTransmissionCoof(0.9);
+    glass->setCd(Colour::White);
+    glass->setCr(Colour::White);
+	Sphere * sp= new Sphere(Vector3Bf(0.0, 4.5, 0.0), 3.0);
+	sp->setMaterial(glass);
+	rt->addObject(sp);
+
+
+
+ReflectiveMaterial*	reflective_ptr = new ReflectiveMaterial;
+	reflective_ptr->setKa(0.3);
+	reflective_ptr->setKd(0.3);
+	reflective_ptr->setCd(Colour::Red);
+	reflective_ptr->setKs(0.2);
+	reflective_ptr->setExponent(2000.0);
+	reflective_ptr->setKr(0.25);
+	reflective_ptr->setCr(Colour::White);
+
+	Sphere* sphere_ptr2 = new Sphere(Vector3Bf(4, 4, -6), 3);
+	sphere_ptr2->setMaterial(reflective_ptr);
+	rt->addObject(sphere_ptr2);
+
+Plane * p = new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
+TextureMatte * mM = new TextureMatte();
+mM->setCd(new ImageTexture(new Image("textures/plane.tga"),new RectMapping(p,Vector2Bf(0.001,0.001))));
+mM->setKa(0.4f);
+mM->setKd(0.5f);
+p->setMaterial(mM);
+rt->addObject(p);
+
+rt->setDepth(3);
+#endif // TRANSPARENT_SPHERE
 rt->rayTrace();
 
 //Image* img=new Image("foto2.tga");

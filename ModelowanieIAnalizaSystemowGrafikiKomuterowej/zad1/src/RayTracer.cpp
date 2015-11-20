@@ -122,7 +122,7 @@ Colour RayTracer::shadeRay(const Ray&ray)
 Colour RayTracer::shadeRay(const Ray& ray, d_type::Bint depth)
 {
 
-    if(depth>=m_depth)
+    if(depth>m_depth)
     {
         return Colour::Black;
     }

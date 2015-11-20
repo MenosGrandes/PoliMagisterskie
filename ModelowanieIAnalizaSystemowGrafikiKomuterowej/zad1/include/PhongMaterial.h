@@ -29,6 +29,7 @@ public:
         m_diffuse->m_cd=c;
         m_ambient->m_cd=c;
 
+
     }
     void setCs(const Colour &c)
     {

@@ -22,7 +22,7 @@ Colour PerfectSpecular::sample_f(const Info& info, Vector3Bf& wi, const Vector3B
 
 //        return (m_kr * m_cr / (Vector3Bf::dotProduct(info.m_normal , wi)));
 
-return (m_kr * m_cr / (Vector3Bf::dotProduct(info.m_normal , wi)));
+return (m_kr * m_cr / fabs(Vector3Bf::dotProduct(info.m_normal , wi)));
 
 }
 

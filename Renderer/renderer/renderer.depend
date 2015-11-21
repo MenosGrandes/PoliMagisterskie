@@ -1,0 +1,183 @@
+# depslib dependency file v1.0
+1448099763 source:c:\users\menos\desktop\renderer\renderer\main.cpp
+	"RenderTarget.h"
+	"VertexProcessor.h"
+	"Triangle.h"
+	"TriangleMesh.h"
+
+1447451696 source:c:\users\menos\desktop\renderer\renderer\src\checkcpu.cpp
+	"CheckCPU.h"
+
+1447451696 c:\users\menos\desktop\renderer\renderer\include\checkcpu.h
+	<windows.h>
+	<sys/param.h>
+	<sys/sysctl.h>
+	<unistd.h>
+
+1447451696 source:c:\users\menos\desktop\renderer\renderer\src\matrix4.cpp
+	"Matrix4.h"
+
+1447451696 c:\users\menos\desktop\renderer\renderer\include\matrix4.h
+	"Vector4.h"
+	<ostream>
+	<iostream>
+
+1447451696 c:\users\menos\desktop\renderer\renderer\include\vector4.h
+	"structs.hpp"
+
+1447451696 c:\users\menos\desktop\renderer\renderer\include\structs.hpp
+	<limits>
+	<algorithm>
+	<cmath>
+	<iostream>
+
+1447451696 source:c:\users\menos\desktop\renderer\renderer\src\rendertarget.cpp
+	"RenderTarget.h"
+
+1447451696 c:\users\menos\desktop\renderer\renderer\include\rendertarget.h
+	"Triangle.h"
+	<iostream>
+	<fstream>
+
+1447133540 c:\users\menos\desktop\renderer\renderer\include\triangle.h
+	"Vector4.h"
+	"Vector3.h"
+	"Colour.h"
+	"../src/algorithms.hpp"
+	<iostream>
+
+1447451696 c:\users\menos\desktop\renderer\renderer\include\vector3.h
+	"structs.hpp"
+
+1447451696 c:\users\menos\desktop\renderer\renderer\include\colour.h
+	"structs.hpp"
+	"Vector2.h"
+	"Vector3.h"
+	<random>
+	<iostream>
+	<ctime>
+
+1447451696 c:\users\menos\desktop\renderer\renderer\include\vector2.h
+	"structs.hpp"
+
+1447451696 c:\users\menos\desktop\renderer\renderer\src\algorithms.hpp
+	<vector>
+	<limits>
+	<algorithm>
+	<random>
+
+1447133540 source:c:\users\menos\desktop\renderer\renderer\src\triangle.cpp
+	"Triangle.h"
+
+1448099776 source:c:\users\menos\desktop\renderer\renderer\src\vertexprocessor.cpp
+	"VertexProcessor.h"
+
+1448099791 c:\users\menos\desktop\renderer\renderer\include\vertexprocessor.h
+	"Vector3.h"
+	"Vector2.h"
+	"Matrix4.h"
+	"TriangleMesh.h"
+	"Triangle.h"
+
+1447133540 c:\users\menos\desktop\renderer\renderer\include\trianglemesh.h
+	"Triangle.h"
+	<vector>
+	<string>
+	<stdio.h>
+	<string.h>
+	<algorithm>
+
+1447133540 source:c:\users\menos\desktop\renderer\renderer\src\trianglemesh.cpp
+	"TriangleMesh.h"
+
+1448100003 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\main.cpp
+	"RenderTarget.h"
+	"VertexProcessor.h"
+	"Triangle.h"
+	"TriangleMesh.h"
+
+1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\rendertarget.h
+	"Triangle.h"
+	<iostream>
+	<fstream>
+
+1447133540 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\triangle.h
+	"Vector4.h"
+	"Vector3.h"
+	"Colour.h"
+	"../src/algorithms.hpp"
+	<iostream>
+
+1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vector4.h
+	"structs.hpp"
+
+1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\structs.hpp
+	<limits>
+	<algorithm>
+	<cmath>
+	<iostream>
+
+1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vector3.h
+	"structs.hpp"
+
+1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\colour.h
+	"structs.hpp"
+	"Vector2.h"
+	"Vector3.h"
+	<random>
+	<iostream>
+	<ctime>
+
+1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vector2.h
+	"structs.hpp"
+
+1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\algorithms.hpp
+	<vector>
+	<limits>
+	<algorithm>
+	<random>
+
+1448099791 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vertexprocessor.h
+	"Vector3.h"
+	"Vector2.h"
+	"Matrix4.h"
+	"TriangleMesh.h"
+	"Triangle.h"
+
+1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\matrix4.h
+	"Vector4.h"
+	<ostream>
+	<iostream>
+
+1447133540 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\trianglemesh.h
+	"Triangle.h"
+	<vector>
+	<string>
+	<stdio.h>
+	<string.h>
+	<algorithm>
+
+1447451696 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\checkcpu.cpp
+	"CheckCPU.h"
+
+1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\checkcpu.h
+	<windows.h>
+	<sys/param.h>
+	<sys/sysctl.h>
+	<unistd.h>
+
+1447451696 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\matrix4.cpp
+	"Matrix4.h"
+
+1447451696 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\rendertarget.cpp
+	"RenderTarget.h"
+
+1447133540 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\triangle.cpp
+	"Triangle.h"
+
+1447133540 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\trianglemesh.cpp
+	"TriangleMesh.h"
+
+1448099776 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\vertexprocessor.cpp
+	"VertexProcessor.h"
+

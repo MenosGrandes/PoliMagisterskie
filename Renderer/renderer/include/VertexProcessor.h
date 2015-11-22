@@ -16,7 +16,7 @@ public:
     void multByScale(const Vector3Bf& vec);
     void multByRotation(d_type::Bfloat a,Vector3Bf vec);
     Vector3Bf addTriangle(Vector3Bf tr);
-    void addTriangle(render::TriangleFloat* tri);
+    void addTriangle(render::Triangle* tri);
     void addTriangle(render::TriangleMesh* tri);
 
     //for camera

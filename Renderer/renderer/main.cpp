@@ -3,6 +3,7 @@
 #include "VertexProcessor.h"
 #include "Triangle.h"
 #include "TriangleMesh.h"
+
 int main(int argc, char **argv)
 {
 
@@ -10,7 +11,9 @@ int main(int argc, char **argv)
 
 
 
-    Vector2Bs img_size=Vector2Bs(500,500);
+
+
+    Vector2Bf img_size=Vector2Bf(500,500);
 
 
 
@@ -26,31 +29,90 @@ int main(int argc, char **argv)
 ///i potem kanoniczne
 
     render::TriangleMesh *mesh= new render::TriangleMesh();
-    mesh->loadOBJ("models/cube.obj");
+    mesh->loadOBJ("models/teapod.obj");
 
     VertexProcessor *vp= new VertexProcessor();
+
+
+//    sf::RenderWindow window(sf::VideoMode(img_size.x, img_size.y), "SFML works!");
+
+d_type::Bfloat angle=45;
+//    while (window.isOpen())
+//    {
+//        sf::Event event;
+//        while (window.pollEvent(event))
+//        {
+////            if (event.type == sf::Event::Closed)
+////                window.close();
+////
+////                if(event.type == sf::Event::Keyboard)
+//                switch (event.type)
+//                {
+//                     case sf::Event::Closed:
+//                        window.close();
+//                        break;
+//
+//                        case sf::Event::KeyPressed:
+//                        switch(event.key.code)
+//                        {
+//                        case  sf::Keyboard::A:
+//                            {
+//                                angle++;
+//                                file->drawToFile("file.tga");
+//                                std::cout<<angle<<"\n";
+//
+//                            }
+//                        }
+//                        break;
 //
 //
+//                }
+//
+//        }
+////////////////////////////////////////////////////////////////////////////////
     vp->setIdentity();
-    vp->setLookat(Vector3Bf(0,0,50),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
-    vp->setPerspective(45,1,Vector2Bf(0.1f,10000));
-    vp->multByRotation(45,Vector3Bf(0,1,0));
+    vp->setLookat(Vector3Bf(0,0,30),Vector3Bf(0,0,0),Vector3Bf(0,1,0));
+    vp->setPerspective(angle,1,Vector2Bf(1,110));
+//    vp->multByRotation(angle,Vector3Bf(1,0,0));
+    std::cout<<angle<<"\n";
+//    vp->multByTranslation(Vector3Bf(0,-30,-5));
+
     vp->transform();
-
     vp->addTriangle(mesh);
-
-    for(render::TriangleFloat * tri : mesh->getTriangles())
+    for(render::Triangle * tri : mesh->getTriangles())
     {
         tri->init(img_size);
         file->draw(*tri);
     }
+//////////////////////////////////////////////////////////////////////////////////
+//
+//
+//
+//
+////        file->clear(0);
+//        window.clear();
+//        //file->clear(0);
+//        file->swapBuffers();
+//        window.draw(*file);
+//        window.display();
+//    }
 
 
 
-    file->drawToFile("file.tga");
 
 
 
+
+
+
+
+
+
+//
+//    file->drawToFile("file.tga");
+
+
+std::cout<<"asasd";
     d_type::Bint a32;
     std::cin>>a32;
     return 0;

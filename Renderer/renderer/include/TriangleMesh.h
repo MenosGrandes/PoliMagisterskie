@@ -15,7 +15,7 @@ public:
     TriangleMesh() {}
     virtual ~TriangleMesh() {}
 
-    std::vector<TriangleFloat *> getTriangles()
+    std::vector<Triangle *> getTriangles()
     {
         return m_triangles;
     }
@@ -44,49 +44,27 @@ public:
             // read the first word of the line
             int res = fscanf(file, "%s", lineHeader);
             if (res == EOF)
-                break; // EOF = End Of File. Quit the loop.
-
-            // else : parse lineHeader
-            if ( strcmp( lineHeader, "mtllib" ) == 0 )
             {
-
-//            char c[100];
-//            fscanf(file,"%s",c);
-//            LoadMTL(c,materials);
-//            std::cout<<materials.size()<<"\n\n";
+                break;   // EOF = End Of File. Quit the loop.
             }
-            else if ( strcmp( lineHeader, "v" ) == 0 )
+
+            if ( strcmp( lineHeader, "v" ) == 0 )
             {
                 Vector3Bf vertex;
-                fscanf(file, "%f %f %f\n", &vertex.x, &vertex.y, &vertex.z );
+                fscanf(file, "%lf %lf %lf\n", &vertex.x, &vertex.y, &vertex.z );
                 temp_vertices.push_back(vertex);
-            }
-            else if ( strcmp( lineHeader, "usemtl" ) == 0 )
-            {
-//            char c[100];
-//            fscanf(file,"%s",c);
-//            std::string name(c);
-//
-//            std::vector<Material>::iterator i=std::find(materials.begin(),materials.end(),Material(name));
-//            if(i!=materials.end())
-//            {
-//                materialIterator=i;
-//                materialCounter.push_back(MaterialCounter(*i,0));
-//
-//
-//            }
             }
             else if ( strcmp( lineHeader, "vt" ) == 0 )
             {
                 Vector2Bf uv;
-                fscanf(file, "%f %f \n", &uv.x, &uv.y );
+                fscanf(file, "%lf %lf \n", &uv.x, &uv.y );
                 uv.y = -uv.y; // Invert V coordinate since we will only use DDS texture, which are inverted. Remove if you want to use TGA or BMP loaders.
                 temp_uvs.push_back(uv);
             }
             else if ( strcmp( lineHeader, "vn" ) == 0 )
             {
                 Vector3Bf normal;
-                fscanf(file, "%f %f %f\n", &normal.x, &normal.y, &normal.z );
+                fscanf(file, "%lf %lf %lf\n", &normal.x, &normal.y, &normal.z );
                 temp_normals.push_back(normal);
             }
             else if ( strcmp( lineHeader, "f" ) == 0 )
@@ -143,37 +121,17 @@ public:
 
             if(vertices.size() == 3)
             {
-//            Material material;
-//            if(!materials.empty() && !materialCounter.empty())
-//            {
-//                material=materialCounter.front().mat;
-//                --materialCounter.front().counter;
-//                if(materialCounter.front().counter==0)
-//                {
-//                    materialCounter.erase(materialCounter.begin());
-//                }
-//                RayTriangle* tri=new RayTriangle(vertices[0],vertices[1],vertices[2]);
-//                tri->setMaterial(material.mat);
-//               mesh->m_triangles.push_back(tri);
-//
-//            }
-//            else
-//            {
 
-                m_triangles.push_back(new render::TriangleFloat(vertices[0],vertices[1],vertices[2]));//,new PerfectDifuse(Colour::randomColor())));
 
-//            }
+                m_triangles.push_back(new render::Triangle(vertices[0],vertices[1],vertices[2]));//,new PerfectDifuse(Colour::randomColor())));
                 vertices.clear();
             }
             counter++;
 
         }
-//    std::cout<<mesh->m_triangles.size()<<"\n";
-//    std::cout<<materials.size()<<"\n";
-//
     }
 private:
-    std::vector<TriangleFloat *> m_triangles;
+    std::vector<Triangle *> m_triangles;
 };
 }
 #endif // TRIANGLEMESH_H

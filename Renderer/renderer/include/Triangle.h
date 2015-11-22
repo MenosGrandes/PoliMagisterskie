@@ -10,17 +10,14 @@ namespace render
 {
 
 
-template <typename T>
 class Triangle
 {
 public :
-    Triangle(Vector3<T> first,Vector3<T> second,Vector3<T> third):first(first),second(second),third(third) {}
+    Triangle(Vector3Bf first,Vector3Bf second,Vector3Bf third):first(first),second(second),third(third) {}
 
-    void init(const Vector2Bs& m_size)
+    void init(const Vector2Bf& m_size)
     {
 
-        Greatest g;
-        Smallest s;
 
 //CANONIC VIEW
 
@@ -34,17 +31,24 @@ public :
         this->third.y=(this->third.y+1)*m_size.y*0.5f;
 
 //Calculate rect where this triangle is
-        this->rect=Vector4<T>(s.min(first.x,second.x,third.x),g.max(first.x,second.x,third.x),s.min(first.y,second.y,third.y),g.max(first.y,second.y,third.y));
+        this->rect=Vector4Bf(std::min(std::min(first.x,second.x),third.x),std::max(std::max(first.x,second.x),third.x),
+                              std::min(std::min(first.y,second.y),third.y),std::max(std::max(first.y,second.y),third.y));
+        //s.min(first.x,second.x,third.x),g.max(first.x,second.x,third.x),s.min(first.y,second.y,third.y),g.max(first.y,second.y,third.y));
 //Ommit those pixel that are not in buffer.
-        this->rect.x=std::max(this->rect.x,0.f);
-        this->rect.y=std::min(this->rect.y,static_cast<Bfloat>(m_size.x-1));
-        this->rect.z=std::max(this->rect.z,0.f);
-        this->rect.w=std::min(this->rect.w,static_cast<Bfloat>(m_size.y-1));
+        this->rect.x=std::max(this->rect.x,0.d);
+        this->rect.y=std::min(this->rect.y,m_size.x-1);
+        this->rect.z=std::max(this->rect.z,0.d);
+        this->rect.w=std::min(this->rect.w,m_size.y-1);
 //calculate the constants
-        this->dx=Vector3<T>(first.x-second.x,second.x-third.x,third.x-first.x);
-        this->dy=Vector3<T>(first.y-second.y,second.y-third.y,third.y-first.y);
+        this->dx=Vector3Bf(first.x-second.x,second.x-third.x,third.x-first.x);
+        this->dy=Vector3Bf(first.y-second.y,second.y-third.y,third.y-first.y);
 //TopLeft
-        this->topLeft =Vector3Bb(dy.x < 0 || (dy.x == 0 && dx.x > 0), dy.y < 0 || (dy.y == 0 && dx.y > 0), dy.z < 0 || (dy.z == 0 && dx.z > 0) );
+        this->topLeft=Vector3Bf(true,true,true);
+
+        this->topLeft =Vector3Bb(dy.x < 0 || (dy.x == 0 && dx.x > 0),
+                                 dy.y < 0 || (dy.y == 0 && dx.y > 0),
+                                 dy.z < 0 || (dy.z == 0 && dx.z > 0) );
+
 
     }
 
@@ -55,13 +59,15 @@ public :
 
 
 
-    BBool calculate(T x,T y)
+    BBool calculate(d_type::Bfloat x,d_type::Bfloat y)
     {
+
+
 
 
         if(topLeft.x && topLeft.y &&!topLeft.z)
         {
-            return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>0)
+            return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>=0)
                      &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>0)
                      &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>=0);
         }
@@ -96,42 +102,46 @@ public :
                      &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>=0)
                      &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>0);
         }
+        else
+        {
         return false;
+
+        }
 
     }
 
 
-    T calculateDepth(Vector3<T> lambda)
+    d_type::Bfloat calculateDepth(Vector3Bf lambda)
     {
         //std::cout<<(lambda.x * first.z + lambda.y *second.z + lambda.z * third.z)<<"\n";
         return (lambda.x * first.z + lambda.y *second.z + lambda.z * third.z);
     }
-    ColorDepth calculateLambdaColor(T x,T y,const Colour &c,const Colour &c2,const Colour &c3)
+    ColorDepth calculateLambdaColor(d_type::Bfloat x,d_type::Bfloat y,const Colour &c,const Colour &c2,const Colour &c3)
     {
-        T l1=((dy.y)*(x-third.x)+(third.x - second.x)*(y-third.y) ) /((dy.y)*(first.x-third.x)+(third.x - second.x)*(first.y-third.y));
-        T l2= (dy.z*(x-third.x)+(first.x-third.x)*(y-third.y))/((dy.z*dx.y) +( (first.x-third.x)*(dy.y)));
-        T l3= 1 - l1 - l2;
+        d_type::Bfloat l1=((dy.y)*(x-third.x)+(third.x - second.x)*(y-third.y) ) /((dy.y)*(first.x-third.x)+(third.x - second.x)*(first.y-third.y));
+        d_type::Bfloat l2= (dy.z*(x-third.x)+(first.x-third.x)*(y-third.y))/((dy.z*dx.y) +( (first.x-third.x)*(dy.y)));
+        d_type::Bfloat l3= 1 - l1 - l2;
 
         Colour tmp = l1*c +l2*c2+l3*c3 ;//+ l2 * c2 + l3 * c3;
 
         ColorDepth d;
         d.color=tmp;
-        d.depth=calculateDepth(Vector3<T>(l1,l2,l3));
+        d.depth=calculateDepth(Vector3Bf(l1,l2,l3));
 
         return d;
 
 
     }
-    ColorDepth calculateLambdaColor(T x,T y)
+    ColorDepth calculateLambdaColor(d_type::Bfloat x,d_type::Bfloat y)
     {
-        T l1=((dy.y)*(x-third.x)+(third.x - second.x)*(y-third.y) ) /((dy.y)*(first.x-third.x)+(third.x - second.x)*(first.y-third.y));
-        T l2= (dy.z*(x-third.x)+(first.x-third.x)*(y-third.y))/((dy.z*dx.y) +( (first.x-third.x)*(dy.y)));
-        T l3= 1 - l1 - l2;
+        d_type::Bfloat l1=((dy.y)*(x-third.x)+(third.x - second.x)*(y-third.y) ) /((dy.y)*(first.x-third.x)+(third.x - second.x)*(first.y-third.y));
+        d_type::Bfloat l2= (dy.z*(x-third.x)+(first.x-third.x)*(y-third.y))/((dy.z*dx.y) +( (first.x-third.x)*(dy.y)));
+        d_type::Bfloat l3= 1 - l1 - l2;
 
 
         ColorDepth d;
         d.color=Colour(l1,l2,l3 ,1);
-        d.depth=calculateDepth(Vector3<T>(l1,l2,l3));
+        d.depth=calculateDepth(Vector3Bf(l1,l2,l3));
 
         return d;
 
@@ -139,23 +149,20 @@ public :
 
 //MEMBERS
 
-    Vector3<T> first;
-    Vector3<T> second;
-    Vector3<T> third;
-    Vector4<T> rect;
+    Vector3Bf first;
+    Vector3Bf second;
+    Vector3Bf third;
+    Vector4Bf rect;
 private :
 
 
 
-    Vector3<T> dx;
-    Vector3<T> dy;
+    Vector3Bf dx;
+    Vector3Bf dy;
     Vector3Bb topLeft;
 
 
 };
 
-typedef Triangle<Bfloat> TriangleFloat;
-typedef Triangle<Bdouble> TriangleDouble;
-typedef Triangle<Buint> TriangleUint;
 }
 #endif // TRIANGLE_H

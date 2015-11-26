@@ -29,7 +29,7 @@ Colour FresnelTransmitter::sample_f(const Info& info, const Vector3Bf& wo, Vecto
 
         Vector3Bf n(info.m_normal);
         d_type::Bfloat cos_thetai = Vector3Bf::dotProduct(n , wo);
-        d_type::Bfloat eta;// = ior;
+        d_type::Bfloat eta;
 
         if (cos_thetai < 0.0) {                 // transmitted ray is outside
                 cos_thetai = -cos_thetai;
@@ -94,7 +94,7 @@ d_type::Bfloat FresnelTransmitter::fresnel(const Info& info) const
         else
                 eta = m_refractionIN / m_refractionOUT;
 
-        d_type::Bfloat cos_theta_i               = ndotd;
+        d_type::Bfloat cos_theta_i               = Vector3Bf::dotProduct(-normal , info.m_ray.getDirection());
         d_type::Bfloat temp                              = 1.0 - (1.0 - cos_theta_i * cos_theta_i) / (eta * eta);
         d_type::Bfloat cos_theta_t               = sqrt (1.0 - (1.0 - cos_theta_i * cos_theta_i) / (eta * eta));
         d_type::Bfloat r_parallel                = (eta * cos_theta_i - cos_theta_t) / (eta * cos_theta_i + cos_theta_t);

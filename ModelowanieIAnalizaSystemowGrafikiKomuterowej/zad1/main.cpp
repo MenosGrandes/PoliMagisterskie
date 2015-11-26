@@ -57,7 +57,7 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
     // X Z Y
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(-8, 5.5, 40),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(-1, 5.5, 40),
                                            Vector3Bf(1, 4, 0),
                                            Vector3Bf::Up,
                                           10,
@@ -1324,8 +1324,8 @@ rt->setDepth(12);
 	glass->setIndexRef(1.0f);
 	glass->setKr(0.1);
 	glass->setTransmissionCoof(1.46);
-    glass->setCd(Colour::White);
-    glass->setCr(Colour::White);
+   // glass->setCd(Colour::White);
+   // glass->setCr(Colour::White);
 	Sphere * sp= new Sphere(Vector3Bf(0.0, 4.5, 0.0), 3.0);
 	sp->setMaterial(glass);
 	rt->addObject(sp);
@@ -1339,11 +1339,11 @@ ReflectiveMaterial*	reflective_ptr = new ReflectiveMaterial;
 	reflective_ptr->setKs(0.2);
 	reflective_ptr->setExponent(2000.0);
 	reflective_ptr->setKr(0.25);
-	reflective_ptr->setCr(Colour::White);
+	//reflective_ptr->setCr(Colour::White);
 
 	Sphere* sphere_ptr2 = new Sphere(Vector3Bf(4, 4, -6), 3);
 	sphere_ptr2->setMaterial(reflective_ptr);
-	rt->addObject(sphere_ptr2);
+	//rt->addObject(sphere_ptr2);
 
 Plane * p = new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
 TextureMatte * mM = new TextureMatte();
@@ -1357,6 +1357,8 @@ rt->setDepth(3);
 }
 #endif // TRANSPARENT_SPHERE
 #ifdef FRESNEL
+{
+
 
 	PointLight* light_ptr1 = new PointLight;
 	light_ptr1->m_location=Vector3Bf(40, 50, 0);
@@ -1402,6 +1404,7 @@ p->setMaterial(mM);
 rt->addObject(p);
 
 rt->setDepth(2);
+}
 #endif // FRESNEL
 
 rt->rayTrace();

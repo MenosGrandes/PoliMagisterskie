@@ -112,7 +112,7 @@ void RenderTarget::drawToFile(std::string m_filename)
         o.put(m_pixels[i].b*255);
         o.put(m_pixels[i].g*255);
         o.put(m_pixels[i].r*255);
-        o.put(m_pixels[i].a*255);
+        o.put(255);
     }
 
     //close the file
@@ -192,7 +192,7 @@ void RenderTarget::drawToFile(Colour* colors,d_type::Bint width,d_type::Bint hei
         o.put(colors[i].b*255);
         o.put(colors[i].g*255);
         o.put(colors[i].r*255);
-        o.put(colors[i].a*255);
+        o.put(255);
     }
 
     //close the file

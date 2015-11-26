@@ -80,8 +80,7 @@ Image::Image(char *filename)
         // R G B A
         m_pixels[counter]=Colour((d_type::Bfloat)tgaFile->imageData[i+2]/255,
                                  (d_type::Bfloat)tgaFile->imageData[i+1]/255,
-                                 (d_type::Bfloat)tgaFile->imageData[i]/255,
-                                 (d_type::Bfloat)tgaFile->imageData[i+3]/255);
+                                 (d_type::Bfloat)tgaFile->imageData[i]/255);
 //m_pixels[counter]=Colour::randomColor();
 
         counter++;

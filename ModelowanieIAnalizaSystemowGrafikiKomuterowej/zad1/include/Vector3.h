@@ -35,6 +35,7 @@ public :
     Vector3<T> lerp(const Vector3<T>&v, const T f);
     static void normalize(Vector3<T>&v);
     T distance(const Vector3<T> vector);
+
     T x, y, z;
 
     static const Vector3<T> Up;

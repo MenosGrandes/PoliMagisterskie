@@ -1,6 +1,6 @@
 #include "PerfectSpecular.h"
 
-PerfectSpecular::PerfectSpecular():m_kr(1.0f),m_cr(Colour(1.0,1.0,1.0,1.0))
+PerfectSpecular::PerfectSpecular():m_kr(1.0f),m_cr(Colour(1.0,1.0,1.0))
 {
     //ctor
 }

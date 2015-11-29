@@ -93,7 +93,7 @@ public :
 
         {
             return   ((dx.x) * (y-first.y) - (dy.x) * (x - first.x )>=0)
-                     &&((dx.y) * (y-second.y)- (dy.y) * (x - second.x)>=0)
+                     &&((dx.y) * (y-second.y)- (dy.y) * (x - sec ond.x)>=0)
                      &&((dx.z) * (y-third.y) - (dy.z) * (x - third.x )>0);
         }
         else if (topLeft.z && topLeft.x && !topLeft.y)

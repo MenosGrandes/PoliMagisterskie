@@ -1,162 +1,113 @@
+#include "stdafx.h"
 #include "VertexProcessor.h"
+
 
 VertexProcessor::VertexProcessor()
 {
-    this->view2proj=Matrix4Bfloat::Identity;
-    this->world2view=Matrix4Bfloat::Identity;
-    this->obj2world=Matrix4Bfloat::Identity;
-    this->obj2proj=Matrix4Bfloat::Identity;
+}
+
+void VertexProcessor::SetPerspective(float FOVy_, float aspect, float near, float far)
+{
+	float fovy = FOVy_ * PI_ / 360.0f;
+	float f = cos(fovy) / sin(fovy);
+	viewToProjection[0] = float4(f / aspect, 0.0f, 0.0f, 0.0f);
+	viewToProjection[1] = float4(0.0f, f, 0.0f, 0.0f);
+	viewToProjection[2] = float4(0.0f, 0.0f, (far + near) / (near - far), -1.0f);
+	viewToProjection[3] = float4(0.0f, 0.0f, 2.0f * far *near / (near - far), 0.0f);
+}
+
+void VertexProcessor::SetLookAt(float3 eye, float3 center, float3 up)
+{
+	float3 f = center - eye;
+	f.Normalize();
+	up.Normalize();
+	float3 s = float3::CrossProduct(f, up);
+	float3 u = float3::CrossProduct(s, f);
+
+	worldToView[0] = float4(s[0], u[0], -f[0], 0.0f);
+	worldToView[1] = float4(s[1], u[1], -f[1], 0.0f);
+	worldToView[2] = float4(s[2], u[2], -f[2], 0.0f);
+	worldToView[3] = float4(-eye.x(), - eye.y(), - eye.z(), 1.0f);
+}
+
+void VertexProcessor::MultByTranslation(float3 v)
+{
+	float4x4 m = float4x4(
+		float4(1.0f, 0.0f, 0.0f, 0.0f),
+		float4(0.0f, 1.0f, 0.0f, 0.0f),
+		float4(0.0f, 0.0f, 1.0f, 0.0f),
+		float4(v.x(), v.y(), v.z(), 1.0f));
+	objToWorld = float4x4::MultiplyFloat4x4ByFloat4x4(m, objToWorld);
+}
+
+void VertexProcessor::MultByScale(float3 v)
+{
+	float4x4 m = float4x4(
+		float4(v.x(), 0.0f, 0.0f, 0.0f),
+		float4(0.0f, v.y(), 0.0f, 0.0f),
+		float4(0.0f, 0.0f, v.z(), 0.0f),
+		float4(0.0f, 0.0f, 0.0f, 1.0f));
+	objToWorld = float4x4::MultiplyFloat4x4ByFloat4x4(m, objToWorld);
+}
+
+void VertexProcessor::MultByRotation(float angle, float3 v)
+{
+	v.Normalize();
+	float s = sin(angle * PI_ / 180.0f);
+	float c = cos(angle * PI_ / 180.0f);
+
+	float4x4 m = float4x4(
+		float4(v.x() * v.x() * (1.0f - c) + c,		   v.y() * v.x() * (1.0f - c) + v.z() * s, v.x() * v.z() * (1.0f - c) - v.y() * s, 0.0f),
+		float4(v.x() * v.y() * (1.0f - c) - v.z() * s, v.y() * v.y() * (1.0f - c) + c		 , v.y() * v.z() * (1.0f - c) + v.x() * s, 0.0f),
+		float4(v.x() * v.z() * (1.0f - c) + v.y() * s, v.y() * v.z() * (1.0f - c) - v.x() * s, v.z() * v.z() * (1.0f - c) + c		 , 0.0f),
+		float4(0.0f, 0.0f, 0.0f, 1.0f));
+	objToWorld = float4x4::MultiplyFloat4x4ByFloat4x4(m, objToWorld);
+}
+
+Vertex VertexProcessor::tr(Vertex v)
+{
+	Fragment frag = Fragment();
+
+	PointLight light = PointLight(float3(0.0f, 5.0f, 5.0f));
+	//DirectionalLight light = DirectionalLight(float3(0.0f, 10.0f, 20.0f));
+	float4 p = float4x4::MultiplyFloat4x4ByFloat3(objToProjection, v.position);
+
+	// Przekszta³cenia do wyliczenia œwiat³a
+	float4 lp = float4x4::MultiplyFloat4x4ByFloat3(objToView, -v.position);
+	float4 n = float4x4::MultiplyFloat4x4ByFloat3(objToView, v.normal);
+
+	frag.position = v.position;
+	frag.normal = float3(n.x() / n.w(), n.y() / n.w(), n.z() / n.w());
+	frag.normal.Normalize();
+	frag.negativePosToView = float3(lp.x() / lp.w(), lp.y() / lp.w(), lp.z() / lp.w());
+
+	float3 L = light.calculate(frag);
+	//cout << L;
+	return Vertex(float3(p.x() / p.w(), p.y() / p.w(), p.z() / p.w()),
+		v.normal,
+		L);
+}
+
+float3 VertexProcessor::lt(float3)
+{
+	return float3();
+}
+
+void VertexProcessor::transformObjToProj()
+{
+	objToView = float4x4::MultiplyFloat4x4ByFloat4x4(worldToView, objToWorld);
+	objToProjection = float4x4::MultiplyFloat4x4ByFloat4x4(viewToProjection, objToView);
+}
+
+void VertexProcessor::SetIdentity()
+{
+	objToWorld = float4x4(
+		float4(1.0f, 0.0f, 0.0f, 0.0f),
+		float4(0.0f, 1.0f, 0.0f, 0.0f),
+		float4(0.0f, 0.0f, 1.0f, 0.0f),
+		float4(0.0f, 0.0f, 0.0f, 1.0f));
 }
 
 VertexProcessor::~VertexProcessor()
 {
-    //dtor
-}
-void VertexProcessor::setPerspective(d_type::Bfloat fovy, d_type::Bfloat aspect, const Vector2Bf& nearfar)
-{
-    ///KOLUMNOWO MAM!!!!
-    fovy *= M_PI/ 360;
-    d_type::Bfloat f=cosf(fovy)/sinf(fovy);
-
-    view2proj=Matrix4Bfloat(
-                  Vector4Bf(f/aspect,0,0,0), //1,0,0,0
-                  Vector4Bf(0,f,0,0), //0,2.4190,0,0
-                  Vector4Bf(0,0,(nearfar.y+nearfar.x)/(nearfar.x-nearfar.y),(2*nearfar.y*nearfar.x)/(nearfar.x-nearfar.y)),// 0,0,-1.000002,-1
-                  Vector4Bf(0,0,-1,0)//0,0,-0.2,0
-              );
-
-//std::cout<<"setPerspective\n "<<view2proj;
-}
-
-void VertexProcessor::setLookat( Vector3Bf eye,  Vector3Bf center, Vector3Bf up)
-{
-    //DOBRZE LICZY
-    Vector3Bf f= center - eye; // dobrze
-    Vector3Bf::normalize(f);// dobrze
-    Vector3Bf::normalize(up);// dobrze
-    Vector3Bf s= Vector3Bf::cross(f,up);// dobrze
-    Vector3Bf u= Vector3Bf::cross(s,f);// dobrze
-   // std::cout<<f<<"\n"<<up<<"\n";
-    world2view = Matrix4Bfloat(
-                     Vector4Bf(s.x,s.y,s.z,-eye.x), //1,0,0,0
-                     Vector4Bf(u.x,u.y,u.z,-eye.y), //0,1,0,0
-                     Vector4Bf(-f.x,-f.y,-f.z,-eye.z), // 0,0,1,0
-                     Vector4Bf(0,0,0,1)//0,0,-10,1
-                 );
-                //std::cout<<"w2v "<<world2view<<"\n";
-
-}
-void VertexProcessor::multByTranslation(const Vector3Bf& vec)
-{
-    Matrix4Bfloat m(
-        Vector4Bf(1,0,0,vec.x),
-        Vector4Bf(0,1,0,vec.y),
-        Vector4Bf(0,0,1,vec.z),
-        Vector4Bf(0,0,0,1)
-    );
-
-    obj2world*=m;
-}
-
-void VertexProcessor::multByScale(const Vector3Bf& vec)
-{
-    Matrix4Bfloat m(
-        Vector4Bf(vec.x,0,0,0),
-        Vector4Bf(0,vec.y,0,0),
-        Vector4Bf(0,0,vec.z,0),
-        Vector4Bf(0,0,0,1)
-    );
-
-    obj2world*=m;
-}
-void VertexProcessor::multByRotation(d_type::Bfloat a, Vector3Bf v)
-{
-    d_type::Bfloat s=sinf(a*M_PI/180),c=cosf(a*M_PI/180);
-    Vector3Bf::normalize(v);
-
-    Matrix4Bfloat m(
-        Vector4Bf(
-            v.x*v.x*(1-c)+c,
-            v.x*v.y*(1-c)-v.z*s,
-            v.x*v.z*(1-c)+v.y*s,
-            0
-
-        ),
-        Vector4Bf(
-            v.y*v.x*(1-c)+v.z*s,
-            v.y*v.y*(1-c)+c,
-            v.y*v.z*(1-c)-v.x*s,
-            0
-
-        ),
-        Vector4Bf(
-            v.x*v.z*(1-c)-v.y*s,
-            v.y*v.z*(1-c)+v.x*s,
-            v.z*v.z*(1-c)+c,
-            0
-        ),
-        Vector4Bf(0,0,0,1)
-    );
-
-//    std::cout<<m<<"\n";
-    obj2world*=m;//*obj2world;
-
-}
-Vector3Bf VertexProcessor::addTriangle(Vector3Bf tr)
-{
-    Vector4Bf r = obj2proj*Vector4Bf(tr.x,tr.y,tr.z,1);
-
-
-    return Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
-//Vector4Bf r = obj2proj*Vector4Bf(tr.x,tr.y,tr.z,1);
-//return Vector3Bf(r.x,r.y,r.z);
-}
-void VertexProcessor::addTriangle(render::Triangle* tri)
-{
-    Vector4Bf r(0,0,0,0) ;
-    r= obj2proj*Vector4Bf(tri->first.x,tri->first.y,tri->first.z,1);
-    tri->first = Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
-    r = obj2proj*Vector4Bf(tri->second.x,tri->second.y,tri->second.z,1);
-    tri->second = Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
-
-    r = obj2proj*Vector4Bf(tri->third.x,tri->third.y,tri->third.z,1);
-    tri->third = Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
-
-}
-void VertexProcessor::addTriangle(render::TriangleMesh * tri)
-{
-
-    std::vector<render::Triangle*> triangles=tri->getTriangles();
-    const d_type::Bsize vectorSize=triangles.size();
-    for(d_type::Buint i=0;i<vectorSize;i++)
-    {
-        //addTriangle(triangles[i]);
-        triangles[i]->first=addTriangle(triangles[i]->first);
-        triangles[i]->second=addTriangle(triangles[i]->second);
-        triangles[i]->third=addTriangle(triangles[i]->third);
-//    Vector4Bf r= obj2proj*Vector4Bf(triangles.at(i)->first.x,triangles.at(i)->first.y,triangles.at(i)->first.z,1);
-//    triangles[i]->first = Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
-//    r=Vector4Bf(0,0,0,0);
-//
-//    r = obj2proj*Vector4Bf(triangles.at(i)->second.x,triangles.at(i)->second.y,triangles.at(i)->second.z,1);
-//    triangles[i]->second = Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
-//    r=Vector4Bf(0,0,0,0);
-//
-//    r = obj2proj*Vector4Bf(triangles.at(i)->third.x,triangles.at(i)->third.y,triangles.at(i)->third.z,1);
-//    triangles[i]->third = Vector3Bf(r.x/r.w,r.y/r.w,r.z/r.w);
-    }
-}
-
-
-void VertexProcessor::setIdentity()
-{
-    obj2world= Matrix4Bfloat::Identity;
-}
-
-void VertexProcessor::transform()
-{
-//    Matrix4Bfloat obj2view= ;
-    obj2proj = view2proj*(world2view*obj2world);
-
-
 }

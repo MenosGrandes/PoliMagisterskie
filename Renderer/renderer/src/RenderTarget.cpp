@@ -1,78 +1,21 @@
 #include "RenderTarget.h"
 RenderTarget::RenderTarget() {}
-RenderTarget::RenderTarget(d_type::Bfloat width, d_type::Bfloat height)
-{
 
-//    m_pixels=new Colour[width*height];
-//    m_size.x = width;
-//    m_size.y = height;
-//    m_dBuffer=new d_type::Bfloat[getSizePixels()];
-//    for(d_type::Bint i=0; i<getSizePixels(); i++)
-//    {
-//        m_dBuffer[i]=100000.0f;
-//
-//    }
-//    m_dBuffer=new d_type::Bfloat[getSizePixels()];
-//    for(d_type::Bint i=0; i<getSizePixels(); i++)
-//    {
-//        m_dBuffer[i]=100000.0f;
-//
-//    }
-//
-//  m_pixelsUint8=new sf::Uint8[m_size.x*m_size.x*4];
-//
-//    for(d_type::Buint i=0; i<m_size.x; i++)
-//    {
-//        for(d_type::Buint j=0; j<m_size.y; j++)
-//        {
-//            drawPixel(i,j,255,255,255,255);
-//        }
-//    }
-//    if(!m_texture.create(m_size.x,m_size.y))
-//    {
-//        std::cout<<("Texture error");
-//    }
-//    m_texture.update(m_pixelsUint8);
-//
-//    m_sprite.setTexture(m_texture);
-
-
-
-}
 
 RenderTarget::~RenderTarget()
 {
-    delete m_pixelsUint8;
 }
 
-RenderTarget::RenderTarget(Vector2Bf size):m_size(size)
+RenderTarget::RenderTarget(Vector2Bi size):m_size(size)
 {
-        m_pixels=new Colour[(int)size.x*(int)size.y];
+    m_pixels=new Colour[size.x*size.y];
 
-    m_dBuffer=new d_type::Bfloat[(int)getSizePixels()];
+    m_dBuffer=new d_type::Bfloat[getSizePixels()];
     for(d_type::Bint i=0; i<getSizePixels(); i++)
     {
         m_dBuffer[i]=100000.0f;
 
     }
-
-// m_pixelsUint8=new sf::Uint8[m_size.x*m_size.x*4];
-//
-//    for(d_type::Buint i=0; i<m_size.x; i++)
-//    {
-//        for(d_type::Buint j=0; j<m_size.y; j++)
-//        {
-//            drawPixel(i,j,255,255,255,255);
-//        }
-//    }
-//    if(!m_texture.create(m_size.x,m_size.y))
-//    {
-//        std::cout<<("Texture error");
-//    }
-//    m_texture.update(m_pixelsUint8);
-//
-//    m_sprite.setTexture(m_texture);
-
 
 }
 
@@ -80,13 +23,10 @@ RenderTarget::RenderTarget(Vector2Bf size):m_size(size)
 void RenderTarget::setPixel(ColorDepth colorDepth, const d_type::Bint &x, const d_type::Bint &y)
 {
 
-//std::cout<<colorDepth.depth<<" "<<m_dBuffer[convert2dto1d(x,y)]<<"\n";
-    if(colorDepth.depth < m_dBuffer[convert2dto1d(x,y)])
-    {
+
         m_pixels[convert2dto1d(x,y)] = colorDepth.color;
         m_dBuffer[convert2dto1d(x,y)]= colorDepth.depth;
-//        drawPixel(x,y,colorDepth.color.r*255,colorDepth.color.g*255,colorDepth.color.b*255,colorDepth.color.a*255);
-    }
+
 
 
 }
@@ -111,46 +51,27 @@ void RenderTarget::setHeight(const d_type::Bfloat &height)
     m_size.y=height;
 }
 
-d_type::Bfloat RenderTarget::getWidth() const
+d_type::Bint RenderTarget::getWidth() const
 {
     return m_size.x;
 }
 
-d_type::Bfloat RenderTarget::getHeight() const
+d_type::Bint RenderTarget::getHeight() const
 {
     return m_size.y;
 }
 
-Vector2Bf RenderTarget::getSize() const
+Vector2Bi RenderTarget::getSize() const
 {
     return m_size;
 }
-d_type::Bfloat RenderTarget::getSizePixels() const
+d_type::Bint RenderTarget::getSizePixels() const
 {
 
     return m_size.x * m_size.y;
 }
 
-void RenderTarget::draw( render::Triangle& triangle)
-{
 
-    for(Bfloat x =triangle.rect.x; x<triangle.rect.y; x++)
-    {
-        for(Bfloat y=triangle.rect.z; y<triangle.rect.w; y++)
-        {
-            if(triangle.calculate(x,y)==true)
-            {
-                setPixel(triangle.calculateLambdaColor(x,y),x,y);
-
-
-            }
-
-        }
-
-
-    }
-
-}
 d_type::Bfloat RenderTarget::getDepthBuffer() const
 {
 
@@ -207,15 +128,7 @@ void RenderTarget::drawToFile(std::string m_filename)
     o.close();
 }
 
-//void RenderTarget::clear()
-//{
-//
-//    for(d_type::Buint x=0; x<m_size.x; x++)
-//        for(d_type::Buint y=0; y<m_size.y; y++)
-//        {
-//            setPixel(m_cleanColour,x,y);
-//        }
-//}
+
 
 
 Colour RenderTarget::getCleanColour() const
@@ -288,24 +201,105 @@ void RenderTarget::drawToFile(Colour* colors)
     o.close();
 }
 
-void RenderTarget::clear(d_type::Buint8 shade)
+
+void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 {
-    for(d_type::Bsize i=0; i<m_size.x*m_size.y*4; ++i)
-    {
-        m_pixelsUint8[i]=shade;
-    }
+    //cout << a << b << c;
+	// Optymalizacja 1 - przeszukiwanie pixeli wewn¹trz najmniejszego
+	// prostok¹ta zawieraj¹cego trójk¹t
+	float minX = std::min(std::min(a.m_position.x, b.m_position.x), c.m_position.x);
+	float maxX = std::max(std::max(a.m_position.x, b.m_position.x), c.m_position.x);
+	float minY = std::min(std::min(a.m_position.y, b.m_position.y), c.m_position.y);
+	float maxY = std::max(std::max(a.m_position.y, b.m_position.y), c.m_position.y);
+	//cout << minX << " " << maxX << ", " << minY << " " << maxY << endl;
+
+	// Rzutowanie wspó³rzêdnych kanonicznych na wspó³rzêdne
+	// w oknie renderingu
+	int minXPrim = (int)((minX + 1) * m_size.x * 0.5f);
+	int maxXPrim = (int)((maxX + 1) * m_size.x * 0.5f);
+	int minYPrim = (int)((minY + 1) * m_size.y * 0.5f);
+	int maxYPrim = (int)((maxY + 1) * m_size.y * 0.5f);
+	//cout << minXPrim << " " << maxXPrim << ", " << minYPrim << " " << maxYPrim << endl;
+
+	// Optymalizacja - obcinanie (pomijanie pixeli wchodz¹cych w sk³ad trójk¹ta,
+	// ale nie mieszcz¹cych siê	w buforze wyjciowym
+	minXPrim = std::max(minXPrim, 0);
+	maxXPrim = std::min(maxXPrim, m_size.x-1);
+	minYPrim = std::max(minYPrim, 0);
+	maxYPrim = std::min(maxYPrim, m_size.y-1);
+	//cout << minXPrim << " " << maxXPrim << ", " << minYPrim << " " << maxYPrim << endl;
+
+	// Optymalizacja 2 - sta³e
+	float dx12 = a.m_position.x - b.m_position.x;
+	float dx23 = b.m_position.x - c.m_position.x;
+	float dx31 = c.m_position.x - a.m_position.x;
+	float dx13 = a.m_position.x - c.m_position.x;
+	float dx32 = c.m_position.x - b.m_position.x;
+	float dy12 = a.m_position.y - b.m_position.y;
+	float dy23 = b.m_position.y - c.m_position.y;
+	float dy31 = c.m_position.y - a.m_position.y;
+	float dy13 = a.m_position.y - c.m_position.y;
+
+	// Top - left
+	bool tl1 = false, tl2 = false, tl3 = false;
+	if (dy12 < 0 || (dy12 == 0 && dx12>0))
+		tl1 = true;
+	if (dy23 < 0 || (dy23 == 0 && dx23>0))
+		tl2 = true;
+	if (dy31 < 0 || (dy31 == 0 && dx31>0))
+		tl3 = true;
+
+	//cout << tl1 << " " << tl2 << " " << tl3 << endl;
+
+
+	float tmpX, tmpY;
+	float lambda1, lambda2, lambda3;
+	float depth;
+	Colour interpolatedColor;
+
+	for (int i = minXPrim; i <= maxXPrim; i++)
+	{
+		// Rzutowanie z wspó³rzêdnych w oknie renderingu na wspó³rzêdne kanoniczne
+		tmpX = i / (m_size.x * 0.5f) - 1.0f;
+		for (int j = minYPrim; j <= maxYPrim; j++)
+		{
+			// Rzutowanie z wspó³rzêdnych w oknie renderingu na wspó³rzêdne kanoniczne
+			tmpY = j / (m_size.y * 0.5f) - 1.0f;
+			lambda1 = (dy23* (tmpX - c.m_position.x) + dx32 * (tmpY - c.m_position.y)) /
+						(dy23 *dx13 + dx32*dy13);
+			lambda2 = (dy31* (tmpX - c.m_position.x) + dx13 * (tmpY - c.m_position.y)) /
+						(dy31 *dx23 + dx13*dy23);
+			lambda3 = 1 - lambda1 - lambda2;
+
+			// Half - space -> sprawdzanie czy pixel nale¿y do wnêtrza trójk¹ta
+			//if (
+			//	(dx12 * (tmpY - a.position.y) - dy12 * (tmpX - a.position.x) >= 0.0f) &&
+			//	(dx23 * (tmpY - b.position.y) - dy23 * (tmpX - b.position.x) >= 0.0f) &&
+			//	(dx31 * (tmpY - c.position.y) - dy31 * (tmpX - c.position.x) >= 0.0f))
+
+			// Half - space -> sprawdzanie czy pixel nale¿y do wnêtrza trójk¹ta (b¹d lezy na lewej||górnej krawêdzi)
+			if (
+				((tl1 && (dx12 * (tmpY - a.m_position.y) - dy12 * (tmpX - a.m_position.x) >= 0.0f)) || (dx12 * (tmpY - a.m_position.y) - dy12 * (tmpX - a.m_position.x) > 0.0f)) &&
+				((tl2 && (dx23 * (tmpY - b.m_position.y) - dy23 * (tmpX - b.m_position.x) >= 0.0f)) || (dx23 * (tmpY - b.m_position.y) - dy23 * (tmpX - b.m_position.x) >= 0.0f)) &&
+				((tl3 && (dx31 * (tmpY - c.m_position.y) - dy31 * (tmpX - c.m_position.x) >= 0.0f)) || (dx31 * (tmpY - c.m_position.y) - dy31 * (tmpX - c.m_position.x) > 0.0f))
+				)
+			{
+				// Bufor g³ebokoci
+				depth = lambda1 * a.m_position.z + lambda2 * b.m_position.z + lambda3 * c.m_position.z;
+				if (depth >= -1.f && depth <= 1.f && depth < m_dBuffer[convert2dto1d(i,j)])//buff.GetDepthAtPixel(i, j))
+				{
+
+					interpolatedColor = a.m_color * lambda1 + b.m_color * lambda2 + c.m_color * lambda3;
+
+					ColorDepth cd;
+					cd.color=interpolatedColor;
+					cd.depth=depth;
+
+
+					setPixel(cd,i,j);
+				}
+			}
+		}
+	}
 }
-//void RenderTarget::drawPixel(d_type::Buint x,d_type::Buint y,d_type::Buint8 r,d_type::Buint8 g,d_type::Buint8 b,d_type::Buint8 a)
-//{
-//    d_type::Buint index=convert2dto1d(x,y)*4;
-//    m_pixelsUint8[index]=r;
-//    m_pixelsUint8[index+1]=g;
-//    m_pixelsUint8[index+2]=b;
-//    m_pixelsUint8[index+3]=a;//
-//}
-//void RenderTarget::swapBuffers()
-//{
-//    m_texture.update(m_pixelsUint8);
-//
-//}
 

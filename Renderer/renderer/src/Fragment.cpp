@@ -1,12 +1,11 @@
-#include "stdafx.h"
 #include "Fragment.h"
 
-
-Fragment::Fragment() : Vertex()
+Fragment::Fragment():Vertex3Bf()
 {
+    //ctor
 }
-
 
 Fragment::~Fragment()
 {
+    //dtor
 }

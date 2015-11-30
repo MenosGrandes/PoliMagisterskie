@@ -1,22 +1,20 @@
 #ifndef RENDERTARGET_H
 #define RENDERTARGET_H
-#include "Triangle.h"
 
 #include <iostream>
 #include <fstream>
 
 #include <SFML/Graphics.hpp>
-
+#include "Vector2.h"
+#include "Vertex3.h"
 
 class RenderTarget : public sf::Drawable
 {
 public:
     RenderTarget();
-    RenderTarget(d_type::Bfloat  width, d_type::Bfloat height);
-    RenderTarget(Vector2Bf size);
+    RenderTarget(Vector2Bi size);
     ~RenderTarget();
     void draw();
-    void draw( render::Triangle& drawable);
     void drawToFile( std::string m_filename);
     void clear();
 
@@ -25,13 +23,13 @@ public:
     //set height of RenderTarget
     void setHeight(const d_type::Bfloat &height);
     //get width
-    d_type::Bfloat getWidth() const;
+    d_type::Bint getWidth() const;
     //get height
-    d_type::Bfloat getHeight() const;
+    d_type::Bint getHeight() const;
     //get size in Vector2Bs
-    Vector2Bf getSize() const;
+    Vector2Bi getSize() const;
     //get amount of pixel stored in RenderTarget
-    d_type::Bfloat getSizePixels() const;
+    d_type::Bint getSizePixels() const;
     //Set all pixels at once
     void setAllPixels(Colour *pixels);
     //set individual pixels
@@ -46,6 +44,9 @@ public:
     void rewritePixelForTexture(d_type::Bubyte * pixels);
     void drawToFile(Colour * colors);
 
+
+
+    void triangle(Vertex3Bf a,Vertex3Bf b,Vertex3Bf c);
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
     {
         // You can draw other high-level objects
@@ -66,7 +67,7 @@ private:
     //DepthBuffer
     d_type::Bfloat *m_dBuffer;
     //Size of pizxel table, so size of picture
-    Vector2Bf m_size;
+    Vector2Bi m_size;
 
     Colour m_cleanColour;
 

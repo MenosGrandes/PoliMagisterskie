@@ -12,7 +12,8 @@ public:
 
     Vertex3(const Vector3<T>& thePosition,const Colour&color):m_position(thePosition),m_color(color)
     {}
-
+    Vertex3(const Vector3<T>& thePosition,const Vector3<T>& normal,const Colour&color):m_position(thePosition),m_color(color),m_normal(normal)
+    {}
 
     Vertex3()
     {

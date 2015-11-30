@@ -1,10 +1,9 @@
 #ifndef VERTEXPROCESSOR_H
 #define VERTEXPROCESSOR_H
-#include "Vector3.h"
+#include "Vertex3.h"
 #include "Vector2.h"
 #include "Matrix4.h"
-#include "TriangleMesh.h"
-#include "Triangle.h"
+#include "Fragment.h"
 class VertexProcessor
 {
 public:
@@ -15,17 +14,13 @@ public:
     void multByTranslation(const Vector3Bf& vec);
     void multByScale(const Vector3Bf& vec);
     void multByRotation(d_type::Bfloat a,Vector3Bf vec);
-    Vector3Bf addTriangle(Vector3Bf tr);
-    void addTriangle(render::Triangle* tri);
-    void addTriangle(render::TriangleMesh* tri);
 
-    //for camera
-//    void setPerspective(d_type::Bfloat aspect,const Camera& camera);
     void setIdentity();
     void transform();
+    Vertex3Bf tr(Vertex3Bf v);
 protected:
 private:
-    Matrix4Bfloat view2proj,world2view,obj2world,obj2proj;
+    Matrix4Bfloat view2proj,world2view,obj2world,obj2proj,obj2view;
 };
 
 #endif // VERTEXPROCESSOR_H

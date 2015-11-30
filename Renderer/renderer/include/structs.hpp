@@ -39,7 +39,7 @@ typedef unsigned short	Bushort;
 /** 4-byte unsigned */
 typedef unsigned int	Buint;
 /**  single precision float */
-typedef double		    Bfloat;
+typedef float		    Bfloat;
 /** double precision float */
 typedef double		    Bdouble;
 /** size_t wrapper*/

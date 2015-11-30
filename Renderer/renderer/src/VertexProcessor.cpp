@@ -122,13 +122,12 @@ Vertex3Bf VertexProcessor::tr(Vertex3Bf v)
 {
     Fragment frag = Fragment();
 
-    //PointLight light = PointLight(float3(0.0f, 5.0f, 5.0f));
-    //DirectionalLight light = DirectionalLight(float3(0.0f, 10.0f, 20.0f));
-    Vector4Bf p = obj2proj*Vector4Bf(v.m_position.x,v.m_position.y,v.m_position.z,1);// float4x4::MultiplyFloat4x4ByFloat3(objToProjection, v.position);
+
+    Vector4Bf p = obj2proj*Vector4Bf(v.m_position.x,v.m_position.y,v.m_position.z,1);
 
     // Przekszta³cenia do wyliczenia wiat³a
-    Vector4Bf lp = obj2view * Vector4Bf(-v.m_position.x,-v.m_position.y,-v.m_position.z,1);//float4x4::MultiplyFloat4x4ByFloat3(objToView, -v.position);
-    Vector4Bf n = obj2view * Vector4Bf(v.m_normal.x,v.m_normal.y,v.m_normal.z,1);//float4x4::MultiplyFloat4x4ByFloat3(objToView, v.normal);
+    Vector4Bf lp = obj2view * Vector4Bf(-v.m_position.x,-v.m_position.y,-v.m_position.z,1);
+    Vector4Bf n = obj2view * Vector4Bf(v.m_normal.x,v.m_normal.y,v.m_normal.z,1);
 
     frag.m_position = v.m_position;
     frag.m_normal = Vector3Bf(n.x / n.w, n.y / n.w, n.z / n.w);

@@ -16,13 +16,14 @@ vp.setLookat(Vector3Bf(0,0,20.0f),Vector3Bf(0,0,0),Vector3Bf::Up);
 vp.setIdentity();
 
 render::TriangleMesh *tr =new render::TriangleMesh();
-tr->loadOBJ("models/cube.obj");
+tr->loadOBJ("models/teapod.obj");
 
+std::cout<<tr->m_vertices.size()<<" size\n";
 
 
     vp.setIdentity();
-//    vp.multByRotation(90.0f,Vector3Bf(1.0f,1.0f,0.0f));
-//    vp.multByTranslation(Vector3Bf(-3.0,0.f,0.0f));
+    vp.multByRotation(90.0f,Vector3Bf(1.0f,1.0f,0.0f));
+    vp.multByTranslation(Vector3Bf(-3.0,0.f,0.0f));
     vp.transform();
 
 	tr->draw(vp, rt);

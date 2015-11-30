@@ -249,7 +249,6 @@ void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 	if (dy31 < 0 || (dy31 == 0 && dx31>0))
 		tl3 = true;
 
-	//cout << tl1 << " " << tl2 << " " << tl3 << endl;
 
 
 	float tmpX, tmpY;
@@ -259,11 +258,9 @@ void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 
 	for (int i = minXPrim; i <= maxXPrim; i++)
 	{
-		// Rzutowanie z wspó³rzêdnych w oknie renderingu na wspó³rzêdne kanoniczne
 		tmpX = i / (m_size.x * 0.5f) - 1.0f;
 		for (int j = minYPrim; j <= maxYPrim; j++)
 		{
-			// Rzutowanie z wspó³rzêdnych w oknie renderingu na wspó³rzêdne kanoniczne
 			tmpY = j / (m_size.y * 0.5f) - 1.0f;
 			lambda1 = (dy23* (tmpX - c.m_position.x) + dx32 * (tmpY - c.m_position.y)) /
 						(dy23 *dx13 + dx32*dy13);
@@ -271,20 +268,12 @@ void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 						(dy31 *dx23 + dx13*dy23);
 			lambda3 = 1 - lambda1 - lambda2;
 
-			// Half - space -> sprawdzanie czy pixel nale¿y do wnêtrza trójk¹ta
-			//if (
-			//	(dx12 * (tmpY - a.position.y) - dy12 * (tmpX - a.position.x) >= 0.0f) &&
-			//	(dx23 * (tmpY - b.position.y) - dy23 * (tmpX - b.position.x) >= 0.0f) &&
-			//	(dx31 * (tmpY - c.position.y) - dy31 * (tmpX - c.position.x) >= 0.0f))
-
-			// Half - space -> sprawdzanie czy pixel nale¿y do wnêtrza trójk¹ta (b¹d lezy na lewej||górnej krawêdzi)
 			if (
 				((tl1 && (dx12 * (tmpY - a.m_position.y) - dy12 * (tmpX - a.m_position.x) >= 0.0f)) || (dx12 * (tmpY - a.m_position.y) - dy12 * (tmpX - a.m_position.x) > 0.0f)) &&
 				((tl2 && (dx23 * (tmpY - b.m_position.y) - dy23 * (tmpX - b.m_position.x) >= 0.0f)) || (dx23 * (tmpY - b.m_position.y) - dy23 * (tmpX - b.m_position.x) >= 0.0f)) &&
 				((tl3 && (dx31 * (tmpY - c.m_position.y) - dy31 * (tmpX - c.m_position.x) >= 0.0f)) || (dx31 * (tmpY - c.m_position.y) - dy31 * (tmpX - c.m_position.x) > 0.0f))
 				)
 			{
-				// Bufor g³ebokoci
 				depth = lambda1 * a.m_position.z + lambda2 * b.m_position.z + lambda3 * c.m_position.z;
 				if (depth >= -1.f && depth <= 1.f && depth < m_dBuffer[convert2dto1d(i,j)])//buff.GetDepthAtPixel(i, j))
 				{
@@ -294,9 +283,8 @@ void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 					ColorDepth cd;
 					cd.color=interpolatedColor;
 					cd.depth=depth;
-
-
 					setPixel(cd,i,j);
+
 				}
 			}
 		}

@@ -23,7 +23,7 @@ public:
 
     int m_vertSize,m_triangleCount;
     std::vector<Vertex3Bf> m_vertices;
-    std::vector<d_type::Bint> m_indices;
+    std::vector<Vector3Bi> m_indices;
 
 };
 }

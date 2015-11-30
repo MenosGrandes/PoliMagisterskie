@@ -7,7 +7,7 @@ void render::TriangleMesh::loadOBJ(std::string filename)
     const char * path = filename.c_str();
     printf("Loading OBJ file RENDERER %s...\n", path);
 
-    std::vector<unsigned int> vertexIndices, uvIndices, normalIndices;
+    std::vector<Vector3Bi> vertexIndices, uvIndices, normalIndices;
     std::vector<Vector3Bf> temp_vertices;
     std::vector<Vector2Bf> temp_uvs;
     std::vector<Vector3Bf> temp_normals;
@@ -51,21 +51,40 @@ void render::TriangleMesh::loadOBJ(std::string filename)
         else if ( strcmp( lineHeader, "f" ) == 0 )
         {
             std::string vertex1, vertex2, vertex3;
-            unsigned int vertexIndex[3], uvIndex[3], normalIndex[3];
-            int matches = fscanf(file, "%d/%d/%d %d/%d/%d %d/%d/%d\n", &vertexIndex[0], &uvIndex[0], &normalIndex[0], &vertexIndex[1], &uvIndex[1], &normalIndex[1], &vertexIndex[2], &uvIndex[2], &normalIndex[2] );
+            Vector3Bi vertexIndex, uvIndex, normalIndex;
+            int matches = fscanf(file, "%d/%d/%d %d/%d/%d %d/%d/%d\n", &vertexIndex.x, &uvIndex.x, &normalIndex.x, &vertexIndex.y, &uvIndex.y, &normalIndex.y, &vertexIndex.z, &uvIndex.z, &normalIndex.z );
             if (matches != 9)
             {
                 printf("File can't be read by our simple parser :-( Try exporting with other options\n");
             }
-            vertexIndices.push_back(vertexIndex[0]);
-            vertexIndices.push_back(vertexIndex[1]);
-            vertexIndices.push_back(vertexIndex[2]);
-            uvIndices    .push_back(uvIndex[0]);
-            uvIndices    .push_back(uvIndex[1]);
-            uvIndices    .push_back(uvIndex[2]);
-            normalIndices.push_back(normalIndex[0]);
-            normalIndices.push_back(normalIndex[1]);
-            normalIndices.push_back(normalIndex[2]);
+//            vertexIndices.push_back(vertexIndex[0]);
+//            vertexIndices.push_back(vertexIndex[1]);
+//            vertexIndices.push_back(vertexIndex[2]);
+//            uvIndices    .push_back(uvIndex[0]);
+//            uvIndices    .push_back(uvIndex[1]);
+//            uvIndices    .push_back(uvIndex[2]);
+//            normalIndices.push_back(normalIndex[0]);
+//            normalIndices.push_back(normalIndex[1]);
+//            normalIndices.push_back(normalIndex[2]);
+
+
+            int tmp = vertexIndex.x;
+            vertexIndex.x = vertexIndex.y;
+            vertexIndex.y = tmp;
+            vertexIndex.x -= 1;
+            vertexIndex.y -= 1;
+            vertexIndex.z -= 1;
+            uvIndex.x -= 1;
+            uvIndex.y -= 1;
+            uvIndex.z -= 1;
+            normalIndex.x -= 1;
+            normalIndex.y -= 1;
+            normalIndex.z -= 1;
+
+            vertexIndices.push_back(vertexIndex);
+            uvIndices.push_back(uvIndex);
+            normalIndices.push_back(normalIndex);
+
 
         }
         else
@@ -77,31 +96,33 @@ void render::TriangleMesh::loadOBJ(std::string filename)
 
     }
 
-    m_triangleCount = vertexIndices.size()/3;
-    m_vertSize=temp_vertices.size()/3;
 
-    for(int i=0; i<temp_vertices.size(); i++)
+    m_triangleCount = vertexIndices.size();
+    m_vertSize=temp_vertices.size();
+
+
+    for (int i = 0; i < temp_vertices.size(); i++)
     {
-        m_vertices.push_back(Vertex3Bf(temp_vertices[i],Vector3Bf(),Colour::randomColor()));
-
+        // TO DO: normalne!!!
+        m_vertices.push_back( Vertex3Bf(temp_vertices[i], Vector3Bf(),Colour::randomColor()));
     }
-    for(int i=0; i<vertexIndices.size(); i++)
+
+    for (int i = 0; i < vertexIndices.size(); i++)
     {
         m_indices.push_back(vertexIndices[i]);
     }
-
 }
 
 void render::TriangleMesh::draw(VertexProcessor vp,RenderTarget rt)
 {
 
-    for(int i=0; i<m_triangleCount*3; i++)
+    for(int i=0; i<m_triangleCount; i++)
     {
 
         rt.triangle(
-            vp.tr(m_vertices[m_indices[i]]),
-            vp.tr(m_vertices[m_indices[i++]]),
-            vp.tr(m_vertices[m_indices[i++]])
+            vp.tr(m_vertices[m_indices[i].x]),
+            vp.tr(m_vertices[m_indices[i].y]),
+            vp.tr(m_vertices[m_indices[i].z])
         );
     }
 

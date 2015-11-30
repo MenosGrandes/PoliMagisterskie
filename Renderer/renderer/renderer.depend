@@ -611,3 +611,94 @@
 1448869840 source:/home/menosgrandes/Pulpit/PoliMagisterskie-03cfc6392ef6d75d53053de935722d707c73c56c/Renderer/renderer/src/Fragment.cpp
 	"Fragment.h"
 
+1448903559 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/main.cpp
+	"RenderTarget.h"
+	"VertexProcessor.h"
+	"TriangleMesh.h"
+
+1448872394 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/RenderTarget.h
+	<iostream>
+	<fstream>
+	<SFML/Graphics.hpp>
+	"Vector2.h"
+	"Vertex3.h"
+
+1448543551 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/Vector2.h
+	"structs.hpp"
+
+1448869510 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/structs.hpp
+	<limits>
+	<algorithm>
+	<cmath>
+	<iostream>
+	<stdint.h>
+
+1448869851 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/Vertex3.h
+	"Vector3.h"
+	"Colour.h"
+
+1448869391 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/Vector3.h
+	"structs.hpp"
+
+1448543551 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/Colour.h
+	"structs.hpp"
+	"Vector2.h"
+	"Vector3.h"
+	<random>
+	<iostream>
+	<ctime>
+
+1448870295 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/VertexProcessor.h
+	"Vertex3.h"
+	"Vector2.h"
+	"Matrix4.h"
+	"Fragment.h"
+
+1448543551 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/Matrix4.h
+	"Vector4.h"
+	<ostream>
+	<iostream>
+
+1448543551 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/Vector4.h
+	"structs.hpp"
+
+1448869818 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/Fragment.h
+	"Vertex3.h"
+
+1448904698 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/TriangleMesh.h
+	<vector>
+	<string>
+	<stdio.h>
+	<string.h>
+	<algorithm>
+	"Vertex3.h"
+	"VertexProcessor.h"
+	"RenderTarget.h"
+
+1448543551 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/CheckCPU.cpp
+	"CheckCPU.h"
+
+1448869391 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/CheckCPU.h
+	<windows.h>
+	<sys/param.h>
+	<sys/sysctl.h>
+	<unistd.h>
+
+1448543551 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/Colour.cpp
+	"Colour.h"
+
+1448869840 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/Fragment.cpp
+	"Fragment.h"
+
+1448543551 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/Matrix4.cpp
+	"Matrix4.h"
+
+1448874053 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/RenderTarget.cpp
+	"RenderTarget.h"
+
+1448873989 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/VertexProcessor.cpp
+	"VertexProcessor.h"
+
+1448904759 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/TriangleMesh.cpp
+	"TriangleMesh.h"
+

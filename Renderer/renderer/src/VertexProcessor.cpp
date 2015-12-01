@@ -120,8 +120,8 @@ void VertexProcessor::transform()
 }
 Vertex3Bf VertexProcessor::tr(Vertex3Bf v)
 {
-    Fragment frag = Fragment();
-
+    Fragment frag;
+    ILight * light= new DirectionalLight(Vector3Bf(0,0,30));
 
     Vector4Bf p = obj2proj*Vector4Bf(v.m_position.x,v.m_position.y,v.m_position.z,1);
 
@@ -134,7 +134,9 @@ Vertex3Bf VertexProcessor::tr(Vertex3Bf v)
     Vector3Bf::normalize(frag.m_normal);//	frag.normal.Normalize();
     frag.m_negativePosToView = Vector3Bf(lp.x / lp.w, lp.y / lp.w, lp.z / lp.w);
 
-    //float3 L = light.calculate(frag);
+   Vector3Bf colour = light->calculate(frag);
+   std::cout<<colour<<"\n";
+   Colour c(colour.x,colour.y,colour.z);
     //cout << L;
     return Vertex3Bf(Vector3Bf(p.x / p.w, p.y / p.w, p.z / p.w),
                   v.m_normal,

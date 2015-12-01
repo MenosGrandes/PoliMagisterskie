@@ -11,19 +11,28 @@ VertexProcessor vp;
 RenderTarget rt(size);
 
 
-vp.setPerspective(60.0f,1.0f,Vector2Bf(0.1f,100.0f));
+vp.setPerspective(60.0f,1.0f,Vector2Bf(0.1f,100000.0f));
 vp.setLookat(Vector3Bf(0,0,20.0f),Vector3Bf(0,0,0),Vector3Bf::Up);
 vp.setIdentity();
 
 render::TriangleMesh *tr =new render::TriangleMesh();
 tr->loadOBJ("models/teapod.obj");
 
-std::cout<<tr->m_vertices.size()<<" size\n";
 
-
+//////////// TEAPOD1/////////
     vp.setIdentity();
+    vp.multByScale(Vector3Bf(0.5f,0.5f,0.5f));
     vp.multByRotation(90.0f,Vector3Bf(1.0f,1.0f,0.0f));
     vp.multByTranslation(Vector3Bf(-3.0,0.f,0.0f));
+    vp.transform();
+	tr->draw(vp, rt);
+///////// TEAPOD2//////////
+
+    vp.setIdentity();
+//    vp.multByRotation(90.0f,Vector3Bf(1.0f,0.0f,0.0f));
+//    vp.multByTranslation(Vector3Bf(13.0,0.f,0.0f));
+        vp.multByScale(Vector3Bf(0.5f,0.5f,0.5f));
+
     vp.transform();
 
 	tr->draw(vp, rt);

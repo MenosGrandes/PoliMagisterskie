@@ -24,9 +24,6 @@ void RenderTarget::setPixel(ColorDepth colorDepth, const d_type::Bint &x, const 
 {
 
 
-        m_pixels[convert2dto1d(x,y)] = colorDepth.color;
-        m_dBuffer[convert2dto1d(x,y)]= colorDepth.depth;
-
 
 
 }
@@ -204,32 +201,24 @@ void RenderTarget::drawToFile(Colour* colors)
 
 void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 {
-    //cout << a << b << c;
-	// Optymalizacja 1 - przeszukiwanie pixeli wewn¹trz najmniejszego
-	// prostok¹ta zawieraj¹cego trójk¹t
+
 	float minX = std::min(std::min(a.m_position.x, b.m_position.x), c.m_position.x);
 	float maxX = std::max(std::max(a.m_position.x, b.m_position.x), c.m_position.x);
 	float minY = std::min(std::min(a.m_position.y, b.m_position.y), c.m_position.y);
 	float maxY = std::max(std::max(a.m_position.y, b.m_position.y), c.m_position.y);
-	//cout << minX << " " << maxX << ", " << minY << " " << maxY << endl;
 
-	// Rzutowanie wspó³rzêdnych kanonicznych na wspó³rzêdne
-	// w oknie renderingu
 	int minXPrim = (int)((minX + 1) * m_size.x * 0.5f);
 	int maxXPrim = (int)((maxX + 1) * m_size.x * 0.5f);
 	int minYPrim = (int)((minY + 1) * m_size.y * 0.5f);
 	int maxYPrim = (int)((maxY + 1) * m_size.y * 0.5f);
-	//cout << minXPrim << " " << maxXPrim << ", " << minYPrim << " " << maxYPrim << endl;
 
-	// Optymalizacja - obcinanie (pomijanie pixeli wchodz¹cych w sk³ad trójk¹ta,
-	// ale nie mieszcz¹cych siê	w buforze wyjciowym
+
 	minXPrim = std::max(minXPrim, 0);
 	maxXPrim = std::min(maxXPrim, m_size.x-1);
 	minYPrim = std::max(minYPrim, 0);
 	maxYPrim = std::min(maxYPrim, m_size.y-1);
-	//cout << minXPrim << " " << maxXPrim << ", " << minYPrim << " " << maxYPrim << endl;
 
-	// Optymalizacja 2 - sta³e
+
 	float dx12 = a.m_position.x - b.m_position.x;
 	float dx23 = b.m_position.x - c.m_position.x;
 	float dx31 = c.m_position.x - a.m_position.x;
@@ -254,7 +243,6 @@ void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 	float tmpX, tmpY;
 	float lambda1, lambda2, lambda3;
 	float depth;
-	Colour interpolatedColor;
 
 	for (int i = minXPrim; i <= maxXPrim; i++)
 	{
@@ -275,15 +263,11 @@ void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 				)
 			{
 				depth = lambda1 * a.m_position.z + lambda2 * b.m_position.z + lambda3 * c.m_position.z;
-				if (depth >= -1.f && depth <= 1.f && depth < m_dBuffer[convert2dto1d(i,j)])//buff.GetDepthAtPixel(i, j))
+				if (depth >= -1.f && depth <= 1.f && depth < m_dBuffer[convert2dto1d(i,j)])
 				{
 
-					interpolatedColor = a.m_color * lambda1 + b.m_color * lambda2 + c.m_color * lambda3;
-
-					ColorDepth cd;
-					cd.color=interpolatedColor;
-					cd.depth=depth;
-					setPixel(cd,i,j);
+                m_pixels[convert2dto1d(i,j)] = a.m_color * lambda1 + b.m_color * lambda2 + c.m_color * lambda3;
+                m_dBuffer[convert2dto1d(i,j)]= depth;
 
 				}
 			}

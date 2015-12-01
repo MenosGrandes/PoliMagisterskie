@@ -51,8 +51,11 @@
 		</Linker>
 		<Unit filename="include/CheckCPU.h" />
 		<Unit filename="include/Colour.h" />
+		<Unit filename="include/DirectionalLight.h" />
 		<Unit filename="include/Fragment.h" />
+		<Unit filename="include/ILight.h" />
 		<Unit filename="include/Matrix4.h" />
+		<Unit filename="include/PointLight.h" />
 		<Unit filename="include/RenderTarget.h" />
 		<Unit filename="include/TriangleMesh.h" />
 		<Unit filename="include/Vector2.h" />
@@ -65,8 +68,11 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/CheckCPU.cpp" />
 		<Unit filename="src/Colour.cpp" />
+		<Unit filename="src/DirectionalLight.cpp" />
 		<Unit filename="src/Fragment.cpp" />
+		<Unit filename="src/ILight.cpp" />
 		<Unit filename="src/Matrix4.cpp" />
+		<Unit filename="src/PointLight.cpp" />
 		<Unit filename="src/RenderTarget.cpp" />
 		<Unit filename="src/TriangleMesh.cpp" />
 		<Unit filename="src/VertexProcessor.cpp" />

@@ -4,6 +4,8 @@
 #include "Vector2.h"
 #include "Matrix4.h"
 #include "Fragment.h"
+#include "DirectionalLight.h"
+#include "PointLight.h"
 class VertexProcessor
 {
 public:

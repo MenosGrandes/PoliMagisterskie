@@ -7,7 +7,7 @@ class PointLight
     public:
         PointLight();
         virtual ~PointLight();
-virtual Vector3Bf calculate(Fragment &f) const ;
+virtual Colour calculate( const Fragment &f) const ;
 
 };
 

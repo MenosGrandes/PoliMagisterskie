@@ -8,7 +8,7 @@ class DirectionalLight : public ILight
         DirectionalLight();
         virtual ~DirectionalLight();
         DirectionalLight(Vector3Bf pos);
-        virtual Vector3Bf calculate(Fragment &f) const ;
+        virtual Colour calculate( const Fragment &f) const ;
 
 
 };

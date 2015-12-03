@@ -25,6 +25,7 @@ public :
     T max();
 
     static T  dotProduct(const Vector3<T>& p1, const Vector3<T>& p2);
+    T dotProduct(const Vector3<T> &p1) const;
     Vector3<T> vecProduct(const Vector3<T>& p1, const Vector3<T>& p2);
     Vector3<T> computeNormal(const Vector3<T>& p1, const Vector3<T>& p2);
     T length();
@@ -45,7 +46,12 @@ public :
 
 };
 
+template <typename T>
+inline T Vector3<T>::dotProduct(const Vector3<T>& p2) const
+{
+         return (x*p2.x + y*p2.y + z*p2.z);
 
+}
 
 template <typename T>
 inline std::ostream& operator<< (std::ostream& stream, const Vector3<T>& v)
@@ -282,7 +288,7 @@ Vector3<T> Vector3<T>::cross(const Vector3<T>& left,const Vector3<T>& right)
 template <typename T>
 Vector3<T> Vector3<T>::reflect(const Vector3<T>& v) const
 {
-    return this - (2 * this.dotProduct(v) *v);
+    return this - (2 * dotProduct(v) *v);
 }
 template <typename T>
 Vector3<T> Vector3<T>::reflect(const Vector3<T>& v,const Vector3<T>& v2)

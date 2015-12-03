@@ -12,7 +12,7 @@ class ILight
 Vector3Bf m_position,m_ambient,m_diffuse,m_specular;
 d_type::Bfloat m_shininess;
 
-virtual Vector3Bf calculate(Fragment &f) const =0;
+virtual Colour calculate( const Fragment &f) const =0;
 };
 
 #endif // ILIGHT_H

@@ -74,6 +74,7 @@ void render::TriangleMesh::loadOBJ(std::string filename)
             int tmp = vertexIndex.x;
             vertexIndex.x = vertexIndex.y;
             vertexIndex.y = tmp;
+
             vertexIndex.x -= 1;
             vertexIndex.y -= 1;
             vertexIndex.z -= 1;
@@ -90,12 +91,7 @@ void render::TriangleMesh::loadOBJ(std::string filename)
 
 
         }
-        else
-        {
-            // Probably a comment, eat up the rest of the line
-            char stupidBuffer[1000000];
-            fgets(stupidBuffer, 1000000, file);
-        }
+
 
     }
 
@@ -106,13 +102,15 @@ void render::TriangleMesh::loadOBJ(std::string filename)
 
     for (int i = 0; i < temp_vertices.size(); i++)
     {
-        m_vertices.push_back( Vertex3Bf(temp_vertices[i], Vector3Bf(),Colour::randomColor()));
+        m_vertices.push_back( Vertex3Bf(temp_vertices[i], Vector3Bf(0,0,0),Colour::randomColor()));
     }
 
     for (int i = 0; i < vertexIndices.size(); i++)
     {
         m_indices.push_back(vertexIndices[i]);
     }
+
+    calcNormals();
 }
 
 void render::TriangleMesh::draw(VertexProcessor vp,RenderTarget rt)
@@ -130,3 +128,33 @@ void render::TriangleMesh::draw(VertexProcessor vp,RenderTarget rt)
 
 
 }
+
+void render::TriangleMesh::calcNormals()
+{
+    for (int i = 0; i < m_vertSize; i++)
+    {
+        m_vertices[i].m_normal = Vector3Bf(0,0,0);
+    }
+    Vector3Bf n;
+    for (int i = 0; i < m_triangleCount; i++)
+    {
+        n= Vector3Bf::cross(
+               m_vertices[m_indices[i].z].m_position - m_vertices[m_indices[i].x].m_position,
+               m_vertices[m_indices[i].y].m_position - m_vertices[m_indices[i].x].m_position
+           );
+
+        Vector3Bf::normalize(n);
+
+
+        m_vertices[m_indices[i].x].m_normal += n;
+        m_vertices[m_indices[i].y].m_normal += n;
+        m_vertices[m_indices[i].z].m_normal += n;
+    }
+
+    for (int i = 0; i < m_vertSize; i++)
+    {
+        Vector3Bf::normalize(m_vertices[i].m_normal);
+
+    }
+}
+

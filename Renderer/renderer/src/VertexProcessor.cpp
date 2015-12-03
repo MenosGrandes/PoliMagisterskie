@@ -121,24 +121,30 @@ void VertexProcessor::transform()
 Vertex3Bf VertexProcessor::tr(Vertex3Bf v)
 {
     Fragment frag;
-    ILight * light= new DirectionalLight(Vector3Bf(0,0,30));
+    DirectionalLight * light= new DirectionalLight(Vector3Bf(1.0f, 1.0f, 1.0f));
 
     Vector4Bf p = obj2proj*Vector4Bf(v.m_position.x,v.m_position.y,v.m_position.z,1);
-
-    // Przekszta³cenia do wyliczenia wiat³a
+//UJEMNA POZYCJA
     Vector4Bf lp = obj2view * Vector4Bf(-v.m_position.x,-v.m_position.y,-v.m_position.z,1);
-    Vector4Bf n = obj2view * Vector4Bf(v.m_normal.x,v.m_normal.y,v.m_normal.z,1);
-
-    frag.m_position = v.m_position;
-    frag.m_normal = Vector3Bf(n.x / n.w, n.y / n.w, n.z / n.w);
-    Vector3Bf::normalize(frag.m_normal);//	frag.normal.Normalize();
     frag.m_negativePosToView = Vector3Bf(lp.x / lp.w, lp.y / lp.w, lp.z / lp.w);
 
-   Vector3Bf colour = light->calculate(frag);
-   std::cout<<colour<<"\n";
-   Colour c(colour.x,colour.y,colour.z);
-    //cout << L;
+
+//NORMALNA
+    Vector4Bf normal = obj2view * Vector4Bf(v.m_normal.x,v.m_normal.y,v.m_normal.z,1);
+    frag.m_normal = Vector3Bf(normal.x / normal.w, normal.y / normal.w, normal.z / normal.w);
+    Vector3Bf::normalize(frag.m_normal);
+
+
+    frag.m_position = v.m_position;
+
+   Colour colour = light->calculate(frag);
+//  std::cout<<colour<<"\n";
+//   Colour c(colour.x,colour.y,colour.z);
+//    std::cout << c;
+
+
+
     return Vertex3Bf(Vector3Bf(p.x / p.w, p.y / p.w, p.z / p.w),
                   v.m_normal,
-                  v.m_color);
+                  colour);
 }

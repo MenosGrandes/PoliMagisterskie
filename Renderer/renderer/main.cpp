@@ -16,26 +16,49 @@ vp.setLookat(Vector3Bf(0,0,20.0f),Vector3Bf(0,0,0),Vector3Bf::Up);
 vp.setIdentity();
 
 render::TriangleMesh *tr =new render::TriangleMesh();
-tr->loadOBJ("models/teapod.obj");
+tr->loadOBJ("models/EX1.obj");
 
 
-//////////// TEAPOD1/////////
+
+//	vp.setIdentity();
+//	processor.MultByRotation(50.0f, float3(1.0f, -1.0f, 0.0f));
+//	processor.MultByTranslation(float3(0.0f, 5.0f, -3.0f));
+//	//processor.MultByScale(float3(1.5f,1.5f, 1.5f));
+//	processor.transformObjToProj();
+//	mesh.Draw(rast, processor);
+
+
+
     vp.setIdentity();
-    vp.multByScale(Vector3Bf(0.5f,0.5f,0.5f));
-    vp.multByRotation(90.0f,Vector3Bf(1.0f,1.0f,0.0f));
-    vp.multByTranslation(Vector3Bf(-3.0,0.f,0.0f));
-    vp.transform();
-	tr->draw(vp, rt);
-///////// TEAPOD2//////////
+            vp.multByScale(Vector3Bf(0.2f,0.2f,0.2f));
 
-    vp.setIdentity();
-//    vp.multByRotation(90.0f,Vector3Bf(1.0f,0.0f,0.0f));
-//    vp.multByTranslation(Vector3Bf(13.0,0.f,0.0f));
-        vp.multByScale(Vector3Bf(0.5f,0.5f,0.5f));
+        vp.multByRotation(50.0f,Vector3Bf(1.0f,-1.0f,0.0f));
+    vp.multByTranslation(Vector3Bf(0.0,5.f,-3.0f));
 
     vp.transform();
 
 	tr->draw(vp, rt);
+
+//    vp.setIdentity();
+//            vp.multByScale(Vector3Bf(0.2f,0.2f,0.2f));
+//
+//        vp.multByRotation(50.0f,Vector3Bf(1.0f,-1.0f,0.0f));
+//    vp.multByTranslation(Vector3Bf(10.0,5.f,-13.0f));
+//
+//    vp.transform();
+//
+//	tr->draw(vp, rt);
+///////////////////////////////////
+//    vp.setIdentity();
+//            vp.multByScale(Vector3Bf(0.2f,0.2f,0.2f));
+//
+//        vp.multByRotation(50.0f,Vector3Bf(1.0f,-1.0f,0.0f));
+//    vp.multByTranslation(Vector3Bf(0.0,25.f,-3.0f));
+//
+//    vp.transform();
+//
+//	tr->draw(vp, rt);
+
 
     rt.drawToFile("dupa.tga");
 

@@ -9,7 +9,7 @@ PointLight::~PointLight()
 {
     //dtor
 }
-Vector3Bf PointLight::calculate(Fragment& f) const
+Colour PointLight::calculate(const Fragment& f) const
 {
 
 }

@@ -611,7 +611,7 @@
 1448869840 source:/home/menosgrandes/Pulpit/PoliMagisterskie-03cfc6392ef6d75d53053de935722d707c73c56c/Renderer/renderer/src/Fragment.cpp
 	"Fragment.h"
 
-1448904883 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/main.cpp
+1449135173 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/main.cpp
 	"RenderTarget.h"
 	"VertexProcessor.h"
 	"TriangleMesh.h"
@@ -637,7 +637,7 @@
 	"Vector3.h"
 	"Colour.h"
 
-1448969237 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/Vector3.h
+1449132134 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/Vector3.h
 	"structs.hpp"
 
 1448543551 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/Colour.h
@@ -667,7 +667,7 @@
 1448869818 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/Fragment.h
 	"Vertex3.h"
 
-1448904698 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/TriangleMesh.h
+1448975246 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/TriangleMesh.h
 	<vector>
 	<string>
 	<stdio.h>
@@ -698,27 +698,27 @@
 1448968062 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/RenderTarget.cpp
 	"RenderTarget.h"
 
-1448970274 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/VertexProcessor.cpp
+1449135147 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/VertexProcessor.cpp
 	"VertexProcessor.h"
 
-1448968130 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/TriangleMesh.cpp
+1449135204 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/TriangleMesh.cpp
 	"TriangleMesh.h"
 
 1448969871 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/ILight.cpp
 	"ILight.h"
 
-1448969836 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/ILight.h
+1449134785 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/ILight.h
 	"Fragment.h"
 
-1448970099 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/DirectionalLight.cpp
+1449135294 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/DirectionalLight.cpp
 	"DirectionalLight.h"
 
-1448969703 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/DirectionalLight.h
+1449134785 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/DirectionalLight.h
 	"ILight.h"
 
-1448969267 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/PointLight.cpp
+1449134785 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/PointLight.cpp
 	"PointLight.h"
 
-1448969466 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/PointLight.h
+1449134785 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/PointLight.h
 	"ILight.h"
 

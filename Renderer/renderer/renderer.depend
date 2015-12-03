@@ -611,7 +611,7 @@
 1448869840 source:/home/menosgrandes/Pulpit/PoliMagisterskie-03cfc6392ef6d75d53053de935722d707c73c56c/Renderer/renderer/src/Fragment.cpp
 	"Fragment.h"
 
-1449135173 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/main.cpp
+1449149364 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/main.cpp
 	"RenderTarget.h"
 	"VertexProcessor.h"
 	"TriangleMesh.h"
@@ -698,27 +698,27 @@
 1448968062 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/RenderTarget.cpp
 	"RenderTarget.h"
 
-1449135147 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/VertexProcessor.cpp
+1449149348 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/VertexProcessor.cpp
 	"VertexProcessor.h"
 
-1449135204 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/TriangleMesh.cpp
+1449148474 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/TriangleMesh.cpp
 	"TriangleMesh.h"
 
-1448969871 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/ILight.cpp
+1449147952 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/ILight.cpp
 	"ILight.h"
 
 1449134785 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/ILight.h
 	"Fragment.h"
 
-1449135294 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/DirectionalLight.cpp
+1449148757 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/DirectionalLight.cpp
 	"DirectionalLight.h"
 
 1449134785 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/DirectionalLight.h
 	"ILight.h"
 
-1449134785 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/PointLight.cpp
+1449149276 source:/home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/src/PointLight.cpp
 	"PointLight.h"
 
-1449134785 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/PointLight.h
+1449149246 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/PointLight.h
 	"ILight.h"
 

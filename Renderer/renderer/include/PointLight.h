@@ -2,11 +2,13 @@
 #define POINTLIGHT_H
 #include "ILight.h"
 
-class PointLight
+class PointLight:public ILight
 {
     public:
         PointLight();
         virtual ~PointLight();
+                PointLight(Vector3Bf pos);
+
 virtual Colour calculate( const Fragment &f) const ;
 
 };

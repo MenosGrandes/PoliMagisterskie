@@ -121,7 +121,7 @@ void VertexProcessor::transform()
 Vertex3Bf VertexProcessor::tr(Vertex3Bf v)
 {
     Fragment frag;
-    DirectionalLight * light= new DirectionalLight(Vector3Bf(1.0f, 1.0f, 1.0f));
+    PointLight * light= new PointLight(Vector3Bf(0.0f, 0.0f, .0f));
 
     Vector4Bf p = obj2proj*Vector4Bf(v.m_position.x,v.m_position.y,v.m_position.z,1);
 //UJEMNA POZYCJA
@@ -146,5 +146,5 @@ Vertex3Bf VertexProcessor::tr(Vertex3Bf v)
 
     return Vertex3Bf(Vector3Bf(p.x / p.w, p.y / p.w, p.z / p.w),
                   v.m_normal,
-                  colour);
+                  Colour::maxToOne(colour*v.m_color));
 }

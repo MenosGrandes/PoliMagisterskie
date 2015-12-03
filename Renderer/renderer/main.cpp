@@ -4,21 +4,22 @@
 
 int main(int argc, char **argv)
 {
-Vector2Bi size(500,500);
+    Vector2Bi size(800,800);
 
 
-VertexProcessor vp;
-RenderTarget rt(size);
+    VertexProcessor vp;
+    RenderTarget rt(size);
 
 
-vp.setPerspective(60.0f,1.0f,Vector2Bf(0.1f,100000.0f));
-vp.setLookat(Vector3Bf(0,0,20.0f),Vector3Bf(0,0,0),Vector3Bf::Up);
-vp.setIdentity();
+    vp.setPerspective(60.0f,1.0f,Vector2Bf(0.1f,100000.0f));
+    vp.setLookat(Vector3Bf(0,0,20.0f),Vector3Bf(0,0,0),Vector3Bf::Up);
+    vp.setIdentity();
 
-render::TriangleMesh *tr =new render::TriangleMesh();
-tr->loadOBJ("models/EX1.obj");
+    render::TriangleMesh *tr =new render::TriangleMesh();
+    tr->loadOBJ("models/cube.obj");
 
-
+    render::TriangleMesh *tr2 =new render::TriangleMesh();
+    tr2->loadOBJ("models/DRAGON.obj");
 
 //	vp.setIdentity();
 //	processor.MultByRotation(50.0f, float3(1.0f, -1.0f, 0.0f));
@@ -30,35 +31,25 @@ tr->loadOBJ("models/EX1.obj");
 
 
     vp.setIdentity();
-            vp.multByScale(Vector3Bf(0.2f,0.2f,0.2f));
+    vp.multByScale(Vector3Bf(0.2f,0.2f,0.2f));
 
-        vp.multByRotation(50.0f,Vector3Bf(1.0f,-1.0f,0.0f));
+    vp.multByRotation(50.0f,Vector3Bf(1.0f,-1.0f,0.0f));
     vp.multByTranslation(Vector3Bf(0.0,5.f,-3.0f));
 
     vp.transform();
 
-	tr->draw(vp, rt);
+    tr->draw(vp, rt);
 
-//    vp.setIdentity();
-//            vp.multByScale(Vector3Bf(0.2f,0.2f,0.2f));
-//
-//        vp.multByRotation(50.0f,Vector3Bf(1.0f,-1.0f,0.0f));
-//    vp.multByTranslation(Vector3Bf(10.0,5.f,-13.0f));
-//
-//    vp.transform();
-//
-//	tr->draw(vp, rt);
-///////////////////////////////////
-//    vp.setIdentity();
-//            vp.multByScale(Vector3Bf(0.2f,0.2f,0.2f));
-//
-//        vp.multByRotation(50.0f,Vector3Bf(1.0f,-1.0f,0.0f));
-//    vp.multByTranslation(Vector3Bf(0.0,25.f,-3.0f));
-//
-//    vp.transform();
-//
-//	tr->draw(vp, rt);
+///////////////////
+    vp.setIdentity();
+//    vp.multByScale(Vector3Bf(0.2f,0.2f,0.2f));
 
+    vp.multByRotation(50.0f,Vector3Bf(1.0f,-1.0f,0.0f));
+    vp.multByTranslation(Vector3Bf(0.0,5.f,-3.0f));
+
+    vp.transform();
+
+    tr2->draw(vp, rt);
 
     rt.drawToFile("dupa.tga");
 

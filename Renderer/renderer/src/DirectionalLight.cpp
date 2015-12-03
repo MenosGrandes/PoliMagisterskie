@@ -15,7 +15,6 @@ DirectionalLight::~DirectionalLight()
 }
 Colour DirectionalLight::calculate(const Fragment& f) const
 {
-std::cout<<m_position<<"\n";
    Vector3Bf N, R, V;
 	d_type::Bfloat diff, spec;
 	N = f.m_normal;
@@ -25,11 +24,11 @@ std::cout<<m_position<<"\n";
 //	std::cout<<f.m_normal<<"\n";
 //	Vector3Bf::normalize(N);
 
-	R = Vector3Bf::reflect(N,m_position);//m_position.reflect(N);
+	R = Vector3Bf::reflect(N,m_position );//m_position.reflect(N);
 //	std::cout<<R<<" R\n";
 //    R= m_position.reflect(N);
-	diff =Vector3Bf::dotProduct(m_position,N);//   osition.DotProduct(N);
-	spec = pow(Vector3Bf::dotProduct(R,V),m_shininess);//R.DotProduct(V), shininess);
+	diff =Vector3Bf::dotProduct(N,m_position);//   osition.DotProduct(N);
+	spec = pow(Vector3Bf::dotProduct(V,R),m_shininess);//R.DotProduct(V), shininess);
 //	std::cout << diff << "   " << spec << std::endl;
 	//return float3(diffuse[0] * diff, diffuse[1] * diff, diffuse[2] * diff);// *attCoefAtPoint(v.position);
 

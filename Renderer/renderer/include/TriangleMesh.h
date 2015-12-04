@@ -24,7 +24,7 @@ public:
     int m_vertSize,m_triangleCount;
     std::vector<Vertex3Bf> m_vertices;
     std::vector<Vector3Bi> m_indices;
-
+//     Colour m_colour;
 };
 }
 #endif // TRIANGLEMESH_H

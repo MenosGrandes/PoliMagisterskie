@@ -102,7 +102,7 @@ void render::TriangleMesh::loadOBJ(std::string filename)
 
     for (int i = 0; i < temp_vertices.size(); i++)
     {
-        m_vertices.push_back( Vertex3Bf(temp_vertices[i], Vector3Bf(0,0,0),Colour::Red));
+        m_vertices.push_back( Vertex3Bf(temp_vertices[i], Vector3Bf(0,0,0),Colour::Yellow));
     }
 
     for (int i = 0; i < vertexIndices.size(); i++)

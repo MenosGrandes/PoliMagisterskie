@@ -56,6 +56,8 @@ public:
     void clear(d_type::Buint8 shade);
     void drawPixel(d_type::Buint x,d_type::Buint y,d_type::Buint8 a,d_type::Buint8 r,d_type::Buint8 g,d_type::Buint8 b);
     void swapBuffers();
+    sf::Sprite  m_sprite;
+
 
 private:
     //convert 2D to 1D indexing
@@ -72,8 +74,7 @@ private:
     Colour m_cleanColour;
 
     sf::Texture m_texture;
-    sf::Sprite  m_sprite;
-    sf::Uint8* m_pixelsUint8 ;
+    sf::Uint8 *m_pixelsU8;
     d_type::Bint m_width,m_height;
 };
 

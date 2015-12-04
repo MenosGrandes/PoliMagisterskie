@@ -9,24 +9,29 @@ RenderTarget::~RenderTarget()
 RenderTarget::RenderTarget(Vector2Bi size):m_size(size)
 {
     m_pixels=new Colour[size.x*size.y];
-
+    m_pixelsU8=new sf::Uint8[size.x*size.y*4];
     m_dBuffer=new d_type::Bfloat[getSizePixels()];
     for(d_type::Bint i=0; i<getSizePixels(); i++)
     {
         m_dBuffer[i]=100000.0f;
 
     }
+    for(d_type::Bint i=0; i<getSizePixels()*4; i++)
+    {
+        m_pixelsU8[i]=0;
+
+    }
+    if (!m_texture.create(size.x, size.y))
+    {
+        std::cout<<"Cannot create sf::Texture\n";
+    }
+    m_sprite.setTexture(m_texture);
+
+        //m_sprite.rotate(45);
 
 }
 
 
-void RenderTarget::setPixel(ColorDepth colorDepth, const d_type::Bint &x, const d_type::Bint &y)
-{
-
-
-
-
-}
 //Convert 2d array indexing to 1d indexing
 d_type::Bint RenderTarget::convert2dto1d(d_type::Bint x, d_type::Bint y)
 {
@@ -202,76 +207,108 @@ void RenderTarget::drawToFile(Colour* colors)
 void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 {
 
-	float minX = std::min(std::min(a.m_position.x, b.m_position.x), c.m_position.x);
-	float maxX = std::max(std::max(a.m_position.x, b.m_position.x), c.m_position.x);
-	float minY = std::min(std::min(a.m_position.y, b.m_position.y), c.m_position.y);
-	float maxY = std::max(std::max(a.m_position.y, b.m_position.y), c.m_position.y);
+    float minX = std::min(std::min(a.m_position.x, b.m_position.x), c.m_position.x);
+    float maxX = std::max(std::max(a.m_position.x, b.m_position.x), c.m_position.x);
+    float minY = std::min(std::min(a.m_position.y, b.m_position.y), c.m_position.y);
+    float maxY = std::max(std::max(a.m_position.y, b.m_position.y), c.m_position.y);
 
-	int minXPrim = (int)((minX + 1) * m_size.x * 0.5f);
-	int maxXPrim = (int)((maxX + 1) * m_size.x * 0.5f);
-	int minYPrim = (int)((minY + 1) * m_size.y * 0.5f);
-	int maxYPrim = (int)((maxY + 1) * m_size.y * 0.5f);
-
-
-	minXPrim = std::max(minXPrim, 0);
-	maxXPrim = std::min(maxXPrim, m_size.x-1);
-	minYPrim = std::max(minYPrim, 0);
-	maxYPrim = std::min(maxYPrim, m_size.y-1);
+    int minXPrim = (int)((minX + 1) * m_size.x * 0.5f);
+    int maxXPrim = (int)((maxX + 1) * m_size.x * 0.5f);
+    int minYPrim = (int)((minY + 1) * m_size.y * 0.5f);
+    int maxYPrim = (int)((maxY + 1) * m_size.y * 0.5f);
 
 
-	float dx12 = a.m_position.x - b.m_position.x;
-	float dx23 = b.m_position.x - c.m_position.x;
-	float dx31 = c.m_position.x - a.m_position.x;
-	float dx13 = a.m_position.x - c.m_position.x;
-	float dx32 = c.m_position.x - b.m_position.x;
-	float dy12 = a.m_position.y - b.m_position.y;
-	float dy23 = b.m_position.y - c.m_position.y;
-	float dy31 = c.m_position.y - a.m_position.y;
-	float dy13 = a.m_position.y - c.m_position.y;
-
-	// Top - left
-	bool tl1 = false, tl2 = false, tl3 = false;
-	if (dy12 < 0 || (dy12 == 0 && dx12>0))
-		tl1 = true;
-	if (dy23 < 0 || (dy23 == 0 && dx23>0))
-		tl2 = true;
-	if (dy31 < 0 || (dy31 == 0 && dx31>0))
-		tl3 = true;
+    minXPrim = std::max(minXPrim, 0);
+    maxXPrim = std::min(maxXPrim, m_size.x-1);
+    minYPrim = std::max(minYPrim, 0);
+    maxYPrim = std::min(maxYPrim, m_size.y-1);
 
 
+    float dx12 = a.m_position.x - b.m_position.x;
+    float dx23 = b.m_position.x - c.m_position.x;
+    float dx31 = c.m_position.x - a.m_position.x;
+    float dx13 = a.m_position.x - c.m_position.x;
+    float dx32 = c.m_position.x - b.m_position.x;
+    float dy12 = a.m_position.y - b.m_position.y;
+    float dy23 = b.m_position.y - c.m_position.y;
+    float dy31 = c.m_position.y - a.m_position.y;
+    float dy13 = a.m_position.y - c.m_position.y;
 
-	float tmpX, tmpY;
-	float lambda1, lambda2, lambda3;
-	float depth;
+    // Top - left
+    bool tl1 = false, tl2 = false, tl3 = false;
+    if (dy12 < 0 || (dy12 == 0 && dx12>0))
+        tl1 = true;
+    if (dy23 < 0 || (dy23 == 0 && dx23>0))
+        tl2 = true;
+    if (dy31 < 0 || (dy31 == 0 && dx31>0))
+        tl3 = true;
 
-	for (int i = minXPrim; i <= maxXPrim; i++)
-	{
-		tmpX = i / (m_size.x * 0.5f) - 1.0f;
-		for (int j = minYPrim; j <= maxYPrim; j++)
-		{
-			tmpY = j / (m_size.y * 0.5f) - 1.0f;
-			lambda1 = (dy23* (tmpX - c.m_position.x) + dx32 * (tmpY - c.m_position.y)) /
-						(dy23 *dx13 + dx32*dy13);
-			lambda2 = (dy31* (tmpX - c.m_position.x) + dx13 * (tmpY - c.m_position.y)) /
-						(dy31 *dx23 + dx13*dy23);
-			lambda3 = 1 - lambda1 - lambda2;
 
-			if (
-				((tl1 && (dx12 * (tmpY - a.m_position.y) - dy12 * (tmpX - a.m_position.x) >= 0.0f)) || (dx12 * (tmpY - a.m_position.y) - dy12 * (tmpX - a.m_position.x) > 0.0f)) &&
-				((tl2 && (dx23 * (tmpY - b.m_position.y) - dy23 * (tmpX - b.m_position.x) >= 0.0f)) || (dx23 * (tmpY - b.m_position.y) - dy23 * (tmpX - b.m_position.x) >= 0.0f)) &&
-				((tl3 && (dx31 * (tmpY - c.m_position.y) - dy31 * (tmpX - c.m_position.x) >= 0.0f)) || (dx31 * (tmpY - c.m_position.y) - dy31 * (tmpX - c.m_position.x) > 0.0f))
-				)
-			{
-				depth = lambda1 * a.m_position.z + lambda2 * b.m_position.z + lambda3 * c.m_position.z;
-				if (depth >= -1.f && depth <= 1.f && depth < m_dBuffer[convert2dto1d(i,j)])
-				{
 
-                m_pixels[convert2dto1d(i,j)] = a.m_color * lambda1 + b.m_color * lambda2 + c.m_color * lambda3;
-                m_dBuffer[convert2dto1d(i,j)]= depth;
+    float tmpX, tmpY;
+    float lambda1, lambda2, lambda3;
+    float depth;
 
-				}
-			}
-		}
-	}
+    for (int i = minXPrim; i <= maxXPrim; i++)
+    {
+        tmpX = i / (m_size.x * 0.5f) - 1.0f;
+        for (int j = minYPrim; j <= maxYPrim; j++)
+        {
+            tmpY = j / (m_size.y * 0.5f) - 1.0f;
+            lambda1 = (dy23* (tmpX - c.m_position.x) + dx32 * (tmpY - c.m_position.y)) /
+                      (dy23 *dx13 + dx32*dy13);
+            lambda2 = (dy31* (tmpX - c.m_position.x) + dx13 * (tmpY - c.m_position.y)) /
+                      (dy31 *dx23 + dx13*dy23);
+            lambda3 = 1 - lambda1 - lambda2;
+
+            if (
+                ((tl1 && (dx12 * (tmpY - a.m_position.y) - dy12 * (tmpX - a.m_position.x) >= 0.0f)) || (dx12 * (tmpY - a.m_position.y) - dy12 * (tmpX - a.m_position.x) > 0.0f)) &&
+                ((tl2 && (dx23 * (tmpY - b.m_position.y) - dy23 * (tmpX - b.m_position.x) >= 0.0f)) || (dx23 * (tmpY - b.m_position.y) - dy23 * (tmpX - b.m_position.x) >= 0.0f)) &&
+                ((tl3 && (dx31 * (tmpY - c.m_position.y) - dy31 * (tmpX - c.m_position.x) >= 0.0f)) || (dx31 * (tmpY - c.m_position.y) - dy31 * (tmpX - c.m_position.x) > 0.0f))
+            )
+            {
+                depth = lambda1 * a.m_position.z + lambda2 * b.m_position.z + lambda3 * c.m_position.z;
+                if (depth >= -1.f && depth <= 1.f && depth < m_dBuffer[convert2dto1d(i,j)])
+                {
+
+                    m_pixels[convert2dto1d(i,j)] = a.m_color * lambda1 + b.m_color * lambda2 + c.m_color * lambda3;
+                    m_dBuffer[convert2dto1d(i,j)]= depth;
+
+                }
+            }
+        }
+    }
 }
 
+void RenderTarget::swapBuffers()
+{
+
+    for(int i=getSizePixels(); i>0; i--)
+    {
+        Colour c= m_pixels[i];
+        sf::Uint8 temp[4];
+        temp[0]=c.r*255;
+        temp[1]=c.g*255;
+        temp[2]=c.b*255;
+        temp[3]=255;
+        for(int j=0; j<4; j++)
+        {
+            m_pixelsU8[i*4+j]=temp[j];
+        }
+//m_pixels[i]=Colour::White;
+
+    }
+
+    m_texture.update(m_pixelsU8);
+//    for(int i=getSizePixels(); i>0; i--)
+//    {
+//    m_pixels[i]=Colour::White;
+//    }
+}
+void RenderTarget::clear()
+{
+    for(int i=0;i<getSizePixels();i++)
+    {
+    m_pixels[i] = m_cleanColour;
+    }
+}

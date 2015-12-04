@@ -6,7 +6,7 @@
 #include <random>
 #include <iostream>
 #include <ctime>
-
+#include <SFML/Graphics/Color.hpp>
 class Colour
 {
 public :
@@ -17,7 +17,9 @@ public :
     {
 
     };
-
+    Colour ToColour(const sf::Color &r){
+    return Colour(r.r*255,r.g*255,r.b*255,255);
+    }
     Colour():r(1),g(1),b(1),a(1) {};
     Colour(const Colour& next):r(next.r),g(next.g),b(next.b),a(next.a) {};
 

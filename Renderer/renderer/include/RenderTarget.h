@@ -7,7 +7,7 @@
 #include <SFML/Graphics.hpp>
 #include "Vector2.h"
 #include "Vertex3.h"
-
+#include  "../src/algorithms.hpp"
 class RenderTarget : public sf::Drawable
 {
 public:

@@ -47,7 +47,7 @@ typedef size_t          Bsize;
 typedef char          Bchar;
 typedef uint8_t Buint8;
 
-};
+}
 
 
 

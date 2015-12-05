@@ -90,17 +90,19 @@
 1447133540 source:c:\users\menos\desktop\renderer\renderer\src\trianglemesh.cpp
 	"TriangleMesh.h"
 
-1448207157 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\main.cpp
+1449301520 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\main.cpp
 	"RenderTarget.h"
 	"VertexProcessor.h"
-	"Triangle.h"
 	"TriangleMesh.h"
+	<sstream>
 
-1448207336 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\rendertarget.h
-	"Triangle.h"
+1449299386 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\rendertarget.h
 	<iostream>
 	<fstream>
 	<SFML/Graphics.hpp>
+	"Vector2.h"
+	"Vertex3.h"
+	"../src/algorithms.hpp"
 
 1448207553 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\triangle.h
 	"Vector4.h"
@@ -109,81 +111,86 @@
 	"../src/algorithms.hpp"
 	<iostream>
 
-1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vector4.h
+1448364882 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vector4.h
 	"structs.hpp"
 
-1448198418 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\structs.hpp
+1449301453 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\structs.hpp
 	<limits>
 	<algorithm>
 	<cmath>
 	<iostream>
 	<stdint.h>
 
-1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vector3.h
+1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vector3.h
 	"structs.hpp"
 
-1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\colour.h
+1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\colour.h
 	"structs.hpp"
 	"Vector2.h"
 	"Vector3.h"
 	<random>
 	<iostream>
 	<ctime>
+	<SFML/Graphics/Color.hpp>
 
-1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vector2.h
+1448364882 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vector2.h
 	"structs.hpp"
 
-1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\algorithms.hpp
+1449301827 c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\algorithms.hpp
 	<vector>
 	<limits>
 	<algorithm>
 	<random>
 
-1448194469 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vertexprocessor.h
-	"Vector3.h"
+1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vertexprocessor.h
+	"Vertex3.h"
 	"Vector2.h"
 	"Matrix4.h"
-	"TriangleMesh.h"
-	"Triangle.h"
+	"Fragment.h"
+	"DirectionalLight.h"
+	"PointLight.h"
+	<vector>
 
-1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\matrix4.h
+1448364882 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\matrix4.h
 	"Vector4.h"
 	<ostream>
 	<iostream>
 
-1448197346 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\trianglemesh.h
-	"Triangle.h"
+1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\trianglemesh.h
 	<vector>
 	<string>
 	<stdio.h>
 	<string.h>
 	<algorithm>
+	"Vertex3.h"
+	"VertexProcessor.h"
+	"RenderTarget.h"
 
-1447451696 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\checkcpu.cpp
+1448364882 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\checkcpu.cpp
 	"CheckCPU.h"
 
-1447451696 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\checkcpu.h
+1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\checkcpu.h
 	<windows.h>
 	<sys/param.h>
 	<sys/sysctl.h>
 	<unistd.h>
 
-1447451696 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\matrix4.cpp
+1448364882 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\matrix4.cpp
 	"Matrix4.h"
 
-1448207385 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\rendertarget.cpp
+1449302061 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\rendertarget.cpp
 	"RenderTarget.h"
 
 1447133540 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\triangle.cpp
 	"Triangle.h"
 
-1447133540 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\trianglemesh.cpp
+1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\trianglemesh.cpp
 	"TriangleMesh.h"
 
-1448199619 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\vertexprocessor.cpp
+1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\vertexprocessor.cpp
 	"VertexProcessor.h"
 
-1448193806 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\colour.cpp
+1448364882 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\colour.cpp
 	"Colour.h"
 
 1368000880 c:\libs\sfml\sfml-2.1\include\sfml\graphics.hpp
@@ -723,4 +730,32 @@
 
 1449149246 /home/menosgrandes/Pulpit/PoliMagisterskie/Renderer/renderer/include/PointLight.h
 	"ILight.h"
+
+1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vertex3.h
+	"Vector3.h"
+	"Colour.h"
+
+1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\fragment.h
+	"Vertex3.h"
+
+1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\directionallight.h
+	"ILight.h"
+
+1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\ilight.h
+	"Fragment.h"
+
+1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\pointlight.h
+	"ILight.h"
+
+1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\directionallight.cpp
+	"DirectionalLight.h"
+
+1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\fragment.cpp
+	"Fragment.h"
+
+1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\ilight.cpp
+	"ILight.h"
+
+1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\pointlight.cpp
+	"PointLight.h"
 

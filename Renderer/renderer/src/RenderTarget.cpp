@@ -310,5 +310,6 @@ void RenderTarget::clear()
     for(int i=0;i<getSizePixels();i++)
     {
     m_pixels[i] = m_cleanColour;
+    m_dBuffer[i]=100000.0f;
     }
 }

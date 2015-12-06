@@ -2,18 +2,14 @@
 #include "VertexProcessor.h"
 #include "TriangleMesh.h"
 #include <sstream>
-float getFPS(const sf::Time& time)
-{
-    return (1000000.0f / time.asMicroseconds());
-}
-
+#include "FPS.hpp"
 
 
 int main(int argc, char **argv)
 {
     Vector2Bi size(800,800);
 
-
+FPS fps = FPS();
     VertexProcessor vp;
     RenderTarget rt(size);
     rt.setCleanColour(Colour::White);
@@ -22,7 +18,7 @@ int main(int argc, char **argv)
 //    PointLight * light= new PointLight(Vector3Bf(10.0f, 0.0f, .0f));
 //    vp.addLight(light);
 //
-    PointLight * light2= new PointLight(Vector3Bf(-10.0f, 0.0f, 0.0f));
+    PointLight * light2= new PointLight(Vector3Bf(0.0f, 0.0f, 0.0f));
     vp.addLight(light2);
 
 //        DirectionalLight * light3= new DirectionalLight(Vector3Bf(0.0f, 0.0f, 0.0f));
@@ -64,13 +60,16 @@ int main(int argc, char **argv)
     // actual vector representing the camera's direction
     d_type::Bfloat lx=0.0f,lz=-1.0f;
     // XZ position of the camera
-    d_type::Bfloat x=0.0f,z=5.0f;
+    d_type::Bfloat x=0.0f,z=15.0f;
 
     d_type::Bfloat angleRotation=0.0f;
 
 
     sf::RenderWindow window(sf::VideoMode(size.x, size.y), "My window");
     sf::Clock FPSClock;
+    window.setFramerateLimit(1000);
+    sf::Clock gameClock;
+
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -115,7 +114,7 @@ int main(int argc, char **argv)
         }
 
 
-        vp.setPerspective(60.0f,1.0f,Vector2Bf(0.1f,30.0f));
+        vp.setPerspective(60.0f,1.0f,Vector2Bf(0.1f,100.0f));
         vp.setLookat(Vector3Bf(x,1.0f,z),Vector3Bf(x+lx,1.0f,z+lz),Vector3Bf::Up);
         vp.setIdentity();
 
@@ -155,7 +154,7 @@ int main(int argc, char **argv)
         vp.setIdentity();
         vp.multByRotation(76,Vector3Bf(0,1,0));
         vp.multByRotation(10,Vector3Bf(0,0,1));
-       vp.multByRotation(angleRotation,Vector3Bf(0,1,0));
+        vp.multByRotation(angleRotation,Vector3Bf(0,1,0));
 
         vp.multByTranslation(Vector3Bf(10.-5,5.f,1.0f));
 
@@ -163,14 +162,14 @@ int main(int argc, char **argv)
         vp.transform();
         ex1->draw(vp, rt);
 ///////////////////////////////
-//        vp.setIdentity();
-//        vp.multByRotation(76,Vector3Bf(0,1,0));
-//        vp.multByRotation(10,Vector3Bf(0,0,1));
-//        vp.multByTranslation(Vector3Bf(10.-5,5.f,1.0f));
-//
-//        vp.multByScale(Vector3Bf(0.3f,0.3f,0.3f));
-//        vp.transform();
-//        teapod->draw(vp, rt);
+        vp.setIdentity();
+        vp.multByRotation(76,Vector3Bf(0,1,0));
+        vp.multByRotation(10,Vector3Bf(0,0,1));
+        vp.multByTranslation(Vector3Bf(10.-5,5.f,1.0f));
+
+        vp.multByScale(Vector3Bf(0.3f,0.3f,0.3f));
+        vp.transform();
+        ex1->draw(vp, rt);
 ////////////////////////////
 
 //
@@ -185,9 +184,15 @@ int main(int argc, char **argv)
 
         angleRotation+=1.f;
         rt.clear();
+        fps.update();
+
+
         ss.str(std::string());
-        ss<<getFPS(FPSClock.restart());
+        ss<<fps.getFPS();
         text.setString(ss.str()) ;
+
+
+
     }
 
 
@@ -202,6 +207,6 @@ int main(int argc, char **argv)
     d_type::Bint a32;
     std::cin>>a32;
 
-    delete cube,dragon,sphere;
+    delete cube,dragon,sphere,ex1,teapod;
     return 1;
 }

@@ -111,6 +111,8 @@ void render::TriangleMesh::loadOBJ(std::string filename)
     }
 
     calcNormals();
+
+    std::cout<<"Indices :"<<vertexIndices.size()<<"\n";
 }
 
 void render::TriangleMesh::draw(VertexProcessor vp,RenderTarget rt)

@@ -90,11 +90,12 @@
 1447133540 source:c:\users\menos\desktop\renderer\renderer\src\trianglemesh.cpp
 	"TriangleMesh.h"
 
-1449301520 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\main.cpp
+1449410750 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\main.cpp
 	"RenderTarget.h"
 	"VertexProcessor.h"
 	"TriangleMesh.h"
 	<sstream>
+	"FPS.hpp"
 
 1449299386 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\rendertarget.h
 	<iostream>
@@ -184,10 +185,10 @@
 1447133540 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\triangle.cpp
 	"Triangle.h"
 
-1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\trianglemesh.cpp
+1449409638 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\trianglemesh.cpp
 	"TriangleMesh.h"
 
-1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\vertexprocessor.cpp
+1449411227 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\vertexprocessor.cpp
 	"VertexProcessor.h"
 
 1448364882 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\colour.cpp
@@ -758,4 +759,7 @@
 
 1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\pointlight.cpp
 	"PointLight.h"
+
+1449410439 c:\users\menos\desktop\polimagisterskie\renderer\renderer\fps.hpp
+	<SFML/System.hpp>
 

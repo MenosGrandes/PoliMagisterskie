@@ -90,20 +90,22 @@
 1447133540 source:c:\users\menos\desktop\renderer\renderer\src\trianglemesh.cpp
 	"TriangleMesh.h"
 
-1449410750 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\main.cpp
+1449574373 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\main.cpp
 	"RenderTarget.h"
 	"VertexProcessor.h"
 	"TriangleMesh.h"
 	<sstream>
 	"FPS.hpp"
 
-1449299386 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\rendertarget.h
+1449436311 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\rendertarget.h
 	<iostream>
 	<fstream>
 	<SFML/Graphics.hpp>
 	"Vector2.h"
 	"Vertex3.h"
 	"../src/algorithms.hpp"
+	<stdio.h>
+	<string.h>
 
 1448207553 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\triangle.h
 	"Vector4.h"
@@ -143,7 +145,7 @@
 	<algorithm>
 	<random>
 
-1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vertexprocessor.h
+1449436388 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\vertexprocessor.h
 	"Vertex3.h"
 	"Vector2.h"
 	"Matrix4.h"
@@ -157,7 +159,7 @@
 	<ostream>
 	<iostream>
 
-1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\trianglemesh.h
+1449436206 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\trianglemesh.h
 	<vector>
 	<string>
 	<stdio.h>
@@ -179,16 +181,16 @@
 1448364882 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\matrix4.cpp
 	"Matrix4.h"
 
-1449302061 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\rendertarget.cpp
+1449574307 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\rendertarget.cpp
 	"RenderTarget.h"
 
 1447133540 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\triangle.cpp
 	"Triangle.h"
 
-1449409638 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\trianglemesh.cpp
+1449436205 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\trianglemesh.cpp
 	"TriangleMesh.h"
 
-1449411227 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\vertexprocessor.cpp
+1449570479 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\vertexprocessor.cpp
 	"VertexProcessor.h"
 
 1448364882 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\colour.cpp
@@ -754,7 +756,7 @@
 1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\fragment.cpp
 	"Fragment.h"
 
-1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\ilight.cpp
+1449569816 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\ilight.cpp
 	"ILight.h"
 
 1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\pointlight.cpp

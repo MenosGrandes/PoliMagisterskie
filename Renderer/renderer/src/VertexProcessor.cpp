@@ -118,7 +118,7 @@ void VertexProcessor::transform()
 
 
 }
-Vertex3Bf VertexProcessor::tr(Vertex3Bf v)
+Vertex3Bf VertexProcessor::tr(const Vertex3Bf &v) const
 {
     Fragment frag;
     //PointLight * light= new PointLight(Vector3Bf(0.0f, 0.0f, .0f));
@@ -138,12 +138,12 @@ Vertex3Bf VertexProcessor::tr(Vertex3Bf v)
     frag.m_position = v.m_position;
 
     Colour lightColour = Colour::Black;
-//    for(int i=0; i<m_lights.size(); i++)
-//    {
-        lightColour=Colour::maxToOne(m_lights.at(0)->calculate(frag)+lightColour);
-//    }
+    for(int i=0; i<m_lights.size(); i++)
+    {
+        lightColour+=m_lights[i]->calculate(frag);//lightColour);
+    }
 
-
+       // Colour::maxToOne(lightColour);
     return Vertex3Bf(Vector3Bf(p.x / p.w, p.y / p.w, p.z / p.w),
                      v.m_normal,
                      Colour::maxToOne(lightColour*v.m_color));

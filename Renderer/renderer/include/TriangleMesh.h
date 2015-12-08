@@ -16,7 +16,7 @@ class TriangleMesh
 public:
     TriangleMesh() {}
     virtual ~TriangleMesh() {}
-    void draw(VertexProcessor vp,RenderTarget rt);
+    void draw(const VertexProcessor &vp,const RenderTarget &rt) const;
     void calcNormals();
  void loadOBJ(std::string filename);
 

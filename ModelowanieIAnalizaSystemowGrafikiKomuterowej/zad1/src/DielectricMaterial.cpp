@@ -2,6 +2,7 @@
 
 DielectricMaterial::DielectricMaterial():m_fresnelBRDF(new FresnelReflector),m_fresnelBTDF(new FresnelTransmitter),m_in(Colour::White),m_out(Colour::White)
 {
+    m_type=MATERIAL_TYPE::DIELECTRIC;
     //ctor
 }
 

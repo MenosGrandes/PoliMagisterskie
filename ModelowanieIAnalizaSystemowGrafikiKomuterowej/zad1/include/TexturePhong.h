@@ -8,7 +8,7 @@
 class TexturePhong : public IMaterial
 {
     public:
-    TexturePhong():IMaterial(),m_ambient(new TextureLambertian()),m_diffuse(new TextureLambertian()),m_specular(new GlossySpecular()) {}
+    TexturePhong():IMaterial(),m_ambient(new TextureLambertian()),m_diffuse(new TextureLambertian()),m_specular(new GlossySpecular()) {m_type=MATERIAL_TYPE::TEXTURE_PHONG;}
     virtual ~TexturePhong() {}
     void setKa(const d_type::Bfloat k )
     {

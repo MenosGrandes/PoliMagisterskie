@@ -8,7 +8,7 @@
 class PhongMaterial: public IMaterial
 {
 public:
-    PhongMaterial():IMaterial(),m_ambient(new Lambertian()),m_diffuse(new Lambertian()),m_specular(new GlossySpecular()) {}
+    PhongMaterial():IMaterial(),m_ambient(new Lambertian()),m_diffuse(new Lambertian()),m_specular(new GlossySpecular()) {m_type=MATERIAL_TYPE::PHONG;}
     virtual ~PhongMaterial() {}
     void setKa(const d_type::Bfloat k )
     {
@@ -70,7 +70,7 @@ public:
         }
         return L;
     }
-private:
+
     Lambertian * m_ambient;
     Lambertian *m_diffuse;
     GlossySpecular * m_specular;

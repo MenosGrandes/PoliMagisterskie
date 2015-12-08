@@ -2,6 +2,7 @@
 
 TransparentMaterial::TransparentMaterial():m_transmitter(new PerfectTransmitter()),m_specular(new PerfectSpecular())
 {
+    m_type=MATERIAL_TYPE::TRANSPARENT;
     //ctor
 }
 

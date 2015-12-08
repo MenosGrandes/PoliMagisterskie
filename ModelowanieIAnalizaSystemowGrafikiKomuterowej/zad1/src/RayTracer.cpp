@@ -1,5 +1,10 @@
 #include "RayTracer.h"
 
+
+RayTracer::RayTracer()
+{
+
+}
 RayTracer::RayTracer(ICamera *camera, RenderTarget *m_target,Sampler *sampler)
     :m_camera(camera),m_renderTanger(m_target),m_sampler(sampler),m_ambientLight(new Ambient())
 {

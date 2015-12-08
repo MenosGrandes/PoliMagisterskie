@@ -204,7 +204,7 @@ void RenderTarget::drawToFile(Colour* colors)
 }
 
 
-void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
+void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c) const
 {
 
     d_type::Bfloat minX = Min(Min(a.m_position.x, b.m_position.x), c.m_position.x);
@@ -245,26 +245,26 @@ void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c)
 
 
 
-    d_type::Bfloat tmpX, tmpY;
-    d_type::Bfloat lambda1, lambda2, lambda3;
+//     tmpX, tmpY;
+//     lambda1, lambda2, lambda3;
 
 
     for (d_type::Bint i = minXPrim; i <= maxXPrim; ++i)
     {
-        tmpX = i / (m_size.x * 0.5f) - 1.0f;
+        const d_type::Bfloat tmpX = i / (m_size.x * 0.5f) - 1.0f;
         for (d_type::Bint j = minYPrim; j <= maxYPrim; ++j)
         {
-            tmpY = j / (m_size.y * 0.5f) - 1.0f;
-            lambda1 = (dy23* (tmpX - c.m_position.x) + dx32 * (tmpY - c.m_position.y)) /
+            const d_type::Bfloat  tmpY = j / (m_size.y * 0.5f) - 1.0f;
+            const d_type::Bfloat lambda1 = (dy23* (tmpX - c.m_position.x) + dx32 * (tmpY - c.m_position.y)) /
                       (dy23 *dx13 + dx32*dy13);
-            lambda2 = (dy31* (tmpX - c.m_position.x) + dx13 * (tmpY - c.m_position.y)) /
+            const d_type::Bfloat lambda2 = (dy31* (tmpX - c.m_position.x) + dx13 * (tmpY - c.m_position.y)) /
                       (dy31 *dx23 + dx13*dy23);
-            lambda3 = 1 - lambda1 - lambda2;
+            const d_type::Bfloat lambda3 = 1 - lambda1 - lambda2;
 
             if (
-                ((tl1 && (dx12 * (tmpY - a.m_position.y) - dy12 * (tmpX - a.m_position.x) >= 0.0f)) || (dx12 * (tmpY - a.m_position.y) - dy12 * (tmpX - a.m_position.x) >= 0.0f)) &&
-                ((tl2 && (dx23 * (tmpY - b.m_position.y) - dy23 * (tmpX - b.m_position.x) >= 0.0f)) || (dx23 * (tmpY - b.m_position.y) - dy23 * (tmpX - b.m_position.x) >= 0.0f)) &&
-                ((tl3 && (dx31 * (tmpY - c.m_position.y) - dy31 * (tmpX - c.m_position.x) >= 0.0f)) || (dx31 * (tmpY - c.m_position.y) - dy31 * (tmpX - c.m_position.x) >= 0.0f))
+                ((tl1 && (dx12 * (tmpY - a.m_position.y) - dy12 * (tmpX - a.m_position.x) > 0.0f)) || (dx12 * (tmpY - a.m_position.y) - dy12 * (tmpX - a.m_position.x) >= 0.0f)) &&
+                ((tl2 && (dx23 * (tmpY - b.m_position.y) - dy23 * (tmpX - b.m_position.x) > 0.0f)) || (dx23 * (tmpY - b.m_position.y) - dy23 * (tmpX - b.m_position.x) >= 0.0f)) &&
+                ((tl3 && (dx31 * (tmpY - c.m_position.y) - dy31 * (tmpX - c.m_position.x) > 0.0f)) || (dx31 * (tmpY - c.m_position.y) - dy31 * (tmpX - c.m_position.x) >= 0.0f))
             )
             {
                  d_type::Bfloat depth = lambda1 * a.m_position.z + lambda2 * b.m_position.z + lambda3 * c.m_position.z;
@@ -301,7 +301,15 @@ void RenderTarget::swapBuffers()
 }
 void RenderTarget::clear()
 {
+//memset(m_pixels,getSizePixels()*sizeof(Colour));
+//memset(m_dBuffer,1000,getSizePixels()*sizeof(d_type::Bfloat));
+//
 
+//for(int i=0;i<getSizePixels();i++)
+//{
+//    m_pixels[i]=m_cleanColour;
+//    m_dBuffer[i]=10000.0f;
+//}
     std::fill(m_pixels, m_pixels+getSizePixels(), m_cleanColour);
     std::fill(m_dBuffer, m_dBuffer+getSizePixels(), 100000.0f);
 

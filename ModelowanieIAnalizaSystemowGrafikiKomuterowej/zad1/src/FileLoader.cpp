@@ -78,7 +78,7 @@ Mesh* FileLoader::loadOBJ(std::string filename)
             Vector3Bf vertex;
             fscanf(file, "%lf %lf %lf\n", &vertex.x, &vertex.y, &vertex.z );
             temp_vertices.push_back(vertex);
-            std::cout<<vertex.x<<"\n";
+//            std::cout<<vertex.x<<"\n";
         }
         else if ( strcmp( lineHeader, "usemtl" ) == 0 )
         {

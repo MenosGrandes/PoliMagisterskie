@@ -39,6 +39,7 @@ public:
     d_type::Bfloat m_ls;
     Colour m_colour;
     Vector3Bf m_location;
+    d_type::Bfloat m_intensittivity;// intensywnosc swiatla do photonow
 };
 
 #endif // POINTLIGHT_H

@@ -14,7 +14,7 @@ public:
     RayTracer(ICamera *camera,RenderTarget *m_target,Sampler* sampler);
     RayTracer(ICamera *camera,RenderTarget *m_target);
     RayTracer(ICamera *camera,RenderTarget *m_target,Sampler* sampler,Ambient*ambient);
-
+    RayTracer();
     virtual ~RayTracer();
     void addObject(IRaycastable *ray);
     void addLight(ILight * light);
@@ -45,7 +45,6 @@ public:
     Colour shadeRay(const Ray&ray,d_type::Bint depth);
     Colour shadeRay(const Ray&ray,d_type::Bfloat& tmin,d_type::Bint depth);
 
-private:
 
 
 

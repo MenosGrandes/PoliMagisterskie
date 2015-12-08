@@ -40,8 +40,24 @@
 #include "ReflectiveMaterial.h"
 #include "TransparentMaterial.h"
 #include "DielectricMaterial.h"
+#include "PhotonMap.h"
+
+
+
+
+
+
+
+#define PHOTON_MAPPING
+
+
+
+
+
 int main(int argc, char **argv)
 {
+
+    srand(time(0));
     CheckCPU cpu;
     std::cout<<"There are "<<cpu.getNumberOfCores()<<" cores in CPU.\n";
 
@@ -49,7 +65,7 @@ int main(int argc, char **argv)
 
     std::chrono::time_point<std::chrono::system_clock> start, end;
     start = std::chrono::system_clock::now();
-    Vector2Bs img_size=Vector2Bs(800,800);
+    Vector2Bs img_size=Vector2Bs(100,100);
 
 
     RenderTarget *file = new RenderTarget(img_size);
@@ -74,7 +90,7 @@ int main(int argc, char **argv)
 
 
 
-#define FRESNEL
+//#define FRESNEL
 #ifdef CHAPTER15
     {
         DirectionalLight * dirLight=new DirectionalLight();
@@ -1406,9 +1422,76 @@ rt->addObject(p);
 rt->setDepth(2);
 }
 #endif // FRESNEL
+#ifdef PHOTON_MAPPING
+PointLight* light_ptr1 = new PointLight;
+	light_ptr1->m_location=Vector3Bf(40, 50, 0);
+	light_ptr1->m_ls=(4.5);
+	light_ptr1->setShadows(false);
+	rt->addLight(light_ptr1);
 
-rt->rayTrace();
+//	DielectricMaterial * glass= new DielectricMaterial();
+//	glass->setKs(0.2);
+//	glass->setExp(2000.0);
+//	glass->setRefractionIN(1.5);
+//	glass->setRefractionOUT(1.0);
+//	glass->setCfIn(Colour::White);
+//	glass->setCfOut(Colour::White);
+////	glass->setKr(0.1);
+//    glass->setCd(Colour::White);
+//    glass->setCr(Colour::White);
 
+        float ka 	= 0.25;
+        float kd 	= 0.75;
+        float ks 	= 0.1;
+        float exp 	= 10.0f;
+
+
+        // spheres
+
+        PhongMaterial* PhongMaterial_ptr1 = new PhongMaterial;
+        PhongMaterial_ptr1->setKa(ka);
+        PhongMaterial_ptr1->setKd(kd);
+        PhongMaterial_ptr1->setKs(ks);
+        PhongMaterial_ptr1->setExponent(exp);
+        PhongMaterial_ptr1->setCd(Colour::Yellow);
+
+
+	Sphere * sp= new Sphere(Vector3Bf(0.0, 4.5, 0.0), 3.0);
+	sp->setMaterial(PhongMaterial_ptr1);
+	rt->addObject(sp);
+
+
+
+//ReflectiveMaterial*	reflective_ptr = new ReflectiveMaterial;
+//	reflective_ptr->setKa(0.3);
+//	reflective_ptr->setKd(0.3);
+//	reflective_ptr->setCd(Colour::Red);
+//	reflective_ptr->setKs(0.2);
+//	reflective_ptr->setExponent(2000.0);
+//	reflective_ptr->setKr(0.25);
+//	reflective_ptr->setCr(Colour::White);
+
+//	Sphere* sphere_ptr2 = new Sphere(Vector3Bf(4, 4, -6), 3);
+//	rt->addObject(sphere_ptr2);
+
+//Plane * p = new Plane(Vector3Bf(0,-2,0),Vector3Bf(0,1,0));
+//TextureMatte * mM = new TextureMatte();
+//mM->setCd(new ImageTexture(new Image("textures/plane.tga"),new RectMapping(p,Vector2Bf(0.001,0.001))));
+//mM->setKa(0.4f);
+//mM->setKd(0.5f);
+//p->setMaterial(mM);
+//rt->addObject(p);
+
+rt->setDepth(2);
+#endif // PHOTON_MAPPING
+
+
+//#ifdef RAY_TRACE
+////rt->rayTrace();
+//#elifdef PHOTON_MAPPING
+PhotonMap * photonMap = new PhotonMap(1000,*rt);
+//
+//#endif
 //Image* img=new Image("foto2.tga");
 //file->drawToFile(img->getPixels(),img->getHres(),img->getVres());
 

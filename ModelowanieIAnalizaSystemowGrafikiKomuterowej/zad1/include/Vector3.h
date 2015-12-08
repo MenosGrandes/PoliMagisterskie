@@ -31,7 +31,8 @@ public :
     T length();
     T lengthSquared();
     static Vector3<T> cross(const Vector3<T>& left,const Vector3<T>& right);
-    Vector3<T> reflect(const Vector3<T>&v);
+    Vector3<T> reflect(const Vector3<T>&v) const;
+    static Vector3<T> reflect(const Vector3<T>&v,const Vector3<T>&v2) ;
     Vector3<T> lerp(const Vector3<T>&v, const T f);
     static void normalize(Vector3<T>&v);
     T distance(const Vector3<T> vector);
@@ -281,9 +282,9 @@ Vector3<T> Vector3<T>::cross(const Vector3<T>& left,const Vector3<T>& right)
 ///////////////////////////////////////////////////////////
 
 template <typename T>
-Vector3<T> Vector3<T>::reflect(const Vector3<T>& v)
+Vector3<T> Vector3<T>::reflect(const Vector3<T>& v,const Vector3<T>& v2)
 {
-    return this - (2 * this.dotProduct(v) *v);
+    return v - (2 * Vector3<T>::dotProduct(v,v2) *v2);
 }
 ///////////////////////////////////////////////////////////
 

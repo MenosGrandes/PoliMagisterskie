@@ -8,6 +8,8 @@
 #include "Vector2.h"
 #include "Vertex3.h"
 #include  "../src/algorithms.hpp"
+#include <stdio.h>
+#include <string.h>
 class RenderTarget : public sf::Drawable
 {
 public:
@@ -46,7 +48,7 @@ public:
 
 
 
-    void triangle(Vertex3Bf a,Vertex3Bf b,Vertex3Bf c);
+    void triangle(Vertex3Bf a,Vertex3Bf b,Vertex3Bf c) const;
     virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const
     {
         // You can draw other high-level objects
@@ -65,9 +67,9 @@ private:
     d_type::Bint convert2dto1d(Vector2Bi size);
 
     //ColorBuffer
-    Colour *m_pixels;
+    mutable Colour *m_pixels;
     //DepthBuffer
-    d_type::Bfloat *m_dBuffer;
+    mutable d_type::Bfloat *m_dBuffer;
     //Size of pizxel table, so size of picture
     Vector2Bi m_size;
 

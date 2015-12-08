@@ -20,10 +20,9 @@ public:
 
     void setIdentity();
     void transform();
-    Vertex3Bf tr(Vertex3Bf v);
+    Vertex3Bf tr(const Vertex3Bf &v) const;
     void addLight(ILight * light);
-protected:
-private:
+
     Matrix4Bfloat view2proj,world2view,obj2world,obj2proj,obj2view;
     std::vector<ILight*> m_lights;
 };

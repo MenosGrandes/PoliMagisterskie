@@ -115,7 +115,7 @@ void render::TriangleMesh::loadOBJ(std::string filename)
     std::cout<<"Indices :"<<vertexIndices.size()<<"\n";
 }
 
-void render::TriangleMesh::draw(VertexProcessor vp,RenderTarget rt)
+void render::TriangleMesh::draw(const VertexProcessor &vp,const RenderTarget &rt) const
 {
 
     for(int i=0; i<m_triangleCount; i++)

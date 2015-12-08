@@ -14,6 +14,10 @@ Colour Colour::powc(d_type::Bfloat p) const
     return (Colour(pow(r, p), pow(g, p), pow(b, p)));
 
 }
+d_type::Bfloat Colour::getAVG()
+{
+    return (r+g+b)/3;
+}
 
 Colour Colour::randomColor()
 {

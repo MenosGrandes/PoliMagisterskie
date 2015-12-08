@@ -20,7 +20,7 @@ public :
     Colour():r(1),g(1),b(1) {};
     Colour(const Colour& next):r(next.r),g(next.g),b(next.b) {};
 
-
+    d_type::Bfloat getAVG();
     Colour powc(d_type::Bfloat p) const;
     static Colour clampColour(Colour r);
     static Colour maxToOne(Colour r);

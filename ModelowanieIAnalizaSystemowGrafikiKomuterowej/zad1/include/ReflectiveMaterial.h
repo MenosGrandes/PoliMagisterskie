@@ -7,7 +7,7 @@
 class ReflectiveMaterial : public PhongMaterial
 {
     public:
-        ReflectiveMaterial():m_reflective(new PerfectSpecular()){};
+        ReflectiveMaterial():m_reflective(new PerfectSpecular()){m_type=MATERIAL_TYPE::REFLECTIVE;};
         virtual ~ReflectiveMaterial();
         void setKr(const d_type::Bfloat kr)
         {

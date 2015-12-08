@@ -6,7 +6,7 @@
 class MatteMaterial : public IMaterial
 {
 public:
-    MatteMaterial():IMaterial(),m_ambient(new Lambertian()),m_diffuse(new Lambertian()) {}
+    MatteMaterial():IMaterial(),m_ambient(new Lambertian()),m_diffuse(new Lambertian()) {m_type=MATERIAL_TYPE::MATTE;}
     virtual ~MatteMaterial();
     void setKa(const d_type::Bfloat k )
     {
@@ -48,7 +48,6 @@ public:
         }
         return L;
     };
-private:
     Lambertian * m_ambient;
     Lambertian * m_diffuse;
 };

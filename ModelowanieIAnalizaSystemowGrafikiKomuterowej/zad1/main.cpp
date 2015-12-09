@@ -65,7 +65,7 @@ int main(int argc, char **argv)
 
     std::chrono::time_point<std::chrono::system_clock> start, end;
     start = std::chrono::system_clock::now();
-    Vector2Bs img_size=Vector2Bs(100,100);
+    Vector2Bs img_size=Vector2Bs(500,500);
 
 
     RenderTarget *file = new RenderTarget(img_size);
@@ -73,7 +73,7 @@ int main(int argc, char **argv)
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
     // X Z Y
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(-1, 5.5, 40),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(-1, 5.5, 160),
                                            Vector3Bf(1, 4, 0),
                                            Vector3Bf::Up,
                                           10,
@@ -1456,10 +1456,25 @@ PointLight* light_ptr1 = new PointLight;
         PhongMaterial_ptr1->setCd(Colour::Yellow);
 
 
-	Sphere * sp= new Sphere(Vector3Bf(0.0, 4.5, 0.0), 3.0);
+	Sphere * sp= new Sphere(Vector3Bf(5.0, 4.5, 0.0), 3.0);
 	sp->setMaterial(PhongMaterial_ptr1);
 	rt->addObject(sp);
 
+	Sphere * sp2= new Sphere(Vector3Bf(0.0, 14.5, 0.0), 3.0);
+	sp2->setMaterial(PhongMaterial_ptr1);
+	rt->addObject(sp2);
+
+	Sphere * sp3= new Sphere(Vector3Bf(-4.0, 4.5, 3.0), 3.0);
+	sp3->setMaterial(PhongMaterial_ptr1);
+	rt->addObject(sp3);
+
+	Sphere * sp4= new Sphere(Vector3Bf(10.0, 1.5, 0.0), 1.0);
+	sp4->setMaterial(PhongMaterial_ptr1);
+	rt->addObject(sp4);
+
+	Sphere * sp5= new Sphere(Vector3Bf(0.0, 4.5, 0.0), 0.4);
+	sp5->setMaterial(PhongMaterial_ptr1);
+	rt->addObject(sp5);
 
 
 //ReflectiveMaterial*	reflective_ptr = new ReflectiveMaterial;
@@ -1482,16 +1497,16 @@ PointLight* light_ptr1 = new PointLight;
 //p->setMaterial(mM);
 //rt->addObject(p);
 
-rt->setDepth(2);
+//rt->setDepth(2);
 #endif // PHOTON_MAPPING
 
 
-//#ifdef RAY_TRACE
-////rt->rayTrace();
-//#elifdef PHOTON_MAPPING
-PhotonMap * photonMap = new PhotonMap(1000,*rt);
-//
-//#endif
+#ifdef RAY_TRACE
+rt->rayTrace();
+#endif // RAY_TRACE
+#ifdef PHOTON_MAPPING
+PhotonMap * photonMap = new PhotonMap(10000,*rt);
+#endif
 //Image* img=new Image("foto2.tga");
 //file->drawToFile(img->getPixels(),img->getHres(),img->getVres());
 

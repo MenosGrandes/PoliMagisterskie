@@ -32,7 +32,14 @@ PhotonMap::PhotonMap(int maxPhotons,RayTracer rayTr)
 
         p.m_power=light->m_intensittivity *light->m_colour;
         tracePhoton(p,light->m_location);
-//        std::cout<<m_photonMap.size()<<" size\n";
+        if(m_photonMap.size()%(maxPhotons/100)==0)
+        {
+            std::cout<<m_photonMap.size()<<"\n";
+        }
+    }
+    for(int i=0; i<m_photonMap.size(); i++)
+    {
+        m_photonMap[i].m_power= m_photonMap[i].m_power*(1/m_photonMap.size());
     }
 
 
@@ -47,20 +54,23 @@ PhotonMap::PhotonMap(int maxPhotons,RayTracer rayTr)
 
 
 }
-
+/**
+Przesylam foton oraz pozycje swiatla, czyli miejsce z ktorego ma foton wyleciec
+*/
 void PhotonMap::tracePhoton(Photon p,  Vector3Bf direction)
 {
 
-    std::cout<<m_photonMap.size()<<"\n";
+//    std::cout<<m_photonMap.size()<<"\n";
     int maxReflextion = 4;
     int reflection=0;
     bool addedPhoton=false;
+    // Dopoki foton nie zostal zaabsorbowany albo nie odbil sie maksymalna ilosc razy rob.
     while(maxReflextion<reflection || addedPhoton==false)
     {
-        std::cout<<addedPhoton<<"       "<<reflection<<"       \n";
+//        std::cout<<addedPhoton<<"       "<<reflection<<"       \n";
 
-        Ray photonRay = Ray(p.m_position,direction,DIRECTION);
-//Vector3Bf origin,Vector3Bf vec,bool destORDir
+//wyslij foton z pozycji swiatla do pozycji wylosowanek
+        Ray photonRay = Ray(direction,p.m_position,DIRECTION);
 
 
         d_type::Bfloat minDistance=std::numeric_limits<d_type::Bfloat>::max();
@@ -98,7 +108,7 @@ void PhotonMap::tracePhoton(Photon p,  Vector3Bf direction)
 
             case MATERIAL_TYPE::PHONG :
                 const PhongMaterial * phong = static_cast<PhongMaterial*>(info.m_material);
-
+                //absorb
                 if(probability%2==0)
                 {
                     const d_type::Bfloat colourAVG=phong->m_diffuse->m_cd.getAVG();
@@ -136,7 +146,7 @@ void PhotonMap::tracePhoton(Photon p,  Vector3Bf direction)
                                   p.m_power.g*phong->m_diffuse->m_cd.g/colourAVG,
                                   p.m_power.b*phong->m_diffuse->m_cd.b/colourAVG
                               );
-
+                    p.m_lastPosition=p.m_position;
                     p.m_position=info.m_hitPoint;
                     reflection++;
                 }
@@ -268,6 +278,90 @@ void PhotonMap::tracePhoton(Photon p,  Vector3Bf direction)
     }
 
 
+}
+std::vector<Photon> PhotonMap::getNearestPhotons(const Vector3Bf& centerOfSphere, d_type::Buint howMuchPhotons, d_type::Bfloat radius) const
+{
+
+    std::vector<Photon> v_tmp;
+    const d_type::Bsize photonSize = m_photonMap.size();
+    for(int i=0; i<photonSize; i++)
+    {
+        if(v_tmp.size()<=howMuchPhotons)
+        {
+            const Vector3Bf  distance = centerOfSphere - m_photonMap[i].m_position;
+            const d_type::Bfloat fDist= Vector3Bf::dotProduct(distance,distance);
+            if(fDist < radius*radius)
+            {
+                v_tmp.push_back(m_photonMap[i]);
+
+            }
+        }
+        else
+        {
+            break;
+        }
+
+    }
+    return v_tmp;
+}
+Colour PhotonMap::radiance(const Vector3Bf& hitPoint, const Vector3Bf& normalInHitPoint, const Vector3Bf& directionToObserver)
+{
+    const std::vector<Photon> nearestPhotons = getNearestPhotons(hitPoint,100,0.10f);
+    //find distance to the farthest Photon from nearestPhotons
+    d_type::Bfloat distanceToFarthestPhoton=0;
+    for(int i=0; i<nearestPhotons.size(); i++)
+    {
+        const d_type::Bfloat tmp_distance=Vector3Bf::distance(hitPoint,nearestPhotons[i].m_position);
+        if(tmp_distance>distanceToFarthestPhoton)
+        {
+            distanceToFarthestPhoton=tmp_distance;
+        }
+    }
+
+
+    Colour E= Colour::Black;
+    for(int i=0; i<nearestPhotons.size(); i++)
+    {
+        E+=nearestPhotons[i].m_power;
+    }
+
+
+    return (E/(M_PI * (distanceToFarthestPhoton*distanceToFarthestPhoton)));
+}
+void PhotonMap::mapPhotons()
+{
+//        Colour finalColour=Colour::Black;
+//    const d_type::Buint simple_count=m_rt.m_sampler->getSampleCount();
+//
+//    for(Bint x=0; x<m_rt.m_renderTanger->getSize().x; x++)
+//    {
+//        for(Bint y=0; y<m_rt.m_renderTanger->getSize().y; y++)
+//        {
+//            finalColour=Colour::Black;
+//
+//
+//            for(d_type::Bint i=0; i<simple_count; i++)
+//            {
+//                const Vector2Bf sample = m_rt.m_sampler->single();
+//                Vector2Bf picCoord(
+//                    ((x+sample.x) / m_rt.m_renderTanger->getSize().x)*2 -1,
+//                    ((y+sample.y) / m_rt.m_renderTanger->getSize().y)*2 -1
+//                );
+//
+//                //ray=m_camera->recalculateRay(picCoord);
+//
+//                finalColour+=radiance(picCoord,Vector3Bf::Up,Vector3Bf::Up); //shadeRay(ray);///m_sampler->getSampleCount();
+//
+//            }
+//            finalColour/=simple_count;
+//            m_rt.m_renderTanger->setPixel(Colour::maxToOne(finalColour),x,y);
+//
+//        }
+//
+//
+//
+//
+//    }
 }
 
 //przesledz fotony

@@ -8,7 +8,7 @@ class Photon
         Photon();
         virtual ~Photon();
 
-        Vector3Bf m_position;
+        Vector3Bf m_position,m_lastPosition;
         Colour m_power; // kolor * intensywnosc swiatla
         d_type::Bint m_phi,m_theta,m_KDflag;
 };

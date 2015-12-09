@@ -19,7 +19,6 @@ public:
     void addObject(IRaycastable *ray);
     void addLight(ILight * light);
     void rayTrace();
-
     ILight* getAmbientLight()
     {
         return m_ambientLight;

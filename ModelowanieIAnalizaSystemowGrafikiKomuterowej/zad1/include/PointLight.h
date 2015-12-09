@@ -22,7 +22,7 @@ public:
     d_type::BBool inShadow(const Ray&ray, const Info&info)
     {
         d_type::Bfloat t;
-        d_type::Bfloat d=m_location.distance(ray.getOrigin());
+        d_type::Bfloat d=Vector3Bf::distance(m_location,ray.getOrigin());//.distance(ray.getOrigin());
         const std::vector<IRaycastable*> raycastableObjects = info.m_rayTracer->getObjects();
         const d_type::Buint numberOfObjects = raycastableObjects.size();
 

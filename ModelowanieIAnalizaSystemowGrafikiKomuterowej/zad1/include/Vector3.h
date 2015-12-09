@@ -35,7 +35,7 @@ public :
     static Vector3<T> reflect(const Vector3<T>&v,const Vector3<T>&v2) ;
     Vector3<T> lerp(const Vector3<T>&v, const T f);
     static void normalize(Vector3<T>&v);
-    T distance(const Vector3<T> vector);
+    static T distance(const Vector3<T> vector,const Vector3<T> vector2);
 
     T x, y, z;
 
@@ -311,11 +311,11 @@ void Vector3<T>::normalize(Vector3<T>&v)
 }
 
 template <typename T>
-T Vector3<T>::distance(const Vector3<T> p)
+T Vector3<T>::distance(const Vector3<T> p,const Vector3<T> p2)
 {
-     return (sqrt(		(x- p.x) * (x - p.x)
-                   + 	(y - p.y) * (y - p.y)
-                   +	(z - p.z) * (z - p.z) ));
+     return (sqrt(		(p.x- p2.x) * (p.x - p2.x)
+                   + 	(p.y -p2.y) * (p.y - p2.y)
+                   +	(p.z - p2.z) * (p.z - p2.z) ));
 }
 template <typename T>
 Vector3<T> operator* (const Matrix4& mat, const Vector3<T>& p) {

@@ -30,13 +30,16 @@ Colour Colour::clampColour(Colour c)
 }
 Colour Colour::maxToOne(Colour c)
 {
-    d_type::Bfloat maxC=std::max(c.r,std::max(c.g,c.b));
-    if(maxC> 1)
-    {
-        return c/maxC;
-    }
-    else
-    {
-        return c;
-    }
+//    d_type::Bfloat maxC=std::min(c.r,std::max(c.g,c.b));
+//    if(maxC>= 1)
+//    {
+//        return c/maxC;
+//    }
+//    else
+//    {
+//        return c;
+//    }
+
+
+return Colour(Min(Max(c.r,0.0f),1.0f),Min(Max(c.g,0.0f),1.0f),Min(Max(c.b,0.0f),1.0f));
 }

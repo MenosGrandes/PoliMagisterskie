@@ -88,7 +88,7 @@ bool Sphere::intersect(const Ray& ray,d_type::Bfloat &distance,Info &info) const
 
     d_type::Bfloat a=direction.lengthSquared();
 
-    d_type::Bfloat b=(Vector3Bf::dotProduct(oc*2.0d,direction));
+    d_type::Bfloat b=(Vector3Bf::dotProduct(oc*2.0f,direction));
 
     d_type::Bfloat c=oc.lengthSquared() - m_sqRadius;
 
@@ -182,7 +182,7 @@ d_type::Bfloat t;
 
     d_type::Bfloat a=direction.lengthSquared();
 
-    d_type::Bfloat b=(Vector3Bf::dotProduct(oc*2.0,direction));
+    d_type::Bfloat b=(Vector3Bf::dotProduct(oc*2.0f,direction));
 
     d_type::Bfloat c=oc.lengthSquared() - m_sqRadius;
 

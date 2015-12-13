@@ -20,12 +20,28 @@ RayTracer::RayTracer(ICamera* camera, RenderTarget* m_target, Sampler* sampler, 
 {
 
 }
+//RayTracer::RayTracer(const RayTracer& rt)
+//{
+//
+//// m_camera=rt.m_camera;
+////
+////for(int i=0;rt.m_lightsVector.size();i++)
+////{
+////    this->m_lightsVector.push_back(rt.m_lightsVector[i]);
+////}
+////
+////for(int i=0;i<rt.m_objectVector.size();i++)
+////{
+////    this->m_objectVector.push_back(rt.m_objectVector[i]);
+////}
+//}
 
 RayTracer::~RayTracer()
 {
-    delete m_camera;
-    delete m_renderTanger;
-    delete m_sampler;
+//    delete m_camera;
+//    delete m_renderTanger;
+//
+//    delete m_sampler;
 }
 
 void RayTracer::addObject(IRaycastable* ray)

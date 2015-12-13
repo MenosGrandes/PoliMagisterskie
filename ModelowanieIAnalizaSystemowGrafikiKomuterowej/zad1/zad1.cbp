@@ -27,9 +27,6 @@
 					<Add option="-std=c++11" />
 					<Add directory="include" />
 				</Compiler>
-				<Linker>
-					<Add option="-s" />
-				</Linker>
 			</Target>
 		</Build>
 		<Compiler>

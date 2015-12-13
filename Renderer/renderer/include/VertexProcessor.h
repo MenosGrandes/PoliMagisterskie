@@ -6,6 +6,7 @@
 #include "Fragment.h"
 #include "DirectionalLight.h"
 #include "PointLight.h"
+#include "SpotLight.h"
 #include <vector>
 class VertexProcessor
 {

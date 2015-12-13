@@ -14,19 +14,11 @@ int main(int argc, char **argv)
     RenderTarget rt(size);
     rt.setCleanColour(Colour::White);
 
-////
-//    PointLight * light= new PointLight(Vector3Bf(10.0f, 0.0f, .0f));
-//    vp.addLight(light);
+
 //
-//    PointLight * light2= new PointLight(Vector3Bf(-10.0f, 0.0f, 0.0f));
-//    vp.addLight(light2);
 
 
-    PointLight * light4= new PointLight(Vector3Bf(10.0f, -10.0f, 10.0f));
-    vp.addLight(light4);
-
-        DirectionalLight * light3= new DirectionalLight(Vector3Bf(0.0f, 0.0f, 0.0f));
-    vp.addLight(light3);
+//SpotLight::SpotLight(d_type::Bfloat coneAngle, d_type::Bfloat coneCosinus, d_type::Bfloat linearAtt, Vector3Bf direction,Vector3Bf position, Colour color)
 
 
 
@@ -44,6 +36,9 @@ int main(int argc, char **argv)
 
     render::TriangleMesh *teapod =new render::TriangleMesh();
     teapod->loadOBJ("models/teapod.obj");
+
+    render::TriangleMesh *skull =new render::TriangleMesh();
+    skull->loadOBJ("models/skull.obj");
 // FPS
     sf::Font font;
     if (!font.loadFromFile("arial.ttf"))
@@ -85,11 +80,16 @@ int main(int argc, char **argv)
 
 
 
+//
+SpotLight * sl = new SpotLight(2.0f,d_type::Bfloat(cos(2*M_PI/180.0f)),0.01f,Vector3Bf(0,0,-1),Vector3Bf(0,6.0f,10),Colour::Green);
+vp.addLight(sl);
 
 
-
-
-
+//    PointLight * light4= new PointLight(Vector3Bf(10.0f, 0, 0));
+//    vp.addLight(light4);
+//
+//        DirectionalLight * light3= new DirectionalLight(Vector3Bf(0.0f, 0.0f, 0.0f));
+//    vp.addLight(light3);
 
 
 
@@ -146,51 +146,51 @@ int main(int argc, char **argv)
         vp.setLookat(Vector3Bf(x,1.0f,z),Vector3Bf(x+lx,1.0f,z+lz),Vector3Bf::Up);
         vp.setIdentity();
 
-//
-        vp.setIdentity();
-        vp.multByScale(Vector3Bf(0.3f,0.3f,0.3f));
 
-        vp.multByTranslation(Vector3Bf(0.0,5.f,0.0f));
-        vp.multByRotation(-angleRotation,Vector3Bf(0.0f,1.0f,0.0f));
-
-
-        vp.transform();
-
-        teapod->draw(vp, rt);
-//
-///////////////////////
 //        vp.setIdentity();
-////    vp.multByScale(Vector3Bf(0.2f,0.2f,0.2f));
-////        vp.multByTranslation(Vector3Bf(0.0,5.f,-3.0f));
-//        vp.multByRotation(180,Vector3Bf(1.0f,0.0f,0.0f));
+//        vp.multByScale(Vector3Bf(0.3f,0.3f,0.3f));
 //
-//        vp.multByRotation(angleRotation,Vector3Bf(0.0f,-1.0f,0.0f));
+//        vp.multByTranslation(Vector3Bf(0.0,5.f,0.0f));
+//        vp.multByRotation(-angleRotation,Vector3Bf(0.0f,1.0f,0.0f));
+//
 //
 //        vp.transform();
 //
-//        dragon->draw(vp, rt);
+//        teapod->draw(vp, rt);
+
 ///////////////////////
-
         vp.setIdentity();
+//    vp.multByScale(Vector3Bf(0.2f,0.2f,0.2f));
+        vp.multByTranslation(Vector3Bf(0.0,5.f,-2.0f));
+        vp.multByRotation(180,Vector3Bf(1.0f,0.0f,0.0f));
+
+        vp.multByRotation(angleRotation,Vector3Bf(0.0f,-1.0f,0.0f));
+
+        vp.transform();
+
+        dragon->draw(vp, rt);
+///////////////////////////
+//
+//        vp.setIdentity();
 //        vp.multByRotation(angle,Vector3Bf(0,1,0));
-
-        vp.multByTranslation(Vector3Bf(10.-5,5.f,1.0f));
-
+//
+//        vp.multByTranslation(Vector3Bf(10.-5,5.f,1.0f));
+//
 //        vp.multByScale(Vector3Bf(0.2f,0.2f,0.2f));
-        vp.transform();
-        sphere->draw(vp, rt);
+//        vp.transform();
+//        sphere->draw(vp, rt);
 //////////////////////////
-        vp.setIdentity();
-        vp.multByTranslation(Vector3Bf(10.-5,5.f,1.0f));
-
-        vp.multByRotation(76,Vector3Bf(0,1,0));
-        vp.multByRotation(10,Vector3Bf(0,0,1));
-        vp.multByRotation(angleRotation,Vector3Bf(0,1,0));
-
-
-        vp.multByScale(Vector3Bf(0.3f,0.3f,0.3f));
-        vp.transform();
-        ex1->draw(vp, rt);
+//        vp.setIdentity();
+//        vp.multByTranslation(Vector3Bf(10.-5,5.f,1.0f));
+//
+//        vp.multByRotation(76,Vector3Bf(0,1,0));
+//        vp.multByRotation(10,Vector3Bf(0,0,1));
+//        vp.multByRotation(angleRotation,Vector3Bf(0,1,0));
+//
+//
+//        vp.multByScale(Vector3Bf(0.3f,0.3f,0.3f));
+//        vp.transform();
+//        ex1->draw(vp, rt);
 ///////////////////////////////
 //        vp.setIdentity();
 //        vp.multByRotation(76,Vector3Bf(0,1,0));
@@ -200,7 +200,7 @@ int main(int argc, char **argv)
 //        vp.multByScale(Vector3Bf(0.3f,0.3f,0.3f));
 //        vp.transform();
 //        ex1->draw(vp, rt);
-//////////////////////////
+//////////////////////
 
 
 
@@ -214,8 +214,11 @@ int main(int argc, char **argv)
         window.draw(text);
 
         window.display();
-
+// ROTATION
         angleRotation+=1.f;
+//light4->m_position.z+=1.f;
+//sl->m_position.z+=0.1f;
+///
         rt.clear();
         fps.update();
 

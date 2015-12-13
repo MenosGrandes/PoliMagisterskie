@@ -12,8 +12,8 @@ class PhotonMap
         PhotonMap();
         PhotonMap(int maxPhotons,RayTracer rayTr);
         virtual ~PhotonMap();
-        void tracePhoton(Photon p,  Vector3Bf direction);
-        std::vector<Photon> getNearestPhotons(const Vector3Bf & point,d_type::Buint howMuchPhotons,d_type::Bfloat radiance) const;
+        void tracePhoton(Photon p);
+std::vector<Photon> getNearestPhotons(const Vector3Bf& centerOfSphere, const d_type::Buint howMuchPhotons, const d_type::Bfloat radius) const;
         Colour radiance(const Vector3Bf & hitPoint,const Vector3Bf & normalInHitPoint,const Vector3Bf & directionToObserver);
         void mapPhotons();
     protected:

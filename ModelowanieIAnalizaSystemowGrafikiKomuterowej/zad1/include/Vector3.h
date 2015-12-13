@@ -36,6 +36,7 @@ public :
     Vector3<T> lerp(const Vector3<T>&v, const T f);
     static void normalize(Vector3<T>&v);
     static T distance(const Vector3<T> vector,const Vector3<T> vector2);
+     T distance(const Vector3<T> & vector)const ;
 
     T x, y, z;
 
@@ -69,7 +70,11 @@ template <typename T>
 template <typename U>
 inline Vector3<T>::Vector3(const Vector3<U>& vector) :x(static_cast<T>(vector.x)),y(static_cast<T>(vector.y)),z(static_cast<T>(vector.z)) {}
 
-
+template <typename T>
+inline d_type::BBool operator <(const Vector3<T>& left,const Vector3<T>& right)
+{
+    return left.distance(right)>0;
+}
 ////////////////////////////////////////////////////////////
 template <typename T>
 inline Vector3<T> operator -(const Vector3<T>& left)
@@ -317,6 +322,15 @@ T Vector3<T>::distance(const Vector3<T> p,const Vector3<T> p2)
                    + 	(p.y -p2.y) * (p.y - p2.y)
                    +	(p.z - p2.z) * (p.z - p2.z) ));
 }
+
+template <typename T>
+T Vector3<T>::distance(const Vector3<T> &p2) const
+{
+     return (sqrt(		(x- p2.x) * (x - p2.x)
+                   + 	(y -p2.y) * (y - p2.y)
+                   +	(z - p2.z) * (z - p2.z) ));
+}
+
 template <typename T>
 Vector3<T> operator* (const Matrix4& mat, const Vector3<T>& p) {
         return (Vector3<T>(mat.m[0][0] * p.x + mat.m[0][1] * p.y + mat.m[0][2] * p.z + mat.m[0][3],

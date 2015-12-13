@@ -143,7 +143,7 @@ Vertex3Bf VertexProcessor::tr(const Vertex3Bf &v) const
         lightColour+=m_lights[i]->calculate(frag);//lightColour);
     }
 
-       // Colour::maxToOne(lightColour);
+//       Colour::maxToOne(lightColour);
     return Vertex3Bf(Vector3Bf(p.x / p.w, p.y / p.w, p.z / p.w),
                      v.m_normal,
                      Colour::maxToOne(lightColour*v.m_color));

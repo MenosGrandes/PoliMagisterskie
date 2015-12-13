@@ -18,7 +18,7 @@ return Colour::Black;
 Colour PerfectSpecular::sample_f(const Info& info, Vector3Bf& wi, const Vector3Bf& wo) const
 {
         d_type::Bfloat ndotwo = Vector3Bf::dotProduct(info.m_normal ,wo);
-        wi = -wo + 2.0 * (info.m_normal * ndotwo);
+        wi = -wo + 2.0f * (info.m_normal * ndotwo);
 
 //        return (m_kr * m_cr / (Vector3Bf::dotProduct(info.m_normal , wi)));
 

@@ -15,6 +15,7 @@ public:
     RayTracer(ICamera *camera,RenderTarget *m_target);
     RayTracer(ICamera *camera,RenderTarget *m_target,Sampler* sampler,Ambient*ambient);
     RayTracer();
+//    RayTracer(const RayTracer&rt);
     virtual ~RayTracer();
     void addObject(IRaycastable *ray);
     void addLight(ILight * light);

@@ -25,7 +25,7 @@ public:
     shadowHit(const Ray& ray, d_type::Bfloat& tmin) const;
 
     virtual d_type::BBool
-    intersect(const Ray& ray, double& tmin, Info& sr) const;
+    intersect(const Ray& ray, d_type::Bfloat& tmin, Info& sr) const;
 
     void translate(const d_type::Bfloat dx, const d_type::Bfloat dy, const d_type::Bfloat dz);
 

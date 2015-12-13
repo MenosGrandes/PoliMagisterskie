@@ -7,6 +7,7 @@
 #include <iostream>
 #include <ctime>
 #include <SFML/Graphics/Color.hpp>
+#include "../src/algorithms.hpp"
 class Colour
 {
 public :

@@ -29,13 +29,8 @@ Colour Colour::randomColor()
 
 Colour Colour::clampColour(Colour c)
 {
-    if(c.r>1 || c.g>1 || c.b>1)
-    {
-        c.r=1;
-        c.g=0;
-        c.b=0;
-    }
-    return c;
+return Colour(std::min(std::max(c.r,0.0f),1.0f),std::min(std::max(c.g,0.0f),1.0f),std::min(std::max(c.b,0.0f),1.0f));
+
 }
 Colour Colour::maxToOne(Colour c)
 {

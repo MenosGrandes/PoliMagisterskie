@@ -52,7 +52,7 @@ return Colour::Black;
 Colour FresnelReflector::sample_f(const Info& info, Vector3Bf& wr, const Vector3Bf& wo) const
 {
         d_type::Bfloat ndotwo = Vector3Bf::dotProduct(info.m_normal , wo);
-        wr = -wo + 2.0d * info.m_normal * ndotwo;
+        wr = -wo + 2.0f * info.m_normal * ndotwo;
 
         return (fresnel(info) * Colour::White / fabs(Vector3Bf::dotProduct(info.m_normal , wr)));
 

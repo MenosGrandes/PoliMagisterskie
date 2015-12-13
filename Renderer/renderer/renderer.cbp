@@ -30,10 +30,12 @@
 					<Add option="-march=corei7" />
 					<Add option="-O3" />
 					<Add option="-Wextra" />
+					<Add option="-pg" />
 					<Add option="-Wunused" />
 					<Add directory="include" />
 				</Compiler>
 				<Linker>
+					<Add option="-pg -lgmon" />
 					<Add library="sfml-graphics" />
 					<Add library="sfml-window" />
 					<Add library="sfml-system" />
@@ -59,6 +61,7 @@
 		<Unit filename="include/Matrix4.h" />
 		<Unit filename="include/PointLight.h" />
 		<Unit filename="include/RenderTarget.h" />
+		<Unit filename="include/SpotLight.h" />
 		<Unit filename="include/TriangleMesh.h" />
 		<Unit filename="include/Vector2.h" />
 		<Unit filename="include/Vector3.h" />
@@ -76,6 +79,7 @@
 		<Unit filename="src/Matrix4.cpp" />
 		<Unit filename="src/PointLight.cpp" />
 		<Unit filename="src/RenderTarget.cpp" />
+		<Unit filename="src/SpotLight.cpp" />
 		<Unit filename="src/TriangleMesh.cpp" />
 		<Unit filename="src/VertexProcessor.cpp" />
 		<Unit filename="src/algorithms.hpp" />

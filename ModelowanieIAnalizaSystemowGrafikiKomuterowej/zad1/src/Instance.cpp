@@ -95,7 +95,7 @@ d_type::BBool Instance::shadowHit(const Ray& ray, d_type::Bfloat& tmin) const
 
 }
 
-d_type::BBool Instance::intersect(const Ray& ray, double& tmin, Info& sr) const
+d_type::BBool Instance::intersect(const Ray& ray, d_type::Bfloat& tmin, Info& sr) const
 {
          Ray inv_ray(ray);
         inv_ray.getOrigin() = m_invMatrix * inv_ray.getOrigin();

@@ -267,7 +267,10 @@ void RenderTarget::triangle(Vertex3Bf a, Vertex3Bf b, Vertex3Bf c) const
             {
                  d_type::Bfloat depth = lambda1 * a.m_position.z + lambda2 * b.m_position.z + lambda3 * c.m_position.z;
 
+/////////////////////////////////////////
 
+
+/////////////////////////////////////////
 
                 if (depth >= -1.f && depth <= 1.f && depth < m_dBuffer[m_size.x * j + i])
                 {

@@ -140,7 +140,11 @@ Vertex3Bf VertexProcessor::tr(const Vertex3Bf &v) const
     Colour lightColour = Colour::Black;
     for(int i=0; i<m_lights.size(); i++)
     {
-        lightColour+=m_lights[i]->calculate(frag);//lightColour);
+        if(m_lights[i]->m_on)
+        {
+            lightColour+=m_lights[i]->calculate(frag);//lightColour);
+        }
+
     }
 
 //       Colour::maxToOne(lightColour);

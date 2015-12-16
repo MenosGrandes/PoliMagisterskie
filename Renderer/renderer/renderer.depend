@@ -90,7 +90,7 @@
 1447133540 source:c:\users\menos\desktop\renderer\renderer\src\trianglemesh.cpp
 	"TriangleMesh.h"
 
-1450012642 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\main.cpp
+1450260830 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\main.cpp
 	"RenderTarget.h"
 	"VertexProcessor.h"
 	"TriangleMesh.h"
@@ -184,7 +184,7 @@
 1448364882 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\matrix4.cpp
 	"Matrix4.h"
 
-1449695555 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\rendertarget.cpp
+1450113935 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\rendertarget.cpp
 	"RenderTarget.h"
 
 1447133540 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\triangle.cpp
@@ -193,7 +193,7 @@
 1449574671 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\trianglemesh.cpp
 	"TriangleMesh.h"
 
-1450012681 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\vertexprocessor.cpp
+1450114064 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\vertexprocessor.cpp
 	"VertexProcessor.h"
 
 1449691422 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\colour.cpp
@@ -747,7 +747,7 @@
 1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\directionallight.h
 	"ILight.h"
 
-1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\ilight.h
+1450114007 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\ilight.h
 	"Fragment.h"
 
 1449297581 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\pointlight.h
@@ -759,7 +759,7 @@
 1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\fragment.cpp
 	"Fragment.h"
 
-1449569816 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\ilight.cpp
+1450260975 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\ilight.cpp
 	"ILight.h"
 
 1449297581 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\pointlight.cpp
@@ -768,7 +768,7 @@
 1449410439 c:\users\menos\desktop\polimagisterskie\renderer\renderer\fps.hpp
 	<SFML/System.hpp>
 
-1450012732 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\spotlight.cpp
+1450201534 source:c:\users\menos\desktop\polimagisterskie\renderer\renderer\src\spotlight.cpp
 	"SpotLight.h"
 
 1449691507 c:\users\menos\desktop\polimagisterskie\renderer\renderer\include\spotlight.h

@@ -67,7 +67,7 @@ std::cout<<asd21<<"\n";
 std::cout.precision(17);
     std::chrono::time_point<std::chrono::system_clock> start, end;
     start = std::chrono::system_clock::now();
-    Vector2Bs img_size=Vector2Bs(200,200);
+    Vector2Bs img_size=Vector2Bs(100,100);
 
 
     RenderTarget *file = new RenderTarget(img_size);
@@ -100,7 +100,8 @@ PointLight* light_ptr1 = new PointLight;
 	light_ptr1->m_location=ligtPos;
 	light_ptr1->m_ls=(4.5);
 	light_ptr1->setShadows(false);
-	light_ptr1->m_intensittivity=1000;
+	light_ptr1->m_intensittivity=10000;
+	light_ptr1->m_colour=Colour::White;
 	rt->addLight(light_ptr1);
 
 //CORNELL BOX

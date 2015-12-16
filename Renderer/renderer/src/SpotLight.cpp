@@ -40,15 +40,4 @@ return Colour(0,0,0);
 
 
 
-
-
-//
-//float fFactor = clamp((fCosine-spotLight.fConeCosine)/fDif, 0.0, 1.0);
-//
-//  if(fCosine > spotLight.fConeCosine)
-//    return vec4(spotLight.vColor, 1.0)*fFactor/(fDistance*spotLight.fLinearAtt);
-//
-//  return vec4(0.0, 0.0, 0.0, 0.0);
-//
-
 }

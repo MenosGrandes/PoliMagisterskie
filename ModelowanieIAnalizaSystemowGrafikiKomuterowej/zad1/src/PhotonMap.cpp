@@ -44,7 +44,7 @@ PhotonMap::PhotonMap(int maxPhotons,RayTracer rayTr)
     {
         m_photonMap[i].m_power= m_photonMap[i].m_power/m_photonMap.size();
 //                std::cout<<m_photonMap[i].m_power<<"\n";
-std::cout<<m_photonMap[i].m_position<<"\n";
+//std::cout<<m_photonMap[i].m_position<<"\n";
 
     }
 //std::sort(m_photonMap.begin(),m_photonMap.end(),photonComp());
@@ -117,6 +117,7 @@ void PhotonMap::tracePhoton(Photon p)
             {
 
             case MATERIAL_TYPE::PHONG :
+            {
 //                std::cout<<"PHONG HIT";
                 const PhongMaterial * phong = static_cast<PhongMaterial*>(info.m_material);
                 //absorb
@@ -166,121 +167,58 @@ void PhotonMap::tracePhoton(Photon p)
 //            std::cout<<p.m_power<<"\n";
                 }
                 break;
-//            case MATERIAL_TYPE::DIELECTRIC :
-//                break;
-//            case MATERIAL_TYPE::MATTE :
-//                //absorb
-//                if(probability%2==0)
-//                {
-//                    p.m_power=info.m_material->shade(info);
-//                    m_photonMap.push_back(p);
-//                    addedPhoton=true;
-//                    break;
-//                }//reflect
-//                else
-//                {
-//                    const MatteMaterial * matte = static_cast<MatteMaterial*>(info.m_material);
-//
-//
-//                    do
-//                    {
-//                        direction = Vector3Bf(
-//                                        ((rand()%10000 -5000.0)/5000.0),
-//                                        ((rand()%10000 -5000.0)/5000.0),
-//                                        ((rand()%10000 -5000.0)/5000.0)
-//                                    );
-//                    }
-//                    while(direction.lengthSquared()<1);
-//                    reflection++;
-//
-//                    const d_type::Bfloat colourAVG=matte->m_diffuse->m_cd.getAVG();
-//
-//                    p.m_power=Colour(
-//                                  p.m_power.r*matte->m_diffuse->m_cd.r/colourAVG,
-//                                  p.m_power.g*matte->m_diffuse->m_cd.g/colourAVG,
-//                                  p.m_power.b*matte->m_diffuse->m_cd.b/colourAVG
-//                              );
-//
-//                    p.m_position=info.m_hitPoint;
-//                }
-//                break;
-//            case MATERIAL_TYPE::REFLECTIVE :
-////
-////
-////                direction= Vector3Bf::reflect(info.m_normal,direction);
-//////                direction = 2*(Vector3Bf::dotProduct(info.m_normal,direction)*info.m_normal - direction;
-////                reflection++;
-////                p.m_power=info.m_material->shade(info);
-////                p.m_position=info.m_hitPoint;
-//                break;
-//            case MATERIAL_TYPE::TRANSPARENT :
-//                break;
-//            case MATERIAL_TYPE::TEXTURE_MATT :
-////
-////               //absorb
-////                if(probability%2==0)
-////                {
-////                    p.m_power=info.m_material->shade(info);
-////                    m_photonMap.push_back(p);
-////                    addedPhoton=true;
-////                    break;
-////                }//reflect
-////                else
-////                {
-////                    const TextureMatte * matte = static_cast<TextureMatte*>(info.m_material);
-////
-////
-////                    do
-////                    {
-////                        direction = Vector3Bf(
-////                                        ((rand()%10000 -5000.0)/5000.0),
-////                                        ((rand()%10000 -5000.0)/5000.0),
-////                                        ((rand()%10000 -5000.0)/5000.0)
-////                                    );
-////                    }
-////                    while(direction.lengthSquared()<1);
-////                    reflection++;
-////
-////                    const d_type::Bfloat colourAVG=matte.m_diffuse   .m_diffuse->m_cd.getAVG();
-////break;
-////                    p.m_power=Colour(
-////                                  p.m_power.r*matte.m_diffuse->m_cd.r/colourAVG,
-////                                  p.m_power.g*matte.m_diffuse->m_cd.g/colourAVG,
-////                                  p.m_power.b*matte.m_diffuse->m_cd.b/colourAVG
-////                              );
-////
-////                    p.m_position=info.m_hitPoint;
-////
-////
-////                break;
-////            case MATERIAL_TYPE::TEXTURE_PHONG :
-////                //absorb
-////                if(probability%2==0)
-////                {
-////                    p.m_power=info.m_material->shade(info);
-////                    m_photonMap.push_back(p);
-////                    addedPhotonbreak;=true;
-////                    break;
-////                }//reflect
-////                else
-////                {
-////                    do
-////                    {
-////                        direction = Vector3Bf(
-////                                        ((rand()%10000 -5000.0)/5000.0),
-////                                        ((rand()%10000 -5000.0)/5000.0),
-////                                        ((rand()%10000 -5000.0)/5000.0)
-////                                    );
-////                    }
-////                    while(direction.lengthSquared()<1);
-////                    reflection++;
-////                }
-////
-////
-////
-////
-//                break;
+            }
+            case MATERIAL_TYPE::DIELECTRIC :
 
+                do
+                {
+                    direction = Vector3Bf(
+                                    ((rand()%10000 -5000.0)/5000.0),
+                                    ((rand()%10000 -5000.0)/5000.0),
+                                    ((rand()%10000 -5000.0)/5000.0)
+                                );
+                }
+                while(direction.lengthSquared()>1);
+//std::cout<<direction<<"\n";
+
+                p.m_direction=direction;
+                p.m_position=info.m_hitPoint;
+                reflection++;
+                break;
+
+
+            case MATERIAL_TYPE::REFLECTIVE :
+                do
+                {
+                    direction = Vector3Bf(
+                                    ((rand()%10000 -5000.0)/5000.0),
+                                    ((rand()%10000 -5000.0)/5000.0),
+                                    ((rand()%10000 -5000.0)/5000.0)
+                                );
+                }
+                while(direction.lengthSquared()>1);
+//std::cout<<direction<<"\n";
+
+                p.m_direction=direction;
+                p.m_position=info.m_hitPoint;
+                reflection++;
+                break;
+            case MATERIAL_TYPE::TRANSPARENT :
+                do
+                {
+                    direction = Vector3Bf(
+                                    ((rand()%10000 -5000.0)/5000.0),
+                                    ((rand()%10000 -5000.0)/5000.0),
+                                    ((rand()%10000 -5000.0)/5000.0)
+                                );
+                }
+                while(direction.lengthSquared()>1);
+//std::cout<<direction<<"\n";
+
+                p.m_direction=direction;
+                p.m_position=info.m_hitPoint;
+                reflection++;
+                break;
 
             }
 
@@ -305,7 +243,7 @@ std::vector<Photon> PhotonMap::getNearestPhotons(const Vector3Bf& centerOfSphere
         {
 //            const Vector3Bf  distance = centerOfSphere - m_photonMap[i].m_position;
             const d_type::Bfloat fDist= Vector3Bf::distance(centerOfSphere,m_photonMap[i].m_position);
-            if(fDist*fDist < radius*radius)
+            if(fDist < radius*radius)
             {
                 v_tmp.push_back(m_photonMap[i]);
 
@@ -319,7 +257,7 @@ std::vector<Photon> PhotonMap::getNearestPhotons(const Vector3Bf& centerOfSphere
 }
 Colour PhotonMap::radiance(const Vector3Bf& hitPoint, const Vector3Bf& normalInHitPoint, const Vector3Bf& directionToObserver)
 {
-    const std::vector<Photon> nearestPhotons = getNearestPhotons(hitPoint,1000,0.01f);
+    const std::vector<Photon> nearestPhotons = getNearestPhotons(hitPoint,1000,0.3f);
     Colour E= Colour(0,0,0);
 
     if(nearestPhotons.size()>0)
@@ -344,12 +282,14 @@ Colour PhotonMap::radiance(const Vector3Bf& hitPoint, const Vector3Bf& normalInH
             E+=nearestPhotons[i].m_power;
 //        std::cout<<nearestPhotons[i].m_power<<"\n";
         }
-//        std::cout<<E<<" BEFORE\n";
-        E=Colour::clampColour(E/(M_PI * (distanceToFarthestPhoton*distanceToFarthestPhoton)));
-//        std::cout<<E<<" AFTER\n";
+        //std::cout<<E<<" BEFORE\n";
+        E=(E/(M_PI * (distanceToFarthestPhoton*distanceToFarthestPhoton)));
+        //  std::cout<<E<<" AFTER\n";
 //    std::cout<<"POWER :"<<E<<"\n";
+
     }
     return  E;
+
 }
 void PhotonMap::mapPhotons()
 {

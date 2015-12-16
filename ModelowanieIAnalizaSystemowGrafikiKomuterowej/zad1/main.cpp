@@ -49,9 +49,9 @@
 
 
 //#define FRESNEL
-//#define RAY_TRACE
+#define RAY_TRACE
 #define PHOTON_MAPPING1
-#define PHOTON_MAPPING
+//#define PHOTON_MAPPING
 
 
 int main(int argc, char **argv)
@@ -75,7 +75,7 @@ std::cout.precision(17);
 
     ICamera * orto=new OrtagonalCamera(Vector3Bf(0,0,0),0,Vector2Bf(10,10));
     // X Z Y
-    ICamera *persp = new PerspectiveCamera(Vector3Bf(0, 0, 30),
+    ICamera *persp = new PerspectiveCamera(Vector3Bf(0, 0, 15),
                                            Vector3Bf(0, 0, 0),
                                            Vector3Bf::Up,
                                           1,
@@ -93,14 +93,14 @@ std::cout.precision(17);
 
 
 
-Vector3Bf ligtPos=Vector3Bf(10,10,20);
+Vector3Bf ligtPos=Vector3Bf(3,10,20);
 
 
 PointLight* light_ptr1 = new PointLight;
 	light_ptr1->m_location=ligtPos;
 	light_ptr1->m_ls=(4.5);
 	light_ptr1->setShadows(false);
-	light_ptr1->m_intensittivity=10000;
+	light_ptr1->m_intensittivity=100000000;
 	light_ptr1->m_colour=Colour::White;
 	rt->addLight(light_ptr1);
 
@@ -125,7 +125,7 @@ pl1->setMaterial(PhongMaterial_ptr);
 rt->addObject(pl1);
 
 
-Plane * pl2= new Plane(Vector3Bf(0,20,0),Vector3Bf(0,1,0));
+Plane * pl2= new Plane(Vector3Bf(0,10,0),Vector3Bf(0,1,0));
 
         PhongMaterial* PhongMaterial_ptr2 = new PhongMaterial;
         PhongMaterial_ptr2->setKa(ka);
@@ -139,7 +139,7 @@ pl2->setMaterial(PhongMaterial_ptr2);
 rt->addObject(pl2);
 
 
-Plane * pl3= new Plane(Vector3Bf(-20,0,0),Vector3Bf(1,0,0));
+Plane * pl3= new Plane(Vector3Bf(-5,0,0),Vector3Bf(1,0,0));
 
         PhongMaterial* PhongMaterial_ptr3 = new PhongMaterial;
         PhongMaterial_ptr3->setKa(ka);
@@ -153,7 +153,7 @@ pl3->setMaterial(PhongMaterial_ptr3);
 rt->addObject(pl3);
 
 
-Plane * pl4= new Plane(Vector3Bf(20,0,0),Vector3Bf(1,0,0));
+Plane * pl4= new Plane(Vector3Bf(5,0,0),Vector3Bf(1,0,0));
 
         PhongMaterial* PhongMaterial_ptr4 = new PhongMaterial;
         PhongMaterial_ptr4->setKa(ka);
@@ -167,7 +167,7 @@ pl4->setMaterial(PhongMaterial_ptr4);
 rt->addObject(pl4);
 
 
-Plane * pl5= new Plane(Vector3Bf(-20,0,0),Vector3Bf(0,0,1));
+Plane * pl5= new Plane(Vector3Bf(-10,0,0),Vector3Bf(0,0,1));
 
         PhongMaterial* PhongMaterial_ptr5 = new PhongMaterial;
         PhongMaterial_ptr5->setKa(ka);
@@ -180,16 +180,16 @@ Plane * pl5= new Plane(Vector3Bf(-20,0,0),Vector3Bf(0,0,1));
 pl5->setMaterial(PhongMaterial_ptr5);
 rt->addObject(pl5);
 
-//	DielectricMaterial * glass= new DielectricMaterial();
-//	glass->setKs(0.2);
-//	glass->setExp(2000.0);
-//	glass->setRefractionIN(1.5);
-//	glass->setRefractionOUT(1.0);
-//	glass->setCfIn(Colour::White);
-//	glass->setCfOut(Colour::White);
-////	glass->setKr(0.1);
-//    glass->setCd(Colour::White);
-//    glass->setCr(Colour::White);
+	DielectricMaterial * glass= new DielectricMaterial();
+	glass->setKs(0.2);
+	glass->setExp(2000.0);
+	glass->setRefractionIN(1.5);
+	glass->setRefractionOUT(1.0);
+	glass->setCfIn(Colour::White);
+	glass->setCfOut(Colour::White);
+//	glass->setKr(0.1);
+    glass->setCd(Colour::White);
+    glass->setCs(Colour::White);
 
 
 //         spheres
@@ -206,11 +206,11 @@ rt->addObject(pl5);
 //	sp->setMaterial(PhongMaterial_ptr1);
 //	rt->addObject(sp);
 
-	Sphere * sp2= new Sphere(Vector3Bf(5,5,15), 1.0);
-	sp2->setMaterial(PhongMaterial_ptr1);
+	Sphere * sp2= new Sphere(Vector3Bf(3,5,2), 4.0);
+	sp2->setMaterial(glass);
 	rt->addObject(sp2);
 
-		Sphere * sp3= new Sphere(Vector3Bf(-5,5,10), 2.0);
+		Sphere * sp3= new Sphere(Vector3Bf(-3,5,3), 2.0);
 	sp3->setMaterial(PhongMaterial_ptr1);
 	rt->addObject(sp3);
 
@@ -247,9 +247,9 @@ rt->addObject(pl5);
 //p->setMaterial(mM);
 //rt->addObject(p);
 
-//rt->setDepth(2);
 
 #ifdef RAY_TRACE
+rt->setDepth(2);
 rt->rayTrace();
 #endif // RAY_TRACE
 #ifdef PHOTON_MAPPING
